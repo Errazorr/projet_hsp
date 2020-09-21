@@ -10,7 +10,7 @@ catch (Exception $e){
 if (is_null($_POST['nom']) OR is_null($_POST['securite_sociale']) OR is_null($_POST['new_password']) OR is_null($_POST['new_password_confirm'])){
   echo '<body onLoad="alert(\'Veuillez remplir les zones vides\')">';
 
-  echo '<meta http-equiv="refresh" content="0;URL=../views/mdp_oublie.php">';
+  echo '<meta http-equiv="refresh" content="0;URL=../views/mdp_oublie.html">';
 }
 
 else{

@@ -168,25 +168,25 @@
             <div class="row align-items-center regervation_content">
                 <div class="col-lg-7">
                     <div class="regervation_part_iner">
-                        <form method="POST" action="../Traitement/mdp_oublie.php">
+                        <form method="POST" action="../traitement/mdp_oublie.php">
                             <h2>Make an Appointment</h2>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="name" class="form-control" id="nom" placeholder="Nom de famille">
+                                    <input name="nom" type="text" class="form-control" id="nom" placeholder="Nom de famille">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="textarea" class="form-control" id="securite_sociale" placeholder="Numéro de sécurite sociale" maxlength="15" minlength="15">
+                                    <input name="securite_sociale" type="textarea" class="form-control" id="securite_sociale" placeholder="Numéro de sécurite sociale" maxlength="15" minlength="15">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="password" class="form-control" id="new_password"
+                                    <input name="new_password" type="password" class="form-control" id="new_password"
                                         placeholder="Nouveau mot de passe">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="password" class="form-control" id="new_password_confirm"
+                                    <input name="new_password_confirm" type="password" class="form-control" id="new_password_confirm"
                                         placeholder="Confirmer le nouveau mot de passe">
                                 </div>
                             <div class="regerv_btn">
-                                <a type="submit" class="genric-btn primary-border e-large">Changer le mot de passe</a>
+                                <input type="submit" class="genric-btn primary e-large" value="Changer le mot de passe">
                             </div>
                         </form>
                     </div>
