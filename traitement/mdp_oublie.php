@@ -19,8 +19,8 @@ else{
   $resultat = $req->fetch();
 
   if($resultat){
-  $req = $bdd->prepare('UPDATE mdp FROM compte_patient WHERE nom=? AND num_sec_soc=?');
-  $req->execute(array($_POST['nom'], $_POST['securite_sociale']));
+    $req = $bdd->prepare('UPDATE mdp FROM compte_patient WHERE nom=? AND num_sec_soc=?');
+    $req->execute(array($_POST['nom'], $_POST['securite_sociale']));
   }
   else{
     echo '<body onLoad="alert(\'Ce compte est introuvable\')">';
