@@ -23,7 +23,7 @@ else{
     $update_request = $req->execute(array(md5($_POST['new_password']), $_POST['nom'], $_POST['securite_sociale']));
     echo '<body onLoad="alert(\'Le mot de passe a bien été modifié\')">';
 
-    echo '<meta http-equiv="refresh" content="0;URL=../views/mdp_oublie.html">';
+    echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.html">';
   }
   else{
     echo '<body onLoad="alert(\'Ce compte est introuvable\')">';
@@ -31,6 +31,4 @@ else{
     echo '<meta http-equiv="refresh" content="0;URL=../views/mdp_oublie.html">';
   }
 }
-
-var_dump($update_request);
 ?>
