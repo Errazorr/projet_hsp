@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 07 sep. 2020 à 13:07
+-- Généré le :  lun. 21 sep. 2020 à 12:39
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -21,92 +21,38 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `hopital`
 --
-CREATE DATABASE IF NOT EXISTS `hopital` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
-USE `hopital`;
 
 -- --------------------------------------------------------
 
 --
--- Structure de la table `admin`
+-- Structure de la table `compte`
 --
 
-DROP TABLE IF EXISTS `admin`;
-CREATE TABLE IF NOT EXISTS `admin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `identifiant` varchar(50) NOT NULL,
-  `mdp` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `compte_patient`
---
-
-DROP TABLE IF EXISTS `compte_patient`;
-CREATE TABLE IF NOT EXISTS `compte_patient` (
+DROP TABLE IF EXISTS `compte`;
+CREATE TABLE IF NOT EXISTS `compte` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
   `prenom` varchar(50) NOT NULL,
-  `date_naissance` varchar(10) NOT NULL,
-  `mail` varchar(50) NOT NULL,
-  `adresse` text NOT NULL,
-  `mutuelle` varchar(50) NOT NULL,
-  `num_sec_soc` varchar(15) NOT NULL,
-  `tv` tinyint(1) NOT NULL,
-  `wifi` tinyint(1) NOT NULL,
+  `date_naissance` varchar(10) DEFAULT NULL,
+  `mail` varchar(50) DEFAULT NULL,
+  `adresse` text,
+  `mutuelle` varchar(50) DEFAULT NULL,
+  `num_sec_soc` varchar(15) DEFAULT NULL,
+  `tv` tinyint(1) DEFAULT NULL,
+  `wifi` tinyint(1) DEFAULT NULL,
   `regime` text,
   `mdp` varchar(50) NOT NULL,
+  `role` varchar(7) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `fk_patient` (`nom`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
 
 --
--- Structure de la table `medecin`
+-- Déchargement des données de la table `compte`
 --
 
-DROP TABLE IF EXISTS `medecin`;
-CREATE TABLE IF NOT EXISTS `medecin` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) NOT NULL,
-  `lieu` varchar(50) NOT NULL,
-  `specialite` varchar(50) NOT NULL,
-  `identifiant` varchar(50) NOT NULL,
-  `mdp` varchar(50) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `fk_medecin` (`nom`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
--- --------------------------------------------------------
-
---
--- Structure de la table `reservation`
---
-
-DROP TABLE IF EXISTS `reservation`;
-CREATE TABLE IF NOT EXISTS `reservation` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom_patient` varchar(50) NOT NULL,
-  `nom_medecin` varchar(50) NOT NULL,
-  `rais_consult` text NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `fk_patient` (`nom_patient`),
-  KEY `fk_medecin` (`nom_medecin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
-
---
--- Contraintes pour les tables déchargées
---
-
---
--- Contraintes pour la table `reservation`
---
-ALTER TABLE `reservation`
-  ADD CONSTRAINT `fk_medecin` FOREIGN KEY (`nom_medecin`) REFERENCES `medecin` (`nom`),
-  ADD CONSTRAINT `fk_patient` FOREIGN KEY (`nom_patient`) REFERENCES `compte_patient` (`nom`);
+INSERT INTO `compte` (`id`, `nom`, `prenom`, `date_naissance`, `mail`, `adresse`, `mutuelle`, `num_sec_soc`, `tv`, `wifi`, `regime`, `mdp`, `role`) VALUES
+(1, 'admin', 'admin', NULL, NULL, NULL, NULL, NULL, NULL, NULL, NULL, '098f6bcd4621d373cade4e832627b4f6', 'admin');
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
