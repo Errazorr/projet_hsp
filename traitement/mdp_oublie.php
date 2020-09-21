@@ -14,7 +14,7 @@ if (is_null($_POST['nom']) OR is_null($_POST['securite_sociale']) OR is_null($_P
 }
 
 else{
-  $req = $bdd->prepare('SELECT * FROM compte_patientWHERE nom=? AND num_sec_soc=?');
+  $req = $bdd->prepare('SELECT * FROM compte WHERE nom=? AND num_sec_soc=?');
   $req->execute(array($_POST['nom'], $_POST['securite_sociale']));
   $resultat = $req->fetch();
 
