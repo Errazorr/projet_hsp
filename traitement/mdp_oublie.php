@@ -14,13 +14,19 @@ if (is_null($_POST['nom']) OR is_null($_POST['securite_sociale']) OR is_null($_P
 }
 
 else{
+  $req = $bdd->prepare('SELECT * FROM compte_patientWHERE nom=? AND num_sec_soc=?');
+  $req->execute(array($_POST['nom'], $_POST['securite_sociale']));
+  $resultat = $req->fetch();
+
+  if($resultat){
   $req = $bdd->prepare('UPDATE mdp FROM compte_patient WHERE nom=? AND num_sec_soc=?');
   $req->execute(array($_POST['nom'], $_POST['securite_sociale']));
-}
+  }
+  else{
+    echo '<body onLoad="alert(\'Ce compte est introuvable\')">';
 
-var_dump($_POST['nom']);
-var_dump($_POST['securite_sociale']);
-var_dump($_POST['new_password']);
-var_dump($_POST['new_password_confirm']);
+    echo '<meta http-equiv="refresh" content="0;URL=../views/mdp_oublie.html">';
+  }
+}
 
  ?>
