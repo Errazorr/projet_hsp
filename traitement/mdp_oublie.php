@@ -9,10 +9,18 @@ catch (Exception $e){
 
 if (is_null($_POST['nom']) OR is_null($_POST['securite_sociale']) OR is_null($_POST['new_password']) OR is_null($_POST['new_password_confirm'])){
   echo '<body onLoad="alert(\'Veuillez remplir les zones vides\')">';
+
+  echo '<meta http-equiv="refresh" content="0;URL=../views/mdp_oublie.php">';
 }
 
 else{
   $req = $bdd->prepare('UPDATE mdp FROM compte_patient WHERE nom=? AND num_sec_soc=?');
   $req->execute(array($_POST['nom'], $_POST['securite_sociale']));
 }
+
+var_dump($_POST['nom']);
+var_dump($_POST['securite_sociale']);
+var_dump($_POST['new_password']);
+var_dump($_POST['new_password_confirm']);
+
  ?>
