@@ -3250,16 +3250,7 @@ ul {
 }
 
 /* line 200, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_feature_part.scss */
-.single_feature_page {
-  padding: 140px 0 0;
-}
 
-@media (max-width: 991px) {
-  /* line 200, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_feature_part.scss */
-  .single_feature_page {
-    padding: 70px 0 0;
-  }
-}
 
 @media only screen and (min-width: 992px) and (max-width: 1200px) {
   /* line 200, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_feature_part.scss */
