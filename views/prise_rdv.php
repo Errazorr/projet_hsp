@@ -1,4 +1,4 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -28,6 +28,16 @@
 </head>
 
 <body>
+  <!-- Test de connexion à la bdd -->
+	<?php
+	//Connexion à la bdd
+	try{
+		$bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+	}
+	catch (Exception $e){
+		die('Erreur:'.$e->getMessage());
+	}
+	?>
     <!--::header part start::-->
     <header class="main_menu">
         <div class="container">
@@ -174,6 +184,59 @@
     </section>
     <!--::doctor_part end::-->
 
+    <!--::regervation_part start::-->
+    <section class="regervation_part section_padding">
+        <div class="container">
+            <div class="row align-items-center regervation_content">
+                <div class="col-lg-12">
+
+                   <div class="regervation_part_iner">
+                        <form action="../traitement/inscription.php" method="post">
+                          <center>
+
+                           <h2>Vous désirez prendre un rendez-vous ?</h2> </center>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <input type="name" class="form-control" name="nom" placeholder="Votre nom : ">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="name" class="form-control" name="mutuelle" placeholder="Votre mutuelle : ">
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <input type="tel" class="form-control" name="num_sec_soc"   maxlength="15" placeholder="Votre numéro de sécurité sociale : ">
+                                </div>
+                                <div class="form-group col-md-6">
+                                  <select class="form-control" name="film" placeholder="Choisissez un film">
+
+
+                											<?php
+                											// Sélection des films //
+                											$req = $bdd->query('SELECT nom FROM medecin');
+                									    $donnees= $req->fetchall();
+
+                											foreach ($donnees as $value) {
+                												//Affichage des données //
+                												echo '<option>'.$value["nom"].'</option>';
+                											}
+                											?>
+
+                									</select>
+                                </div>
+                                <br/> </br/>
+                            </div>
+                            <div class="regerv_btn"><center>
+                                <input type="submit" class="genric-btn primary e-large" value="Valider le rendez-vous">
+                                <br/>  </center>
+                              </br/>
+                          </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!--::regervation_part end::-->
+
     <!-- footer part start-->
     <footer class="footer-area">
         <div class="footer section_padding">
@@ -182,12 +245,6 @@
                     <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">
                         <a href="#" class="footer_logo"> <img src="../img/logo.png" alt="#"> </a>
                         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </p>
-                        <div class="social_logo">
-                            <a href="#"><i class="ti-facebook"></i></a>
-                            <a href="#"> <i class="ti-twitter"></i> </a>
-                            <a href="#"><i class="ti-instagram"></i></a>
-                            <a href="#"><i class="ti-skype"></i></a>
-                        </div>
                     </div>
                     <div class="col-xl-2 col-sm-6 col-md-4 single-footer-widget">
                         <h4>Quick Links</h4>
@@ -197,26 +254,6 @@
                             <li><a href="#"> Online payment</a></li>
                             <li><a href="#">Careers</a></li>
                             <li><a href="#">Department</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-xl-2 col-sm-6 col-md-4 single-footer-widget">
-                        <h4>Explore</h4>
-                        <ul>
-                            <li><a href="#">In the community</a></li>
-                            <li><a href="#">IU health foundation</a></li>
-                            <li><a href="#">Family support </a></li>
-                            <li><a href="#">Business solution</a></li>
-                            <li><a href="#">Community clinic</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-xl-2 col-sm-6 col-md-6 single-footer-widget">
-                        <h4>Resources</h4>
-                        <ul>
-                            <li><a href="#">Lights were season</a></li>
-                            <li><a href="#"> Their is let wherein</a></li>
-                            <li><a href="#">which given over</a></li>
-                            <li><a href="#">Without given She</a></li>
-                            <li><a href="#">Isn two signs think</a></li>
                         </ul>
                     </div>
                     <div class="col-xl-3 col-sm-6 col-md-6 single-footer-widget">
