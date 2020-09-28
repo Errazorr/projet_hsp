@@ -190,12 +190,12 @@ h1, h2, h3, h4, h5, h6 {
 
 /* line 91, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_common.scss */
 p {
-  color: #666666;
+  color: #FFFFFF;
   font-family: "Roboto", sans-serif;
   line-height: 1.929;
   font-size: 16px;
   margin-bottom: 0px;
-  color: #888888;
+  color: #FFF;
 }
 
 /* line 100, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_common.scss */
@@ -3539,7 +3539,7 @@ ul {
 
 /* line 46, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_regervation_part.scss */
 .regervation_part .regervation_part_iner input {
-  color: #fff !important;
+  color: #BBCED1 !important;
 }
 
 /* line 50, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_regervation_part.scss */
@@ -3608,7 +3608,7 @@ ul {
 /* line 110, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_regervation_part.scss */
 .regervation_part .btn_2 {
   margin-top: 10px;
-  background-color: #fff !important;
+  background-color: #BBCED1 !important;
   font-family: "Playfair Display", serif;
   font-weight: 500;
   color: #242429;

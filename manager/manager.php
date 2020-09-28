@@ -1,23 +1,25 @@
 <?php
 
+session_start();
+
 class Manager {
 
   public function Inscription($ins){
     $bdd = new PDO('mysql:host=localhost;dbname=hopital;charset=utf8','root','');
-    $r = $bdd->prepare('INSERT INTO compte_patient (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, tv, wifi, regime, mdp) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :tv, :wifi, :regime, :mdp)');
+    $r = $bdd->prepare('INSERT INTO compte (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, option_chambre, regime, mdp, role) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :option_chambre, :regime, :mdp, :role)');
     $r ->execute(array(
       'nom' => $ins->getNom(),
       'prenom' => $ins->getPrenom(),
-      'date_naissance' => $ins->getDate_naissance(),
+      'date_naissance' => $ins->getDateNaissance(),
       'mail' => $ins->getMail(),
       'adresse' => $ins->getAdresse(),
       'mutuelle' => $ins->getMutuelle(),
-      'num_sec_soc' => $ins->getNum_sec_soc(),
-      'tv' => $ins->getTv(),
-      'wifi' => $ins->getWifi(),
+      'num_sec_soc' => $ins->getNumSecSoc(),
+      'option_chambre' => $ins->getOptionChambre(),
       'regime' => $ins->getRegime(),
-      'mdp' => $ins->getMdp()
-    ))
+      'mdp' => md5($ins->getMdp()),
+      'role' => 'patient'
+    ));
   }
 
   public function Connexion($con){
