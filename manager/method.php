@@ -2,7 +2,7 @@
 
 session_start();
 
-class Manager {
+class Method {
 
   public function Inscription($ins){
     $bdd = new PDO('mysql:host=localhost;dbname=hopital;charset=utf8','root','');
@@ -20,6 +20,7 @@ class Manager {
       'mdp' => md5($ins->getMdp()),
       'role' => 'patient'
     ));
+
   }
 
   public function Connexion($con){
@@ -44,7 +45,7 @@ class Manager {
       $_SESSION['id'] = $donne['id'];
       $_SESSION['nom'] = $donne['nom'];
       $_SESSION['prenom'] = $donne['prenom'];
-      if ($_SESSION['role'] == admin){
+      if ($_SESSION['role'] == 'admin'){
        header('location: ../page_connexion.php');
      }
      else {
