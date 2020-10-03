@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
 
+<?php
+session_start();
+ ?>
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -278,14 +282,7 @@
                     <div class="single_blog_item">
                         <div class="single_blog_img">
                             <img src="img/doctor/doctor_1.png" alt="doctor">
-                            <div class="social_icon">
-                                <ul>
-                                    <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-skype"></i> </a></li>
-                                </ul>
-                            </div>
+                            
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
@@ -299,14 +296,7 @@
                     <div class="single_blog_item">
                         <div class="single_blog_img">
                             <img src="img/doctor/doctor_4.png" alt="doctor">
-                            <div class="social_icon">
-                                <ul>
-                                    <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-skype"></i> </a></li>
-                                </ul>
-                            </div>
+
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
@@ -320,14 +310,7 @@
                     <div class="single_blog_item">
                         <div class="single_blog_img">
                             <img src="img/doctor/doctor_2.png" alt="doctor">
-                            <div class="social_icon">
-                                <ul>
-                                    <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-skype"></i> </a></li>
-                                </ul>
-                            </div>
+
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
@@ -341,14 +324,7 @@
                     <div class="single_blog_item">
                         <div class="single_blog_img">
                             <img src="img/doctor/doctor_3.png" alt="doctor">
-                            <div class="social_icon">
-                                <ul>
-                                    <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-skype"></i> </a></li>
-                                </ul>
-                            </div>
+
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">

@@ -23,39 +23,32 @@ class Method {
   }
 
   public function Connexion($con){
-     $bdd = new PDO('mysql:host=localhost;dbname=hopital;charset=utf8','root','');
-     $r = $bdd->prepare('SELECT * FROM compte_patient WHERE nom = :nom AND prenom = :prenom AND date_naissance = :date_naissance AND mail = :mail AND adresse = :adresse AND mutuel = :mutuelle AND num_sec_soc = :num_sec_soc AND tv = :tv AND wifi = :wifi AND regime = :regime AND mdp = :mdp');
-     $r -> execute(array(
-       'nom' => $con->getNom(),
-       'prenom' => $con->getPrenom(),
-       'date_naissance' => $con->getDate_naissance(),
-       'mail' => $con->getMail(),
-       'adresse' => $con->getAdresse(),
-       'mutuelle' => $con->getMutuelle(),
-       'num_sec_soc' => $con->getNum_sec_soc(),
-       'tv' => $con->getTv(),
-       'wifi' => $con->getWifi(),
-       'regime' => $con->getRegime(),
-       'mdp' => $con->getMdp()
-     ));
-    $donne=$r->fetch();
+    //Test de connexion à la bdd //
+    try{
+      $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+    }
+    catch (Exception $e){
+      die('Erreur:'.$e->getMessage());
+    }
+    // Sélectionne les informations de la table compte en fonction du nom //
+    $req = $bdd->prepare('SELECT * FROM compte WHERE nom=?');
+    $req->execute(array($connexion->getNom()));
+    $donnees= $req->fetch();
+    // Si la rêquette s'execute alors on redirige vers la page d'accueil //
+    if ($donnees['nom'] == $connexion->getNom() AND $donnees['prenom'] == $connexion->getPrenom() AND $donnees['mdp'] == md5($connexion->getMdp())) {
+      $_SESSION['nom'] = $donnees['nom'];
+      $_SESSION['prenom'] = $donnees['prenom'];
+      $_SESSION['mdp'] = $donnees['mdp'];
+      header('Location: ../traitement/page_index.php');
+    }
 
-    if ($donne['nom'] == $con->getNom() && $donne['prenom'] == $con->getPrenom() && $donne['mdp'] == $con->getMdp()) {
-      $_SESSION['id'] = $donne['id'];
-      $_SESSION['nom'] = $donne['nom'];
-      $_SESSION['prenom'] = $donne['prenom'];
-      if ($_SESSION['role'] == admin){
-       header('location: ../page_connexion.php');
-     }
-     else {
-     header('location: ../accueilconnexion.php');
-     }
-   }
-   else {
-     echo 'erreur';
-   }
+    else{
+      // Si non on affiche une erreur et on redirige vers la page connexion//
+      echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
 
- }
+      echo '<meta http-equiv="refresh" content="0;URL=../View/Connexion.php">';
+    }
+  }
 
   }
  ?>
