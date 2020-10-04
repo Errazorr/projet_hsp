@@ -22,7 +22,7 @@ class Method {
     ));
   }
 
-  public function Connexion($con){
+  public function connexion($connexion){
     //Test de connexion à la bdd //
     try{
       $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
@@ -30,16 +30,16 @@ class Method {
     catch (Exception $e){
       die('Erreur:'.$e->getMessage());
     }
-    // Sélectionne les informations de la table compte en fonction du nom //
-    $req = $bdd->prepare('SELECT * FROM compte WHERE nom=?');
-    $req->execute(array($connexion->getNom()));
+    // Sélectionne les informations de la table compte en fonction de l'adresse mail //
+    $req = $bdd->prepare('SELECT * FROM compte WHERE mail=?');
+    $req->execute(array($connexion->getMail()));
     $donnees= $req->fetch();
     // Si la rêquette s'execute alors on redirige vers la page d'accueil //
-    if ($donnees['nom'] == $connexion->getNom() AND $donnees['prenom'] == $connexion->getPrenom() AND $donnees['mdp'] == md5($connexion->getMdp())) {
+    if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == md5($connexion->getMdp())) {
       $_SESSION['nom'] = $donnees['nom'];
       $_SESSION['prenom'] = $donnees['prenom'];
-      $_SESSION['mdp'] = $donnees['mdp'];
-      header('Location: ../page_index.php');
+      $_SESSION['mail'] = $connexion->getMail();
+      header('Location: ../landing.php');
     }
 
     else{

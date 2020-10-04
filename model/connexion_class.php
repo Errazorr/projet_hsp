@@ -1,28 +1,39 @@
 <?php
 
-class Connexion{
-  public $nom;
-  public $prenom;
-  public $mdp;
+class Connexion {
+// classe connexion reprenant les informations du manager, formulaire, model//
 
-  public function __construct($nom, $prenom, $mdp) {
-    $this->setNom();
-    $this->setPrenom();
-    $this->setMdp();
+
+  protected $_mail;
+  private $_mdp;
+
+  public function __construct(array $donnees){
+    $this->hydrate($donnees);
   }
 
-  public function getNom(){return $this->nom;}
-  public function getPrenom(){return $this->prenom;}
-  public function getMdp(){return $this->mdp;}
+  public function hydrate (array $donnees){
+    foreach ($donnees as $key => $value) {
+      $method='set'.ucfirst($key);
+      if(method_exists($this, $method)){
+        $this->$method($value);
+      }
+    }
+  }
 
-  public function setNom($nom){
-  	$this->nom=$nom;
+  //Déclaration de l'ensemble des setter //
+
+  public function setMail ($mail){
+    $this->_mail = $mail;
   }
-  public function setPrenom($prenom){
-  	$this->prenom=$prenom;
+
+  public function setMdp ($mdp){
+    $this->_mdp = $mdp;
   }
-  public function setMdp($mdp){
-  	$this->mdp=$mdp;
-  }
+
+  //Déclaration de l'ensemble des getters //
+
+  public function getMail(){return $this->_mail;}
+  public function getMdp(){return $this->_mdp;}
 }
- ?>
+
+?>

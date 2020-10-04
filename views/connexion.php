@@ -130,12 +130,9 @@
                            <h2>Vous avez déjà un compte ? Connectez-vous : </h2> </center>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="name" name="nom" class="form-control" placeholder="Votre nom : ">
+                                    <input type="email" name="mail" class="form-control" required="required" placeholder="Votre adresse mail : ">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="name" name="prenom" class="form-control" placeholder="Votre prénom : ">
-                                </div>
-                                <div class="form-group col-md-12">
                                     <input type="password" name="mdp" class="form-control"required
                                         placeholder="Mot de passe : ">
                                 </div>
