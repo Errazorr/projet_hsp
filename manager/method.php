@@ -39,7 +39,7 @@ class Method {
       $_SESSION['nom'] = $donnees['nom'];
       $_SESSION['prenom'] = $donnees['prenom'];
       $_SESSION['mdp'] = $donnees['mdp'];
-      header('Location: ../traitement/page_index.php');
+      header('Location: ../page_index.php');
     }
 
     else{

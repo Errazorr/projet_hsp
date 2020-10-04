@@ -1,11 +1,11 @@
 <?php
 
 class Connexion{
-  private $nom;
-  private $prenom;
-  private $mdp;
+  public $nom;
+  public $prenom;
+  public $mdp;
 
-public function __construct($nom, $prenom, $mdp) {
+  public function __construct($nom, $prenom, $mdp) {
     $this->setNom();
     $this->setPrenom();
     $this->setMdp();

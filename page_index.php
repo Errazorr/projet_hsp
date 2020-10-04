@@ -67,7 +67,7 @@ session_start();
                                 </li>
                             </ul>
                         </div>
-                        <a class="btn_2 d-none d-lg-block" href="views/connexion.html">Se connecter</a>
+                        <a class="btn_2 d-none d-lg-block" href="views/connexion.php">Se connecter</a>
                     </nav>
                 </div>
             </div>
@@ -282,7 +282,7 @@ session_start();
                     <div class="single_blog_item">
                         <div class="single_blog_img">
                             <img src="img/doctor/doctor_1.png" alt="doctor">
-                            
+
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">

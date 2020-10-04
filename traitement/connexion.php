@@ -14,7 +14,7 @@ else {
                               'prenom' => $_POST['prenom'],
                               'mdp' => $_POST['mdp']]);
 
-$connect = new Method;
+$connect = new Method();
 $connect->Connexion($connexion);
 }
  ?>
