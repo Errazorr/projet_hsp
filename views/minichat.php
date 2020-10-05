@@ -14,7 +14,7 @@
 
     <form action="../traitement/minichat_post.php" method="post">
         <p>
-        <label for="pseudo">Votre nom</label> : <input type="text" name="nom" id="nom" value="ryanftne"/><br />
+<label for="nom">Nom</label> :  <input type="text" name="nom" id="nom" /><br />
         <label for="message">Message</label> :  <input type="text" name="message" id="message" /><br />
 
         <input type="submit" value="Envoyer" />
@@ -38,7 +38,7 @@ $reponse = $bdd->query('SELECT nom, message FROM minichat ORDER BY ID DESC LIMIT
 // Affichage de chaque message (toutes les données sont protégées par htmlspecialchars)
 while ($donnees = $reponse->fetch())
 {
-	echo '<p><strong>' . htmlspecialchars($donnees['nom']) . '</strong> : ' . htmlspecialchars($donnees['message']) . '</p>';
+	echo '<p><strong>' . htmlspecialchars($donnees['nom']) . '</strong> : ' . htmlspecialchars($donnees['message']) . ' </p>';
 }
 
 $reponse->closeCursor();

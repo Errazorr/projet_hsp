@@ -22,12 +22,38 @@ class Connexion {
 
   //Déclaration de l'ensemble des setter //
 
-  public function setMail ($mail){
-    $this->_mail = $mail;
+  public function setNom($nom){
+  	$this->nom=$nom;
   }
-
-  public function setMdp ($mdp){
-    $this->_mdp = $mdp;
+  public function setPrenom($prenom){
+  	$this->prenom=$prenom;
+  }
+  public function setDateNaissance($date_naissance){
+  	$this->date_naissance=$date_naissance;
+  }
+  public function setMail($mail){
+  	$this->mail=$mail;
+  }
+  public function setAdresse($adresse){
+  	$this->adresse=$adresse;
+  }
+  public function setMutuelle($mutuelle){
+  	$this->mutuelle=$mutuelle;
+  }
+  public function setNumSecSoc($num_sec_soc){
+  	$this->num_sec_soc=$num_sec_soc;
+  }
+  public function setOptionChambre($option_chambre){
+  	$this->option_chambre=$option_chambre;
+  }
+  public function setRegime($regime){
+  	$this->regime=$regime;
+  }
+  public function setMdp($mdp){
+  	$this->mdp=$mdp;
+  }
+  public function setRole($role){
+  	$this->role=$role;
   }
 
   //Déclaration de l'ensemble des getters //
