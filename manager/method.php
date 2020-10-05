@@ -1,14 +1,4 @@
 <?php
-
-
-//Test de connexion à la bdd //
-try{
-
-}
-catch (Exception $e){
-  die('Erreur:'.$e->getMessage());
-}
-
 class Method {
 
   public function Inscription($ins){
