@@ -46,7 +46,7 @@ class Method {
       // Si non on affiche une erreur et on redirige vers la page connexion//
       echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
 
-      echo '<meta http-equiv="refresh" content="0;URL=../View/Connexion.php">';
+      echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
     }
   }
 

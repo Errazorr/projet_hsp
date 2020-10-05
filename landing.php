@@ -34,7 +34,7 @@
 
 
                 <div class="text-center">
-                        <h1 class="p-5">Bonjour ! <?php echo $_SESSION['nom']; ?></h1>
+                        <h1 class="p-5">Bonjour ! <?php echo $_SESSION['prenom']; ?></h1>
                         <hr />
                         <!-- Button trigger modal -->
                         <button type="button" class="btn btn-info btn-lg" data-toggle="modal" data-target="#change_password">
