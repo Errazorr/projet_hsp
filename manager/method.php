@@ -4,45 +4,32 @@ session_start();
 
 class Method {
 
-  //Test de connexion à la bdd //
-  try{
-    $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
-  }
-  catch (Exception $e){
-    die('Erreur:'.$e->getMessage());
-  }
-
-
   public function Inscription($ins){
-
-    $req = $bdd->prepare('SELECT * FROM compte WHERE nom=? AND prenom=? AND mail=?');
-    $req->execute(array('nom' => $ins->getNom(), 'prenom' => $ins->getPrenom(), 'mail' => $ins->getMail()));
-    $donnees= $req->fetch();
-
-    if ($donnees) {
-      echo '<body onLoad="alert(\'Ce compte existe déjà\')">';
-
-      echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">';
-    }
-    else{
-      $r = $bdd->prepare('INSERT INTO compte (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, option_chambre, regime, mdp, role) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :option_chambre, :regime, :mdp, :role)');
-      $r ->execute(array(
-        'nom' => $ins->getNom(),
-        'prenom' => $ins->getPrenom(),
-        'date_naissance' => $ins->getDateNaissance(),
-        'mail' => $ins->getMail(),
-        'adresse' => $ins->getAdresse(),
-        'mutuelle' => $ins->getMutuelle(),
-        'num_sec_soc' => $ins->getNumSecSoc(),
-        'option_chambre' => $ins->getOptionChambre(),
-        'regime' => $ins->getRegime(),
-        'mdp' => md5($ins->getMdp()),
-        'role' => 'patient'
-      ));
-    }
+    $bdd = new PDO('mysql:host=localhost;dbname=hopital;charset=utf8','root','');
+    $r = $bdd->prepare('INSERT INTO compte (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, option_chambre, regime, mdp, role) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :option_chambre, :regime, :mdp, :role)');
+    $r ->execute(array(
+      'nom' => $ins->getNom(),
+      'prenom' => $ins->getPrenom(),
+      'date_naissance' => $ins->getDateNaissance(),
+      'mail' => $ins->getMail(),
+      'adresse' => $ins->getAdresse(),
+      'mutuelle' => $ins->getMutuelle(),
+      'num_sec_soc' => $ins->getNumSecSoc(),
+      'option_chambre' => $ins->getOptionChambre(),
+      'regime' => $ins->getRegime(),
+      'mdp' => md5($ins->getMdp()),
+      'role' => 'patient'
+    ));
   }
 
   public function connexion($connexion){
+    //Test de connexion à la bdd //
+    try{
+      $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+    }
+    catch (Exception $e){
+      die('Erreur:'.$e->getMessage());
+    }
     // Sélectionne les informations de la table compte en fonction de l'adresse mail //
     $req = $bdd->prepare('SELECT * FROM compte WHERE mail=?');
     $req->execute(array($connexion->getMail()));
@@ -74,6 +61,7 @@ class Method {
    }
 
    else{
+     $bdd = new PDO('mysql:host=localhost;dbname=hopital;charset=utf8','root','');
      $res = $bdd->prepare('SELECT * FROM compte WHERE nom = :nom AND prenom = :prenom');
      $res ->execute(array(
        'nom' => $rdv->getNomPatient(),
@@ -83,6 +71,7 @@ class Method {
      $patient = $res->fetch();
 
      if ($patient) {
+       $bdd = new PDO('mysql:host=localhost;dbname=hopital;charset=utf8','root','');
        $res = $bdd->prepare('INSERT INTO reservation (nom_patient, nom_medecin, rais_consult, date_consult) VALUES (:nom_patient, :nom_medecin, :rais_consult, :date_consult)');
        $res ->execute(array(
          'nom_patient' => $rdv->getNomPatient(),
