@@ -1,4 +1,5 @@
 <?php
+session_start();
 //envoie des données vers les pages suivantes //
 require '../model/connexion_class.php';
 require '../manager/method.php';
@@ -13,6 +14,7 @@ else{
                         'mdp' =>$_POST['mdp']]);
   $connect = new Method; //Déclaration d'une nouvelle methode //
   $connect->connexion($connexion);
+  $_SESSION['mail'] = $_POST['mail'];
 
 }
 
