@@ -42,29 +42,9 @@ class Method {
       header('Location: ../landing.php');
     }
 
-<<<<<<< HEAD
-    if ($donne['nom'] == $con->getNom() && $donne['prenom'] == $con->getPrenom() && $donne['mdp'] == $con->getMdp()) {
-      $_SESSION['id'] = $donne['id'];
-      $_SESSION['nom'] = $donne['nom'];
-      $_SESSION['prenom'] = $donne['prenom'];
-
-      if ($_SESSION['role'] == 'admin'){
-       header('location: ../page_connexion.php');
-      }
-     else {
-       header('location: ../accueilconnexion.php');
-     }
-   }
-   else {
-     echo '<body onLoad="alert(\'Erreur de connexion\')">';
-
-     echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.html">';
-   }
-=======
     else{
       // Si non on affiche une erreur et on redirige vers la page connexion//
       echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
->>>>>>> 92e5040bc4816bd4aed4eb75f42063e87b2dec75
 
       echo '<meta http-equiv="refresh" content="0;URL=../View/Connexion.php">';
     }
