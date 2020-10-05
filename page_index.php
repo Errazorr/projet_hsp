@@ -1,6 +1,10 @@
 <!doctype html>
 <html lang="en">
 
+<?php
+session_start();
+ ?>
+
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -34,7 +38,7 @@
             <div class="row align-items-center">
                 <div class="col-lg-12">
                     <nav class="navbar navbar-expand-lg navbar-light">
-                        <a class="navbar-brand" href="index.html"> <img src="img/logo.png" alt="logo"> </a>
+                        <a class="navbar-brand" href="page_index.html"> <img src="img/logo.png" alt="logo"> </a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse"
                             data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                             aria-expanded="false" aria-label="Toggle navigation">
@@ -45,43 +49,25 @@
                             id="navbarSupportedContent">
                             <ul class="navbar-nav align-items-center">
                                 <li class="nav-item active">
-                                    <a class="nav-link" href="index.html">Home</a>
+                                    <a class="nav-link" href="page_index.html">Accueil</a>
                                 </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="about.html">about</a>
-                                </li>
-                                <li class="nav-item">
-                                    <a class="nav-link" href="Doctor.html">Doctors</a>
-                                </li>
-
                                 <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown"
                                         role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Pages
                                     </a>
                                     <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="views/connexion.html">services</a>
-                                        <a class="dropdown-item" href="dep.html">depertments</a>
-                                        <a class="dropdown-item" href="elements.html">Elements</a>
+                                        <a class="dropdown-item" href="views/informations.html">Informations</a>
+                                        <a class="dropdown-item" href="views/doctor.html">Médecins</a>
+                                        <a class="dropdown-item" href="views/soins.html">Soins</a>
                                     </div>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="blog.html" id="navbarDropdown_1"
-                                        role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                        blog
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown_1">
-                                        <a class="dropdown-item" href="blog.html">blog</a>
-                                        <a class="dropdown-item" href="single-blog.html">Single blog</a>
-                                    </div>
-                                </li>
-
                                 <li class="nav-item">
                                     <a class="nav-link" href="contact.html">Contact</a>
                                 </li>
                             </ul>
                         </div>
-                        <a class="btn_2 d-none d-lg-block" href="#">HOT LINE- 09856</a>
+                        <a class="btn_2 d-none d-lg-block" href="views/connexion.php">Se connecter</a>
                     </nav>
                 </div>
             </div>
@@ -101,7 +87,7 @@
                                 Médecins approuvés</h1>
                             <p>Ne renoncez pas à vos soins : l'hôpital Zoldyck est organisé pour vous accueillir ! L'hôpital Zoldyck  centre son action sur la qualité d’accompagnement des résidents, leur bien-être au quotidien, ainsi que le maintien de leur autonomie et de leur vie sociale.
 </p>
-                            <a href="#" class="btn_2">Make an appointment</a>
+
 
                         </div>
                     </div>
@@ -128,7 +114,9 @@
                 <div class="col-md-6 col-lg-5">
                     <div class="about_us_text">
                         <h2>A propos de nous ?</h2>
-                        <p>L’hôpital Zoldyck est un hôpital public faisant partie de l’Assistance Publique–Hôpitaux de Paris (AP-HP), qui est le Centre Hospitalier Universitaire (CHU) de la région Ile-de-France.</p>
+                        <p style="color : black;">
+
+                        L’hôpital Zoldyck est un hôpital public faisant partie de l’Assistance Publique–Hôpitaux de Paris (AP-HP), qui est le Centre Hospitalier Universitaire (CHU) de la région Ile-de-France.</p>
                         <a class="btn_2 " href="#">En savoir plus</a>
                         <div class="banner_item">
                             <div class="single_item">
@@ -294,14 +282,7 @@
                     <div class="single_blog_item">
                         <div class="single_blog_img">
                             <img src="img/doctor/doctor_1.png" alt="doctor">
-                            <div class="social_icon">
-                                <ul>
-                                    <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-skype"></i> </a></li>
-                                </ul>
-                            </div>
+
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
@@ -315,14 +296,7 @@
                     <div class="single_blog_item">
                         <div class="single_blog_img">
                             <img src="img/doctor/doctor_4.png" alt="doctor">
-                            <div class="social_icon">
-                                <ul>
-                                    <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-skype"></i> </a></li>
-                                </ul>
-                            </div>
+
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
@@ -336,14 +310,7 @@
                     <div class="single_blog_item">
                         <div class="single_blog_img">
                             <img src="img/doctor/doctor_2.png" alt="doctor">
-                            <div class="social_icon">
-                                <ul>
-                                    <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-skype"></i> </a></li>
-                                </ul>
-                            </div>
+
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
@@ -357,14 +324,7 @@
                     <div class="single_blog_item">
                         <div class="single_blog_img">
                             <img src="img/doctor/doctor_3.png" alt="doctor">
-                            <div class="social_icon">
-                                <ul>
-                                    <li><a href="#"> <i class="ti-facebook"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-twitter-alt"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-instagram"></i> </a></li>
-                                    <li><a href="#"> <i class="ti-skype"></i> </a></li>
-                                </ul>
-                            </div>
+
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">

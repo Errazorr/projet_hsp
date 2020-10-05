@@ -1,3 +1,4 @@
+
 <!doctype html>
 <html lang="en">
 
@@ -33,6 +34,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-12">
+
                 </div>
             </div>
         </div>
@@ -46,7 +48,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Inscription</h2>
+                            <h2>Connexion</h2>
 
                         </div>
                     </div>
@@ -122,42 +124,16 @@
                 <div class="col-lg-12">
 
                    <div class="regervation_part_iner">
-                        <form action="../traitement/inscription.php" method="post">
+                        <form method="post" action="../traitement/connexion.php">
                           <center>
 
-                           <h2>Vous désirez prendre un rendez-vous ? Inscrivez-vous : </h2> </center>
+                           <h2>Vous avez déjà un compte ? Connectez-vous : </h2> </center>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="name" class="form-control" name="nom" placeholder="Votre nom : ">
+                                    <input type="email" name="mail" class="form-control" required="required" placeholder="Votre adresse mail : ">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="name" class="form-control" name="prenom" placeholder="Votre prénom : ">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="date" class="form-control" name="date_naissance" placeholder="Votre date de naissance : ">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="email" class="form-control" name="mail" placeholder="Votre mail : ">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="name" class="form-control" name="adresse" placeholder="Votre adresse : ">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="name" class="form-control" name="mutuelle" placeholder="Votre mutuelle : ">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="tel" class="form-control" name="num_sec_soc"   maxlength="15" placeholder="Votre numéro de sécurité sociale : ">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="name" class="form-control" name="option_chambre" placeholder="Vos options de chambre (Wifi et/ou TV) : " maxlength="10">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="name" class="form-control" name="regime" placeholder="Votre régime : ">
-                                </div>
-<br/>
-  </br/>
-                                <div class="form-group col-md-6">
-                                    <input type="password" class="form-control" name="mdp" required
+                                    <input type="password" name="mdp" class="form-control"required
                                         placeholder="Mot de passe : ">
                                 </div>
 
@@ -165,14 +141,14 @@
                             <div class="regerv_btn"><center>
 
 
-                                <input type="submit" class="btn_1" name="btn" value="Créer son compte">
+                                <input type="submit" class="btn_1" name="btn" value="Valider">
                                 <br/>  </center>
 
                               </br/>		<center>
-<br/>
+ <a href="mdp_oublie.html">Mot de passe oublié ? </a><br/>
 
 </br/>
-                                <a href="connexion.html" class="genric-btn danger-border circle arrow"> Déjà un compte ? Se connecter <span
+                                <a href="inscription.html" class="genric-btn danger-border circle arrow">Nouveau ici ? S'inscrire <span
                         						class="lnr lnr-arrow-right"></span></a></center>
                             </div>
 
@@ -186,6 +162,10 @@
         </div>
     </section>
     <!--::regervation_part end::-->
+
+    <!-- footer part start-->
+
+
 
 </body>
 

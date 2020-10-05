@@ -1,0 +1,10 @@
+@media (max-width: 991px) {
+  /* line 200, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_feature_part.scss */
+  .single_feature_page {
+    padding: 16px 0 0;
+  }
+}
+
+.single_feature_page {
+  padding: 10px 0 0;
+}

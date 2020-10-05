@@ -22,24 +22,27 @@ class Method {
     ));
   }
 
-  public function Connexion($con){
-     $bdd = new PDO('mysql:host=localhost;dbname=hopital;charset=utf8','root','');
-     $r = $bdd->prepare('SELECT * FROM compte_patient WHERE nom = :nom AND prenom = :prenom AND date_naissance = :date_naissance AND mail = :mail AND adresse = :adresse AND mutuel = :mutuelle AND num_sec_soc = :num_sec_soc AND tv = :tv AND wifi = :wifi AND regime = :regime AND mdp = :mdp');
-     $r -> execute(array(
-       'nom' => $con->getNom(),
-       'prenom' => $con->getPrenom(),
-       'date_naissance' => $con->getDate_naissance(),
-       'mail' => $con->getMail(),
-       'adresse' => $con->getAdresse(),
-       'mutuelle' => $con->getMutuelle(),
-       'num_sec_soc' => $con->getNum_sec_soc(),
-       'tv' => $con->getTv(),
-       'wifi' => $con->getWifi(),
-       'regime' => $con->getRegime(),
-       'mdp' => $con->getMdp()
-     ));
-    $donne=$r->fetch();
+  public function connexion($connexion){
+    //Test de connexion à la bdd //
+    try{
+      $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+    }
+    catch (Exception $e){
+      die('Erreur:'.$e->getMessage());
+    }
+    // Sélectionne les informations de la table compte en fonction de l'adresse mail //
+    $req = $bdd->prepare('SELECT * FROM compte WHERE mail=?');
+    $req->execute(array($connexion->getMail()));
+    $donnees= $req->fetch();
+    // Si la rêquette s'execute alors on redirige vers la page d'accueil //
+    if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == md5($connexion->getMdp())) {
+      $_SESSION['nom'] = $donnees['nom'];
+      $_SESSION['prenom'] = $donnees['prenom'];
+      $_SESSION['mail'] = $connexion->getMail();
+      header('Location: ../landing.php');
+    }
 
+<<<<<<< HEAD
     if ($donne['nom'] == $con->getNom() && $donne['prenom'] == $con->getPrenom() && $donne['mdp'] == $con->getMdp()) {
       $_SESSION['id'] = $donne['id'];
       $_SESSION['nom'] = $donne['nom'];
@@ -57,8 +60,15 @@ class Method {
 
      echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.html">';
    }
+=======
+    else{
+      // Si non on affiche une erreur et on redirige vers la page connexion//
+      echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
+>>>>>>> 92e5040bc4816bd4aed4eb75f42063e87b2dec75
 
- }
+      echo '<meta http-equiv="refresh" content="0;URL=../View/Connexion.php">';
+    }
+  }
 
  public function Reservation($rdv){
    $date_jour = date('Y-m-d');
