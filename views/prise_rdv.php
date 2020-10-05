@@ -191,7 +191,7 @@
                 <div class="col-lg-12">
 
                    <div class="regervation_part_iner">
-                        <form action="../traitement/inscription.php" method="post">
+                        <form action="../traitement/reservation.php" method="post">
                           <center>
 
                            <h2>Vous désirez prendre un rendez-vous ?</h2> </center>
@@ -200,13 +200,10 @@
                                     <input type="name" class="form-control" name="nom" placeholder="Votre nom : ">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="name" class="form-control" name="mutuelle" placeholder="Votre mutuelle : ">
+                                    <input type="name" class="form-control" name="prenom" placeholder="Votre prenom : ">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="tel" class="form-control" name="num_sec_soc"   maxlength="15" placeholder="Votre numéro de sécurité sociale : ">
-                                </div>
-                                <div class="form-group col-md-6">
-                                  <select class="form-control" name="film" placeholder="Choisissez un film">
+                                  <select class="form-control" name="medecin" placeholder="Choisissez un médecin">
 
 
                 											<?php
@@ -222,6 +219,10 @@
 
                 									</select>
                                 </div>
+                                <div class="form-group col-md-6">
+                                    <input type="date" class="form-control" name="date_consult" placeholder="Votre date pour la consultation : ">
+                                </div>
+                                    <input type="textarea" class="form-control" name="rais_consult" placeholder="Votre raison pour la consultation : ">
                                 <br/> </br/>
                             </div>
                             <div class="regerv_btn"><center>

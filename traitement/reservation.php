@@ -1,12 +1,12 @@
 <?php
 
 require('../manager/method.php');
-require('../model/inscription_class.php');
+require('../model/prise_rdv.php');
 
-$rdv = new inscription($_POST['nom'], $_POST['prenom'], $_POST['date_naissance'], $_POST['mail'], $_POST['adresse'], $_POST['mutuelle'], $_POST['num_sec_soc'], $_POST['option_chambre'], $_POST['regime'], $_POST['mdp'], 'patient');
+$rdv = new RDV($_POST['nom'], $_POST['prenom'], $_POST['medecin'], $_POST['rais_consult'], $_POST['date_consult']);
 
-$manager = new Method();
-$manager->Inscription($rdv);
+$prise_rdv = new Method();
+$prise_rdv->Reservation($rdv);
 var_dump($rdv);
 
  ?>

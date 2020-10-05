@@ -44,18 +44,60 @@ class Method {
       $_SESSION['id'] = $donne['id'];
       $_SESSION['nom'] = $donne['nom'];
       $_SESSION['prenom'] = $donne['prenom'];
-      if ($_SESSION['role'] == admin){
+
+      if ($_SESSION['role'] == 'admin'){
        header('location: ../page_connexion.php');
-     }
+      }
      else {
-     header('location: ../accueilconnexion.php');
+       header('location: ../accueilconnexion.php');
      }
    }
    else {
-     echo 'erreur';
+     echo '<body onLoad="alert(\'Erreur de connexion\')">';
+
+     echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.html">';
    }
 
  }
 
+ public function Reservation($rdv){
+   $date_jour = date('Y-m-d');
+   $date_consult = $rdv->getDateConsult();
+
+   if ($date_consult < $date_jour) {
+     echo '<body onLoad="alert(\'Date invalide\')">';
+
+     echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
+   }
+
+   else{
+     $bdd = new PDO('mysql:host=localhost;dbname=hopital;charset=utf8','root','');
+     $res = $bdd->prepare('SELECT * FROM compte WHERE nom = :nom AND prenom = :prenom');
+     $res ->execute(array(
+       'nom' => $rdv->getNomPatient(),
+       'prenom' => $rdv->getPrenomPatient()
+     ));
+
+     $patient = $res->fetch();
+
+     if ($patient) {
+       $bdd = new PDO('mysql:host=localhost;dbname=hopital;charset=utf8','root','');
+       $res = $bdd->prepare('INSERT INTO reservation (nom_patient, nom_medecin, rais_consult, date_consult) VALUES (:nom_patient, :nom_medecin, :rais_consult, :date_consult)');
+       $res ->execute(array(
+         'nom_patient' => $rdv->getNomPatient(),
+         'nom_medecin' => $rdv->getNomMedecin(),
+         'rais_consult' => $rdv->getRaisonConsult(),
+         'date_consult' => $rdv->getDateConsult()
+       ));
+     }
+     else{
+       echo '<body onLoad="alert(\'Patient introuvable\')">';
+
+       echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
+     }
+
   }
+ }
+
+}
  ?>
