@@ -1,22 +1,20 @@
 <?php
 
-session_start();
+
+//Test de connexion à la bdd //
+try{
+
+}
+catch (Exception $e){
+  die('Erreur:'.$e->getMessage());
+}
 
 class Method {
 
-  //Test de connexion à la bdd //
-  try{
-    $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
-  }
-  catch (Exception $e){
-    die('Erreur:'.$e->getMessage());
-  }
-
-
   public function Inscription($ins){
-
+    $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
     $req = $bdd->prepare('SELECT * FROM compte WHERE nom=? AND prenom=? AND mail=?');
-    $req->execute(array('nom' => $ins->getNom(), 'prenom' => $ins->getPrenom(), 'mail' => $ins->getMail()));
+    $req->execute(array($ins->getNom(), $ins->getPrenom(), $ins->getMail()));
     $donnees= $req->fetch();
 
     if ($donnees) {
@@ -43,6 +41,7 @@ class Method {
   }
 
   public function connexion($connexion){
+    $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
     // Sélectionne les informations de la table compte en fonction de l'adresse mail //
     $req = $bdd->prepare('SELECT * FROM compte WHERE mail=?');
     $req->execute(array($connexion->getMail()));
@@ -64,6 +63,7 @@ class Method {
   }
 
  public function Reservation($rdv){
+   $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
    $date_jour = date('Y-m-d');
    $date_consult = $rdv->getDateConsult();
 
