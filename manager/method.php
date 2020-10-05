@@ -27,6 +27,7 @@ class Method {
         'mdp' => md5($ins->getMdp()),
         'role' => 'patient'
       ));
+      header('Location: ../page_index.php');
     }
   }
 
@@ -88,6 +89,7 @@ class Method {
      }
 
   }
+  header('Location: ../page_index.php');
  }
 
 }
