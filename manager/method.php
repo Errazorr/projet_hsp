@@ -1,7 +1,7 @@
 <?php
 class Method {
 
-  public function dbConnect(){
+  private function dbConnect(){
      try{
            $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
            return $bdd;
@@ -14,6 +14,18 @@ class Method {
 
   public function Inscription($ins){
     $bdd = $this->dbConnect();
+    if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['date_naissance']) AND !empty($_POST['mail']) AND !empty($_POST['adresse']) AND !empty($_POST['mutuelle']) AND !empty($_POST['num_sec_soc'])
+    AND !empty($_POST['option_chambre']) AND !empty($_POST['regime']) AND !empty($_POST['mdp'])) {
+
+      $nom = htmlspecialchars($_POST['nom']);
+      $prenom = htmlspecialchars($_POST['prenom']);
+      $date_naissance = htmlspecialchars($_POST['date_naissance']);
+      $mail = htmlspecialchars($_POST['mail']);
+      $adresse = htmlspecialchars($_POST['adresse']);
+      $mutuelle = htmlspecialchars($_POST['mutuelle']);
+      $num_sec_soc = htmlspecialchars($_POST['num_sec_soc']);
+      $option_chambre = htmlspecialchars($_POST['option_chambre']);
+      $regime = htmlspecialchars($_POST['regime']);
     $req = $bdd->prepare('SELECT * FROM compte WHERE nom=? AND prenom=? AND mail=?');
     $req->execute(array($ins->getNom(), $ins->getPrenom(), $ins->getMail()));
     $donnees= $req->fetch();
@@ -41,6 +53,12 @@ class Method {
       header('Location: ../page_index.php');
     }
   }
+  } else {
+    echo '<body onLoad="alert(\'Veuillez remplir tous les champs !\')">';
+
+    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">';
+}
+}
 
   public function connexion($connexion){
     $bdd = $this->dbConnect();
@@ -102,6 +120,5 @@ class Method {
   }
   header('Location: ../page_index.php');
  }
-
 
 }
