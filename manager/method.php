@@ -52,13 +52,13 @@ class Method {
       ));
       header('Location: ../page_index.php');
     }
-  }
   } else {
     echo '<body onLoad="alert(\'Veuillez remplir tous les champs !\')">';
 
     echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">';
 }
 }
+
 
   public function connexion($connexion){
     $bdd = $this->dbConnect();
