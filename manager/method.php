@@ -16,6 +16,8 @@ class Method {
     $bdd = $this->dbConnect();
     if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['date_naissance']) AND !empty($_POST['mail']) AND !empty($_POST['adresse']) AND !empty($_POST['mutuelle']) AND !empty($_POST['num_sec_soc'])
     AND !empty($_POST['option_chambre']) AND !empty($_POST['regime']) AND !empty($_POST['mdp'])) {
+      if (!is_numeric($_POST['nom']) && strlen($_POST['nom']) <= 30) {
+        if (!is_numeric($_POST['prenom']) && strlen($_POST['prenom']) <= 30) {
 
       $nom = htmlspecialchars($_POST['nom']);
       $prenom = htmlspecialchars($_POST['prenom']);
@@ -52,11 +54,23 @@ class Method {
       ));
       header('Location: ../page_index.php');
     }
-  } else {
-    echo '<body onLoad="alert(\'Veuillez remplir tous les champs !\')">';
+  }
+  else {
+    echo '<body onLoad="alert(\'Veuillez entrer un nom valide ! \')">';
 
-    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">';
+    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
+  }
+
+  else {
+    echo '<body onLoad="alert(\'Veuillez entrer un nom valide ! \')">';
+
+    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
 }
+
+else {
+  echo '<body onLoad="alert(\'Veuillez remplir tous les champs !\')">';
+
+  echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
 }
 
 
