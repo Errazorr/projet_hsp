@@ -194,7 +194,7 @@ else {
    if (!empty($_POST['mail'])) {
      $mail = htmlspecialchars($_POST['mail']);
    $req = $bdd->prepare('SELECT * FROM compte WHERE mail=?');
-   $req->execute(array($mot_de_passe->getMail()));
+   $req->execute(getMail()));
    $donnees= $req->fetch();
 
    if ($donnees) {
@@ -218,7 +218,7 @@ else {
          echo '<body onLoad="alert(\'Erreur\')">';
        echo '<meta http-equiv="refresh" content="0;URL=../views/">';
      } else { // Si l'envoie de mail ne s'effectue pas alors on redirige vers une autre page //
-          header("location: ../views/mdp_oublie.html");
+        //  header("location: ../views/mdp_oublie.html"); //
        }
  }
 } else {
