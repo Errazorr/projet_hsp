@@ -1,8 +1,7 @@
 <?php
-<<<<<<< HEAD
+
 session_start();
 
-=======
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 //Recuperation de données des page suivantes //
@@ -10,7 +9,6 @@ require '../vendor/phpmailer/phpmailer/src/Exception.php';
 require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
 require '../vendor/phpmailer/phpmailer/src/SMTP.php';
 require '../vendor/autoload.php';
->>>>>>> 542679a03483b24c8a46ca8474044aad66c56983
 class Method {
 
   private function dbConnect(){
