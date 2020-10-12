@@ -79,75 +79,14 @@ $donnees= $rec->fetch();
             </div>
         </div>
     </section>
-    <!-- breadcrumb start-->
 
-  <!-- feature_part start
-    <section class="feature_part single_feature_page">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-xl-8">
-                    <div class="section_tittle text-center">
-                        <h2>Our services</h2>
-                    </div>
-                </div>
-            </div>
-            <div class="row justify-content-between align-items-center">
-                <div class="col-lg-3 col-sm-12">
-                    <div class="single_feature">
-                        <div class="single_feature_part">
-                            <span class="single_feature_icon"><img src="../img/icon/feature_1.svg" alt=""></span>
-                            <h4>Better Future</h4>
-                            <p>Darkness multiply rule Which from without life creature blessed
-                                give moveth moveth seas make day which divided our have.</p>
-                        </div>
-                    </div>
-                    <div class="single_feature">
-                        <div class="single_feature_part">
-                            <span class="single_feature_icon"><img src="../img/icon/feature_2.svg" alt=""></span>
-                            <h4>Better Future</h4>
-                            <p>Darkness multiply rule Which from without life creature blessed
-                                give moveth moveth seas make day which divided our have.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-sm-12">
-                        <div class="single_feature_img">
-                            <img src="../img/service.png" alt="">
-                        </div>
-                </div>
-                <div class="col-lg-3 col-sm-12">
-                    <div class="single_feature">
-                        <div class="single_feature_part">
-                            <span class="single_feature_icon"><img src="../img/icon/feature_1.svg" alt=""></span>
-                            <h4>Better Future</h4>
-                            <p>Darkness multiply rule Which from without life creature blessed
-                                give moveth moveth seas make day which divided our have.</p>
-                        </div>
-                    </div>
-                    <div class="single_feature">
-                        <div class="single_feature_part">
-                            <span class="single_feature_icon"><img src="../img/icon/feature_2.svg" alt=""></span>
-                            <h4>Better Future</h4>
-                            <p>Darkness multiply rule Which from without life creature blessed
-                                give moveth moveth seas make day which divided our have.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-  -->
-
-
-
-    <!--::regervation_part start::-->
     <section class="regervation_part section_padding">
         <div class="container">
             <div class="row align-items-center regervation_content">
                 <div class="col-lg-12">
 
                    <div class="regervation_part_iner">
-                        <form action="../traitement/inscription.php" method="post">
+                        <form action="../traitement/modification.php" method="post">
                           <center>
 
                            <h2>Vous désirez changer vos données? </h2> </center>

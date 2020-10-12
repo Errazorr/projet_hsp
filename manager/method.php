@@ -1,4 +1,6 @@
 <?php
+session_start();
+
 class Method {
 
   private function dbConnect(){
@@ -135,4 +137,22 @@ else {
   header('Location: ../page_index.php');
  }
 
+
+ public function Modification($modif){
+   $bdd = $this->dbConnect();
+   $result = $bdd->prepare('UPDATE compte SET nom = :nom, prenom = :prenom, date_naissance = :date_naissance, mail = :mail, adresse = :adresse,
+      mutuelle = :mutuelle, num_sec_soc = :num_sec_soc, option_chambre = :  option_chambre, regime = :regime WHERE id = :id ');
+   $result ->execute(array(
+     'nom' => $modif->getNom(),
+     'prenom' => $modif->getPrenom(),
+     'date_naissance' => $modif->getDateNaissance(),
+     'mail' => $modif->getMail(),
+     'adresse' => $modif->getAdresse(),
+     'mutuelle' => $modif->getMutuelle(),
+     'num_sec_soc' => $modif->getNumSecSoc(),
+     'option_chambre' => $modif->getOptionChambre(),
+     'regime' => $modif->getRegime(),
+     'id' => $_SESSION['id']
+   ));
+ }
 }
