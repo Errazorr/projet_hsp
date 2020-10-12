@@ -116,6 +116,7 @@ else {
     $donnees= $req->fetch();
     // Si la rêquette s'execute alors on redirige vers la page d'accueil //
     if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == md5($connexion->getMdp())) {
+      $_SESSION['id'] = $donnees['id'];
       $_SESSION['nom'] = $donnees['nom'];
       $_SESSION['prenom'] = $donnees['prenom'];
       $_SESSION['mail'] = $connexion->getMail();
