@@ -92,10 +92,9 @@ else {
   $mail->Port       = 587;                                    // TCP port to connect to
 
 
-  $mail->setFrom('ryannathanslam@gmail.com', 'Hopital');
-  $mail->addAddress($ins->getMail(), 'Hopital');     // Add a recipient //Recipients
-   $mail->Body    =   'Bonjour! L\'hopital vous souhaite la bienvenue et vous remercie pour
-   votre inscription!';
+  $mail->setFrom('ryannathanslam@gmail.com', 'Inscription');
+  $mail->addAddress($ins->getMail(), 'Inscription');     // Add a recipient //Recipients
+   $mail->Body    =   'Bonjour et bienvenue sur le site de l\'hopital, merci de nous faire confiance';
   if(!$mail->Send()) {
     // Si l'envoie de mail ne s'excuté pas alors on affiche une erreur //
     echo '<body onLoad="alert(\'Erreur, mail non envoyé\')">';
