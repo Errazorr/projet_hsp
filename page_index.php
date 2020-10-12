@@ -8,7 +8,7 @@
     <title>Site officiel de l'hôpital </title>
     <link rel="icon" href="img/favicon.png">
     <?php
-      require_once('views/navbar.php');
+      require_once('navbar_index.php');
     ?>
 
     <!-- banner part start-->
@@ -385,6 +385,6 @@
     </section>
     <!--::blog_part end::-->
 <?php
-require_once('views/footer.php');
+require_once('footer_index.php');
  ?>
 </html>
