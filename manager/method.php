@@ -1,6 +1,16 @@
 <?php
+<<<<<<< HEAD
 session_start();
 
+=======
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+//Recuperation de données des page suivantes //
+require '../vendor/phpmailer/phpmailer/src/Exception.php';
+require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
+require '../vendor/phpmailer/phpmailer/src/SMTP.php';
+require '../vendor/autoload.php';
+>>>>>>> 542679a03483b24c8a46ca8474044aad66c56983
 class Method {
 
   private function dbConnect(){
@@ -73,6 +83,31 @@ else {
   echo '<body onLoad="alert(\'Veuillez remplir tous les champs !\')">';
 
   echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
+
+  $mail = new PHPMailer();
+  $mail->isSMTP();                                            // Send using SMTP
+  $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+  $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+  $mail->Username   = 'ryannathanslam@gmail.com';                     // SMTP username
+  $mail->Password   = 'projethsp2020?';                               // SMTP password
+  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+  $mail->Port       = 587;                                    // TCP port to connect to
+
+
+  $mail->setFrom('ryannathanslam@gmail.com', 'Hopital');
+  $mail->addAddress($ins->getMail(), 'Hopital');     // Add a recipient //Recipients
+   $mail->Body    =   'Bonjour! L\'hopital vous souhaite la bienvenue et vous remercie pour
+   votre inscription!';
+  if(!$mail->Send()) {
+    // Si l'envoie de mail ne s'excuté pas alors on affiche une erreur //
+    echo '<body onLoad="alert(\'Erreur, mail non envoyé\')">';
+  echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.php">';
+  } else {
+    // Si l'envoie de mail est excuté alors on redirige vers la page d'accueil //
+
+     header("location: ../page_index.php");
+  }
+
 }
 
 
