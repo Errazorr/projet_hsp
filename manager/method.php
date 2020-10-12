@@ -1,8 +1,33 @@
 <?php
 class Method {
 
+  private function dbConnect(){
+     try{
+           $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+           return $bdd;
+         }
+     catch (Exception $e){
+           die('Erreur:'.$e->getMessage());
+     }
+
+  }
+
   public function Inscription($ins){
-    $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+    $bdd = $this->dbConnect();
+    if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['date_naissance']) AND !empty($_POST['mail']) AND !empty($_POST['adresse']) AND !empty($_POST['mutuelle']) AND !empty($_POST['num_sec_soc'])
+    AND !empty($_POST['option_chambre']) AND !empty($_POST['regime']) AND !empty($_POST['mdp'])) {
+      if (!is_numeric($_POST['nom']) && strlen($_POST['nom']) <= 30) {
+        if (!is_numeric($_POST['prenom']) && strlen($_POST['prenom']) <= 30) {
+
+      $nom = htmlspecialchars($_POST['nom']);
+      $prenom = htmlspecialchars($_POST['prenom']);
+      $date_naissance = htmlspecialchars($_POST['date_naissance']);
+      $mail = htmlspecialchars($_POST['mail']);
+      $adresse = htmlspecialchars($_POST['adresse']);
+      $mutuelle = htmlspecialchars($_POST['mutuelle']);
+      $num_sec_soc = htmlspecialchars($_POST['num_sec_soc']);
+      $option_chambre = htmlspecialchars($_POST['option_chambre']);
+      $regime = htmlspecialchars($_POST['regime']);
     $req = $bdd->prepare('SELECT * FROM compte WHERE nom=? AND prenom=? AND mail=?');
     $req->execute(array($ins->getNom(), $ins->getPrenom(), $ins->getMail()));
     $donnees= $req->fetch();
@@ -27,11 +52,30 @@ class Method {
         'mdp' => md5($ins->getMdp()),
         'role' => 'patient'
       ));
+      header('Location: ../page_index.php');
     }
   }
+  else {
+    echo '<body onLoad="alert(\'Veuillez entrer un nom valide ! \')">';
+
+    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
+  }
+
+  else {
+    echo '<body onLoad="alert(\'Veuillez entrer un nom valide ! \')">';
+
+    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
+}
+
+else {
+  echo '<body onLoad="alert(\'Veuillez remplir tous les champs !\')">';
+
+  echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
+}
+
 
   public function connexion($connexion){
-    $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+    $bdd = $this->dbConnect();
     // Sélectionne les informations de la table compte en fonction de l'adresse mail //
     $req = $bdd->prepare('SELECT * FROM compte WHERE mail=?');
     $req->execute(array($connexion->getMail()));
@@ -48,12 +92,12 @@ class Method {
       // Si non on affiche une erreur et on redirige vers la page connexion//
       echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
 
-      echo '<meta http-equiv="refresh" content="0;URL=../View/Connexion.php">';
+      echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
     }
   }
 
  public function Reservation($rdv){
-   $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+   $bdd = $this->dbConnect();
    $date_jour = date('Y-m-d');
    $date_consult = $rdv->getDateConsult();
 
@@ -88,7 +132,7 @@ class Method {
      }
 
   }
+  header('Location: ../page_index.php');
  }
 
 }
- ?>

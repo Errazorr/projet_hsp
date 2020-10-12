@@ -7,4 +7,5 @@ $inscription = new User(array('nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 
 'optionChambre'=>$_POST['option_chambre'], 'regime'=>$_POST['regime'], 'mdp'=>$_POST['mdp'], 'role'=>'patient'));
 $manager = new Method();
 $manager->Inscription($inscription);
+
  ?>

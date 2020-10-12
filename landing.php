@@ -43,6 +43,8 @@
                         <button type="button" class="btn btn-warning btn-lg" data-toggle="modal" data-target="#avatar">
                             Changer mon avatar
                         </button>
+                      <br><br>
+                        <a href="traitement/modification.php" target="_blank"> <input type="button"  value="Modifier mes informations"></a>
                 </div>
             </div>
         </div>
@@ -82,6 +84,11 @@
                         </div>
                     </div>
                 </div>
+
+            <br>  <center>  <p>Votre addresse mail : <?php echo $_SESSION['mail']; ?>.</p>
+                <br>  <center>  <p>Votre nom : <?php echo $_SESSION['nom']; ?>.</p>
+                    <br>  <center>  <p>Votre prénom : <?php echo $_SESSION['prenom']; ?>.</p>
+
 
             <div class="modal fade" id="avatar" tabindex="-1" role="dialog" aria-labelledby="modelTitleId" aria-hidden="true">
                 <div class="modal-dialog" role="document">
