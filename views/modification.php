@@ -32,37 +32,9 @@ $donnees= $rec->fetch();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Modifier son profil</title>
     <link rel="icon" href="../img/favicon.png">
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../css/bootstrap.min.css">
-    <!-- animate CSS -->
-    <link rel="stylesheet" href="../css/animate.css">
-    <!-- owl carousel CSS -->
-    <link rel="stylesheet" href="../css/owl.carousel.min.css">
-    <!-- themify CSS -->
-    <link rel="stylesheet" href="../css/themify-icons.css">
-    <!-- flaticon CSS -->
-    <link rel="stylesheet" href="../css/flaticon.css">
-    <!-- magnific popup CSS -->
-    <link rel="stylesheet" href="../css/magnific-popup.css">
-    <!-- nice select CSS -->
-    <link rel="stylesheet" href="../css/nice-select.css">
-    <!-- swiper CSS -->
-    <link rel="stylesheet" href="../css/slick.css">
-    <!-- style CSS -->
-    <link rel="stylesheet" href="../css/style.css">
-</head>
-
-<body>
-    <!--::header part start::-->
-    <header class="main_menu">
-        <div class="container">
-            <div class="row align-items-center">
-                <div class="col-lg-12">
-                </div>
-            </div>
-        </div>
-    </header>
-    <!-- Header part end-->
+    <?php
+      require_once('navbar.php');
+    ?>
 
      <!-- breadcrumb start-->
      <section class="breadcrumb_part breadcrumb_bg">
@@ -147,6 +119,8 @@ $donnees= $rec->fetch();
     </section>
     <!--::regervation_part end::-->
 
-</body>
+    <?php
+    require_once('footer.php');
+     ?>
 
 </html>
