@@ -173,19 +173,19 @@ else {
 
  public function Modification($modif){
    $bdd = $this->dbConnect();
-   $result = $bdd->prepare('UPDATE compte SET nom = :nom, prenom = :prenom, date_naissance = :date_naissance, mail = :mail, adresse = :adresse,
-      mutuelle = :mutuelle, num_sec_soc = :num_sec_soc, option_chambre = :  option_chambre, regime = :regime WHERE id = :id ');
+   $result = $bdd->prepare('UPDATE compte SET nom = ?, prenom = ?, date_naissance = ?, mail = ?, adresse = ?,
+      mutuelle = ?, num_sec_soc = ?, option_chambre = ?, regime = ? WHERE id = ? ');
    $result ->execute(array(
-     'nom' => $modif->getNom(),
-     'prenom' => $modif->getPrenom(),
-     'date_naissance' => $modif->getDateNaissance(),
-     'mail' => $modif->getMail(),
-     'adresse' => $modif->getAdresse(),
-     'mutuelle' => $modif->getMutuelle(),
-     'num_sec_soc' => $modif->getNumSecSoc(),
-     'option_chambre' => $modif->getOptionChambre(),
-     'regime' => $modif->getRegime(),
-     'id' => $_SESSION['id']
+     $modif->getNom(),
+     $modif->getPrenom(),
+     $modif->getDateNaissance(),
+     $modif->getMail(),
+     $modif->getAdresse(),
+     $modif->getMutuelle(),
+     $modif->getNumSecSoc(),
+     $modif->getOptionChambre(),
+     $modif->getRegime(),
+     $_SESSION['id']
    ));
  }
 }
