@@ -1,7 +1,8 @@
-
+<?php
+session_start();
+?>
 <!doctype html>
 <html lang="en">
-
 <head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
@@ -89,7 +90,7 @@
  <a href="mdp_oublie.html">Mot de passe oublié ? </a><br/>
 
 </br/>
-                                <a href="inscription.html" class="genric-btn danger-border circle arrow">Nouveau ici ? S'inscrire <span
+                                <a href="inscription.php" class="genric-btn danger-border circle arrow">Nouveau ici ? S'inscrire <span
                         						class="lnr lnr-arrow-right"></span></a></center>
                             </div>
 

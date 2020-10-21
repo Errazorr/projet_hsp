@@ -43,6 +43,12 @@ session_start();
                         <span class="navbar-toggler-icon"></span>
                     </button>
 
+
+
+                    <?php
+                          //Si la personne est un client
+                          if ($_SESSION['role'] == "patient") {
+                    ?>
                     <div class="collapse navbar-collapse main-menu-item justify-content-center"
                         id="navbarSupportedContent">
                         <ul class="navbar-nav align-items-center">
@@ -52,7 +58,7 @@ session_start();
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="blog.php" id="navbarDropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Pages
+                                    En savoir plus
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                     <a class="dropdown-item" href="informations.php">Informations</a>
@@ -65,7 +71,36 @@ session_start();
                             </li>
                         </ul>
                     </div>
-                    <a class="btn_2 d-none d-lg-block" href="connexion.php">Se connecter</a>
+                    <a class="btn_2 d-none d-lg-block" href="views/connexion.php">Se connecter</a>
+                  <?php  }
+                    //Sinon c'est donc un admin
+                   else { ?>
+<div class="collapse navbar-collapse main-menu-item justify-content-center"
+    id="navbarSupportedContent">
+    <ul class="navbar-nav align-items-center">
+        <li class="nav-item active">
+            <a class="nav-link" href="page_index.php">Accueil</a>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="blog.php" id="navbarDropdown"
+                role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                En savoir plus
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="informations.php">Informations</a>
+                <a class="dropdown-item" href="doctor.php">Médecins</a>
+                <a class="dropdown-item" href="soins.php">Soins</a>
+            </div>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact.php">Contact</a>
+        </li>
+    </ul>
+</div>
+<a class="btn_2 d-none d-lg-block" href="views/connexion.php">Se déco</a>
+<?php	}  ?>
+
+
                 </nav>
             </div>
         </div>

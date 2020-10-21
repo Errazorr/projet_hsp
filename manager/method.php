@@ -120,7 +120,7 @@ else {
       $_SESSION['nom'] = $donnees['nom'];
       $_SESSION['prenom'] = $donnees['prenom'];
       $_SESSION['mail'] = $connexion->getMail();
-      header('Location: ../landing.php');
+      header('Location: ../page_index.php');
     }
 
     else{
