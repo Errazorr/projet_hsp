@@ -48,7 +48,7 @@ class Method {
       echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">';
     }
     else{
-      $r = $bdd->prepare('INSERT INTO compte (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, option_chambre, regime, mdp, role) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :option_chambre, :regime, :mdp, :role)');
+      $r = $bdd->prepare('INSERT INTO compte (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, option_chambre, regime, mdp, role, confirme) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :option_chambre, :regime, :mdp, :role, :confirme)');
       $r ->execute(array(
         'nom' => $ins->getNom(),
         'prenom' => $ins->getPrenom(),
@@ -60,9 +60,10 @@ class Method {
         'option_chambre' => $ins->getOptionChambre(),
         'regime' => $ins->getRegime(),
         'mdp' => md5($ins->getMdp()),
-        'role' => 'patient'
+        'role' => 'patient',
+        'confirme' => 0
       ));
-      header('Location: ../page_index.php');
+      header('Location: ../views/connexion.php');
     }
   }
   else {
@@ -102,7 +103,7 @@ else {
   } else {
     // Si l'envoie de mail est excuté alors on redirige vers la page d'accueil //
 
-     header("location: ../page_index.php");
+     header("location: ../views/connexion.php");
   }
 
 }
@@ -120,7 +121,7 @@ else {
       $_SESSION['nom'] = $donnees['nom'];
       $_SESSION['prenom'] = $donnees['prenom'];
       $_SESSION['mail'] = $connexion->getMail();
-      header('Location: ../page_index.php');
+      header('Location: ../landing.php');
     }
 
     else{
