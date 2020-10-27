@@ -129,7 +129,7 @@ else {
     else{
       // Si non on affiche une erreur et on redirige vers la page connexion//
       echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
-
+      session_destroy();
       echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
     }
   }
@@ -152,7 +152,7 @@ else {
     else{
       // Si non on affiche une erreur et on redirige vers la page connexion//
       echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
-
+      session_destroy();
       echo '<meta http-equiv="refresh" content="0;URL=../views/connexion_medecin.php">';
     }
   }
