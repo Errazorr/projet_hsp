@@ -9,7 +9,6 @@
     $requete_sur_email->execute(array($email));
     if ($requete_sur_email->rowCount() > 0) {
       $info_user = $requete_sur_email->fetch();
-      $mdp_user = $info_user['mdp'];
 
 
 
@@ -93,15 +92,16 @@ function smtpmailer($to, $from, $from_name, $subject, $body)
 
 
 
- $name = 'Hopital';
+ $name = 'Hopital Zoldyck';
 
 
 
- $subj = 'Recup MDP';
+ $subj = 'Recupération du mot de passe';
 
 
 
- $msg = 'Bonjour votre mot de passe est : ' .$mdp_user;
+ $msg = " <a href='http://localhost/projet_hsp/projet_hsp/modification_mdp.php'>
+ Changez  votre mot de passe</a>";
 
 
 
@@ -109,7 +109,7 @@ function smtpmailer($to, $from, $from_name, $subject, $body)
 
 
 
-      echo $mdp_user;
+      
     } else {
       echo 'Email invalide';
     }

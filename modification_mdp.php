@@ -13,17 +13,35 @@ if(!empty($_POST) && !empty($_POST['mail'])) {
   if ($user) {
     session_start();
 
-    $bdd->prepare('UPDATE compte SET mdp = ? WHERE id = ?');->execute([$user->id]);
-
-    $_SESSION['mail'] = 'Envoyé par mail';
+    $bdd->prepare('UPDATE compte SET mdp = ? WHERE id = ?');
+    $bdd->execute([$user->id]);
 
     header('page_index.php');
 
     exit();
 
   } else {
-    $_SESSION['mail'] = 'Aucun compte ne correspond à cette adresse';
+  echo 'Aucun compte ne correspond à cette adresse';
   }
 }
 
 ?>
+
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Modification du mot de passe</title>
+  </head>
+  <body>
+    <form class="" action="index.html" method="post">
+<label for="mdp">Nouveau mot de passe : </label>
+        <input type="text" name="mdp" placeholder="exemple">
+
+<label for="mdp2">Confirmation nouveau mot de passe</label>
+        <input type="text" name="mdp2" placeholder="Confirmation">
+
+<input type="submit" name="" value="Valider">
+    </form>
+  </body>
+</html>
