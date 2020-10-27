@@ -221,6 +221,8 @@ else {
      $modif->getRegime(),
      $_SESSION['id']
    ));
+
+   header('Location: ../page_index.php');
  }
 
  public function MotDePasse($mot_de_passe) {
