@@ -1,6 +1,6 @@
 <?php
 
-session_start();
+//session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -121,6 +121,28 @@ else {
       $_SESSION['nom'] = $donnees['nom'];
       $_SESSION['prenom'] = $donnees['prenom'];
       $_SESSION['mail'] = $connexion->getMail();
+      header('Location: ../index.php');
+    }
+
+    else{
+      // Si non on affiche une erreur et on redirige vers la page connexion//
+      echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
+
+      echo '<meta http-equiv="refresh" content="0;URL=../views/connexion_medecin.php">';
+    }
+  }
+
+
+  public function connexion_medecin($connexion){
+    $bdd = $this->dbConnect();
+    // Sélectionne les informations de la table compte en fonction de l'adresse mail //
+    $req = $bdd->prepare('SELECT * FROM medecin WHERE identifiant=?');
+    $req->execute(array($connexion->getIdentifiant()));
+    $donnees= $req->fetch();
+    // Si la rêquette s'execute alors on redirige vers la page d'accueil //
+    if ($donnees['identifiant'] == $connexion->getIdentifiant() AND $donnees['mdp'] == md5($connexion->getMdp())) {
+      $_SESSION['nom'] = $donnees['nom'];
+      $_SESSION['role'] = 'medecin';
       header('Location: ../landing.php');
     }
 
@@ -131,6 +153,7 @@ else {
       echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
     }
   }
+
 
  public function Reservation($rdv){
    $bdd = $this->dbConnect();
