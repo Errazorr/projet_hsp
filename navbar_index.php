@@ -81,7 +81,7 @@ session_start();
 
                   <?php  }
                           //Sinon si c'est un médecin
-                         elseif ($_SESSION['role'] == "medecin"){ ?>
+                         else if ($_SESSION['role'] == "medecin"){ ?>
                            <li class="nav-item active">
                                <a class="nav-link" href="page_index.php">Accueil</a>
                            </li>
