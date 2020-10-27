@@ -144,8 +144,9 @@ else {
     // Si la rêquette s'execute alors on redirige vers la page d'accueil //
     if ($donnees['identifiant'] == $connexion->getIdentifiant() AND $donnees['mdp'] == md5($connexion->getMdp())) {
       $_SESSION['nom_medecin'] = $donnees['nom'];
-      $_SESSION['role'] = 'medecin';
+      $_SESSION['role'] = "medecin";
       header('Location: ../page_index.php');
+      
     }
 
     else{

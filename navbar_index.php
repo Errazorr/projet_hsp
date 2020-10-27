@@ -50,8 +50,9 @@ session_start();
                         id="navbarSupportedContent">
                         <ul class="navbar-nav align-items-center">
                           <?php
+
                           //Si il y a une session ouverte
-                          if (isset($_SESSION['mail'])){
+                          if (isset($_SESSION['mail']) || isset($_SESSION['nom_medecin'])){
                             //Si la personne est un client
                             if ($_SESSION['role'] == "patient") {
                            ?>
