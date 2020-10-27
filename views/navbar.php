@@ -74,7 +74,7 @@ session_start();
                             </li>
                         </ul>
                     </div>
-                    <a class="btn_2 d-none d-lg-block" href=href="../traitement/session_destroy.php">Déconnexion</a>
+                    <a class="btn_2 d-none d-lg-block" href="../traitement/session_destroy.php">Déconnexion</a>
 
 
                   <?php  }
