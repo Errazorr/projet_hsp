@@ -1,6 +1,6 @@
 <?php
 
-//session_start();
+session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
@@ -162,7 +162,6 @@ else {
    $bdd = $this->dbConnect();
    $date_jour = date('Y-m-d');
    $date_consult = $rdv->getDateConsult();
-   $time_now = time();
    $time_consult = $rdv->getTimeConsult();
 
    if ($date_consult < $date_jour) {
@@ -171,8 +170,8 @@ else {
      echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
    }
 
-   else if ($time_consult < $time_now){
-     echo '<body onLoad="alert(\'Heure invalide\')">';
+   else if ($time_consult < '07:00:00' || $time_consult > '22:00:00'){
+     echo '<body onLoad="alert(\'Heure invalide. Entrez une heure entre 7h et 22h\')">';
 
      echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
    }
