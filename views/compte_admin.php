@@ -81,6 +81,19 @@ $medecin = $bdd->query('SELECT * FROM medecin ORDER BY id DESC'); // ON AFFICHE 
 <?php } ?>
 </ul>
 
+<ul>
+<?php
+                                      $bdd= new PDO('mysql:host=localhost;dbname=hopital;charset=utf8','root','');
+                                      $rep=$bdd->query('SELECT * from compte');
+                                      $donne=$rep->fetchall();
+                                      foreach ($donne as $value) { ?> <li> <?php
+                                          echo "ID : ".$value['id']." "."NOM : ".$value['nom']." "."Prénom : ".$value['prenom']." "."Date de naissance : ".$value['date_naissance']." "."MAIL : ".$value['mail']." "."Adresse : ".$value['adresse']
+                                          .  " "."Mutuelle : ".$value['mutuelle']." "."Numéro de sécurité sociale : ".$value['num_sec_soc']. " "."Option de chambre : ".$value['option_chambre'].    "<br><br>";
+                                      } ?> </li>
+                                      </p>
+
+                                      </ul>
+
 
   </body>
 </html>

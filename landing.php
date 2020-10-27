@@ -65,9 +65,8 @@
                             </button>
                          </div>
                             <div class="modal-body">
-                                <form action="layouts/change_password.php" method="POST">
-                                    <label for='current_password'>Mot de passe actuel</label>
-                                    <input type="password" id="current_password" name="current_password" class="form-control" required/>
+                                <form action="traitement/mdp_oublie.php" method="POST">
+
                                     <br />
                                     <label for='new_password'>Nouveau mot de passe</label>
                                     <input type="password" id="new_password" name="new_password" class="form-control" required/>
