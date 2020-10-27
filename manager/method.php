@@ -25,7 +25,7 @@ class Method {
   public function Inscription($ins){
     $bdd = $this->dbConnect();
     if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['date_naissance']) AND !empty($_POST['mail']) AND !empty($_POST['adresse']) AND !empty($_POST['mutuelle']) AND !empty($_POST['num_sec_soc'])
-    AND !empty($_POST['option_chambre']) AND !empty($_POST['regime']) AND !empty($_POST['mdp'])) {
+    AND !empty($_POST['mdp'])) {
       if (!is_numeric($_POST['nom']) && strlen($_POST['nom']) <= 30) {
         if (!is_numeric($_POST['prenom']) && strlen($_POST['prenom']) <= 30) {
 
@@ -38,6 +38,7 @@ class Method {
       $num_sec_soc = htmlspecialchars($_POST['num_sec_soc']);
       $option_chambre = htmlspecialchars($_POST['option_chambre']);
       $regime = htmlspecialchars($_POST['regime']);
+      
     $req = $bdd->prepare('SELECT * FROM compte WHERE nom=? AND prenom=? AND mail=?');
     $req->execute(array($ins->getNom(), $ins->getPrenom(), $ins->getMail()));
     $donnees= $req->fetch();
