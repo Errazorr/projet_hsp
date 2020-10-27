@@ -59,20 +59,20 @@ session_start();
                                 <a class="nav-link" href="page_index.php">Accueil</a>
                             </li>
                             <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="views/blog.php" id="navbarDropdown"
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Rendez-vous
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="views/informations.php">Prendre un rendez-vous</a>
-                                    <a class="dropdown-item" href="views/doctor.php">Voir mes rendez-vous</a>
+                                    <a class="dropdown-item" href="views/prise_rdv.php">Prendre un rendez-vous</a>
+                                    <a class="dropdown-item" href="views/voir_rdv.php">Voir mes rendez-vous</a>
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="views/contact.php">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="views/contact.php">Modifier mon compte</a>
+                                <a class="nav-link" href="views/modification.php">Modifier mon compte</a>
                             </li>
                         </ul>
                     </div>
@@ -86,10 +86,10 @@ session_start();
                                <a class="nav-link" href="page_index.php">Accueil</a>
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="views/contact.php">Voir les rendez-vous</a>
+                               <a class="nav-link" href="views/voir_rdv.php">Voir les rendez-vous</a>
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="views/contact.php">Minichat</a>
+                               <a class="nav-link" href="views/minichat.php">Minichat</a>
                            </li>
                        </ul>
                    </div>
@@ -103,27 +103,27 @@ session_start();
                               <a class="nav-link" href="page_index.php">Accueil</a>
                           </li>
                           <li class="nav-item">
-                              <a class="nav-link" href="views/contact.php">Voir tous les rendez-vous</a>
+                              <a class="nav-link" href="views/voir_rdv.php">Voir tous les rendez-vous</a>
                           </li>
                           <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="views/blog.php" id="navbarDropdown"
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   Comptes
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="views/informations.php">Nouveau médecin</a>
-                                  <a class="dropdown-item" href="views/doctor.php">Nouvel admin</a>
-                                  <a class="dropdown-item" href="views/soins.php">Activer un compte</a>
+                                  <a class="dropdown-item" href="views/add_doctor.php">Nouveau médecin</a>
+                                  <a class="dropdown-item" href="views/add_admin.php">Nouvel admin</a>
+                                  <a class="dropdown-item" href="views/activate.php">Activer un compte</a>
                               </div>
                           </li>
                           <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="views/blog.php" id="navbarDropdown"
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                   Export
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="views/informations.php">Exporter les rendez-vous</a>
-                                  <a class="dropdown-item" href="views/doctor.php">Exporter un dossier d'admission</a>
+                                  <a class="dropdown-item" href="views/export_rdv.php">Exporter les rendez-vous</a>
+                                  <a class="dropdown-item" href="views/export_file.php">Exporter un dossier d'admission</a>
                               </div>
                           </li>
                       </ul>
@@ -139,7 +139,7 @@ session_start();
                           <a class="nav-link" href="page_index.php">Accueil</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="views/contact.php">Médecins</a>
+                          <a class="nav-link" href="views/doctor.php">Médecins</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="views/contact.php">Contact</a>
