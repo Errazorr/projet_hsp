@@ -16,6 +16,14 @@ else{
   $connect->connexion($connexion);
   $_SESSION['mail'] = $_POST['mail'];
 
+  $connect->dbConnect();
+
+  $resultat = $bdd->prepare('SELECT role FROM compte WHERE mail=?');
+  $resultat->execute(array($_POST['mail']));
+  $role= $resultat->fetch();
+
+  $_SESSION['role'] = $role;
+
 }
 
 ?>

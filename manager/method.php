@@ -11,7 +11,7 @@ require '../vendor/phpmailer/phpmailer/src/SMTP.php';
 require '../vendor/autoload.php';
 class Method {
 
-  private function dbConnect(){
+  public function dbConnect(){
      try{
            $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
            return $bdd;
@@ -196,7 +196,7 @@ else {
    if (!empty($_POST['mail'])) {
      $mail = htmlspecialchars($_POST['mail']);
    $req = $bdd->prepare('SELECT * FROM compte WHERE mail=?');
-   $req->execute(getMail()));
+   $req->execute(getMail());
    $donnees= $req->fetch();
 
    if ($donnees) {
