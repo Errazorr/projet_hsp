@@ -1,31 +1,38 @@
 <?php
+  $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+session_start();
 
-if(!empty($_POST) && !empty($_POST['mail'])) {
+if(isset($_POST['mail'])) {
+  if($_POST['mdp'] == $_POST['mdp2']) {
+$reponse=$bdd->prepare('SELECT * FROM compte WHERE mail = ? ');
 
-  $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root',''); // Connexion à la bdd
+$reponse->execute(array(
+  $_POST['mail']
+));
 
-  $req = $bdd->prepare('SELECT * FROM compte WHERE mail = ?');
+$donnee=$reponse->fetch();
 
-  $req->execute([$_POST['mail']]);
+if ($donnee)
+{
+$reponseCompte=$bdd->prepare('UPDATE compte SET mdp = ? WHERE mail = ? ');
 
-  $user = $req->fetch();
+$reponseCompte->execute(array(
+                  md5($_POST['mdp']),
+                  $_POST['mail']));
 
-  if ($user) {
-    session_start();
+header("location: views/connexion.php");
 
-    $bdd->prepare('UPDATE compte SET mdp = ? WHERE id = ?');
-    $bdd->execute([$user->id]);
+$reponseCompte->closeCursor();
 
-    header('page_index.php');
-
-    exit();
-
-  } else {
-  echo 'Aucun compte ne correspond à cette adresse';
-  }
+if($reponseCompte) {
+  echo 'Votre mot de passe a été changé';
 }
 
+}
+}
+}
 ?>
+
 
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
@@ -34,14 +41,29 @@ if(!empty($_POST) && !empty($_POST['mail'])) {
     <title>Modification du mot de passe</title>
   </head>
   <body>
-    <form class="" action="index.html" method="post">
-<label for="mdp">Nouveau mot de passe : </label>
-        <input type="text" name="mdp" placeholder="exemple">
-
-<label for="mdp2">Confirmation nouveau mot de passe</label>
-        <input type="text" name="mdp2" placeholder="Confirmation">
-
-<input type="submit" name="" value="Valider">
+<div align="center">
+  <h1> Récupérez votre mot de passe </h1>
+    <form class="" action="" method="post">
+      <table border="0" cellpadding="5" cellspacing="15">
+        <tr>
+<td> <label for="mail">Votre adresse mail :</label> </td>
+<td>   <input type="mail" name="mail" placeholder="exemple@exemple.fr" /> </td>
+      </tr>
+<br><br>
+<tr>
+<td> <label for="mdp">Nouveau mot de passe :</label> </td>
+<td>   <input type="password" name="mdp" placeholder="motdepasse" /> </td>
+</tr>
+<br><br>
+<tr>
+<td> <label for="mdp2">Confirmation mot de passe :</label> </td>
+<td>   <input type="password" name="mdp2" placeholder="confirmation" /> </td>
+</tr>
+<br><br>
+<tr>
+<td align="center" colspan="2">
+<input type="submit" name="valider_email" value="Valider">
+</td>
     </form>
   </body>
 </html>
