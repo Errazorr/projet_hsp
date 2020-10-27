@@ -3,7 +3,7 @@
 
 <!-- Test de connexion a la bdd -->
 <?php
-session_start();
+require_once('navbar.php');
 
 try{
   $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
@@ -32,10 +32,7 @@ $donnees= $rec->fetch();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Modifier son profil</title>
     <link rel="icon" href="../img/favicon.png">
-    <?php
-      require_once('navbar.php');
-    ?>
-
+    
      <!-- breadcrumb start-->
      <section class="breadcrumb_part breadcrumb_bg">
         <div class="container">
