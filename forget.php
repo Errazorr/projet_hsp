@@ -101,7 +101,8 @@ function smtpmailer($to, $from, $from_name, $subject, $body)
 
 
 
- $msg = 'Bonjour votre mot de passe est : ' .$mdp_user;
+ $msg = " Bonjour votre mot de passe actuel est : $mdp_user. <a href='http://localhost/projet_hsp/projet_hsp/modification_mdp.php'>
+ Changez  votre mot de passe</a>";
 
 
 
