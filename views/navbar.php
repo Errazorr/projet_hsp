@@ -51,7 +51,7 @@ session_start();
                           //Si il y a une session ouverte
                           if (isset($_SESSION['mail'])){
                             //Si la personne est un client
-                            if ($_SESSION['role'] == "client") {
+                            if ($_SESSION['role'] == "patient") {
                            ?>
                             <li class="nav-item active">
                                 <a class="nav-link" href="../page_index.php">Accueil</a>
@@ -59,16 +59,18 @@ session_start();
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="../blog.php" id="navbarDropdown"
                                     role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Pages
+                                    Rendez-vous
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="../informations.php">Informations</a>
-                                    <a class="dropdown-item" href="../doctor.php">Médecins</a>
-                                    <a class="dropdown-item" href="../soins.php">Soins</a>
+                                    <a class="dropdown-item" href="../informations.php">Prendre un rendez-vous</a>
+                                    <a class="dropdown-item" href="/doctor.php">Voir mes rendez-vous</a>
                                 </div>
                             </li>
                             <li class="nav-item">
                                 <a class="nav-link" href="../contact.php">Contact</a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="../contact.php">Modifier mon compte</a>
                             </li>
                         </ul>
                     </div>
@@ -81,19 +83,11 @@ session_start();
                            <li class="nav-item active">
                                <a class="nav-link" href="../page_index.php">Accueil</a>
                            </li>
-                           <li class="nav-item dropdown">
-                               <a class="nav-link dropdown-toggle" href="../blog.php" id="navbarDropdown"
-                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                   Pages
-                               </a>
-                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                   <a class="dropdown-item" href="../informations.php">Informations</a>
-                                   <a class="dropdown-item" href="../doctor.php">Médecins</a>
-                                   <a class="dropdown-item" href="../soins.php">Soins</a>
-                               </div>
+                           <li class="nav-item">
+                               <a class="nav-link" href="../contact.php">Voir les rendez-vous</a>
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="../contact.php">Contact</a>
+                               <a class="nav-link" href="../contact.php">Minichat</a>
                            </li>
                        </ul>
                    </div>
@@ -106,19 +100,29 @@ session_start();
                           <li class="nav-item active">
                               <a class="nav-link" href="../page_index.php">Accueil</a>
                           </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="../contact.php">Voir tous les rendez-vous</a>
+                          </li>
                           <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="../blog.php" id="navbarDropdown"
                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                  Pages
+                                  Comptes
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="../informations.php">Informations</a>
-                                  <a class="dropdown-item" href="../doctor.php">Médecins</a>
-                                  <a class="dropdown-item" href="../soins.php">Soins</a>
+                                  <a class="dropdown-item" href="../informations.php">Nouveau médecin</a>
+                                  <a class="dropdown-item" href="../doctor.php">Nouvel admin</a>
+                                  <a class="dropdown-item" href="../soins.php">Activer un compte</a>
                               </div>
                           </li>
-                          <li class="nav-item">
-                              <a class="nav-link" href="../contact.php">Contact</a>
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="../blog.php" id="navbarDropdown"
+                                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Export
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="../informations.php">Exporter les rendez-vous</a>
+                                  <a class="dropdown-item" href="../doctor.php">Exporter un dossier d'admission</a>
+                              </div>
                           </li>
                       </ul>
                   </div>
@@ -132,16 +136,8 @@ session_start();
                       <li class="nav-item active">
                           <a class="nav-link" href="../page_index.php">Accueil</a>
                       </li>
-                      <li class="nav-item dropdown">
-                          <a class="nav-link dropdown-toggle" href="../blog.php" id="navbarDropdown"
-                              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Pages
-                          </a>
-                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                              <a class="dropdown-item" href="../informations.php">Informations</a>
-                              <a class="dropdown-item" href="../doctor.php">Médecins</a>
-                              <a class="dropdown-item" href="../soins.php">Soins</a>
-                          </div>
+                      <li class="nav-item">
+                          <a class="nav-link" href="../contact.php">Médecins</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="../contact.php">Contact</a>
