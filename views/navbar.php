@@ -46,6 +46,13 @@ session_start();
                     <div class="collapse navbar-collapse main-menu-item justify-content-center"
                         id="navbarSupportedContent">
                         <ul class="navbar-nav align-items-center">
+
+                          <?php
+                          //Si il y a une session ouverte
+                          if (isset($_SESSION['mail'])){
+                            //Si la personne est un client
+                            if ($_SESSION['role'] == "client") {
+                           ?>
                             <li class="nav-item active">
                                 <a class="nav-link" href="../page_index.php">Accueil</a>
                             </li>
@@ -65,7 +72,84 @@ session_start();
                             </li>
                         </ul>
                     </div>
-                    <a class="btn_2 d-none d-lg-block" href="../connexion.php">Se connecter</a>
+                    <a class="btn_2 d-none d-lg-block" href=href="../traitement/session_destroy.php">Déconnexion</a>
+
+
+                  <?php  }
+                          //Sinon si c'est un médecin
+                         elseif ($_SESSION['role'] == "medecin"){ ?>
+                           <li class="nav-item active">
+                               <a class="nav-link" href="../page_index.php">Accueil</a>
+                           </li>
+                           <li class="nav-item dropdown">
+                               <a class="nav-link dropdown-toggle" href="../blog.php" id="navbarDropdown"
+                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                   Pages
+                               </a>
+                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" href="../informations.php">Informations</a>
+                                   <a class="dropdown-item" href="../doctor.php">Médecins</a>
+                                   <a class="dropdown-item" href="../soins.php">Soins</a>
+                               </div>
+                           </li>
+                           <li class="nav-item">
+                               <a class="nav-link" href="../contact.php">Contact</a>
+                           </li>
+                       </ul>
+                   </div>
+                   <a class="btn_2 d-none d-lg-block" href="../traitement/session_destroy.php">Déconnexion</a>
+
+
+                 <?php  }
+                         //Sinon c'est donc un admin
+                        else{ ?>
+                          <li class="nav-item active">
+                              <a class="nav-link" href="../page_index.php">Accueil</a>
+                          </li>
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="../blog.php" id="navbarDropdown"
+                                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  Pages
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="../informations.php">Informations</a>
+                                  <a class="dropdown-item" href="../doctor.php">Médecins</a>
+                                  <a class="dropdown-item" href="../soins.php">Soins</a>
+                              </div>
+                          </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="../contact.php">Contact</a>
+                          </li>
+                      </ul>
+                  </div>
+                  <a class="btn_2 d-none d-lg-block" href="../traitement/session_destroy.php">Déconnexion</a>
+
+
+                <?php }
+                    }
+                    //Sinon il n'y a pas de sessions ouverte
+                    else{ ?>
+                      <li class="nav-item active">
+                          <a class="nav-link" href="../page_index.php">Accueil</a>
+                      </li>
+                      <li class="nav-item dropdown">
+                          <a class="nav-link dropdown-toggle" href="../blog.php" id="navbarDropdown"
+                              role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Pages
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                              <a class="dropdown-item" href="../informations.php">Informations</a>
+                              <a class="dropdown-item" href="../doctor.php">Médecins</a>
+                              <a class="dropdown-item" href="../soins.php">Soins</a>
+                          </div>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="../contact.php">Contact</a>
+                      </li>
+                  </ul>
+              </div>
+              <a class="btn_2 d-none d-lg-block" href="../connexion.php">Connexion</a>
+              <?php	}  ?>
                 </nav>
             </div>
         </div>

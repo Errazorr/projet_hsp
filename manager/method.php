@@ -121,7 +121,9 @@ else {
       $_SESSION['nom'] = $donnees['nom'];
       $_SESSION['prenom'] = $donnees['prenom'];
       $_SESSION['mail'] = $connexion->getMail();
-      header('Location: ../index.php');
+      $_SESSION['role'] = $donnees['role'];
+      //header('Location: ../index.php');
+      header('Location: ../page_index.php');
     }
 
     else{
