@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 05 oct. 2020 à 12:15
+-- Généré le :  mar. 27 oct. 2020 à 10:42
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -46,16 +46,17 @@ CREATE TABLE IF NOT EXISTS `compte` (
   `role` varchar(7) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `fk_patient` (`nom`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `compte`
 --
 
 INSERT INTO `compte` (`id`, `nom`, `prenom`, `date_naissance`, `mail`, `adresse`, `mutuelle`, `num_sec_soc`, `option_chambre`, `regime`, `mdp`, `role`) VALUES
-(1, 'admin', 'admin', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '098f6bcd4621d373cade4e832627b4f6', 'admin'),
-(2, 'Kebiche', 'Killian', '27/06/2000', 'k.kebiche@gmail.com', '3 rue des potiers 93300 Aubervilliers', 'test', '152485963258745', 'Wifi et TV', NULL, '098f6bcd4621d373cade4e832627b4f6', 'patient'),
-(4, 'FONTAINE', 'Ryan', '2000-11-18', 'ryan-fontaine@hotmail.fr', '261 rue de meaux, Vaujours', 'GRAS SAVOIE', '100432432432434', 'Wifi', '', 'ab4f63f9ac65152575886860dde480a1', 'patient');
+(1, 'admin', 'admin', NULL, 'admin@gmail.com', NULL, NULL, NULL, NULL, NULL, '098f6bcd4621d373cade4e832627b4f6', 'admin'),
+(2, 'Kebiche', 'Killian', '2000-06-27', 'k.kebiche@gmail.com', '3 rue des potiers 93300 Aubervilliers', 'Mutuelle', '152485963258745', 'Wifi', 'Végétarien', 'ab4f63f9ac65152575886860dde480a1', 'patient'),
+(4, 'FONTAINE', 'Ryan', '2000-11-18', 'ryan-fontaine@hotmail.fr', '261 rue de meaux, Vaujours', 'GRAS SAVOIE', '100432432432434', 'Wifi', '', 'ab4f63f9ac65152575886860dde480a1', 'patient'),
+(7, 'Lignani', 'Quentin', '2000-01-01', 'q.lignani@gmail.com', 'test', 'test', '121212121212121', 'Wifi', '', '098f6bcd4621d373cade4e832627b4f6', 'patient');
 
 -- --------------------------------------------------------
 
@@ -98,7 +99,7 @@ CREATE TABLE IF NOT EXISTS `minichat` (
   `message` text NOT NULL,
   `date_message` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `minichat`
@@ -108,7 +109,9 @@ INSERT INTO `minichat` (`id`, `nom`, `message`, `date_message`) VALUES
 (1, 'ryanftne', 'hello', '2020-10-05 14:01:45'),
 (2, 'ryanftne', 'comment allez-vous?', '2020-10-05 14:01:53'),
 (3, 'ryanftne', 'salut', '2020-10-05 14:02:18'),
-(4, 'ryanftne', 'je suis médecin', '2020-10-05 14:03:04');
+(4, 'ryanftne', 'je suis médecin', '2020-10-05 14:03:04'),
+(5, 'Errazorr', 'Salut', '2020-10-05 14:23:52'),
+(6, 'Errazorr', 'Ta mère Enzo', '2020-10-05 14:24:21');
 
 -- --------------------------------------------------------
 
@@ -121,6 +124,8 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom_patient` varchar(50) NOT NULL,
   `nom_medecin` varchar(50) NOT NULL,
+  `date_consult` date NOT NULL,
+  `time_consult` time NOT NULL,
   `rais_consult` text NOT NULL,
   PRIMARY KEY (`id`),
   KEY `fk_patient` (`nom_patient`),

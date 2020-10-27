@@ -30,7 +30,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Prise de rendez-vous</h2>
+                            <h2>Prenez de rendez-vous</h2>
                         </div>
                     </div>
                 </div>
@@ -146,7 +146,13 @@
                                 <div class="form-group col-md-6">
                                     <input type="date" class="form-control" name="date_consult" placeholder="Votre date pour la consultation : ">
                                 </div>
+                                <div class="form-group col-md-6">
+                                    <input type="time" class="form-control" name="time_consult" placeholder="Votre heure pour la consultation : ">
+                                </div>
+                                <div class="form-group col-md-6">
                                     <input type="textarea" class="form-control" name="rais_consult" placeholder="Votre raison pour la consultation : ">
+                                </div>
+
                                 <br/> </br/>
                             </div>
                             <div class="regerv_btn"><center>
