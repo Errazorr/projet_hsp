@@ -221,6 +221,7 @@ else {
      $modif->getRegime(),
      $_SESSION['id']
    ));
+   echo '<body onLoad="alert(\'Données du compte modifiées avec succès\')">';
 
    header('Location: ../page_index.php');
  }
