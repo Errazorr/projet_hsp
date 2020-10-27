@@ -11,7 +11,7 @@ require '../vendor/phpmailer/phpmailer/src/SMTP.php';
 require '../vendor/autoload.php';
 class Method {
 
-  public function dbConnect(){
+  private function dbConnect(){
      try{
            $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
            return $bdd;
@@ -146,7 +146,7 @@ else {
       $_SESSION['nom_medecin'] = $donnees['nom'];
       $_SESSION['role'] = "medecin";
       header('Location: ../page_index.php');
-      
+
     }
 
     else{
@@ -162,9 +162,17 @@ else {
    $bdd = $this->dbConnect();
    $date_jour = date('Y-m-d');
    $date_consult = $rdv->getDateConsult();
+   $time_now = time();
+   $time_consult = $rdv->getTimeConsult();
 
    if ($date_consult < $date_jour) {
      echo '<body onLoad="alert(\'Date invalide\')">';
+
+     echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
+   }
+
+   else if ($time_consult < $time_now){
+     echo '<body onLoad="alert(\'Heure invalide\')">';
 
      echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
    }

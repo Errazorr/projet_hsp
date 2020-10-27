@@ -84,7 +84,10 @@ session_start();
 
 
                                 <input type="submit" class="btn_1" name="btn" value="Valider">
-                                <br/>  </center>
+                                <a href="connexion.php" class="genric-btn danger-border circle arrow">Retour<span
+                        						class="lnr lnr-arrow-right"></span></a>
+                                <br/>
+                                  </center>
 
                               </br/>		<center>
 <br/>

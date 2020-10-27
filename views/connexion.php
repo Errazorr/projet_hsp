@@ -84,6 +84,8 @@ session_start();
 
 
                                 <input type="submit" class="btn_1" name="btn" value="Valider">
+                                <a href="connexion_medecin.php" class="btn_1">Médecin? Par ici<span
+                        						class="lnr lnr-arrow-right"></span></a>
                                 <br/>  </center>
 
                               </br/>		<center>
@@ -91,7 +93,9 @@ session_start();
 
 </br/>
                                 <a href="inscription.php" class="genric-btn danger-border circle arrow">Nouveau ici ? S'inscrire <span
-                        						class="lnr lnr-arrow-right"></span></a></center>
+                        						class="lnr lnr-arrow-right"></span></a>
+                                    <a href="../page_index.php" class="genric-btn danger-border circle arrow">Retour<span
+                            						class="lnr lnr-arrow-right"></span></a></center>
                             </div>
 
 

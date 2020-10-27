@@ -16,7 +16,13 @@ else{
   $connect->connexion($connexion);
   $_SESSION['mail'] = $_POST['mail'];
 
-  $connect->dbConnect();
+  try{
+        $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+        return $bdd;
+      }
+  catch (Exception $e){
+        die('Erreur:'.$e->getMessage());
+  }
 
   $resultat = $bdd->prepare('SELECT role FROM compte WHERE mail=?');
   $resultat->execute(array($_POST['mail']));
