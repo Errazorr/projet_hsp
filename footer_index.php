@@ -8,13 +8,8 @@
             <div class="row justify-content-between">
                 <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">
                     <a href="#" class="footer_logo"> <img src="img/logo.png" alt="#"> </a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </p>
-                    <div class="social_logo">
-                        <a href="#"><i class="ti-facebook"></i></a>
-                        <a href="#"> <i class="ti-twitter"></i> </a>
-                        <a href="#"><i class="ti-instagram"></i></a>
-                        <a href="#"><i class="ti-skype"></i></a>
-                    </div>
+                    <p>Le site officiel de l'hôpital Zoldyck. </p>
+
                 </div>
                 <div class="col-xl-2 col-sm-6 col-md-4 single-footer-widget">
                     <h4>Quick Links</h4>
@@ -76,14 +71,14 @@
         <div class="container">
             <div class="row align-items-center">
                 <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Tous droits réservés | Le site a été réalisé avec <i class="ti-heart" aria-hidden="true"></i> par Ryan et Nathan.</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 </p>
                 <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
                     <a href="#"><i class="ti-facebook"></i></a>
                     <a href="#"> <i class="ti-twitter"></i> </a>
                     <a href="#"><i class="ti-instagram"></i></a>
-                    <a href="#"><i class="ti-skype"></i></a>
+                    
                 </div>
             </div>
         </div>

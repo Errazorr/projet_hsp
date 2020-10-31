@@ -8,7 +8,7 @@
             <div class="row justify-content-between">
                 <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">
                     <a href="#" class="footer_logo"> <img src="../img/logo.png" alt="#"> </a>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor </p>
+                    <p>Le site officiel de l'hôpital Zoldyck? </p>
                     <div class="social_logo">
                         <a href="#"><i class="ti-facebook"></i></a>
                         <a href="#"> <i class="ti-twitter"></i> </a>
@@ -19,7 +19,7 @@
                 <div class="col-xl-2 col-sm-6 col-md-4 single-footer-widget">
                     <h4>Quick Links</h4>
                     <ul>
-                        <li><a href="#">About us</a></li>
+                        <li><a href="#">About uss</a></li>
                         <li><a href="#">Department</a></li>
                         <li><a href="#"> Online payment</a></li>
                         <li><a href="#">Careers</a></li>
