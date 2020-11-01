@@ -50,11 +50,11 @@
                 </div>
                 <div class="col-md-6 col-lg-5">
                     <div class="about_us_text">
-                        <h2>A propos de nous ?</h2>
+                        <h2>À propos de nous ?</h2>
                         <p style="color : black;">
 
                         L’hôpital Zoldyck est un hôpital public faisant partie de l’Assistance Publique–Hôpitaux de Paris (AP-HP), qui est le Centre Hospitalier Universitaire (CHU) de la région Ile-de-France.</p>
-                        <a class="btn_2 " target="_blank" href="savoirplus.html">En savoir plus</a>
+                        <a class="btn_2 " target="_blank" href="views/savoirplus.php">En savoir plus</a>
                         <div class="banner_item">
                             <div class="single_item">
                                 <img src="img/icon/banner_1.svg" alt="">

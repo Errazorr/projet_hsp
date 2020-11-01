@@ -27,6 +27,8 @@ session_start();
     <link rel="stylesheet" href="../css/slick.css">
     <!-- style CSS -->
     <link rel="stylesheet" href="../css/style.css">
+
+    <link rel="stylesheet" href="../css/style2.css">
 </head>
 
 

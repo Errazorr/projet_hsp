@@ -1,7 +1,7 @@
 <?php
 session_start();
 // connect to database
-$conn = mysqli_connect('localhost', 'root', '', 'dislike_like');
+$conn = mysqli_connect('localhost', 'root', '', 'hopital');
 
 // lets assume a user is logged in with id $user_id
 $user_id = $_SESSION['id'];
