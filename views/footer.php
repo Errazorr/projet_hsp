@@ -8,54 +8,44 @@
             <div class="row justify-content-between">
                 <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">
                     <a href="#" class="footer_logo"> <img src="../img/logo.png" alt="#"> </a>
-                    <p>Le site officiel de l'hôpital Zoldyck? </p>
-                    <div class="social_logo">
-                        <a href="#"><i class="ti-facebook"></i></a>
-                        <a href="#"> <i class="ti-twitter"></i> </a>
-                        <a href="#"><i class="ti-instagram"></i></a>
-                        <a href="#"><i class="ti-skype"></i></a>
-                    </div>
+                    <p>Le site officiel de l'hôpital Zoldyck. </p>
+
                 </div>
                 <div class="col-xl-2 col-sm-6 col-md-4 single-footer-widget">
-                    <h4>Quick Links</h4>
+                    <h4>Liens rapides</h4>
                     <ul>
-                        <li><a href="#">About uss</a></li>
-                        <li><a href="#">Department</a></li>
-                        <li><a href="#"> Online payment</a></li>
-                        <li><a href="#">Careers</a></li>
-                        <li><a href="#">Department</a></li>
+                        <li><a href="../page_index.php">Revenir à l'accueil</a></li>
+                        <li><a href="doctor.php">Les médecins</a></li>
+
                     </ul>
                 </div>
-                <div class="col-xl-2 col-sm-6 col-md-4 single-footer-widget">
-                    <h4>Explore</h4>
-                    <ul>
-                        <li><a href="#">In the community</a></li>
-                        <li><a href="#">IU health foundation</a></li>
-                        <li><a href="#">Family support </a></li>
-                        <li><a href="#">Business solution</a></li>
-                        <li><a href="#">Community clinic</a></li>
-                    </ul>
-                </div>
+
                 <div class="col-xl-2 col-sm-6 col-md-6 single-footer-widget">
-                    <h4>Resources</h4>
+                    <h4>Contact</h4>
                     <ul>
-                        <li><a href="#">Lights were season</a></li>
-                        <li><a href="#"> Their is let wherein</a></li>
-                        <li><a href="#">which given over</a></li>
-                        <li><a href="#">Without given She</a></li>
-                        <li><a href="#">Isn two signs think</a></li>
+                        <li><a href="contact.php">Des questions ?</a></li>
+                        <li><a href="contact.php">Plan</a></li>
+
                     </ul>
                 </div>
+
+                <div class="col-xl-3 col-sm-6 col-md-6 single-footer-widget">
+                    <h4>Informations</h4>
+                    <p>ryannathanslam@gmail.com</p><br>
+                    <p>30, Avenue Montaigne, <br>
+                75008 Paris</p>
+
+                </div>
+
                 <div class="col-xl-3 col-sm-6 col-md-6 single-footer-widget">
                     <h4>Newsletter</h4>
-                    <p>Seed good winged wherein which night multiply
-                        midst does not fruitful</p>
+                    <p>En cette période de Covid-19, restez au courant de toutes les actualités concernant l'hôpital.</p>
                     <div class="form-wrap" id="mc_embed_signup">
                         <form target="_blank"
                             action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
                             method="get" class="form-inline">
-                            <input class="form-control" name="EMAIL" placeholder="Your Email Address"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Your Email Address '"
+                            <input class="form-control" name="EMAIL" placeholder="Votre adresse mail"
+                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Votre adresse mail '"
                                 required="" type="email">
                             <button class="click-btn btn btn-default text-uppercase"> <i class="ti-angle-right"></i>
                             </button>
@@ -75,16 +65,16 @@
     <div class="copyright_part">
         <div class="container">
             <div class="row align-items-center">
-                <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
+              <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+Copyright &copy;<script>document.write(new Date().getFullYear());</script> Tous droits réservés | Le site a été réalisé avec <i class="ti-heart" aria-hidden="true"></i> par Ryan et Nathan.</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 </p>
-                <div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
-                    <a href="#"><i class="ti-facebook"></i></a>
-                    <a href="#"> <i class="ti-twitter"></i> </a>
-                    <a href="#"><i class="ti-instagram"></i></a>
-                    <a href="#"><i class="ti-skype"></i></a>
-                </div>
+<div class="col-lg-4 col-md-12 text-center text-lg-right footer-social">
+    <a target="_blank" href="https://www.facebook.com/hopital.zoldyck.7/"><i class="ti-facebook"></i></a>
+    <a target="_blank" href="https://twitter.com/HopitalZ"> <i class="ti-twitter"></i> </a>
+    <a target="_blank" href="https://www.instagram.com/hopital_zoldyck/"><i class="ti-instagram"></i></a>
+
+</div>
             </div>
         </div>
     </div>
