@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 02 nov. 2020 à 13:19
+-- Généré le :  lun. 02 nov. 2020 à 15:31
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -27,39 +27,19 @@ USE `hopital`;
 -- --------------------------------------------------------
 
 --
--- Structure de la table `compte`
+-- Structure de la table `admin`
 --
 
-DROP TABLE IF EXISTS `compte`;
-CREATE TABLE IF NOT EXISTS `compte` (
+DROP TABLE IF EXISTS `admin`;
+CREATE TABLE IF NOT EXISTS `admin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `nom` varchar(50) NOT NULL,
-  `prenom` varchar(50) NOT NULL,
-  `date_naissance` varchar(10) DEFAULT NULL,
-  `mail` varchar(50) DEFAULT NULL,
-  `adresse` text,
-  `mutuelle` varchar(50) DEFAULT NULL,
-  `num_sec_soc` varchar(15) DEFAULT NULL,
-  `option_chambre` varchar(10) DEFAULT NULL,
-  `regime` text,
-  `mdp` varchar(50) NOT NULL,
-  `role` varchar(7) NOT NULL,
-  `confirme` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `fk_patient` (`nom`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
-
---
--- Déchargement des données de la table `compte`
---
-
-INSERT INTO `compte` (`id`, `nom`, `prenom`, `date_naissance`, `mail`, `adresse`, `mutuelle`, `num_sec_soc`, `option_chambre`, `regime`, `mdp`, `role`, `confirme`) VALUES
-(1, 'admin', 'admin', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '098f6bcd4621d373cade4e832627b4f6', 'admin', 0),
-(2, 'Kebiche', 'Killian', '', 'k.kebiche@gmail.com', '3 rue des potiers 93300 Aubervilliers', 'test', '152485963258745', 'Wifi et TV', 'SECU ', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0),
-(7, 'z', 'z', '2001-12-18', 'z@z.fr', 'z', 'z', '100432432432431', 'Wifi', 'z', 'fbade9e36a3f36d3d676c1b808451dd7', 'patient', 0),
-(15, 'bhujun', 'yanish', '2020-09-30', 'yanish.bhujun@gmail.com', '3 rue test', 'GRAS SAVOIE', '212222222222111', 'Wifi', 'e', '164b6da6ab4209c16ff3841306dbec83', 'patient', 0),
-(18, 'Fontaine', 'Ryan', '2000-10-12', 'ryan-fontaine@hotmail.fr', 'QQ', 'QQ', '232112321321312', 'QQ', 'QQ', 'de77e68263cd19b4468e088e65eeba84', 'patient', 0),
-(19, 'Goncalves', 'Nathan', '2000-06-07', 'axel.lea.kingdomhearts@gmail.com', '3 rue des pottiers', 'Hunter', '123232312132323', 'TV', 'CMU', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0);
+  `nom` varchar(30) NOT NULL,
+  `prenom` varchar(30) NOT NULL,
+  `mail` varchar(50) NOT NULL,
+  `mdp` varchar(20) NOT NULL,
+  `role` varchar(30) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
 
 -- --------------------------------------------------------
 
@@ -136,7 +116,18 @@ CREATE TABLE IF NOT EXISTS `p3x_chat_message` (
   PRIMARY KEY (`id_message`),
   KEY `id_utilisateur` (`id_utilisateur`),
   KEY `id_utilisateur_prive` (`id_utilisateur_prive`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `p3x_chat_message`
+--
+
+INSERT INTO `p3x_chat_message` (`id_message`, `id_utilisateur`, `id_utilisateur_prive`, `message`, `date`) VALUES
+(1, 1, 0, 'dzjiodsiiddehizezfhi', '2020-11-02 14:06:09'),
+(2, 2, 0, 'ezazea', '2020-11-02 14:10:56'),
+(3, 1, 0, 'bonjour', '2020-11-02 14:57:35'),
+(4, 1, 0, 'test', '2020-11-02 14:57:53'),
+(5, 2, 0, 'test 2', '2020-11-02 14:58:24');
 
 -- --------------------------------------------------------
 
@@ -151,7 +142,15 @@ CREATE TABLE IF NOT EXISTS `p3x_chat_session` (
   `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id_session`),
   KEY `id_utilisateur` (`id_utilisateur`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `p3x_chat_session`
+--
+
+INSERT INTO `p3x_chat_session` (`id_session`, `id_utilisateur`, `date`) VALUES
+(1, 1, '2020-11-02 15:58:16'),
+(2, 2, '2020-11-02 16:31:11');
 
 -- --------------------------------------------------------
 
@@ -178,6 +177,42 @@ INSERT INTO `p3x_chat_utilisateur` (`id_utilisateur`, `login`, `pass`, `avatar`,
 (2, 'sophie', '1066726e7160bd9c987c9968e0cc275a', 2, ''),
 (3, 'pierre', '297e430d45e7bf6f65f5dc929d6b072b', 3, ''),
 (4, 'marine', '7b1312a1b3e74bb174b3fbbf68ab5a92', 4, '');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `patient`
+--
+
+DROP TABLE IF EXISTS `patient`;
+CREATE TABLE IF NOT EXISTS `patient` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) NOT NULL,
+  `prenom` varchar(50) NOT NULL,
+  `date_naissance` varchar(10) DEFAULT NULL,
+  `mail` varchar(50) DEFAULT NULL,
+  `adresse` text,
+  `mutuelle` varchar(50) DEFAULT NULL,
+  `num_sec_soc` varchar(15) DEFAULT NULL,
+  `option_chambre` varchar(10) DEFAULT NULL,
+  `regime` text,
+  `mdp` varchar(50) NOT NULL,
+  `role` varchar(7) NOT NULL,
+  `confirme` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `fk_patient` (`nom`)
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `patient`
+--
+
+INSERT INTO `patient` (`id`, `nom`, `prenom`, `date_naissance`, `mail`, `adresse`, `mutuelle`, `num_sec_soc`, `option_chambre`, `regime`, `mdp`, `role`, `confirme`) VALUES
+(2, 'Kebiche', 'Killian', '', 'k.kebiche@gmail.com', '3 rue des potiers 93300 Aubervilliers', 'test', '152485963258745', 'Wifi et TV', 'SECU ', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0),
+(7, 'z', 'z', '2001-12-18', 'z@z.fr', 'z', 'z', '100432432432431', 'Wifi', 'z', 'fbade9e36a3f36d3d676c1b808451dd7', 'patient', 0),
+(15, 'bhujun', 'yanish', '2020-09-30', 'yanish.bhujun@gmail.com', '3 rue test', 'GRAS SAVOIE', '212222222222111', 'Wifi', 'e', '164b6da6ab4209c16ff3841306dbec83', 'patient', 0),
+(18, 'Fontaine', 'Ryan', '2000-10-12', 'ryan-fontaine@hotmail.fr', 'QQ', 'QQ', '232112321321312', 'QQ', 'QQ', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0),
+(19, 'Goncalves', 'Nathan', '2000-06-07', 'axel.lea.kingdomhearts@gmail.com', '3 rue des pottiers', 'Hunter', '123232312132323', 'TV', 'CMU', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0);
 
 -- --------------------------------------------------------
 
@@ -222,7 +257,7 @@ CREATE TABLE IF NOT EXISTS `rating_info` (
 
 INSERT INTO `rating_info` (`user_id`, `post_id`, `rating_action`) VALUES
 (2, 1, 'dislike'),
-(2, 2, 'dislike'),
+(2, 2, 'like'),
 (2, 3, 'like'),
 (2, 4, 'dislike');
 
@@ -261,7 +296,7 @@ INSERT INTO `reservation` (`id`, `nom_patient`, `nom_medecin`, `date_consult`, `
 --
 ALTER TABLE `reservation`
   ADD CONSTRAINT `fk_medecin` FOREIGN KEY (`nom_medecin`) REFERENCES `medecin` (`nom`),
-  ADD CONSTRAINT `fk_patient` FOREIGN KEY (`nom_patient`) REFERENCES `compte` (`nom`);
+  ADD CONSTRAINT `fk_patient` FOREIGN KEY (`nom_patient`) REFERENCES `patient` (`nom`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
