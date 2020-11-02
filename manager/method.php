@@ -64,6 +64,7 @@ class Method {
         'role' => 'patient',
         'confirme' => 0
       ));
+      echo '<body onLoad="alert(\'Compte créé avec succès\')">';
       header('Location: ../views/connexion.php');
     }
   }
@@ -126,7 +127,7 @@ else {
         // Si non on affiche une erreur et on redirige vers la page connexion//
         echo '<body onLoad="alert(\'Compte inexistant\')">';
         session_destroy();
-        //echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
+        echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
       }
       else{
         // Si la rêquette s'execute alors on redirige vers la page d'accueil //
@@ -136,7 +137,8 @@ else {
           $_SESSION['prenom'] = $donnees['prenom'];
           $_SESSION['mail'] = $connexion->getMail();
           $_SESSION['role'] = $donnees['role'];
-          //header('Location: ../index.php');
+
+          echo '<body onLoad="alert(\'Connexion réussie\')">';
           header('Location: ../page_index.php');
         }
 
@@ -156,7 +158,8 @@ else {
       $_SESSION['prenom'] = $donnees['prenom'];
       $_SESSION['mail'] = $connexion->getMail();
       $_SESSION['role'] = $donnees['role'];
-      //header('Location: ../index.php');
+
+      echo '<body onLoad="alert(\'Connexion réussie\')">';
       header('Location: ../page_index.php');
     }
 
@@ -181,6 +184,8 @@ else {
     if ($donnees['identifiant'] == $connexion->getIdentifiant() AND $donnees['mdp'] == md5($connexion->getMdp())) {
       $_SESSION['nom_medecin'] = $donnees['nom'];
       $_SESSION['role'] = "medecin";
+
+      echo '<body onLoad="alert(\'Connexion réussie\')">';
       header('Location: ../page_index.php');
 
     }
@@ -202,10 +207,7 @@ else {
    if ($date_consult < $date_jour) {
      echo '<body onLoad="alert(\'Date invalide\')">';
 
-     var_dump($date_jour);
-     var_dump($date_consult);
-
-     //echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
+     echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
    }
 
    else{
@@ -217,9 +219,9 @@ else {
          'time_consult' => $rdv->getTimeConsult(),
          'rais_consult' => $rdv->getRaisonConsult()
        ));
-
+       echo '<body onLoad="alert(\'Réservation réussie\')">';
+       header('Location: ../page_index.php');
      }
-     header('Location: ../page_index.php');
   }
 
 
@@ -240,7 +242,7 @@ else {
      $modif->getRegime(),
      $_SESSION['id']
    ));
-   echo '<body onLoad="alert(\'Données du compte modifiées avec succès\')">';
+   echo '<body onLoad="alert(\'Compte modifié avec succès\')">';
 
    header('Location: ../page_index.php');
  }
