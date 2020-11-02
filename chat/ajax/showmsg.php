@@ -1,10 +1,10 @@
 <?php
 	require '../init.php';
-	
+
 	if(isset($_SESSION['id_utilisateur']))
 	{
 		$message = array();
-		
+
 		$sql = "SELECT p3x_chat_message.id_message, p3x_chat_utilisateur.login, p3x_chat_utilisateur.avatar, p3x_chat_utilisateur.avatar_url, p3x_chat_message.message, p3x_chat_message.date, p3x_chat_message.id_utilisateur_prive FROM p3x_chat_message
 				LEFT JOIN p3x_chat_utilisateur ON p3x_chat_utilisateur.id_utilisateur=p3x_chat_message.id_utilisateur
 				WHERE (date BETWEEN timestamp(DATE_SUB(NOW(), INTERVAL 2 MINUTE)) AND timestamp(NOW()))
@@ -20,7 +20,7 @@
 						'date' => $data['date']);
 			$message[] = $msg;
 		}
-		
+
 		echo json_encode($message);
 	}
 ?>

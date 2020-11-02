@@ -1,13 +1,13 @@
 <?php
 	require '../init.php';
-	
+
 	if(isset($_SESSION['id_utilisateur']))
-	{	
+	{
 		// MAJ session
 		$sql = "UPDATE p3x_chat_session SET date=CURRENT_TIMESTAMP WHERE id_utilisateur=".intval($_SESSION['id_utilisateur']);
 		$query = $db->prepare($sql);
 		$query->execute();
-		
+
 		// Liste utilisateurs
 		$utilisateur = array();
 		$sql = "SELECT p3x_chat_session.id_utilisateur, p3x_chat_utilisateur.login, p3x_chat_utilisateur.avatar, p3x_chat_utilisateur.avatar_url FROM p3x_chat_session
@@ -22,7 +22,7 @@
 						'avatar_url' => $data['avatar_url']);
 			$utilisateur[] = $usr;
 		}
-		
+
 		echo json_encode($utilisateur);
 	}
 ?>
