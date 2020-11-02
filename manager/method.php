@@ -118,7 +118,7 @@ else {
     $donnees= $req->fetch();
 
     if ($donnees == null) {
-      $req = $bdd->prepare('SELECT * FROM medecin WHERE mail=?');
+      $req = $bdd->prepare('SELECT * FROM admin WHERE mail=?');
       $req->execute(array($connexion->getMail()));
       $donnees= $req->fetch();
 
