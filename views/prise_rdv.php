@@ -121,12 +121,7 @@
 
                            <h2>Vous désirez prendre un rendez-vous ?</h2> </center>
                             <div class="form-row">
-                                <div class="form-group col-md-6">
-                                    <input type="name" class="form-control" name="nom" placeholder="Votre nom : ">
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input type="name" class="form-control" name="prenom" placeholder="Votre prenom : ">
-                                </div>
+                                
                                 <div class="form-group col-md-6">
                                   <select class="form-control" name="medecin" placeholder="Choisissez un médecin">
 
