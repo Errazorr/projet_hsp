@@ -121,7 +121,7 @@
 
                            <h2>Vous désirez prendre un rendez-vous ?</h2> </center>
                             <div class="form-row">
-                                
+
                                 <div class="form-group col-md-6">
                                   <select class="form-control" name="medecin" placeholder="Choisissez un médecin">
 
@@ -143,7 +143,7 @@
                                     <input type="date" class="form-control" name="date_consult" placeholder="Votre date pour la consultation : ">
                                 </div>
                                 <div class="form-group col-md-6">
-                                  <select class="form-control" name="medecin" placeholder="Choisissez une heure" style="overflow:scroll;">
+                                  <select class="form-control" name="time_consult" placeholder="Choisissez une heure" style="overflow:scroll;">
 
                                     <?php
                                       for ($i=8; $i < 22 ; $i++) {

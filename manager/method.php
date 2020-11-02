@@ -198,7 +198,6 @@ else {
    $bdd = $this->dbConnect();
    $date_jour = date('Y-m-d');
    $date_consult = $rdv->getDateConsult();
-   $time_consult = $rdv->getTimeConsult();
 
    if ($date_consult < $date_jour) {
      echo '<body onLoad="alert(\'Date invalide\')">';
@@ -209,22 +208,7 @@ else {
      //echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
    }
 
-   else if ($time_consult < '07:00:00' || $time_consult > '22:00:00'){
-     echo '<body onLoad="alert(\'Heure invalide. Entrez une heure entre 7h et 22h\')">';
-
-     echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
-   }
-
    else{
-     $res = $bdd->prepare('SELECT * FROM patient WHERE nom = :nom AND prenom = :prenom');
-     $select = $res ->execute(array(
-       'nom' => $rdv->getNomPatient(),
-       'prenom' => $rdv->getPrenomPatient()
-     ));
-
-     $patient = $res->fetch();
-
-     if ($patient) {
        $result = $bdd->prepare('INSERT INTO reservation (nom_patient, nom_medecin, date_consult, time_consult, rais_consult) VALUES (:nom_patient, :nom_medecin, :date_consult, :time_consult, :rais_consult)');
        $insert = $result ->execute(array(
          'nom_patient' => $_SESSION['nom'],
@@ -234,17 +218,10 @@ else {
          'rais_consult' => $rdv->getRaisonConsult()
        ));
 
-       var_dump($insert);
      }
-     else{
-       echo '<body onLoad="alert(\'Patient introuvable\')">';
-
-       echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
-     }
-
+     header('Location: ../page_index.php');
   }
-  header('Location: ../page_index.php');
- }
+
 
 
  public function Modification($modif){
