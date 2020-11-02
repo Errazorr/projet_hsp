@@ -38,7 +38,7 @@ class Method {
       $num_sec_soc = htmlspecialchars($_POST['num_sec_soc']);
       $option_chambre = htmlspecialchars($_POST['option_chambre']);
       $regime = htmlspecialchars($_POST['regime']);
-      
+
     $req = $bdd->prepare('SELECT * FROM compte WHERE nom=? AND prenom=? AND mail=?');
     $req->execute(array($ins->getNom(), $ins->getPrenom(), $ins->getMail()));
     $donnees= $req->fetch();
@@ -168,7 +168,10 @@ else {
    if ($date_consult < $date_jour) {
      echo '<body onLoad="alert(\'Date invalide\')">';
 
-     echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
+     var_dump($date_jour);
+     var_dump($date_consult);
+
+     //echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
    }
 
    else if ($time_consult < '07:00:00' || $time_consult > '22:00:00'){
@@ -179,7 +182,7 @@ else {
 
    else{
      $res = $bdd->prepare('SELECT * FROM compte WHERE nom = :nom AND prenom = :prenom');
-     $res ->execute(array(
+     $select = $res ->execute(array(
        'nom' => $rdv->getNomPatient(),
        'prenom' => $rdv->getPrenomPatient()
      ));
@@ -187,13 +190,16 @@ else {
      $patient = $res->fetch();
 
      if ($patient) {
-       $res = $bdd->prepare('INSERT INTO reservation (nom_patient, nom_medecin, rais_consult, date_consult) VALUES (:nom_patient, :nom_medecin, :rais_consult, :date_consult)');
-       $res ->execute(array(
+       $result = $bdd->prepare('INSERT INTO reservation (nom_patient, nom_medecin, date_consult, time_consult, rais_consult) VALUES (:nom_patient, :nom_medecin, :date_consult, :time_consult, :rais_consult)');
+       $insert = $result ->execute(array(
          'nom_patient' => $rdv->getNomPatient(),
          'nom_medecin' => $rdv->getNomMedecin(),
-         'rais_consult' => $rdv->getRaisonConsult(),
-         'date_consult' => $rdv->getDateConsult()
+         'date_consult' => $rdv->getDateConsult(),
+         'time_consult' => $rdv->getTimeConsult(),
+         'rais_consult' => $rdv->getRaisonConsult()
        ));
+
+       var_dump($insert);
      }
      else{
        echo '<body onLoad="alert(\'Patient introuvable\')">';
@@ -202,7 +208,12 @@ else {
      }
 
   }
-  header('Location: ../page_index.php');
+  //header('Location: ../page_index.php');
+  var_dump($rdv->getNomPatient());
+  var_dump($rdv->getNomMedecin());
+  var_dump($rdv->getDateConsult());
+  var_dump($rdv->getTimeConsult());
+  var_dump($rdv->getRaisonConsult());
  }
 
 
