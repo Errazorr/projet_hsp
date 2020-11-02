@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  mar. 27 oct. 2020 à 10:42
+-- Généré le :  lun. 02 nov. 2020 à 12:46
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -44,19 +44,22 @@ CREATE TABLE IF NOT EXISTS `compte` (
   `regime` text,
   `mdp` varchar(50) NOT NULL,
   `role` varchar(7) NOT NULL,
+  `confirme` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `fk_patient` (`nom`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `compte`
 --
 
-INSERT INTO `compte` (`id`, `nom`, `prenom`, `date_naissance`, `mail`, `adresse`, `mutuelle`, `num_sec_soc`, `option_chambre`, `regime`, `mdp`, `role`) VALUES
-(1, 'admin', 'admin', NULL, 'admin@gmail.com', NULL, NULL, NULL, NULL, NULL, '098f6bcd4621d373cade4e832627b4f6', 'admin'),
-(2, 'Kebiche', 'Killian', '2000-06-27', 'k.kebiche@gmail.com', '3 rue des potiers 93300 Aubervilliers', 'Mutuelle', '152485963258745', 'Wifi', 'Végétarien', 'ab4f63f9ac65152575886860dde480a1', 'patient'),
-(4, 'FONTAINE', 'Ryan', '2000-11-18', 'ryan-fontaine@hotmail.fr', '261 rue de meaux, Vaujours', 'GRAS SAVOIE', '100432432432434', 'Wifi', '', 'ab4f63f9ac65152575886860dde480a1', 'patient'),
-(7, 'Lignani', 'Quentin', '2000-01-01', 'q.lignani@gmail.com', 'test', 'test', '121212121212121', 'Wifi', '', '098f6bcd4621d373cade4e832627b4f6', 'patient');
+INSERT INTO `compte` (`id`, `nom`, `prenom`, `date_naissance`, `mail`, `adresse`, `mutuelle`, `num_sec_soc`, `option_chambre`, `regime`, `mdp`, `role`, `confirme`) VALUES
+(1, 'admin', 'admin', NULL, NULL, NULL, NULL, NULL, NULL, NULL, '098f6bcd4621d373cade4e832627b4f6', 'admin', 0),
+(2, 'Kebiche', 'Killian', '', 'k.kebiche@gmail.com', '3 rue des potiers 93300 Aubervilliers', 'test', '152485963258745', 'Wifi et TV', 'SECU ', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0),
+(7, 'z', 'z', '2001-12-18', 'z@z.fr', 'z', 'z', '100432432432431', 'Wifi', 'z', 'fbade9e36a3f36d3d676c1b808451dd7', 'patient', 0),
+(15, 'bhujun', 'yanish', '2020-09-30', 'yanish.bhujun@gmail.com', '3 rue test', 'GRAS SAVOIE', '212222222222111', 'Wifi', 'e', '164b6da6ab4209c16ff3841306dbec83', 'patient', 0),
+(18, 'Fontaine', 'Ryan', '2000-10-12', 'ryan-fontaine@hotmail.fr', 'QQ', 'QQ', '232112321321312', 'QQ', 'QQ', 'de77e68263cd19b4468e088e65eeba84', 'patient', 0),
+(19, 'Goncalves', 'Nathan', '2000-06-07', 'axel.lea.kingdomhearts@gmail.com', '3 rue des pottiers', 'Hunter', '123232312132323', 'TV', 'CMU', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0);
 
 -- --------------------------------------------------------
 
@@ -72,6 +75,7 @@ CREATE TABLE IF NOT EXISTS `medecin` (
   `specialite` varchar(50) NOT NULL,
   `identifiant` varchar(50) NOT NULL,
   `mdp` varchar(50) NOT NULL,
+  `approuve` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `fk_medecin` (`nom`)
 ) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
@@ -80,11 +84,11 @@ CREATE TABLE IF NOT EXISTS `medecin` (
 -- Déchargement des données de la table `medecin`
 --
 
-INSERT INTO `medecin` (`id`, `nom`, `lieu`, `specialite`, `identifiant`, `mdp`) VALUES
-(1, 'Aggoun', 'Aubervilliers', 'Neurologie', 'Lucario', 'c1078f95440f31e9c88138226b1af484'),
-(2, 'Guo', 'Bourget', 'Tabacologie', 'az', 'a9d3b34800d4283ed34b2bbbeb443a77'),
-(3, 'Tang', 'Aulnay-sous-bois', 'Gynécologie', 'tang', '87db92494758df7d0f0a4f39162a48f4'),
-(4, 'Birba', 'Dugny', 'Cardiologie', 'Dr.CapriSun', 'be6e0613371881bfe15b363bf5d00c20');
+INSERT INTO `medecin` (`id`, `nom`, `lieu`, `specialite`, `identifiant`, `mdp`, `approuve`) VALUES
+(1, 'Aggoun', 'Aubervilliers', 'Neurologie', 'Lucario', 'c1078f95440f31e9c88138226b1af484', 1),
+(2, 'Guo', 'Bourget', 'Tabacologie', 'az', 'a9d3b34800d4283ed34b2bbbeb443a77', 1),
+(3, 'Tang', 'Aulnay-sous-bois', 'Gynécologie', 'tang', '87db92494758df7d0f0a4f39162a48f4', 1),
+(4, 'Birba', 'Dugny', 'Cardiologie', 'Dr.CapriSun', 'be6e0613371881bfe15b363bf5d00c20', 1);
 
 -- --------------------------------------------------------
 
@@ -99,7 +103,7 @@ CREATE TABLE IF NOT EXISTS `minichat` (
   `message` text NOT NULL,
   `date_message` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `minichat`
@@ -110,8 +114,58 @@ INSERT INTO `minichat` (`id`, `nom`, `message`, `date_message`) VALUES
 (2, 'ryanftne', 'comment allez-vous?', '2020-10-05 14:01:53'),
 (3, 'ryanftne', 'salut', '2020-10-05 14:02:18'),
 (4, 'ryanftne', 'je suis médecin', '2020-10-05 14:03:04'),
-(5, 'Errazorr', 'Salut', '2020-10-05 14:23:52'),
-(6, 'Errazorr', 'Ta mère Enzo', '2020-10-05 14:24:21');
+(5, 'ryanftne', 'eza', '2020-10-05 14:22:17'),
+(6, 'ryanftne', 'abc', '2020-10-05 14:50:56'),
+(7, 'eez', 'A', '2020-10-27 16:41:46'),
+(8, 'MR Mattei', 'SORTEZ UNE FEUILLE !', '2020-10-27 16:43:36'),
+(9, 'Raoult', 'Mettez vos masques', '2020-10-27 17:19:34');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `posts`
+--
+
+DROP TABLE IF EXISTS `posts`;
+CREATE TABLE IF NOT EXISTS `posts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `text` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `posts`
+--
+
+INSERT INTO `posts` (`id`, `text`) VALUES
+(1, 'test premier'),
+(2, 'This is the second piece of text'),
+(3, 'This is the third post'),
+(4, 'This is the fourth piece of text');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `rating_info`
+--
+
+DROP TABLE IF EXISTS `rating_info`;
+CREATE TABLE IF NOT EXISTS `rating_info` (
+  `user_id` int(11) NOT NULL,
+  `post_id` int(11) NOT NULL,
+  `rating_action` varchar(30) NOT NULL,
+  UNIQUE KEY `UC_rating_info` (`user_id`,`post_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Déchargement des données de la table `rating_info`
+--
+
+INSERT INTO `rating_info` (`user_id`, `post_id`, `rating_action`) VALUES
+(2, 1, 'dislike'),
+(2, 2, 'dislike'),
+(2, 3, 'like'),
+(2, 4, 'dislike');
 
 -- --------------------------------------------------------
 
