@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Prise de rendez-vous</title>
     <link rel="icon" href="../img/favicon.png">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <?php
           require_once('navbar.php');
         ?>
@@ -147,8 +148,15 @@
                                     <input type="date" class="form-control" name="date_consult" placeholder="Votre date pour la consultation : ">
                                 </div>
                                 <div class="form-group col-md-6">
-                                  <select class="form-control" name="medecin" placeholder="Choisissez une heure">
-                												<option>08:00</option>
+                                  <select class="form-control" name="medecin" placeholder="Choisissez une heure" style="overflow:scroll;">
+
+                                    <?php
+                                      for ($i=8; $i < 22 ; $i++) {
+                                        echo '<option>'.$i.':00'.'</option>';
+                                        //echo '<option>'.$i.':30'.'</option>';
+                                      }
+                                    ?>
+                									  <!--<option>08:00</option>
                                         <option>08:30</option>
                                         <option>09:00</option>
                                         <option>09:30</option>
@@ -176,7 +184,7 @@
                                         <option>20:30</option>
                                         <option>21:00</option>
                                         <option>21:30</option>
-                                        <option>22:00</option>
+                                        <option>22:00</option>-->
                 									</select>
                                 </div>
                                 <div class="form-group col-md-6">

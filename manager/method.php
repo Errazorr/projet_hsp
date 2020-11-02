@@ -39,7 +39,7 @@ class Method {
       $option_chambre = htmlspecialchars($_POST['option_chambre']);
       $regime = htmlspecialchars($_POST['regime']);
 
-    $req = $bdd->prepare('SELECT * FROM compte WHERE nom=? AND prenom=? AND mail=?');
+    $req = $bdd->prepare('SELECT * FROM patient WHERE nom=? AND prenom=? AND mail=?');
     $req->execute(array($ins->getNom(), $ins->getPrenom(), $ins->getMail()));
     $donnees= $req->fetch();
 
@@ -49,7 +49,7 @@ class Method {
       echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">';
     }
     else{
-      $r = $bdd->prepare('INSERT INTO compte (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, option_chambre, regime, mdp, role, confirme) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :option_chambre, :regime, :mdp, :role, :confirme)');
+      $r = $bdd->prepare('INSERT INTO patient (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, option_chambre, regime, mdp, role, confirme) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :option_chambre, :regime, :mdp, :role, :confirme)');
       $r ->execute(array(
         'nom' => $ins->getNom(),
         'prenom' => $ins->getPrenom(),
@@ -113,10 +113,43 @@ else {
   public function connexion($connexion){
     $bdd = $this->dbConnect();
     // Sélectionne les informations de la table compte en fonction de l'adresse mail //
-    $req = $bdd->prepare('SELECT * FROM compte WHERE mail=?');
+    $req = $bdd->prepare('SELECT * FROM patient WHERE mail=?');
     $req->execute(array($connexion->getMail()));
     $donnees= $req->fetch();
-    // Si la rêquette s'execute alors on redirige vers la page d'accueil //
+
+    if ($donnees == null) {
+      $req = $bdd->prepare('SELECT * FROM medecin WHERE mail=?');
+      $req->execute(array($connexion->getMail()));
+      $donnees= $req->fetch();
+
+      if ($donnees == null) {
+        // Si non on affiche une erreur et on redirige vers la page connexion//
+        echo '<body onLoad="alert(\'Compte inexistant\')">';
+        session_destroy();
+        //echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
+      }
+      else{
+        // Si la rêquette s'execute alors on redirige vers la page d'accueil //
+        if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == md5($connexion->getMdp())) {
+          $_SESSION['id'] = $donnees['id'];
+          $_SESSION['nom'] = $donnees['nom'];
+          $_SESSION['prenom'] = $donnees['prenom'];
+          $_SESSION['mail'] = $connexion->getMail();
+          $_SESSION['role'] = $donnees['role'];
+          //header('Location: ../index.php');
+          header('Location: ../page_index.php');
+        }
+
+        else{
+          // Si non on affiche une erreur et on redirige vers la page connexion//
+          echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
+          session_destroy();
+          echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
+        }
+      }
+    }
+
+  else{
     if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == md5($connexion->getMdp())) {
       $_SESSION['id'] = $donnees['id'];
       $_SESSION['nom'] = $donnees['nom'];
@@ -133,6 +166,8 @@ else {
       session_destroy();
       echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
     }
+  }
+
   }
 
 
