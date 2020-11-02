@@ -216,7 +216,7 @@ else {
    }
 
    else{
-     $res = $bdd->prepare('SELECT * FROM compte WHERE nom = :nom AND prenom = :prenom');
+     $res = $bdd->prepare('SELECT * FROM patient WHERE nom = :nom AND prenom = :prenom');
      $select = $res ->execute(array(
        'nom' => $rdv->getNomPatient(),
        'prenom' => $rdv->getPrenomPatient()
@@ -227,7 +227,7 @@ else {
      if ($patient) {
        $result = $bdd->prepare('INSERT INTO reservation (nom_patient, nom_medecin, date_consult, time_consult, rais_consult) VALUES (:nom_patient, :nom_medecin, :date_consult, :time_consult, :rais_consult)');
        $insert = $result ->execute(array(
-         'nom_patient' => $rdv->getNomPatient(),
+         'nom_patient' => $_SESSION['nom'],
          'nom_medecin' => $rdv->getNomMedecin(),
          'date_consult' => $rdv->getDateConsult(),
          'time_consult' => $rdv->getTimeConsult(),
@@ -243,18 +243,13 @@ else {
      }
 
   }
-  //header('Location: ../page_index.php');
-  var_dump($rdv->getNomPatient());
-  var_dump($rdv->getNomMedecin());
-  var_dump($rdv->getDateConsult());
-  var_dump($rdv->getTimeConsult());
-  var_dump($rdv->getRaisonConsult());
+  header('Location: ../page_index.php');
  }
 
 
  public function Modification($modif){
    $bdd = $this->dbConnect();
-   $result = $bdd->prepare('UPDATE compte SET nom = ?, prenom = ?, date_naissance = ?, mail = ?, adresse = ?,
+   $result = $bdd->prepare('UPDATE patient SET nom = ?, prenom = ?, date_naissance = ?, mail = ?, adresse = ?,
       mutuelle = ?, num_sec_soc = ?, option_chambre = ?, regime = ? WHERE id = ? ');
    $result ->execute(array(
      $modif->getNom(),
@@ -278,7 +273,7 @@ else {
    $bdd = $this->dbConnect();
    if (!empty($_POST['mail'])) {
      $mail = htmlspecialchars($_POST['mail']);
-   $req = $bdd->prepare('SELECT * FROM compte WHERE mail=?');
+   $req = $bdd->prepare('SELECT * FROM patient WHERE mail=?');
    $req->execute(getMail());
    $donnees= $req->fetch();
 
