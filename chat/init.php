@@ -9,7 +9,7 @@
 
 	// Infos site
 	define('URL_SITE', 'http://localhost/projet_hsp/projet_hsp/chat/');
-	define('URL_MEDIA', 'http://localhost/projet_hsp/projet_hsp/images/');
+	define('URL_MEDIA', 'http://localhost/projet_hsp/projet_hsp/chat/images/');
 	define('URL_PROFIL', 'https://www.google.fr/?q=');
 	define('PATH_SITE', '../projet_hsp/projet_hsp/chat/');
 
