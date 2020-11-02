@@ -15,8 +15,7 @@ catch (Exception $e){
 //Sélection des id de la table compte en fonction du nom //
 $req = $bdd->prepare('SELECT id FROM compte WHERE mail=?');
 
-//$req->execute(array($_SESSION['mail']));
-$req->execute(array("k.kebiche@gmail.com"));
+$req->execute(array($_SESSION['mail']));
 $id= $req->fetch();
 $_SESSION['id'] = $id[0];
 
@@ -32,7 +31,7 @@ $donnees= $rec->fetch();
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Modifier son profil</title>
     <link rel="icon" href="../img/favicon.png">
-    
+
      <!-- breadcrumb start-->
      <section class="breadcrumb_part breadcrumb_bg">
         <div class="container">
