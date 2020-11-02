@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 02 nov. 2020 à 12:46
+-- Généré le :  lun. 02 nov. 2020 à 13:19
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -123,6 +123,65 @@ INSERT INTO `minichat` (`id`, `nom`, `message`, `date_message`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `p3x_chat_message`
+--
+
+DROP TABLE IF EXISTS `p3x_chat_message`;
+CREATE TABLE IF NOT EXISTS `p3x_chat_message` (
+  `id_message` mediumint(7) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_utilisateur` mediumint(7) UNSIGNED NOT NULL,
+  `id_utilisateur_prive` mediumint(7) UNSIGNED NOT NULL,
+  `message` varchar(250) NOT NULL,
+  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_message`),
+  KEY `id_utilisateur` (`id_utilisateur`),
+  KEY `id_utilisateur_prive` (`id_utilisateur_prive`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `p3x_chat_session`
+--
+
+DROP TABLE IF EXISTS `p3x_chat_session`;
+CREATE TABLE IF NOT EXISTS `p3x_chat_session` (
+  `id_session` mediumint(7) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `id_utilisateur` mediumint(7) UNSIGNED NOT NULL,
+  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
+  PRIMARY KEY (`id_session`),
+  KEY `id_utilisateur` (`id_utilisateur`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `p3x_chat_utilisateur`
+--
+
+DROP TABLE IF EXISTS `p3x_chat_utilisateur`;
+CREATE TABLE IF NOT EXISTS `p3x_chat_utilisateur` (
+  `id_utilisateur` mediumint(7) UNSIGNED NOT NULL AUTO_INCREMENT,
+  `login` varchar(100) NOT NULL,
+  `pass` varchar(50) NOT NULL,
+  `avatar` smallint(4) UNSIGNED NOT NULL,
+  `avatar_url` varchar(200) NOT NULL,
+  PRIMARY KEY (`id_utilisateur`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
+
+--
+-- Déchargement des données de la table `p3x_chat_utilisateur`
+--
+
+INSERT INTO `p3x_chat_utilisateur` (`id_utilisateur`, `login`, `pass`, `avatar`, `avatar_url`) VALUES
+(1, 'jean', 'e368b9938746fa090d6afd3628355133', 1, ''),
+(2, 'sophie', '1066726e7160bd9c987c9968e0cc275a', 2, ''),
+(3, 'pierre', '297e430d45e7bf6f65f5dc929d6b072b', 3, ''),
+(4, 'marine', '7b1312a1b3e74bb174b3fbbf68ab5a92', 4, '');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `posts`
 --
 
@@ -138,10 +197,10 @@ CREATE TABLE IF NOT EXISTS `posts` (
 --
 
 INSERT INTO `posts` (`id`, `text`) VALUES
-(1, 'test premier'),
-(2, 'This is the second piece of text'),
-(3, 'This is the third post'),
-(4, 'This is the fourth piece of text');
+(1, 'Docteur Aggoun'),
+(2, 'Docteur Birba'),
+(3, 'Docteur Guo'),
+(4, 'Docteur Kebiche');
 
 -- --------------------------------------------------------
 
@@ -184,7 +243,14 @@ CREATE TABLE IF NOT EXISTS `reservation` (
   PRIMARY KEY (`id`),
   KEY `fk_patient` (`nom_patient`),
   KEY `fk_medecin` (`nom_medecin`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `reservation`
+--
+
+INSERT INTO `reservation` (`id`, `nom_patient`, `nom_medecin`, `date_consult`, `time_consult`, `rais_consult`) VALUES
+(1, 'Kebiche', 'Aggoun', '2020-12-12', '12:30:00', 'Maux de tete');
 
 --
 -- Contraintes pour les tables déchargées
