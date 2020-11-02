@@ -8,13 +8,13 @@
 	define('BDD_NAME', '');
 
 	// Infos site
-	define('URL_SITE', 'http://localhost/mais/');
-	define('URL_MEDIA', 'http://localhost/mais/images/');
+	define('URL_SITE', 'http://localhost/projet_hsp/');
+	define('URL_MEDIA', 'http://localhost/projet_hsp/images/');
 	define('URL_PROFIL', 'https://www.google.fr/?q=');
-	define('PATH_SITE', '../mais/chat/');
+	define('PATH_SITE', '../projet_hsp/chat/');
 
 	// Connexion BDD
-	$db = new PDO('mysql:host=localhost;dbname=test;charset=utf8mb4', 'root', '');
+	$db = new PDO('mysql:host=localhost;dbname=hopital;charset=utf8mb4', 'root', '');
 
 	// Session
 	session_start();
