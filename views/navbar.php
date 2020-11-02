@@ -74,6 +74,10 @@ session_start();
                             <li class="nav-item">
                                 <a class="nav-link" href="modification.php">Modifier mon compte</a>
                             </li>
+
+                            <li class="nav-item">
+                                <a class="nav-link" href="../like_dislike/index.php">Avis</a>
+                            </li>
                         </ul>
                     </div>
                     <a class="btn_2 d-none d-lg-block" href="../traitement/session_destroy.php">Déconnexion</a>
