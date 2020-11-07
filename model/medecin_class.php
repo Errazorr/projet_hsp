@@ -6,6 +6,7 @@ class Medecin{
   private $specialite;
   private $identifiant;
   private $mdp;
+  private $approuve;
 
   public function __construct(array $donnees){
     $this->hydrate($donnees);
@@ -40,12 +41,17 @@ class Medecin{
     $this->_mdp = $mdp;
   }
 
+  public function setApprouve ($approuve){
+    $this->_approuve = $approuve;
+  }
+
 
   public function getNom(){return $this->_nom;}
   public function getLieu(){return $this->_lieu;}
   public function getSpecialite(){return $this->_specialite;}
   public function getIdentifiant(){return $this->_identifiant;}
   public function getMdp(){return $this->_mdp;}
+  public function getApprouve(){return $this->_approuve;}
 
 }
 

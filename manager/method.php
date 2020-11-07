@@ -286,4 +286,57 @@ else {
   echo '<meta http-equiv="refresh" content="0;URL=../views/mdp_oublie.html">';
 }
 }
+
+public function AddDoctor($add_doctor){
+  $bdd = $this->dbConnect();
+  $req = $bdd->prepare('SELECT * FROM medecin WHERE nom=? AND identifiant=?');
+  $req->execute(array($add_doctor->getNom(), $add_doctor->getIdentifiant()));
+  $donnees= $req->fetch();
+
+  if ($donnees) {
+    echo '<body onLoad="alert(\'Ce compte existe déjà\')">';
+
+    echo '<meta http-equiv="refresh" content="0;URL=../views/add_doctor.php">';
+  }
+
+  else{
+      $result = $bdd->prepare('INSERT INTO medecin (nom, lieu, specialite, identifiant, mdp, approuve) VALUES (:nom, :lieu, :specialite, :identifiant, :mdp, :approuve)');
+      $insert = $result ->execute(array(
+        'nom' => $add_doctor->getNom(),
+        'lieu' => $add_doctor->getLieu(),
+        'specialite' => $add_doctor->getSpecialite(),
+        'identifiant' => $add_doctor->getIdentifiant(),
+        'mdp' => md5($add_doctor->getMdp()),
+        'approuve' => 1
+      ));
+      echo '<body onLoad="alert(\'Réservation réussie\')">';
+      header('Location: ../views/add_doctor.php');
+    }
+ }
+
+ public function AddAdmin($add_admin){
+   $bdd = $this->dbConnect();
+   $req = $bdd->prepare('SELECT * FROM admin WHERE nom=? AND prenom=? AND mdp=?');
+   $req->execute(array($add_admin->getNom(), $add_admin->getPrenom(), $add_admin->getMdp()));
+   $donnees= $req->fetch();
+
+   if ($donnees) {
+     echo '<body onLoad="alert(\'Ce compte existe déjà\')">';
+
+     echo '<meta http-equiv="refresh" content="0;URL=../views/add_admin.php">';
+   }
+
+   else{
+       $result = $bdd->prepare('INSERT INTO admin (nom, prenom, mail, mdp, role) VALUES (:nom, :prenom, :mail, :mdp, :role)');
+       $insert = $result ->execute(array(
+         'nom' => $add_admin->getNom(),
+         'prenom' => $add_admin->getPrenom(),
+         'mail' => $add_admin->getMail(),
+         'mdp' => md5($add_admin->getMdp()),
+         'role' => 'admin'
+       ));
+       echo '<body onLoad="alert(\'Ajout réussi\')">';
+       header('Location: ../views/add_admin.php');
+     }
+  }
 }

@@ -117,9 +117,10 @@ session_start();
                                   Comptes
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="views/add_doctor.php">Nouveau médecin</a>
-                                  <a class="dropdown-item" href="views/add_admin.php">Nouvel admin</a>
-                                  <a class="dropdown-item" href="views/activate.php">Activer un compte</a>
+                                  <a class="dropdown-item" href="views/add_doctor.php">Médecin</a>
+                                  <a class="dropdown-item" href="views/add_admin.php">Admin</a>
+                                  <a class="dropdown-item" href="activate.php">Patient</a>
+                                  <a class="dropdown-item" href="activate.php">Confirmer/Approuver</a>
                               </div>
                           </li>
                           <li class="nav-item dropdown">
