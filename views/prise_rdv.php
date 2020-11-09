@@ -8,6 +8,16 @@
     <title>Prise de rendez-vous</title>
     <link rel="icon" href="../img/favicon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script src="//ajax.googleapis.com/ajax/libs/jqueryui/1.9.2/jquery-ui.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script type="text/javascript">$(document).ready(function() {
+    $('#time_consult').select2();
+    });</script>
+
     <?php
           require_once('navbar.php');
         ?>
@@ -143,7 +153,7 @@
                                     <input type="date" class="form-control" name="date_consult" placeholder="Votre date pour la consultation : ">
                                 </div>
                                 <div class="form-group col-md-6">
-                                  <select class="form-control" name="time_consult" placeholder="Choisissez une heure" style="overflow:scroll;">
+                                  <select class="form-control" id ="time_consult" name="time_consult" placeholder="Choisissez une heure">
 
                                     <?php
                                       for ($i=8; $i < 22 ; $i++) {
