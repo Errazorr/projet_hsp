@@ -1,9 +1,10 @@
 <?php
   require "PHPMailer/PHPMailerAutoload.php";
+  //CONNEXION A LA BDD
   $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
-
+  //SI L'EMAIL EST ENTRE
   if(isset($_POST['valider_email'])) {
-
+    //RECHERCHE DE LA PERSONNE DANS LA BDD
     $email = $_POST['email'];
     $requete_sur_email = $bdd->prepare('SELECT * FROM compte WHERE mail = ?');
     $requete_sur_email->execute(array($email));
@@ -11,7 +12,7 @@
       $info_user = $requete_sur_email->fetch();
 
 
-
+//ENVOI DU MAIL
 function smtpmailer($to, $from, $from_name, $subject, $body)
 
  {
@@ -22,27 +23,17 @@ function smtpmailer($to, $from, $from_name, $subject, $body)
 
      $mail->SMTPAuth = true;
 
-
-
      $mail->SMTPSecure = 'ssl';
 
      $mail->Host = 'smtp.gmail.com';
 
      $mail->Port = 465;
 
-
-
      $mail->Username = 'ryannathanslam@gmail.com';
 
      $mail->Password = 'projethsp2020?';
 
-
-
-
-
      $mail->IsHTML(true);
-
-
 
      $mail->From="ryannathanslam@gmail.com";
 
@@ -80,40 +71,23 @@ function smtpmailer($to, $from, $from_name, $subject, $body)
 
  }
 
-
-
-
-
  $to   = $info_user['mail'];
-
-
 
  $from = 'ryannathanslam@gmail.com';
 
-
-
  $name = 'Hopital Zoldyck';
 
-
-
  $subj = 'Recupération du mot de passe';
-
-
 
  $msg = " <a href='http://localhost/projet_hsp/projet_hsp/modification_mdp.php'>
  Changez  votre mot de passe</a>";
 
-
-
  $error=smtpmailer($to, $from, $name ,$subj, $msg);
 
-
-
-      
-    } else {
+    }
+    else {
       echo 'Email invalide';
     }
-
 
   }
   ?>
