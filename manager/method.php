@@ -236,6 +236,19 @@ else {
    }
 
    else{
+     $reserv_exists = $bdd->prepare('SELECT * FROM reservation WHERE nom_medecin = ? AND date_consult = ? AND time_consult = ?');
+     $reserv_exists->execute(array($rdv->getNomMedecin(),
+                                    $rdv->getDateConsult(),
+                                    $rdv->getTimeConsult()));
+    $reserv_exists->fetchall();
+
+    if($reserv_exists){
+      //MESSAGE D'ERREUR
+      echo '<body onLoad="alert(\'Ce médecin a déjà un rendez-vous à cette heure-ci\')">';
+
+      echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
+    }
+    else{
      //SINON ON EXECUTE LA REQUETE D'INSERTION DANS LA TABLE
        $result = $bdd->prepare('INSERT INTO reservation (nom_patient, nom_medecin, date_consult, time_consult, rais_consult) VALUES (:nom_patient, :nom_medecin, :date_consult, :time_consult, :rais_consult)');
        $insert = $result ->execute(array(
@@ -249,6 +262,7 @@ else {
        echo '<body onLoad="alert(\'Réservation réussie\')">';
        header('Location: ../page_index.php');
      }
+   }
   }
 
 
