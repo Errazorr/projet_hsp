@@ -54,23 +54,25 @@
 						</div>
 
             <?php
+            //SI COMPTE ADMIN
               if ($_SESSION['role'] == "admin") {
                 $req = $bdd->query('SELECT * FROM reservation');
                 $donnees= $req->fetchall();
               }
-
+              //SINON SI COMPTE MEDECIN
               else if ($_SESSION['role'] == "medecin"){
                 $req = $bdd->prepare('SELECT * FROM reservation WHERE nom_medecin=?');
                 $req->execute(array($_SESSION['nom_medecin']));
                 $donnees= $req->fetchall();
               }
+              //SINON COMPTE PATIENT
               else{
                 $req = $bdd->prepare('SELECT * FROM reservation WHERE nom_patient=?');
                 $req->execute(array($_SESSION['nom']));
                 $donnees= $req->fetchall();
               }
 
-
+              //POUR CHAQUE LIGNE DANS LA TABLE, ON AFFICHE
               foreach ($donnees as $value) {
                 echo '<div class="table-row">
                   <div class="visit" style="color:#000000">'.$value["nom_patient"].'</div>
@@ -82,9 +84,6 @@
               }
 
              ?>
-
-
-
 					</div>
 				</div>
 			</div>
