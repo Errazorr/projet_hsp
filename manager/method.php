@@ -1,5 +1,5 @@
 <?php
-
+//DEBUT DE SESSION
 session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
@@ -11,6 +11,7 @@ require '../vendor/phpmailer/phpmailer/src/SMTP.php';
 require '../vendor/autoload.php';
 class Method {
 
+  //METHODES DE CONNEXION A LA BDDS
   private function dbConnect(){
      try{
            $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
@@ -22,13 +23,19 @@ class Method {
 
   }
 
+  //METHODE INSCRIPTION
   public function Inscription($ins){
+    //CONNEXION BDD
     $bdd = $this->dbConnect();
+    //SI LES CHAMPS NE SONT PAS VIDES
     if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['date_naissance']) AND !empty($_POST['mail']) AND !empty($_POST['adresse']) AND !empty($_POST['mutuelle']) AND !empty($_POST['num_sec_soc'])
     AND !empty($_POST['mdp'])) {
+      //SI LE NOM EST UNE CHAINE DE MOINS DE 30 CARACTERES
       if (!is_numeric($_POST['nom']) && strlen($_POST['nom']) <= 30) {
+        //SI LE PRENOM EST UNE CHAINE DE MOINS DE 30 CARACTERES
         if (!is_numeric($_POST['prenom']) && strlen($_POST['prenom']) <= 30) {
 
+          //ENREGISTREMENT DES DONNEES DANS DES VARIABLES
       $nom = htmlspecialchars($_POST['nom']);
       $prenom = htmlspecialchars($_POST['prenom']);
       $date_naissance = htmlspecialchars($_POST['date_naissance']);
@@ -39,16 +46,21 @@ class Method {
       $option_chambre = htmlspecialchars($_POST['option_chambre']);
       $regime = htmlspecialchars($_POST['regime']);
 
+      //SELECT DANS LA BDD
     $req = $bdd->prepare('SELECT * FROM patient WHERE nom=? AND prenom=? AND mail=?');
     $req->execute(array($ins->getNom(), $ins->getPrenom(), $ins->getMail()));
     $donnees= $req->fetch();
 
+    //SI IL TROUVE QUELQUE CHOSE
     if ($donnees) {
+      //MESSAGE D'ERREUR
       echo '<body onLoad="alert(\'Ce compte existe déjà\')">';
 
       echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">';
     }
+    //SI IOL NE TROUVE PAS
     else{
+      //ON ENREGISTRE DANS LA TABLE LES DONNEES
       $r = $bdd->prepare('INSERT INTO patient (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, option_chambre, regime, mdp, role, confirme) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :option_chambre, :regime, :mdp, :role, :confirme)');
       $r ->execute(array(
         'nom' => $ins->getNom(),
@@ -64,27 +76,30 @@ class Method {
         'role' => 'patient',
         'confirme' => 0
       ));
+      //MESSAGE DE SUCCES
       echo '<body onLoad="alert(\'Compte créé avec succès\')">';
       header('Location: ../views/connexion.php');
     }
   }
+  //SI LE PRENOM EST UNE CHAINE DE PLUS DE 30 CARACTERES OU N'EST PAS UNC HAINE DE CARACTERES
   else {
-    echo '<body onLoad="alert(\'Veuillez entrer un nom valide ! \')">';
+    echo '<body onLoad="alert(\'Veuillez entrer un prenom valide ! \')">';
 
     echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
   }
-
+//SI LE NOM EST UNE CHAINE DE PLUS DE 30 CARACTERES OU N'EST PAS UNC HAINE DE CARACTERES
   else {
     echo '<body onLoad="alert(\'Veuillez entrer un nom valide ! \')">';
 
     echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
 }
-
+//SI UN DES CHAMPS EST VIDE
 else {
   echo '<body onLoad="alert(\'Veuillez remplir tous les champs !\')">';
 
   echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
 
+//ENVOI DE MAIL
   $mail = new PHPMailer();
   $mail->isSMTP();                                            // Send using SMTP
   $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
@@ -110,21 +125,23 @@ else {
 
 }
 
-
+  //METHODE DE CONNEXION
   public function connexion($connexion){
+    //CONNEXION BDD
     $bdd = $this->dbConnect();
-    // Sélectionne les informations de la table compte en fonction de l'adresse mail //
+    // RECHERCHE DANS LA TABLE PATIENT SI LE MAIL EXISTE
     $req = $bdd->prepare('SELECT * FROM patient WHERE mail=?');
     $req->execute(array($connexion->getMail()));
     $donnees= $req->fetch();
-
+    //SI NON TROUVE DANS PATIENT
     if ($donnees == null) {
+      //RECHERCHE DANS ADMIN
       $req = $bdd->prepare('SELECT * FROM admin WHERE mail=?');
       $req->execute(array($connexion->getMail()));
       $donnees= $req->fetch();
 
-      if ($donnees == null) {
-        // Si non on affiche une erreur et on redirige vers la page connexion//
+      if ($donnees == null) {//SI NON TROUVE
+        // On affiche une erreur et on redirige vers la page connexion//
         echo '<body onLoad="alert(\'Compte inexistant\')">';
         session_destroy();
         echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
@@ -152,6 +169,7 @@ else {
     }
 
   else{
+    //SI TROUVE DANS PATIENT
     if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == md5($connexion->getMdp())) {
       $_SESSION['id'] = $donnees['id'];
       $_SESSION['nom'] = $donnees['nom'];
@@ -173,7 +191,7 @@ else {
 
   }
 
-
+  //METHODE DE CONNEXION MEDECIN
   public function connexion_medecin($connexion){
     $bdd = $this->dbConnect();
     // Sélectionne les informations de la table compte en fonction de l'adresse mail //
@@ -198,19 +216,25 @@ else {
     }
   }
 
-
+//METHODE DE RESERVATION
  public function Reservation($rdv){
+   //CONNEXION BDD
    $bdd = $this->dbConnect();
+   //RECUPERATION DE LA DATE DU JOUR
    $date_jour = date('Y-m-d');
+   //RECUPERATION DE LA DATE DE LA CONSULTATION
    $date_consult = $rdv->getDateConsult();
 
+   //SI LA DATE EST DANS LE FUTUR
    if ($date_consult < $date_jour) {
+     //MESSAGE D'ERREUR
      echo '<body onLoad="alert(\'Date invalide\')">';
 
      echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
    }
 
    else{
+     //SINON ON EXECUTE LA REQUETE D'INSERTION DANS LA TABLE
        $result = $bdd->prepare('INSERT INTO reservation (nom_patient, nom_medecin, date_consult, time_consult, rais_consult) VALUES (:nom_patient, :nom_medecin, :date_consult, :time_consult, :rais_consult)');
        $insert = $result ->execute(array(
          'nom_patient' => $_SESSION['nom'],
@@ -219,15 +243,18 @@ else {
          'time_consult' => $rdv->getTimeConsult(),
          'rais_consult' => $rdv->getRaisonConsult()
        ));
+       //MESSAGE DE SUCCES
        echo '<body onLoad="alert(\'Réservation réussie\')">';
        header('Location: ../page_index.php');
      }
   }
 
 
-
+//METHODE DE MODIFICATION DU COMPTE
  public function Modification($modif){
+   //CONNEXION A LA BDD
    $bdd = $this->dbConnect();
+   //REQUETE POUR UPDATE LA TABLE EN FONCTION DE L'ID
    $result = $bdd->prepare('UPDATE patient SET nom = ?, prenom = ?, date_naissance = ?, mail = ?, adresse = ?,
       mutuelle = ?, num_sec_soc = ?, option_chambre = ?, regime = ? WHERE id = ? ');
    $result ->execute(array(
@@ -242,22 +269,28 @@ else {
      $modif->getRegime(),
      $_SESSION['id']
    ));
+   //MESSAGE DE SUCCES
    echo '<body onLoad="alert(\'Compte modifié avec succès\')">';
 
    header('Location: ../page_index.php');
  }
 
+ //METHODE POUR CHANGER SON MDP
  public function MotDePasse($mot_de_passe) {
-   //Enregistre les données dans la BDD et rédireige en fonction du résultat //
+   //CONNEXION BDD
    $bdd = $this->dbConnect();
+   //SI LE MAIL N'EST PAS VIDE
    if (!empty($_POST['mail'])) {
      $mail = htmlspecialchars($_POST['mail']);
+     //RECHERCHE DE L'ADRESSE MAIL DANS LA TABLE
    $req = $bdd->prepare('SELECT * FROM patient WHERE mail=?');
    $req->execute(getMail());
    $donnees= $req->fetch();
 
+   //SI IL TROUVE
    if ($donnees) {
 
+     //ENVOI DU MAIL
        $mail = new PHPMailer();
        $mail->isSMTP();                                            // Send using SMTP
        $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
@@ -272,34 +305,46 @@ else {
        $mail->addAddress($donnee->getmail(), 'Mot de passe');     // Add a recipient //Recipients
         $mail->Body    = "<a href='http://localhost/projet_hsp/projet_hsp/views/recuperation_mdp.php'>Réinitialiser mot de passe</a>";
      ;
-     // Si l'envoie de mail s'effectue alors on redirige vers une page //
+     // SI ENVOI DE MAIL ECHOUE
        if(!$mail->Send()) {
+         //MESSAGE D'ERREUR
          echo '<body onLoad="alert(\'Erreur\')">';
        echo '<meta http-equiv="refresh" content="0;URL=../views/">';
      } else { // Si l'envoie de mail ne s'effectue pas alors on redirige vers une autre page //
         //  header("location: ../views/mdp_oublie.html"); //
        }
  }
-} else {
+}
+//SI LE MAIL N'EXISTE PAS
+else {
+  //MESSAGE D'ERREUR
   echo '<body onLoad="alert(\'Cette adresse mail n\'existe pas\')">';
 
   echo '<meta http-equiv="refresh" content="0;URL=../views/mdp_oublie.html">';
 }
 }
 
+
+//METHODE POUR AJOUTER UN DOCTEUR
 public function AddDoctor($add_doctor){
+  //CONNEXION BDD
   $bdd = $this->dbConnect();
+  //RECHERCHE DU MEDECIN DANS LA TABLE
   $req = $bdd->prepare('SELECT * FROM medecin WHERE nom=? AND identifiant=?');
   $req->execute(array($add_doctor->getNom(), $add_doctor->getIdentifiant()));
   $donnees= $req->fetch();
 
+  //SI IL TROUVE
   if ($donnees) {
+    //MESSAGE D'ERREUR
     echo '<body onLoad="alert(\'Ce compte existe déjà\')">';
 
     echo '<meta http-equiv="refresh" content="0;URL=../views/add_doctor.php">';
   }
 
+  //SI IL NE TROUVE PAS
   else{
+    //INSERTION DANS LA TABLE DU NOUVEAU MEDECIN
       $result = $bdd->prepare('INSERT INTO medecin (nom, lieu, specialite, identifiant, mdp, approuve) VALUES (:nom, :lieu, :specialite, :identifiant, :mdp, :approuve)');
       $insert = $result ->execute(array(
         'nom' => $add_doctor->getNom(),
@@ -309,24 +354,31 @@ public function AddDoctor($add_doctor){
         'mdp' => md5($add_doctor->getMdp()),
         'approuve' => 1
       ));
+      //MESSAGE DE SUCCES
       echo '<body onLoad="alert(\'Réservation réussie\')">';
       header('Location: ../views/add_doctor.php');
     }
  }
 
+//METHODE POUR AJOUTER UN ADMIN
  public function AddAdmin($add_admin){
+   //CONNEXION BDD
    $bdd = $this->dbConnect();
+   //RECHERCHE DE L'ADMIN DANS LA TABLE
    $req = $bdd->prepare('SELECT * FROM admin WHERE nom=? AND prenom=? AND mdp=?');
    $req->execute(array($add_admin->getNom(), $add_admin->getPrenom(), $add_admin->getMdp()));
    $donnees= $req->fetch();
 
+//SI IL TROUVE
    if ($donnees) {
+     //MESSAGE D'ERREUR
      echo '<body onLoad="alert(\'Ce compte existe déjà\')">';
 
      echo '<meta http-equiv="refresh" content="0;URL=../views/add_admin.php">';
    }
-
+//SI IL NE TROUVE PAS
    else{
+     //INSERTION DANS LA TABLE DU NOUVEL ADMIN
        $result = $bdd->prepare('INSERT INTO admin (nom, prenom, mail, mdp, role) VALUES (:nom, :prenom, :mail, :mdp, :role)');
        $insert = $result ->execute(array(
          'nom' => $add_admin->getNom(),
@@ -335,6 +387,7 @@ public function AddDoctor($add_doctor){
          'mdp' => md5($add_admin->getMdp()),
          'role' => 'admin'
        ));
+       //MESSAGE DE SUCCES
        echo '<body onLoad="alert(\'Ajout réussi\')">';
        header('Location: ../views/add_admin.php');
      }
