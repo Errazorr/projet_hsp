@@ -49,7 +49,7 @@
             <div class="progress-table">
               <div class="table-head">
                 <div class="visit">Nom médecin</div>
-                <div class="visit">Lieu d'éxercice</div>
+                <div class="visit">Lieu d'exercice</div>
                 <div class="visit">Spécialité</div>
                 <div class="visit">Identifiant</div>
                 <div class="visit">Approuvé</div>
@@ -59,10 +59,6 @@
                 if ($_SESSION['role'] == "admin") {
                   $req = $bdd->query('SELECT * FROM medecin');
                   $donnees= $req->fetchall();
-                }
-
-                else if ($_SESSION['role'] == "medecin"){
-                  echo 'Vous n\'avez pas accès à cette page';
                 }
                 else{
                   echo 'Vous n\'avez pas accès à cette page';
