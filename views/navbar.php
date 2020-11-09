@@ -117,7 +117,7 @@ session_start();
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="add_doctor.php">Médecin</a>
                                   <a class="dropdown-item" href="add_admin.php">Admin</a>
-                                  <a class="dropdown-item" href="activate.php">Patient</a>
+                                  <a class="dropdown-item" href="add_patient.php">Patient</a>
                                   <a class="dropdown-item" href="activate.php">Confirmer/Approuver</a>
                               </div>
                           </li>
