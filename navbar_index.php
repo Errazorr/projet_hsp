@@ -130,7 +130,7 @@ session_start();
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="traitement/csv.php">Exporter les rendez-vous</a>
-                                  <a class="dropdown-item" href="traitement/csv2.php">Exporter un dossier d'admission</a>
+                                  <a class="dropdown-item" target="_blank" href="traitement/csv2.php">Exporter un dossier d'admission</a>
                               </div>
                           </li>
                       </ul>

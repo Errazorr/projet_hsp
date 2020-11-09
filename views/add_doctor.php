@@ -55,7 +55,8 @@
                 <div class="visit">Approuvé</div>
               </div>
 
-              <?php//SI ADMIN
+              <?php
+              //SI ADMIN
                 if ($_SESSION['role'] == "admin") {
                   //SELECTION DANS LA BDD
                   $req = $bdd->query('SELECT * FROM medecin');
