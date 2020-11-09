@@ -129,8 +129,8 @@ session_start();
                                   Export
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="views/export_rdv.php">Exporter les rendez-vous</a>
-                                  <a class="dropdown-item" href="views/export_file.php">Exporter un dossier d'admission</a>
+                                  <a class="dropdown-item" href="traitement/csv.php">Exporter les rendez-vous</a>
+                                  <a class="dropdown-item" href="traitement/csv.php">Exporter un dossier d'admission</a>
                               </div>
                           </li>
                       </ul>
