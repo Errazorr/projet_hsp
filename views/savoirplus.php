@@ -87,19 +87,11 @@ Le Centre Hospitalier de La Ciotat dispose d'un plateau technique performant et 
 
 - Une équipe mobile de soins palliatifs – équipe commune du SIH Aubagne, Allauch, La Ciotat.</p>
                                 </div>
-
-
                             </div>
-
-
-
                         </form>
                     </div>
-
                 </div>
-
             </div>
         </div>
     </section>
-
 </html>
