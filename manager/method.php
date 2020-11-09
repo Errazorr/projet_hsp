@@ -222,11 +222,13 @@ else {
    $bdd = $this->dbConnect();
    //RECUPERATION DE LA DATE DU JOUR
    $date_jour = date('Y-m-d');
+   //DATE DE RESERVATION MINIMUM 3 JOURS A L'AVANCE
+   $date_min = date('Y-m-d', strtotime($date_jour. ' + 3 days'));
    //RECUPERATION DE LA DATE DE LA CONSULTATION
    $date_consult = $rdv->getDateConsult();
 
-   //SI LA DATE EST DANS LE FUTUR
-   if ($date_consult < $date_jour) {
+   //SI LA DATE DE RESERVATION EST DANS LE FUTUR OU DANS MOINS DE 3 JOURS
+   if ($date_consult < $date_min) {
      //MESSAGE D'ERREUR
      echo '<body onLoad="alert(\'Date invalide\')">';
 
