@@ -31,7 +31,6 @@
 
                 <div class="col-xl-3 col-sm-6 col-md-6 single-footer-widget">
                     <h4>Informations</h4>
-                    <p>ryannathanslam@gmail.com</p><br>
                     <p>30, Avenue Montaigne, <br>
                 75008 Paris</p>
 
