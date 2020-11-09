@@ -55,17 +55,21 @@
                 <div class="visit">Approuvé</div>
               </div>
 
-              <?php
+              <?php//SI ADMIN
                 if ($_SESSION['role'] == "admin") {
+                  //SELECTION DANS LA BDD
                   $req = $bdd->query('SELECT * FROM medecin');
                   $donnees= $req->fetchall();
                 }
+                //SI PAS ADMIN
                 else{
+                  //PAS D'ACCES
                   echo 'Vous n\'avez pas accès à cette page';
                 }
 
-
+                //POUR CHAQUE LIGNE DANS LA TABLE
                 foreach ($donnees as $value) {
+                  //AFFICHAGE DANS LE TABLEAU
                   echo '<div class="table-row">
                     <div class="visit" style="color:#000000">'.$value["nom"].'</div>
                     <div class="visit" style="color:#000000">'.$value["lieu"].'</div>
