@@ -1,6 +1,7 @@
 <?php
 
 class Modification {
+	//ATTRIBUTS
 	protected $nom;
 	protected $prenom;
   protected $date_naissance;
@@ -23,6 +24,7 @@ public function __construct($nom, $prenom, $date_naissance, $mail, $adresse, $mu
   $this->setRegime($regime);
 }
 
+//GETTER
 public function getNom(){return $this->nom;}
 public function getPrenom(){return $this->prenom;}
 public function getDateNaissance(){return $this->date_naissance;}
@@ -33,7 +35,7 @@ public function getNumSecSoc(){return $this->num_sec_soc;}
 public function getOptionChambre(){return $this->option_chambre;}
 public function getRegime(){return $this->regime;}
 
-
+//SETTER
 public function setNom($nom){
 	$this->nom=$nom;
 }

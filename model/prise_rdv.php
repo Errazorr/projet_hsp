@@ -1,6 +1,7 @@
 <?php
 
 class RDV {
+  //ATTRIBUTS
   private $nom_medecin;
   private $raison_consult;
 	private $date_consult;
@@ -13,12 +14,13 @@ class RDV {
     $this->setRaisonConsult($raison_consult);
   }
 
+//GETTER
 	public function getNomMedecin(){return $this->nom_medecin;}
 	public function getDateConsult(){return $this->date_consult;}
 	public function getTimeConsult(){return $this->time_consult;}
 	public function getRaisonConsult(){return $this->raison_consult;}
 
-
+//SETTER
   public function setNomMedecin($nom_medecin){
   	$this->nom_medecin=$nom_medecin;
   }

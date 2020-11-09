@@ -2,7 +2,7 @@
 
 class User {
 // classe user reprenant les informations du manager, formulaire, model//
-
+//ATTRIBUTS
 private $nom;
 private $prenom;
 private $date_naissance;

@@ -1,6 +1,7 @@
 <?php
 
 class Medecin{
+  //ATTRIBUTS
   private $nom;
   private $lieu;
   private $specialite;
@@ -21,6 +22,7 @@ class Medecin{
     }
   }
 
+//SETTER
   public function setNom ($nom){
     $this->_nom = $nom;
   }
@@ -45,7 +47,7 @@ class Medecin{
     $this->_approuve = $approuve;
   }
 
-
+//GETTER
   public function getNom(){return $this->_nom;}
   public function getLieu(){return $this->_lieu;}
   public function getSpecialite(){return $this->_specialite;}
