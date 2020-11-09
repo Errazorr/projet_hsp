@@ -1,5 +1,5 @@
 <?php
-
+//REQUIRES
 require('../manager/method.php');
 require('../model/mdp_class.php');
 
