@@ -7,7 +7,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <title>Site officiel de l'hôpital </title>
-    <link rel="icon" href="img/favicon.png">
+    <link rel="icon" href="img/logo3icon.png">
     <?php
       require_once('navbar_index.php');
     ?>
@@ -31,7 +31,7 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="banner_img">
-                        <img src="img/banner_img.png" alt="">
+                        <img src="img/do.png" alt="">
                     </div>
                 </div>
             </div>
