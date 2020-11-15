@@ -120,7 +120,7 @@ session_start();
                                   <a class="dropdown-item" href="views/add_doctor.php">Médecin</a>
                                   <a class="dropdown-item" href="views/add_admin.php">Admin</a>
                                   <a class="dropdown-item" href="add_patient.php">Patient</a>
-                                  <a class="dropdown-item" href="activate.php">Confirmer/Approuver</a>
+                                  <a class="dropdown-item" href="views/activate.php">Confirmer/Approuver</a>
                               </div>
                           </li>
                           <li class="nav-item dropdown">
