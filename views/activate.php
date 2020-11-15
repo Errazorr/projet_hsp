@@ -35,7 +35,7 @@ $commentaires = $bdd->query('SELECT * FROM medecin ORDER BY id DESC LIMIT 0,5');
 <body>
  <ul>
     <?php while($m = $membres->fetch()) { ?>
-    <li><?= $m['id'] ?> : <?= $m['nom'] ?><?php if($m['confirme'] == 0) { ?> - <a href="activate.php?type=membre&confirme=<?= $m['id'] ?>">Confirmer</a><?php } ?> - <a href="activate.php?type=membre&supprime=<?= $m['id'] ?>">Supprimer</a></li>
+    <li><?= $m['id'] ?> : <?= $m['nom'] ?> - <?= $m['prenom'] ?> - Confirme : <?= $m['confirme'] ?> :<?php if($m['confirme'] == 0) { ?> - <a href="activate.php?type=membre&confirme=<?= $m['id'] ?>">Confirmer</a><?php } ?> - <a href="activate.php?type=membre&supprime=<?= $m['id'] ?>">Supprimer</a></li>
     <?php } ?>
  </ul>
  <br /><br />
