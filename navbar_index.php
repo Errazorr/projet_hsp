@@ -119,7 +119,7 @@ session_start();
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                   <a class="dropdown-item" href="views/add_doctor.php">Médecin</a>
                                   <a class="dropdown-item" href="views/add_admin.php">Admin</a>
-                                  <a class="dropdown-item" href="add_patient.php">Patient</a>
+                                  <a class="dropdown-item" href="views/add_patient.php">Patient</a>
                                   <a class="dropdown-item" href="views/activate.php">Confirmer/Approuver</a>
                               </div>
                           </li>
