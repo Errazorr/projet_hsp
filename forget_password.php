@@ -5,7 +5,8 @@ include 'manager/db.php';
 <html>
   <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Site web</title>
+    <title>Mot de passe oublié</title>
+    <link rel="icon" href="img/logo3icon.png">
   </head>
   <body>
     <h2>Mot de passe oublié ?</h2>

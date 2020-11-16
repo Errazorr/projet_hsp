@@ -7,8 +7,8 @@ session_start();
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>medical</title>
-    <link rel="icon" href="../img/favicon.png">
+    <title>Connexion</title>
+    <link rel="icon" href="../img/logo3icon.png">
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="../css/bootstrap.min.css">
     <!-- animate CSS -->

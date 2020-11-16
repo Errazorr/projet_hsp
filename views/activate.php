@@ -30,6 +30,8 @@ $commentaires = $bdd->query('SELECT * FROM medecin ORDER BY id DESC LIMIT 0,5');
 <html>
 <head>
  <meta charset="utf-8" />
+ <title>Activation des comptes</title>
+ <link rel="icon" href="../img/logo3icon.png">
  <title>Administration</title>
 </head>
 <body>
