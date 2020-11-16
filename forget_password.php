@@ -24,7 +24,7 @@ include 'manager/db.php';
 if(isset($_POST['email']))
 {
   $token = uniqid();
-  $url = "http://localhost/projet/token?token=$token";
+  $url = "http://localhost/projet_hsp/projet_hsp/token?token=$token";
 
   $message = "Bonjour, voici votre lien pour la réinitialisation : $url";
   $headers = 'Content-Type: text/plain; charset="utf-8"'." ";

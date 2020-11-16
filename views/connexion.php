@@ -1,6 +1,4 @@
-<?php
-session_start();
-?>
+
 <!doctype html>
 <html lang="en">
 <head>
@@ -91,7 +89,7 @@ session_start();
                                 <br/>  </center>
 
                               </br/>		<center>
- <a href="../mdp_token/forget_mail.php">Mot de passe oublié ? </a><br/>
+ <a href="../forget_password.php">Mot de passe oublié ? </a><br/>
 
 </br/>
                                 <a href="inscription.php" class="genric-btn danger-border circle arrow">Nouveau ici ? S'inscrire <span
