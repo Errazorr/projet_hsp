@@ -57,7 +57,7 @@ if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
  			<div class="inner">
  				<form action="" method="post">
  					<h3>Modifier le compte</h3>
- 					<p>Modifier le compte suivant : <?= $whoiam['nom']; ?>  <?= $whoiam['prenom']; ?></p>
+ 					<p>Modifier le compte suivant : <strong><?= $whoiam['id']; ?></strong> - <strong><?= $whoiam['nom']; ?></strong>  <strong><?= $whoiam['prenom']; ?></strong></p>
  					<label class="form-group">
  						<input type="text" name="nom" class="form-control" value="<?= $whoiam['nom']; ?>" >
  						<span>Nom</span>
