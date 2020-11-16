@@ -33,7 +33,7 @@ if(isset($_GET['token']) && $_GET['token'] != '')
 
 if(isset($_POST['newPassword']))
 {
-  $hashedPassword = password_hash($_POST['newPassword'], PASSWORD_DEFAULT);
+  $hashedPassword = md5($_POST['newPassword']);
   $sql = "UPDATE patient SET mdp = ?, token = NULL WHERE mail = ?";
   $stmt = $db->prepare($sql);
   $stmt->execute([$hashedPassword, $email]);

@@ -35,98 +35,82 @@ if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
 }
  ?>
 
- <head>
-     <!-- Required meta tags -->
-     <meta charset="utf-8">
-     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-     <title>Modification d'un compte</title>
-     <link rel="icon" href="../img/logo3icon.png">
-     <title>Modifier membre - Administration</title>
-
-      <!-- breadcrumb start-->
-      <section class="breadcrumb_part breadcrumb_bg">
-         <div class="container">
-             <div class="row">
-                 <div class="col-lg-12">
-                     <div class="breadcrumb_iner">
-                         <div class="breadcrumb_iner_item">
-                             <h2>Modification</h2>
-
-                         </div>
-                     </div>
-                 </div>
-             </div>
-         </div>
-     </section>
-
-     <section class="regervation_part section_padding">
-         <div class="container">
-             <div class="row align-items-center regervation_content">
-                 <div class="col-lg-12">
-
-                    <div class="regervation_part_iner">
-                         <form action="" method="post">
-                           <center>
-
-                            <h2>Vous désirez changer vos données? </h2> </center>
-                             <div class="form-row">
-                                 <div class="form-group col-md-6">
-                                   <label for="nom">Nom : </label>
-                                   <input type="text" name="nom" value="<?= $whoiam['nom']; ?>"><br/><br/>
-                                 </div>
-                                 <div class="form-group col-md-6">
-                                   <label for="prenom">Prénom : </label>
-                                   <input type="text" name="prenom" value="<?= $whoiam['prenom']; ?>"><br/><br/></div>
-                                 <div class="form-group col-md-6">
-                                   <label for="date_naissance">Date de naissance : </label>
-                                   <input type="date" name="date_naissance" value="<?= $whoiam['date_naissance']; ?>"><br/><br/></div>
-                                 <div class="form-group col-md-6">
-                                   <label for="mail">Mail : </label>
-                                   <input type="email" name="mail" value="<?= $whoiam['mail']; ?>"><br/><br/></div>
-                                 <div class="form-group col-md-6">
-                                   <label for="adresse">Adresse : </label>
-                                   <input type="text" name="adresse" value="<?= $whoiam['adresse']; ?>"><br/><br/></div>
-                                 <div class="form-group col-md-6">
-                                   <label for="mutuelle">Mutuelle : </label>
-                                   <input type="text" name="mutuelle" value="<?= $whoiam['mutuelle']; ?>"><br/><br/></div>
-                                 <div class="form-group col-md-6">
-                                   <label for="num_sec_soc">Num Sec Soc : </label>
-                                   <input type="tel" maxlength="15" name="num_sec_soc" value="<?= $whoiam['num_sec_soc']; ?>"><br/><br/></div>
-                                 <div class="form-group col-md-6">
-                                   <label for="option_chambre">Option : </label>
-                                   <input type="text" name="option_chambre" value="<?= $whoiam['option_chambre']; ?>"><br/><br/></div>
-                                 <div class="form-group col-md-6">
-                                   <label for="regime">Regime : </label>
-                                   <input type="text" name="regime" value="<?= $whoiam['regime']; ?>"><br/><br/></div>
- <br/>
-   </br/>
-
-                             </div>
-                             <div class="regerv_btn"><center>
 
 
-                                 <input type="submit" name="ok_modifier_membre" value="Modifier">
-                                 <br/>  </center>
+     <!DOCTYPE html>
+ <html>
+ 	<head>
+ 		<meta charset="utf-8">
+ 		<title>RegistrationForm_v7 by Colorlib</title>
+ 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-                               </br/>		<center>
- <br/>
+ 		<!-- MATERIAL DESIGN ICONIC FONT -->
+ 		<link rel="stylesheet" href="../fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
 
- </br/>
-                             </div>
+ 		<!-- STYLE CSS -->
+ 		<link rel="stylesheet" href="../css/style3.css">
+ 	</head>
 
+ 	<body>
 
-                         </form>
-                     </div>
+ 		<div class="wrapper">
+ 			<div class="inner">
+ 				<form action="" method="post">
+ 					<h3>Modifier le compte</h3>
+ 					<p>Modifier le compte suivant : <?= $whoiam['nom']; ?>  <?= $whoiam['prenom']; ?></p>
+ 					<label class="form-group">
+ 						<input type="text" name="nom" class="form-control" value="<?= $whoiam['nom']; ?>" >
+ 						<span>Nom</span>
+ 						<span class="border"></span>
+ 					</label>
+          <label class="form-group">
+ 						<input type="text" name="prenom" class="form-control" value="<?= $whoiam['prenom']; ?>" >
+ 						<span>Prénom</span>
+ 						<span class="border"></span>
+ 					</label>
+          <label class="form-group">
+ 						<input type="date" name="date_naissance" class="form-control" value="<?= $whoiam['date_naissance']; ?>" >
+ 						<span>Date de naissance</span>
+ 						<span class="border"></span>
+ 					</label>
+ 					<label class="form-group">
+ 						<input type="text" name="mail" class="form-control" value="<?= $whoiam['mail']; ?>">
+ 						<span for="">Adresse mail</span>
+ 						<span class="border"></span>
+ 					</label>
+          <label class="form-group">
+ 						<input type="text" name="adresse" class="form-control" value="<?= $whoiam['adresse']; ?>" >
+ 						<span>Adresse</span>
+ 						<span class="border"></span>
+ 					</label>
+          <label class="form-group">
+ 						<input type="text" name="mutuelle" class="form-control" value="<?= $whoiam['mutuelle']; ?>" >
+ 						<span>Mutuelle</span>
+ 						<span class="border"></span>
+ 					</label>
+          <label class="form-group">
+ 						<input type="text" name="num_sec_soc" class="form-control"  maxlength="15" name="num_sec_soc" value="<?= $whoiam['num_sec_soc']; ?>" >
+ 						<span>Numéro de sécurité sociale</span>
+ 						<span class="border"></span>
+ 					</label>
+          <label class="form-group">
+ 						<input type="text" name="option_chambre" class="form-control" value="<?= $whoiam['option_chambre']; ?>" >
+ 						<span>Option de chambre</span>
+ 						<span class="border"></span>
+ 					</label>
+          <label class="form-group">
+ 						<input type="text" name="regime" class="form-control" value="<?= $whoiam['regime']; ?>" >
+ 						<span>Régime</span>
+ 						<span class="border"></span>
+ 					</label>
+ 				<center>
 
-                 </div>
+        	<button type="submit" class="zmdi zmdi-arrow-right" name="ok_modifier_membre">Modifier
+</center>
+ 					</button>
+ 				</form>
+ 			</div>
+ 		</div>
 
-             </div>
-         </div>
-     </section>
-     <!--::regervation_part end::-->
-
-     <?php
-     require_once('footer.php');
-      ?>
-
+ 	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
  </html>
