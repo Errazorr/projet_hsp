@@ -72,7 +72,7 @@ class Method {
         'num_sec_soc' => $ins->getNumSecSoc(),
         'option_chambre' => $ins->getOptionChambre(),
         'regime' => $ins->getRegime(),
-        'mdp' => md5($ins->getMdp()),
+        'mdp' => password_hash($ins->getMdp()),
         'role' => 'patient',
         'confirme' => 0
       ));
@@ -148,7 +148,7 @@ else {
       }
       else{
         // Si la rêquette s'execute alors on redirige vers la page d'accueil //
-        if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == md5($connexion->getMdp())) {
+        if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == password_hash($connexion->getMdp())) {
           $_SESSION['id'] = $donnees['id'];
           $_SESSION['nom'] = $donnees['nom'];
           $_SESSION['prenom'] = $donnees['prenom'];
@@ -170,7 +170,7 @@ else {
 
   else{
     //SI TROUVE DANS PATIENT
-    if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == md5($connexion->getMdp())) {
+    if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == password_hash($connexion->getMdp())) {
       $_SESSION['id'] = $donnees['id'];
       $_SESSION['nom'] = $donnees['nom'];
       $_SESSION['prenom'] = $donnees['prenom'];
@@ -199,7 +199,7 @@ else {
     $req->execute(array($connexion->getIdentifiant()));
     $donnees= $req->fetch();
     // Si la rêquette s'execute alors on redirige vers la page d'accueil //
-    if ($donnees['identifiant'] == $connexion->getIdentifiant() AND $donnees['mdp'] == md5($connexion->getMdp())) {
+    if ($donnees['identifiant'] == $connexion->getIdentifiant() AND $donnees['mdp'] == password_hash($connexion->getMdp())) {
       $_SESSION['nom_medecin'] = $donnees['nom'];
       $_SESSION['role'] = "medecin";
 
@@ -367,7 +367,7 @@ public function AddDoctor($add_doctor){
         'lieu' => $add_doctor->getLieu(),
         'specialite' => $add_doctor->getSpecialite(),
         'identifiant' => $add_doctor->getIdentifiant(),
-        'mdp' => md5($add_doctor->getMdp()),
+        'mdp' => password_hash($add_doctor->getMdp()),
         'approuve' => 1
       ));
       //MESSAGE DE SUCCES
@@ -400,7 +400,7 @@ public function AddDoctor($add_doctor){
          'nom' => $add_admin->getNom(),
          'prenom' => $add_admin->getPrenom(),
          'mail' => $add_admin->getMail(),
-         'mdp' => md5($add_admin->getMdp()),
+         'mdp' => password_hash($add_admin->getMdp()),
          'role' => 'admin'
        ));
        //MESSAGE DE SUCCES
