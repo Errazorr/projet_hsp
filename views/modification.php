@@ -29,8 +29,8 @@ $donnees= $rec->fetch();
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Modifier son profil</title>
-    <link rel="icon" href="../img/favicon.png">
+    <title>Modification du profil</title>
+    <link rel="icon" href="../img/logo3icon.png">
 
      <!-- breadcrumb start-->
      <section class="breadcrumb_part breadcrumb_bg">

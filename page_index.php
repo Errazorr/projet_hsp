@@ -6,7 +6,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Site officiel de l'hôpital </title>
+    <title>Site officiel de l'hôpital Zoldyck</title>
     <link rel="icon" href="img/logo3icon.png">
     <?php
       require_once('navbar_index.php');

@@ -39,6 +39,8 @@ if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
  <html lang="en" dir="ltr">
    <head>
      <meta charset="utf-8">
+     <title>Modification d'un compte</title>
+     <link rel="icon" href="../img/logo3icon.png">
      <title>Modifier membre - Administration</title>
    </head>
    <body>

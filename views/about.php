@@ -5,8 +5,8 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>medical</title>
-    <link rel="icon" href="../img/favicon.png">
+    <title>A propos</title>
+    <link rel="icon" href="../img/logo3icon.png">
     <?php
       require_once('navbar.php');
     ?>
