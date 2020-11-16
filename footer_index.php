@@ -34,27 +34,6 @@
 75008 Paris</p>
 
                 </div>
-
-                <div class="col-xl-3 col-sm-6 col-md-6 single-footer-widget">
-                    <h4>Newsletter</h4>
-                    <p>En cette période de Covid-19, restez au courant de toutes les actualités concernant l'hôpital.</p>
-                    <div class="form-wrap" id="mc_embed_signup">
-                        <form target="_blank"
-                            action="https://spondonit.us12.list-manage.com/subscribe/post?u=1462626880ade1ac87bd9c93a&amp;id=92a4423d01"
-                            method="get" class="form-inline">
-                            <input class="form-control" name="EMAIL" placeholder="Votre adresse mail"
-                                onfocus="this.placeholder = ''" onblur="this.placeholder = 'Votre adresse mail '"
-                                required="" type="email">
-                            <button class="click-btn btn btn-default text-uppercase"> <i class="ti-angle-right"></i>
-                            </button>
-                            <div style="position: absolute; left: -5000px;">
-                                <input name="b_36c4fd991d266f23781ded980_aefe40901a" tabindex="-1" value=""
-                                    type="text">
-                            </div>
-
-                            <div class="info"></div>
-                        </form>
-                    </div>
                 </div>
             </div>
         </div>

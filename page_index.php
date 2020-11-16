@@ -90,7 +90,7 @@
                 <div class="col-lg-3 col-sm-12">
                     <div class="single_feature">
                         <div class="single_feature_part">
-                            <span class="single_feature_icon"><img src="img/icon/feature_3.svg" alt=""></span>
+                            <span class="single_feature_icon"><img src="img/icon/feature_2.svg" alt=""></span>
                             <h4>Médecine interne</h4>
                             <p>- Maladies systémiques: lupus, syndrome de sjögren, sclérodermie, ...
 <br/>
@@ -108,7 +108,7 @@
                     </div>
                     <div class="single_feature">
                         <div class="single_feature_part">
-                            <span class="single_feature_icon"><img src="img/icon/feature_3.svg" alt=""></span>
+                            <span class="single_feature_icon"><img src="img/icon/feature_2.svg" alt=""></span>
                             <h4>Dérmatologie</h4>
                             <p>- Photothérapie UVB et PUVAthérapie. <br/>
 
@@ -128,7 +128,7 @@
                 <div class="col-lg-3 col-sm-12">
                     <div class="single_feature">
                         <div class="single_feature_part">
-                            <span class="single_feature_icon"><img src="img/icon/feature_3.svg" alt=""></span>
+                            <span class="single_feature_icon"><img src="img/icon/feature_2.svg" alt=""></span>
                             <h4>Gastroentérologie</h4>
                             <p>- Endoscopies digestives: fibroscopies gastriques, coloscopies avec  ablation de polypes, GPE.
                             <br/>
@@ -137,7 +137,7 @@
                     </div>
                     <div class="single_feature">
                         <div class="single_feature_part">
-                            <span class="single_feature_icon"><img src="img/icon/feature_3.svg" alt=""></span>
+                            <span class="single_feature_icon"><img src="img/icon/feature_2.svg" alt=""></span>
                             <h4>Rhumatologie</h4>
                             <p>- Rhumatismes inflammatoires (polyarthrite rhumatoïde, spondyloarthrites, rhumatisme psoriasique)<br/>
                               - Arthropathies micro-cristallines ( goutte, chondrocalcinose articulaire)<br/>
@@ -165,7 +165,7 @@
                                             <span class="our_depertment_icon"><img src="img/icon/feature_2.svg"
                                                     alt=""></span>
                                             <h4>Pneumologie</h4>
-                                            <p>La pneumologie désigne la spécialité s’intéressant au fonctionnement de l’appareil respiratoire .</p>
+                                            <p style="color:black">La pneumologie désigne la spécialité s’intéressant au fonctionnement de l’appareil respiratoire .</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-6">
@@ -173,7 +173,7 @@
                                             <span class="our_depertment_icon"><img src="img/icon/feature_2.svg"
                                                     alt=""></span>
                                             <h4>Infection VIH</h4>
-                                            <p>L'infection par le virus de l'immunodéficience humaine (VIH) est une infection virale et peut aboutir au syndrome de SIDA.</p>
+                                            <p style="color:black">L'infection par le virus de l'immunodéficience humaine (VIH) est une infection virale et peut aboutir au syndrome de SIDA.</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-6">
@@ -181,7 +181,7 @@
                                             <span class="our_depertment_icon"><img src="img/icon/feature_2.svg"
                                                     alt=""></span>
                                             <h4>Endocrinologie - Diabétologie</h4>
-                                            <p>L'endocrinologie est la spécialité médicale s'intéressant aux hormones, à leurs effets sur le fonctionnement du corps.</p>
+                                            <p style="color:black">L'endocrinologie est la spécialité médicale s'intéressant aux hormones, à leurs effets sur le fonctionnement du corps.</p>
                                         </div>
                                     </div>
                                     <div class="col-lg-6 col-sm-6">
@@ -189,7 +189,7 @@
                                             <span class="our_depertment_icon"><img src="img/icon/feature_2.svg"
                                                     alt=""></span>
                                             <h4>Cancérologie - Oncologie</h4>
-                                            <p>La cancérologie (appelée aussi carcinologie ou oncologie) est la spécialité d'étude, de diagnostic et de traitement des cancers.</p>
+                                            <p style="color:black">La cancérologie (appelée aussi carcinologie ou oncologie) est la spécialité d'étude, de diagnostic et de traitement des cancers.</p>
                                         </div>
                                     </div>
                                 </div>
