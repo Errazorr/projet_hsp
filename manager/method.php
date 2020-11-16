@@ -72,7 +72,7 @@ class Method {
         'num_sec_soc' => $ins->getNumSecSoc(),
         'option_chambre' => $ins->getOptionChambre(),
         'regime' => $ins->getRegime(),
-        'mdp' => password_hash($ins->getMdp()),
+        'mdp' => md5($ins->getMdp()),
         'role' => 'patient',
         'confirme' => 0
       ));
@@ -148,7 +148,7 @@ else {
       }
       else{
         // Si la rêquette s'execute alors on redirige vers la page d'accueil //
-        if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == password_hash($connexion->getMdp())) {
+        if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == md5($connexion->getMdp())) {
           $_SESSION['id'] = $donnees['id'];
           $_SESSION['nom'] = $donnees['nom'];
           $_SESSION['prenom'] = $donnees['prenom'];
@@ -170,7 +170,7 @@ else {
 
   else{
     //SI TROUVE DANS PATIENT
-    if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == password_hash($connexion->getMdp())) {
+    if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == md5($connexion->getMdp())) {
       $_SESSION['id'] = $donnees['id'];
       $_SESSION['nom'] = $donnees['nom'];
       $_SESSION['prenom'] = $donnees['prenom'];
@@ -199,7 +199,7 @@ else {
     $req->execute(array($connexion->getIdentifiant()));
     $donnees= $req->fetch();
     // Si la rêquette s'execute alors on redirige vers la page d'accueil //
-    if ($donnees['identifiant'] == $connexion->getIdentifiant() AND $donnees['mdp'] == password_hash($connexion->getMdp())) {
+    if ($donnees['identifiant'] == $connexion->getIdentifiant() AND $donnees['mdp'] == md5($connexion->getMdp())) {
       $_SESSION['nom_medecin'] = $donnees['nom'];
       $_SESSION['role'] = "medecin";
 
@@ -367,7 +367,7 @@ public function AddDoctor($add_doctor){
         'lieu' => $add_doctor->getLieu(),
         'specialite' => $add_doctor->getSpecialite(),
         'identifiant' => $add_doctor->getIdentifiant(),
-        'mdp' => password_hash($add_doctor->getMdp()),
+        'mdp' => md5($add_doctor->getMdp()),
         'approuve' => 1
       ));
       //MESSAGE DE SUCCES
@@ -381,8 +381,8 @@ public function AddDoctor($add_doctor){
    //CONNEXION BDD
    $bdd = $this->dbConnect();
    //RECHERCHE DE L'ADMIN DANS LA TABLE
-   $req = $bdd->prepare('SELECT * FROM admin WHERE nom=? AND prenom=? AND mdp=?');
-   $req->execute(array($add_admin->getNom(), $add_admin->getPrenom(), $add_admin->getMdp()));
+   $req = $bdd->prepare('SELECT * FROM admin WHERE nom=? AND prenom=? AND mail=?');
+   $req->execute(array($add_admin->getNom(), $add_admin->getPrenom(), $add_admin->getMail()));
    $donnees= $req->fetch();
 
 //SI IL TROUVE
@@ -395,13 +395,14 @@ public function AddDoctor($add_doctor){
 //SI IL NE TROUVE PAS
    else{
      //INSERTION DANS LA TABLE DU NOUVEL ADMIN
-       $result = $bdd->prepare('INSERT INTO admin (nom, prenom, mail, mdp, role) VALUES (:nom, :prenom, :mail, :mdp, :role)');
+     $mdp_hasher = md5($add_admin->getMdp());
+       $result = $bdd->prepare('INSERT INTO admin (nom, prenom, mail, mdp, role) VALUES (?, ?, ?, ?, ?)');
        $insert = $result ->execute(array(
-         'nom' => $add_admin->getNom(),
-         'prenom' => $add_admin->getPrenom(),
-         'mail' => $add_admin->getMail(),
-         'mdp' => password_hash($add_admin->getMdp()),
-         'role' => 'admin'
+         $add_admin->getNom(),
+         $add_admin->getPrenom(),
+         $add_admin->getMail(),
+         $mdp_hasher,
+         'admin'
        ));
        //MESSAGE DE SUCCES
        echo '<body onLoad="alert(\'Ajout réussi\')">';

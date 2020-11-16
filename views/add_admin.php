@@ -118,7 +118,7 @@
                                 </div>
 
                                 <div class="regerv_btn"><center> <br>
-                                  <input type="submit" class="btn_1" name="btn" value="Valider">
+                                  <input type="submit" class="btn_1" value="Valider">
                                   <br/>  </center>
 
                                   </br/>
