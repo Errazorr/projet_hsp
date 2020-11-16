@@ -7,7 +7,7 @@
         <div class="container">
             <div class="row justify-content-between">
                 <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">
-                    <a href="#" class="footer_logo"> <img src="../img/logo8.png" alt="#"> </a>
+                    <a href="#" class="footer_logo"> <img src="../img/logo8.png"> </a>
                     <p>Le site officiel de l'hôpital Zoldyck. </p>
 
                 </div>
