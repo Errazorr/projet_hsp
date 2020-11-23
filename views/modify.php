@@ -74,7 +74,7 @@ if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
  						<span class="border"></span>
  					</label>
  					<label class="form-group">
- 						<input type="text" name="mail" class="form-control" value="<?= $whoiam['mail']; ?>">
+ 						<input type="mail" name="mail" class="form-control" value="<?= $whoiam['mail']; ?>">
  						<span for="">Adresse mail</span>
  						<span class="border"></span>
  					</label>
@@ -105,7 +105,7 @@ if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
  					</label>
  				<center>
 
-        	<button type="submit" class="zmdi zmdi-arrow-right" name="ok_modifier_membre">Modifier
+        	<button type="submit" name="ok_modifier_membre">Modifier
 </center>
  					</button>
  				</form>

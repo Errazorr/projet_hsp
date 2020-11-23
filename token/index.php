@@ -12,31 +12,99 @@ if(isset($_GET['token']) && $_GET['token'] != '')
   {
     ?>
 
-    <!DOCTYPE html>
-    <html lang="en" dir="ltr">
-      <head>
-        <meta charset="utf-8">
-        <title>Récupération mot de passe</title>
-      </head>
-      <body>
-        <form method="post">
-          <label for="newPassword">Nouveau mot de passe : </label>
-          <input type="password" name="newPassword">
-          <input type="submit" name="Confirmer">
-        </form>
-      </body>
-    </html>
 
-    <?php
-  }
-}
 
-if(isset($_POST['newPassword']))
-{
-  $hashedPassword = md5($_POST['newPassword']);
-  $sql = "UPDATE patient SET mdp = ?, token = NULL WHERE mail = ?";
-  $stmt = $db->prepare($sql);
-  $stmt->execute([$hashedPassword, $email]);
-  echo "Mot de passe modifié avec succès !";
-}
- ?>
+
+
+      <!DOCTYPE html>
+  <html>
+  	<head>
+  		<meta charset="utf-8">
+  		<title>RegistrationForm_v7 by Colorlib</title>
+  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  		<!-- MATERIAL DESIGN ICONIC FONT -->
+  		<link rel="stylesheet" href="../fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
+          <link rel="stylesheet" href="css/style4.css">
+  		<!-- STYLE CSS -->
+  		<link rel="stylesheet" href="../css/style3.css">
+  	</head>
+
+  	<body>
+
+  		<div class="wrapper">
+  			<div class="inner">
+  				<form method="post">
+  					<h3>Nouveau mot de passe</h3>
+  					<p>Validez votre nouveau mot de passe en fonction de votre compte.</p>
+
+
+            <label class="form-group">
+              <input type="password" id="myInput" name="newPassword" class="form-control" value="" required>
+              <span for="">Mot de passe</span>
+              <span class="border"></span>
+<br>
+
+
+            </label>
+
+            <label class="form-group">
+              <input type="password" id="myInpute" name="newPassword_confirme" class="form-control" value="" required>
+              <span for="">Mot de passe</span>
+              <span class="border"></span>
+
+
+            </label>
+
+            <input type="checkbox" onclick="myFunction()">Afficher le mot de passe
+                      <script>
+                      function myFunction() {
+                      var x = document.getElementById("myInput");
+                      if (x.type === "password") {
+                      x.type = "text";
+                      } else {
+                      x.type = "password";
+                      }
+                      var x = document.getElementById("myInpute");
+                      if (x.type === "password") {
+                      x.type = "text";
+                      } else {
+                      x.type = "password";
+                      }
+                      }
+                      </script>
+
+
+  				<center>
+
+         	<button type="submit" name="Confirmer">Valider
+ </center>
+  					</button>
+
+            <?php
+          }
+        }
+
+
+if($_POST['newPassword'] == $_POST['newPassword_confirme']) {
+        if(isset($_POST['newPassword']) AND isset($_POST['newPassword_confirme']))
+        {
+
+          $hashedPassword = md5($_POST['newPassword_confirme']);
+          $sql = "UPDATE patient SET mdp = ?, token = NULL WHERE mail = ?";
+          $stmt = $db->prepare($sql);
+          $stmt->execute([$hashedPassword, $email]);
+          echo "Mot de passe modifié avec succès !";
+        } else {
+          echo 'Les mots de passe ne sont pas identiques ';
+        }
+        }
+         ?>
+
+  				</form>
+  			</div>
+  		</div>
+
+  	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+  </html>
