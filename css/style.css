@@ -2240,14 +2240,14 @@ ul {
 
 /* line 102, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_our_depertment.scss */
 .our_depertment .single_our_depertment:hover {
-  background-color: #0065e1;
-  border: 1px solid #0065e1;
+
+
 }
 
 /* line 106, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_our_depertment.scss */
 .our_depertment .single_our_depertment:hover h4,
 .our_depertment .single_our_depertment:hover p {
-  color: #fff;
+
 }
 
 /* line 115, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_our_depertment.scss */
@@ -3704,11 +3704,6 @@ ul {
   right: 0;
   opacity: 1;
   visibility: visible;
-}
-
-/* line 50, ../../01 cl html template/03_jun 2019/182_medico_html/sass/_doctor_list.scss */
-.doctor_part .single_blog_item:hover h3 {
-  color: #0065e1 !important;
 }
 
 @media (max-width: 991px) {
