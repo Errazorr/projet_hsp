@@ -19,10 +19,10 @@
                 <div class="col-lg-5 col-xl-5">
                     <div class="banner_text">
                         <div class="banner_text_iner">
-                            <h5>Votre santé, notre priorité</h5>
-                            <h1>Soins &
+                            <h5 style="font-family: Arial, sans-serif">Votre santé, notre priorité</h5>
+                            <h1 style="font-family: Arial, sans-serif">Soins &
                                 Médecins approuvés</h1>
-                            <p>Ne renoncez pas à vos soins : l'hôpital Zoldyck est organisé pour vous accueillir ! L'hôpital Zoldyck  centre son action sur la qualité d’accompagnement des résidents, leur bien-être au quotidien, ainsi que le maintien de leur autonomie et de leur vie sociale.
+                            <p style="font-family: Arial, sans-serif">Ne renoncez pas à vos soins : l'hôpital Zoldyck est organisé pour vous accueillir ! L'hôpital Zoldyck  centre son action sur la qualité d’accompagnement des résidents, leur bien-être au quotidien, ainsi que le maintien de leur autonomie et de leur vie sociale.
 </p>
 
 
@@ -50,23 +50,23 @@
                 </div>
                 <div class="col-md-6 col-lg-5">
                     <div class="about_us_text">
-                        <h2>À propos de nous ?</h2>
-                        <p style="color : black;">
+                        <h2 style="font-family: Arial, sans-serif">À propos de nous ?</h2>
+                        <p style="color : black;" style="font-family: Arial, sans-serif">
 
                         L’hôpital Zoldyck est un hôpital public faisant partie de l’Assistance Publique–Hôpitaux de Paris (AP-HP), qui est le Centre Hospitalier Universitaire (CHU) de la région Ile-de-France.</p>
                         <a class="btn_2 " target="_blank" href="views/savoirplus.php">En savoir plus</a>
                         <div class="banner_item">
                             <div class="single_item">
                                 <img src="img/icon/banner_1.svg" alt="">
-                                <h5>Urgence</h5>
+                                <h5 style="font-family: Arial, sans-serif">Urgence</h5>
                             </div>
                             <div class="single_item">
                                 <img src="img/icon/banner_2.svg" alt="">
-                                <h5>Rendez-vous</h5>
+                                <h5 style="font-family: Arial, sans-serif">Rendez-vous</h5>
                             </div>
                             <div class="single_item">
                                 <img src="img/icon/banner_3.svg" alt="">
-                                <h5>équipe qualifiée</h5>
+                                <h5 style="font-family: Arial, sans-serif">équipe qualifiée</h5>
                             </div>
                         </div>
                     </div>
@@ -82,7 +82,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-8">
                     <div class="section_tittle text-center">
-                        <h2>Nos principaux services</h2>
+                        <h2 style="font-family: Arial, sans-serif">Nos principaux services</h2>
                     </div>
                 </div>
             </div>
@@ -91,8 +91,8 @@
                     <div class="single_feature">
                         <div class="single_feature_part">
                             <span class="single_feature_icon"><img src="img/icon/feature_2.svg" alt=""></span>
-                            <h4>Médecine interne</h4>
-                            <p>- Maladies systémiques: lupus, syndrome de sjögren, sclérodermie, ...
+                            <h4 style="font-family: Arial, sans-serif">Médecine interne</h4>
+                            <p style="font-family: Arial, sans-serif">- Maladies systémiques: lupus, syndrome de sjögren, sclérodermie, ...
 <br/>
  - Maladies infectieuses et tropicales.
 <br/>
@@ -109,8 +109,8 @@
                     <div class="single_feature">
                         <div class="single_feature_part">
                             <span class="single_feature_icon"><img src="img/icon/feature_2.svg" alt=""></span>
-                            <h4>Dérmatologie</h4>
-                            <p>- Photothérapie UVB et PUVAthérapie. <br/>
+                            <h4 style="font-family: Arial, sans-serif">Dérmatologie</h4>
+                            <p style="font-family: Arial, sans-serif">- Photothérapie UVB et PUVAthérapie. <br/>
 
 - Prise en charge des plaies chroniques.<br/>
 - Interventions chirurgicales cutanées.<br/>
@@ -129,8 +129,8 @@
                     <div class="single_feature">
                         <div class="single_feature_part">
                             <span class="single_feature_icon"><img src="img/icon/feature_2.svg" alt=""></span>
-                            <h4>Gastroentérologie</h4>
-                            <p>- Endoscopies digestives: fibroscopies gastriques, coloscopies avec  ablation de polypes, GPE.
+                            <h4 style="font-family: Arial, sans-serif">Gastroentérologie</h4>
+                            <p style="font-family: Arial, sans-serif">- Endoscopies digestives: fibroscopies gastriques, coloscopies avec  ablation de polypes, GPE.
                             <br/>
             - Exploration des douleurs abdominales: ulcère, reflux gastro-oesophagien, lithiase vésiculaire, pancréatites...</p>
                         </div>
@@ -138,8 +138,8 @@
                     <div class="single_feature">
                         <div class="single_feature_part">
                             <span class="single_feature_icon"><img src="img/icon/feature_2.svg" alt=""></span>
-                            <h4>Rhumatologie</h4>
-                            <p>- Rhumatismes inflammatoires (polyarthrite rhumatoïde, spondyloarthrites, rhumatisme psoriasique)<br/>
+                            <h4 style="font-family: Arial, sans-serif">Rhumatologie</h4>
+                            <p style="font-family: Arial, sans-serif">- Rhumatismes inflammatoires (polyarthrite rhumatoïde, spondyloarthrites, rhumatisme psoriasique)<br/>
                               - Arthropathies micro-cristallines ( goutte, chondrocalcinose articulaire)<br/>
   - Infections ostéo- articulaires (arthrites infectieuses et spondylodiscites)</p>
                         </div>

@@ -8,29 +8,29 @@
             <div class="row justify-content-between">
                 <div class="col-xl-2 col-md-4 col-sm-6 single-footer-widget">
                     <a class="footer_logo"> <img src="img/logo8.png"> </a>
-                    <p>Le site officiel de l'hôpital Zoldyck. </p>
+                    <p style="font-family: Arial, sans-serif">Le site officiel de l'hôpital Zoldyck. </p>
 
                 </div>
                 <div class="col-xl-2 col-sm-6 col-md-4 single-footer-widget">
-                    <h4>Liens rapides</h4>
+                    <h4 style="font-family: Arial, sans-serif">Liens rapides</h4>
                     <ul>
-                        <li><a href="#">Revenir à l'accueil</a></li>
-                        <li><a href="views/doctor.php">Les médecins</a></li>
+                        <li><a href="#" style="font-family: Arial, sans-serif">Revenir à l'accueil</a></li>
+                        <li><a href="views/doctor.php" style="font-family: Arial, sans-serif">Les médecins</a></li>
 
                     </ul>
                 </div>
                 <div class="col-xl-2 col-sm-6 col-md-6 single-footer-widget">
-                    <h4>Contact</h4>
+                    <h4 style="font-family: Arial, sans-serif">Contact</h4>
                     <ul>
-                        <li><a href="views/contact.php">Des questions ?</a></li>
-                        <li><a href="views/contact.php">Plan</a></li>
+                        <li><a href="views/contact.php" style="font-family: Arial, sans-serif">Des questions ?</a></li>
+                        <li><a href="views/contact.php" style="font-family: Arial, sans-serif">Plan</a></li>
 
                     </ul>
                 </div>
 
                 <div class="col-xl-3 col-sm-6 col-md-6 single-footer-widget">
-                    <h4>Informations</h4>
-                    <p>30, Avenue Montaigne, <br>
+                    <h4 style="font-family: Arial, sans-serif">Informations</h4>
+                    <p style="font-family: Arial, sans-serif">30, Avenue Montaigne, <br>
 75008 Paris</p>
 
                 </div>
@@ -42,7 +42,7 @@
     <div class="copyright_part">
         <div class="container">
             <div class="row align-items-center">
-                <p class="footer-text m-0 col-lg-8 col-md-12"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+                <p class="footer-text m-0 col-lg-8 col-md-12" style="font-family: Arial, sans-serif"><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 Copyright &copy;<script>document.write(new Date().getFullYear());</script> Tous droits réservés | Le site a été réalisé avec <i class="ti-heart" aria-hidden="true"></i> par Ryan et Nathan.</a>
 <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 </p>
