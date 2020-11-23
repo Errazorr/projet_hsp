@@ -29,7 +29,6 @@ session_start();
     <link rel="stylesheet" href="css/style.css">
 </head>
 
-
 <!--::header part start::-->
 <header class="main_menu home_menu">
     <div class="container">
