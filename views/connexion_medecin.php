@@ -49,7 +49,7 @@ session_start();
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Connexion (médecin)</h2>
+                            <h2 style="font-family: Arial, sans-serif">Connexion (médecin)</h2>
 
                         </div>
                     </div>
@@ -69,7 +69,7 @@ session_start();
                         <form method="post" action="../traitement/connexion_medecin.php">
                           <center>
 
-                           <h2>Vous êtes médecin certifié ? Connectez-vous : </h2> </center>
+                           <h2 style="font-family: Arial, sans-serif">Vous êtes médecin certifié ? Connectez-vous : </h2> </center>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <input type="text" name="identifiant" class="form-control" required="required" placeholder="Votre identifiant : ">
