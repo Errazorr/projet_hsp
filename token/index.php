@@ -87,19 +87,25 @@ if(isset($_GET['token']) && $_GET['token'] != '')
         }
 
 
-if($_POST['newPassword'] == $_POST['newPassword_confirme']) {
-        if(isset($_POST['newPassword']) AND isset($_POST['newPassword_confirme']))
-        {
+          if(isset($_POST['newPassword']) AND isset($_POST['newPassword_confirme']))
+          {
+            if($_POST['newPassword'] == $_POST['newPassword_confirme'])
+            {
+            $hashedPassword = md5($_POST['newPassword_confirme']);
+            $sql = "UPDATE patient SET mdp = ?, token = NULL WHERE mail = ?";
+            $stmt = $db->prepare($sql);
+            $stmt->execute([$hashedPassword, $email]);
+            echo "Mot de passe modifié avec succès !";
+          }
+          else
+          {
+             echo 'Mots de passes incorrectes.';
+          }
+   }
 
-          $hashedPassword = md5($_POST['newPassword_confirme']);
-          $sql = "UPDATE patient SET mdp = ?, token = NULL WHERE mail = ?";
-          $stmt = $db->prepare($sql);
-          $stmt->execute([$hashedPassword, $email]);
-          echo "Mot de passe modifié avec succès !";
-        } else {
-          echo 'Les mots de passe ne sont pas identiques ';
-        }
-        }
+
+
+
          ?>
 
   				</form>
