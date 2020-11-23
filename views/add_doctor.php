@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Médecins - Admin</title>
+    <title style="font-family: Arial, sans-serif">Médecins - Admin</title>
     <link rel="icon" href="../img/logo3icon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <?php
@@ -31,7 +31,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Médecins <br> (Admin)</h2>
+                            <h2 style="font-family: Arial, sans-serif">Médecins <br> (Admin)</h2>
                         </div>
                     </div>
                 </div>
@@ -48,11 +48,11 @@
           <div class="progress-table-wrap">
             <div class="progress-table">
               <div class="table-head">
-                <div class="visit">Nom médecin</div>
-                <div class="visit">Lieu d'exercice</div>
-                <div class="visit">Spécialité</div>
-                <div class="visit">Identifiant</div>
-                <div class="visit">Approuvé</div>
+                <div class="visit" style="font-family: Arial, sans-serif">Nom médecin</div>
+                <div class="visit" style="font-family: Arial, sans-serif">Lieu d'exercice</div>
+                <div class="visit" style="font-family: Arial, sans-serif">Spécialité</div>
+                <div class="visit" style="font-family: Arial, sans-serif">Identifiant</div>
+                <div class="visit" style="font-family: Arial, sans-serif">Approuvé</div>
               </div>
 
               <?php
@@ -72,11 +72,11 @@
                 foreach ($donnees as $value) {
                   //AFFICHAGE DANS LE TABLEAU
                   echo '<div class="table-row">
-                    <div class="visit" style="color:#000000">'.$value["nom"].'</div>
-                    <div class="visit" style="color:#000000">'.$value["lieu"].'</div>
-                    <div class="visit" style="color:#000000">'.$value["specialite"].'</div>
-                    <div class="visit" style="color:#000000">'.$value["identifiant"].'</div>
-                    <div class="visit" style="color:#000000">'.$value["approuve"].'</div>
+                    <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["nom"].'</div>
+                    <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["lieu"].'</div>
+                    <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["specialite"].'</div>
+                    <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["identifiant"].'</div>
+                    <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["approuve"].'</div>
                   </div>';
                 }
 
@@ -101,7 +101,7 @@
                         <form action="../traitement/add_doctor.php" method="post">
                           <center>
 
-                           <h2>Ajouter un médecin :</h2> </center>
+                           <h2 style="font-family: Arial, sans-serif">Ajouter un médecin :</h2> </center>
                             <div class="form-row">
 
                               <div class="form-group col-md-6">

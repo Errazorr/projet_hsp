@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Hôpital - Admins</title>
+    <title style="font-family: Arial, sans-serif">Hôpital - Admins</title>
     <link rel="icon" href="../img/logo3icon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <?php
@@ -31,7 +31,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Admins</h2>
+                            <h2 style="font-family: Arial, sans-serif">Admins</h2>
                         </div>
                     </div>
                 </div>
@@ -48,10 +48,10 @@
           <div class="progress-table-wrap">
             <div class="progress-table">
               <div class="table-head">
-                <div class="visit">Nom</div>
-                <div class="visit">Prénom</div>
-                <div class="visit">Mail</div>
-                <div class="visit">Role</div>
+                <div class="visit" style="font-family: Arial, sans-serif">Nom</div>
+                <div class="visit" style="font-family: Arial, sans-serif">Prénom</div>
+                <div class="visit" style="font-family: Arial, sans-serif">Mail</div>
+                <div class="visit" style="font-family: Arial, sans-serif">Role</div>
 
               </div>
 
@@ -72,10 +72,10 @@
                 foreach ($donnees as $value) {
                   //AFFICHAGE DANS LE TABLEAU
                   echo '<div class="table-row">
-                    <div class="visit" style="color:#000000">'.$value["nom"].'</div>
-                    <div class="visit" style="color:#000000">'.$value["prenom"].'</div>
-                    <div class="visit" style="color:#000000">'.$value["mail"].'</div>
-                    <div class="visit" style="color:#000000">'.$value["role"].'</div>
+                    <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["nom"].'</div>
+                    <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["prenom"].'</div>
+                    <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["mail"].'</div>
+                    <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["role"].'</div>
                   </div>';
                 }
 
@@ -100,7 +100,7 @@
                         <form action="../traitement/add_admin.php" method="post">
                           <center>
 
-                           <h2>Ajouter un administrateur :</h2> </center>
+                           <h2 style="font-family: Arial, sans-serif">Ajouter un administrateur :</h2> </center>
                             <div class="form-row">
 
                               <div class="form-group col-md-6">
