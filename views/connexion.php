@@ -64,9 +64,6 @@
                 <div class="col-lg-12">
 
                    <div class="regervation_part_iner">
-                     <center><a href="connexion_medecin.php" class="btn_1">Médecin? Par ici<span
-                         class="lnr lnr-arrow-right"></span></a>
-                         <br><br><br>
                         <form method="post" action="../traitement/connexion.php">
                           <center>
 

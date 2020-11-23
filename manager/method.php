@@ -132,28 +132,53 @@ else {
     // RECHERCHE DANS LA TABLE PATIENT SI LE MAIL EXISTE
     $req = $bdd->prepare('SELECT * FROM patient WHERE mail=?');
     $req->execute(array($connexion->getMail()));
-    $donnees= $req->fetch();
+    $patient= $req->fetch();
     //SI NON TROUVE DANS PATIENT
-    if ($donnees == null) {
+    if ($patient == null) {
       //RECHERCHE DANS ADMIN
       $req = $bdd->prepare('SELECT * FROM admin WHERE mail=?');
       $req->execute(array($connexion->getMail()));
-      $donnees= $req->fetch();
+      $admin= $req->fetch();
 
-      if ($donnees == null) {//SI NON TROUVE
-        // On affiche une erreur et on redirige vers la page connexion//
-        echo '<body onLoad="alert(\'Compte inexistant\')">';
-        session_destroy();
-        echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
+      if ($admin == null) {//SI NON TROUVE
+        $req = $bdd->prepare('SELECT * FROM medecin WHERE mail=?');
+        $req->execute(array($connexion->getMail()));
+        $medecin= $req->fetch();
+
+        if ($medecin == null) {//SI NON TROUVE
+          // On affiche une erreur et on redirige vers la page connexion//
+          echo '<body onLoad="alert(\'Compte inexistant\')">';
+          session_destroy();
+          echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
+        }
+
+        else{
+          if ($medecin['mail'] == $connexion->getMail() AND $medecin['mdp'] == md5($connexion->getMdp())) {
+            $_SESSION['nom_medecin'] = $medecin['nom'];
+            $_SESSION['mail_medecin'] = $medecin['mail'];
+            $_SESSION['role'] = "medecin";
+
+            echo '<body onLoad="alert(\'Connexion réussie\')">';
+            header('Location: ../page_index.php');
+
+          }
+
+          else{
+            // Si non on affiche une erreur et on redirige vers la page connexion//
+            echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
+            session_destroy();
+            echo '<meta http-equiv="refresh" content="0;URL=../views/connexion_medecin.php">';
+          }
+        }
       }
       else{
         // Si la rêquette s'execute alors on redirige vers la page d'accueil //
-        if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == md5($connexion->getMdp())) {
-          $_SESSION['id'] = $donnees['id'];
-          $_SESSION['nom'] = $donnees['nom'];
-          $_SESSION['prenom'] = $donnees['prenom'];
+        if ($admin['mail'] == $connexion->getMail() AND $admin['mdp'] == md5($connexion->getMdp())) {
+          $_SESSION['id'] = $admin['id'];
+          $_SESSION['nom'] = $admin['nom'];
+          $_SESSION['prenom'] = $admin['prenom'];
           $_SESSION['mail'] = $connexion->getMail();
-          $_SESSION['role'] = $donnees['role'];
+          $_SESSION['role'] = $admin['role'];
 
           echo '<body onLoad="alert(\'Connexion réussie\')">';
           header('Location: ../page_index.php');
@@ -170,12 +195,12 @@ else {
 
   else{
     //SI TROUVE DANS PATIENT
-    if ($donnees['mail'] == $connexion->getMail() AND $donnees['mdp'] == md5($connexion->getMdp())) {
-      $_SESSION['id'] = $donnees['id'];
-      $_SESSION['nom'] = $donnees['nom'];
-      $_SESSION['prenom'] = $donnees['prenom'];
+    if ($patient['mail'] == $connexion->getMail() AND $patient['mdp'] == md5($connexion->getMdp())) {
+      $_SESSION['id'] = $patient['id'];
+      $_SESSION['nom'] = $patient['nom'];
+      $_SESSION['prenom'] = $patient['prenom'];
       $_SESSION['mail'] = $connexion->getMail();
-      $_SESSION['role'] = $donnees['role'];
+      $_SESSION['role'] = $patient['role'];
 
       echo '<body onLoad="alert(\'Connexion réussie\')">';
       header('Location: ../page_index.php');
@@ -188,33 +213,12 @@ else {
       echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
     }
   }
-
+var_dump($patient);
+var_dump($admin);
+var_dump($medecin);
   }
 
-  //METHODE DE CONNEXION MEDECIN
-  public function connexion_medecin($connexion){
-    $bdd = $this->dbConnect();
-    // Sélectionne les informations de la table compte en fonction de l'adresse mail //
-    $req = $bdd->prepare('SELECT * FROM medecin WHERE identifiant=?');
-    $req->execute(array($connexion->getIdentifiant()));
-    $donnees= $req->fetch();
-    // Si la rêquette s'execute alors on redirige vers la page d'accueil //
-    if ($donnees['identifiant'] == $connexion->getIdentifiant() AND $donnees['mdp'] == md5($connexion->getMdp())) {
-      $_SESSION['nom_medecin'] = $donnees['nom'];
-      $_SESSION['role'] = "medecin";
 
-      echo '<body onLoad="alert(\'Connexion réussie\')">';
-      header('Location: ../page_index.php');
-
-    }
-
-    else{
-      // Si non on affiche une erreur et on redirige vers la page connexion//
-      echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
-      session_destroy();
-      echo '<meta http-equiv="refresh" content="0;URL=../views/connexion_medecin.php">';
-    }
-  }
 
 //METHODE DE RESERVATION
  public function Reservation($rdv){

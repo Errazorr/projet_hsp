@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 16 nov. 2020 à 13:34
+-- Généré le :  lun. 23 nov. 2020 à 15:44
 -- Version du serveur :  5.7.26
 -- Version de PHP :  7.2.18
 
@@ -21,6 +21,8 @@ SET time_zone = "+00:00";
 --
 -- Base de données :  `hopital`
 --
+CREATE DATABASE IF NOT EXISTS `hopital` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
+USE `hopital`;
 
 -- --------------------------------------------------------
 
@@ -34,18 +36,18 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(30) NOT NULL,
   `mail` varchar(50) NOT NULL,
-  `mdp` varchar(50) NOT NULL,
+  `mdp` varchar(150) NOT NULL,
   `role` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `admin`
 --
 
 INSERT INTO `admin` (`id`, `nom`, `prenom`, `mail`, `mdp`, `role`) VALUES
-(1, 'FONTAINE', 'Ryan', 'admin@admin.fr', '098f6bcd4621d373cade4e832627b4f6', 'admin'),
-(2, 'test', 'test', 'test@test.fr', '098f6bcd4621d373cade4e832627b4f6', 'admin');
+(1, 'Fontaine', 'Ryan', 'admin@admin.fr', '098f6bcd4621d373cade4e832627b4f6', 'admin'),
+(2, 'test', 'test', 'test@admin.fr', '098f6bcd4621d373cade4e832627b4f6', 'admin');
 
 -- --------------------------------------------------------
 
@@ -59,21 +61,22 @@ CREATE TABLE IF NOT EXISTS `medecin` (
   `nom` varchar(50) NOT NULL,
   `lieu` varchar(50) NOT NULL,
   `specialite` varchar(50) NOT NULL,
-  `identifiant` varchar(50) NOT NULL,
-  `mdp` varchar(50) NOT NULL,
+  `mail` varchar(50) NOT NULL,
+  `mdp` varchar(150) NOT NULL,
   `approuve` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `fk_medecin` (`nom`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `medecin`
 --
 
-INSERT INTO `medecin` (`id`, `nom`, `lieu`, `specialite`, `identifiant`, `mdp`, `approuve`) VALUES
-(1, 'Aggoun', 'Aubervilliers', 'Neurologie', 'Lucario', 'c1078f95440f31e9c88138226b1af484', 1),
-(2, 'Guo', 'Bourget', 'Tabacologie', 'az', 'a9d3b34800d4283ed34b2bbbeb443a77', 1),
-(3, 'Tang', 'Aulnay-sous-bois', 'Gynécologie', 'tang', '87db92494758df7d0f0a4f39162a48f4', 1);
+INSERT INTO `medecin` (`id`, `nom`, `lieu`, `specialite`, `mail`, `mdp`, `approuve`) VALUES
+(1, 'Aggoun', 'Aubervilliers', 'Neurologie', 'lucario@gmail.com', 'c1078f95440f31e9c88138226b1af484', 1),
+(2, 'Guo', 'Bourget', 'Tabacologie', 'az@gmail.com', 'a9d3b34800d4283ed34b2bbbeb443a77', 1),
+(3, 'Tang', 'Aulnay-sous-bois', 'Gynécologie', 'tang@gmail.fr', '87db92494758df7d0f0a4f39162a48f4', 1),
+(4, 'Birba', 'Dugny', 'Cardiologie', 'Enzo@gmail.fr', '098f6bcd4621d373cade4e832627b4f6', 0);
 
 -- --------------------------------------------------------
 
@@ -221,10 +224,10 @@ CREATE TABLE IF NOT EXISTS `patient` (
 --
 
 INSERT INTO `patient` (`id`, `nom`, `prenom`, `date_naissance`, `mail`, `adresse`, `mutuelle`, `num_sec_soc`, `option_chambre`, `regime`, `mdp`, `role`, `confirme`, `token`) VALUES
-(2, 'Kebiche', 'Killian', '', 'k.kebiche@gmail.com', '3 rue des potiers 93300 Aubervilliers', 'test', '152485963258745', 'Wifi et TV', 'SECU ', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0, NULL),
-(15, 'yanish', 'bhujunn', '2020-09-30', 'yanish.bhujun@gmail.com', '3 rue test', 'GRAS SAVOIE', '212222222222111', 'Wifi', 'e', '164b6da6ab4209c16ff3841306dbec83', 'patient', 0, NULL),
-(18, 'Fontaine', 'Ryan', '2000-10-12', 'ryan-fontaine@hotmail.fr', 'QQ', 'QQ', '232112321321312', 'QQ', 'QQ', '$2y$10$WPoKuw1NHGUspPXFtVcPA.YstMyqh3RDRJK3OVI.gr2m3CAjmsnzO', 'patient', 0, NULL),
-(19, 'Goncalves', 'Nathan', '2000-06-07', 'axel.lea.kingdomhearts@gmail.com', '3 rue des pottiers', 'Hunter', '123232312132323', 'TV', 'CMU', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0, NULL);
+(1, 'Kebiche', 'Killian', '2000-06-27', 'k.kebiche@gmail.com', '3 rue des potiers 93300 Aubervilliers', 'test', '152485963258745', 'Wifi et TV', 'SECU ', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0, NULL),
+(2, 'yanish', 'bhujun', '2020-09-30', 'yanish.bhujun@gmail.com', '3 rue test', 'GRAS SAVOIE', '212222222222111', 'Wifi', 'e', '164b6da6ab4209c16ff3841306dbec83', 'patient', 0, NULL),
+(3, 'Fontaine', 'Ryan', '2000-10-12', 'ryan-fontaine@hotmail.fr', 'QQ', 'QQ', '232112321321312', 'QQ', 'QQ', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0, NULL),
+(4, 'Goncalves', 'Nathan', '2000-06-07', 'axel.lea.kingdomhearts@gmail.com', '3 rue des pottiers', 'Hunter', '123232312132323', 'TV', 'CMU', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0, NULL);
 
 -- --------------------------------------------------------
 
