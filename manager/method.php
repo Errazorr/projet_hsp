@@ -213,9 +213,6 @@ else {
       echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
     }
   }
-var_dump($patient);
-var_dump($admin);
-var_dump($medecin);
   }
 
 
