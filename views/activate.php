@@ -35,16 +35,49 @@ $commentaires = $bdd->query('SELECT * FROM medecin ORDER BY id DESC LIMIT 0,5');
  <title>Administration</title>
 </head>
 <body>
- <ul>
-    <?php while($m = $membres->fetch()) { ?>
-    <li><?= $m['id'] ?> : <?= $m['nom'] ?> - <?= $m['prenom'] ?> - Confirme : <?= $m['confirme'] ?> :<?php if($m['confirme'] == 0) { ?> - <a href="activate.php?type=membre&confirme=<?= $m['id'] ?>">Confirmer</a><?php } ?> - <a href="activate.php?type=membre&supprime=<?= $m['id'] ?>">Supprimer</a></li>
-    <?php } ?>
- </ul>
- <br /><br />
- <ul>
-    <?php while($c = $commentaires->fetch()) { ?>
-    <li><?= $c['id'] ?> : <?= $c['nom'] ?> : <?= $c['specialite'] ?><?php if($c['approuve'] == 0) { ?> - <a href="activate.php?type=commentaire&approuve=<?= $c['id'] ?>">Approuver</a><?php } ?> - <a href="activate.php?type=commentaire&supprime=<?= $c['id'] ?>">Supprimer</a></li>
-    <?php } ?>
- </ul>
+
 </body>
 </html>
+
+     <!DOCTYPE html>
+ <html>
+ 	<head>
+ 		<meta charset="utf-8">
+
+ 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+ 		<!-- MATERIAL DESIGN ICONIC FONT -->
+ 		<link rel="stylesheet" href="../fonts/material-design-iconic-font/css/material-design-iconic-font.min.css">
+
+ 		<!-- STYLE CSS -->
+ 		<link rel="stylesheet" href="../css/style3.css">
+ 	</head>
+
+ 	<body>
+
+ 		<div class="wrapper">
+ 			<div class="inner">
+ 				<form action="" method="post">
+ 					<h3>Confirmation des comptes</h3>
+          <br><br>
+
+          <ul>
+             <?php while($m = $membres->fetch()) { ?>
+             <li><?= $m['id'] ?> : <?= $m['nom'] ?> - <?= $m['prenom'] ?> - Confirme : <?= $m['confirme'] ?> :<?php if($m['confirme'] == 0) { ?>
+               - <a href="activate.php?type=membre&confirme=<?= $m['id'] ?>" style="text-decoration: none; color: #3ED400;">Confirmer</a><?php } ?> - <a href="activate.php?type=membre&supprime=<?= $m['id'] ?>" style="text-decoration: none; color: #b30000;">Supprimer</a></li>
+             <?php } ?>
+          </ul>
+          <br /><br />
+          <ul>
+             <?php while($c = $commentaires->fetch()) { ?>
+             <li><?= $c['id'] ?> : <?= $c['nom'] ?> : <?= $c['specialite'] ?><?php if($c['approuve'] == 0) { ?> - <a href="activate.php?type=commentaire&approuve=<?= $c['id'] ?>">Approuver</a><?php } ?> -
+               <a href="activate.php?type=commentaire&supprime=<?= $c['id'] ?>" style="text-decoration: none; color: #b30000;">Supprimer</a></li>
+             <?php } ?>
+          </ul>
+
+ 				</form>
+ 			</div>
+ 		</div>
+
+ 	</body><!-- This templates was made by Colorlib (https://colorlib.com) -->
+ </html>
