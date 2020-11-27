@@ -410,44 +410,4 @@ public function AddDoctor($add_doctor){
        header('Location: ../views/add_admin.php');
      }
   }
-
-  public function AddPatient($add_patient){
-    //CONNEXION BDD
-    $bdd = $this->dbConnect();
-    //RECHERCHE DE L'ADMIN DANS LA TABLE
-    $req = $bdd->prepare('SELECT * FROM patient WHERE nom=? AND prenom=? AND mail=?');
-    $req->execute(array($add_patient->getNom(), $add_patient->getPrenom(), $add_patient->getMail()));
-    $donnees= $req->fetch();
-
- //SI IL TROUVE
-    if ($donnees) {
-      //MESSAGE D'ERREUR
-      echo '<body onLoad="alert(\'Ce compte existe déjà\')">';
-
-      echo '<meta http-equiv="refresh" content="0;URL=../views/add_patient.php">';
-    }
- //SI IL NE TROUVE PAS
-    else{
-      //INSERTION DANS LA TABLE DU NOUVEL ADMIN
-      $r = $bdd->prepare('INSERT INTO patient (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, option_chambre, regime, mdp, role, confirme) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :option_chambre, :regime, :mdp, :role, :confirme)');
-      $r ->execute(array(
-        'nom' => $add_patient->getNom(),
-        'prenom' => $add_patient->getPrenom(),
-        'date_naissance' => $add_patient->getDateNaissance(),
-        'mail' => $add_patient->getMail(),
-        'adresse' => $add_patient->getAdresse(),
-        'mutuelle' => $add_patient->getMutuelle(),
-        'num_sec_soc' => $add_patient->getNumSecSoc(),
-        'option_chambre' => $add_patient->getOptionChambre(),
-        'regime' => $add_patient->getRegime(),
-        'mdp' => md5($add_patient->getMdp()),
-        'role' => 'patient',
-        'confirme' => 1
-      ));
-        //MESSAGE DE SUCCES
-        echo '<body onLoad="alert(\'Ajout réussi\')">';
-        header('Location: ../views/add_patient.php');
-      }
-   }
-
 }

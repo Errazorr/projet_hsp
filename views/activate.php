@@ -73,7 +73,7 @@ $commentaires = $bdd->query('SELECT * FROM medecin ORDER BY id DESC');
 
           <ul>
              <?php while($m = $membres->fetch()) { ?>
-             <li><?= $m['id'] ?> : <?= $m['nom'] ?> - <?= $m['prenom'] ?> - Confirme : <?= $m['confirme'] ?> :<?php if($m['confirme'] == 0) { ?>
+             <li><?= $m['id'] ?> : <?= $m['nom'] ?> - <?= $m['prenom'] ?> - Confirme : <strong><?= $m['confirme'] ?></strong> :<?php if($m['confirme'] == 0) { ?>
                - <a href="activate.php?type=membre&confirme=<?= $m['id'] ?>" style="text-decoration: none; color: #3ED400;">Confirmer</a><?php } ?> - <a href="activate.php?type=membre&supprime=<?= $m['id'] ?>" style="text-decoration: none; color: #b30000;">Supprimer</a>
                <?php if($m['confirme'] == 1) { ?>
                  - <a href="activate.php?type=membre&desaprouve=<?= $m['id'] ?>" style="text-decoration: none; color: #FFA500;">Désapprouver</a><?php } ?>
@@ -83,7 +83,7 @@ $commentaires = $bdd->query('SELECT * FROM medecin ORDER BY id DESC');
           <br /><br />
           <ul>
              <?php while($c = $commentaires->fetch()) { ?>
-             <li><?= $c['id'] ?> : <?= $c['nom'] ?> : <?= $c['specialite'] ?> - Confirme : <?= $c['approuve'] ?> :<?php if($c['approuve'] == 0) { ?> - <a href="activate.php?type=commentaire&approuve=<?= $c['id'] ?>" style="text-decoration: none; color: #3ED400;">Approuver</a><?php } ?> -
+             <li><?= $c['id'] ?> : <?= $c['nom'] ?> : <?= $c['specialite'] ?> - Confirme : <strong><?= $c['approuve'] ?></strong> :<?php if($c['approuve'] == 0) { ?> - <a href="activate.php?type=commentaire&approuve=<?= $c['id'] ?>" style="text-decoration: none; color: #3ED400;">Approuver</a><?php } ?> -
                <a href="activate.php?type=commentaire&supprime=<?= $c['id'] ?>" style="text-decoration: none; color: #b30000;">Supprimer</a>
 <?php if($c['approuve'] == 1) { ?> - <a href="activate.php?type=commentaire&desaprouvemed=<?= $c['id'] ?>" style="text-decoration: none; color: #FFA500;">Désapprouver</a><?php } ?>
              </li>
