@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -117,8 +118,8 @@
                                     <input type="password" class="form-control" name="mdp" placeholder="Mot de passe : ">
                                 </div>
 
-                                <div class="regerv_btn"><center> <br>
-                                  <input type="submit" class="btn_1" value="Valider">
+                                <div class="regerv_btn"><center> <br><br>
+                                   <?php echo '__________________________________________________________________________________'; ?><input type="submit" class="btn_1" value="Valider"> <?php echo '________________________________________________________________________________'; ?>
                                   <br/>  </center>
 
                                   </br/>
@@ -130,7 +131,34 @@
             </div>
         </div>
     </section>
-    <!--::regervation_part end::-->
+
+
+    <br>
+
+  <?php $select_all_members = $bdd->query('SELECT * FROM admin WHERE id ="'.$_SESSION['id'].'"');
+  if($select_all_members->rowCount() > 0)
+  {
+    while($m = $select_all_members->fetch()){
+?>
+
+    <div class="text-center">
+            <h1 class="p-5">Vous désirez modifier votre compte <?php echo $_SESSION['prenom']; ?>?</h1>
+            <hr />
+<br>
+<br>  <center>  <p style="color:black;">Votre addresse mail : <strong style="color: black;"><?php echo $m['mail']; ?></strong>.</p>
+    <br>  <center>  <p style="color:black;">Votre nom : <strong style="color: black;"><?php echo $m['nom']; ?></strong>.</p>
+        <br>  <center>  <p style="color:black;">Votre prénom : <strong style="color: black;"><?php echo $m['prenom']; ?></strong>.</p>
+<br>
+  <a href="modify_admin.php?id=<?= $m['id']; ?>" > <input type="button"  value="Modifier mes informations"></a>
+<br>
+    </div>
+        <br><br>
+
+        <?php
+      }
+        } else {
+        echo 'Aucun membre';
+      } ?>
 
     <?php
     require_once('footer.php');
