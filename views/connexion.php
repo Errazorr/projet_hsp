@@ -73,9 +73,22 @@
                                     <input type="email" name="mail" class="form-control" required="required" placeholder="Votre adresse mail : ">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="password" name="mdp" class="form-control"required
+                                    <input type="password" id="myyInput" name="mdp" class="form-control"required
                                         placeholder="Mot de passe : ">
+<br>
+                                        <input type="checkbox" onclick="myFunction()">&ensp;Afficher le mot de passe
+                                                  <script>
+                                                  function myFunction() {
+                                                  var x = document.getElementById("myyInput");
+                                                  if (x.type === "password") {
+                                                  x.type = "text";
+                                                  } else {
+                                                  x.type = "password";
+                                                } }
+                                                  </script>
                                 </div>
+
+
 
                             </div><br>
                             <div class="regerv_btn"><center>

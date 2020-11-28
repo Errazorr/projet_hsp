@@ -70,7 +70,7 @@
                         <div class="single_text">
                             <div class="single_blog_text">
                                 <h3>DR Aggoun</h3>
-                                <p>Spécialiste en neurologie</p>
+                                <p style="color: black;">Spécialiste en neurologie</p>
                             </div>
                         </div>
                     </div>
@@ -83,7 +83,7 @@
                         <div class="single_text">
                             <div class="single_blog_text">
                                 <h3>DR Guo</h3>
-                                <p>Spécialiste en tabacologie</p>
+                                <p style="color: black;">Spécialiste en tabacologie</p>
                             </div>
                         </div>
                     </div>
@@ -96,7 +96,7 @@
                         <div class="single_text">
                             <div class="single_blog_text">
                                 <h3>DR Tang</h3>
-                                <p>Spécialiste en gynécologie</p>
+                                <p style="color: black;">Spécialiste en gynécologie</p>
                             </div>
                         </div>
                     </div>
@@ -109,7 +109,7 @@
                         <div class="single_text">
                             <div class="single_blog_text">
                                 <h3>DR Birba</h3>
-                                <p>Spécialiste en Cardiologie</p>
+                                <p style="color: black;">Spécialiste en Cardiologie</p>
                             </div>
                         </div>
                     </div>
