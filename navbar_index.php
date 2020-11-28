@@ -48,19 +48,7 @@ session_start();
                     <div class="collapse navbar-collapse main-menu-item justify-content-center"
                         id="navbarSupportedContent">
                         <ul class="navbar-nav align-items-center">
-                          <?php if(!empty($_SESSION)) { ?>
-                          <div id="bienvenue"><p style="color:green;"</p><?php echo 'Bonjour ' . $_SESSION['prenom'] . ' !'; ?></div>
-                      <script type="text/javascript">
-                      <!--
-                        var timeout = setTimeout(
-                            function() {
-                                document.getElementById('bienvenue').innerHTML = null;
-                                clearTimeout(timeout);
-                                }
-                            ,3000); // temps en millisecondes
-                      //-->
-                      </script>
-                    <?php } else { echo ' ';} ?>
+
                           <?php
 
                           //Si il y a une session ouverte
@@ -68,6 +56,19 @@ session_start();
                             //Si la personne est un client
                             if ($_SESSION['role'] == "patient") {
                            ?>
+                           <?php if(!empty($_SESSION)) { ?>
+                           <div id="bienvenue"><p style="color:green;"</p><?php echo 'Bonjour ' . $_SESSION['prenom'] . ' !'; ?></div>
+                       <script type="text/javascript">
+                       <!--
+                         var timeout = setTimeout(
+                             function() {
+                                 document.getElementById('bienvenue').innerHTML = null;
+                                 clearTimeout(timeout);
+                                 }
+                             ,3000); // temps en millisecondes
+                       //-->
+                       </script>
+                     <?php } else { echo ' ';} ?>
                             <li class="nav-item active">
                                 <a class="nav-link" href="page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
                             </li>
@@ -100,6 +101,19 @@ session_start();
                   <?php  }
                           //Sinon si c'est un médecin
                          else if ($_SESSION['role'] == "medecin"){ ?>
+                           <?php if(!empty($_SESSION)) { ?>
+                           <div id="bienvenue"><p style="color:green;"</p><?php echo 'Bonjour M. ' . $_SESSION['nom_medecin'] . ' !'; ?></div>
+                       <script type="text/javascript">
+                       <!--
+                         var timeout = setTimeout(
+                             function() {
+                                 document.getElementById('bienvenue').innerHTML = null;
+                                 clearTimeout(timeout);
+                                 }
+                             ,3000); // temps en millisecondes
+                       //-->
+                       </script>
+                     <?php } else { echo ' ';} ?>
                            <li class="nav-item active">
                                <a class="nav-link" href="page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
                            </li>
@@ -117,6 +131,19 @@ session_start();
                  <?php  }
                          //Sinon c'est donc un admin
                         else{ ?>
+                          <?php if(!empty($_SESSION)) { ?>
+                          <div id="bienvenue"><p style="color:green;"</p><?php echo 'Bonjour ' . $_SESSION['prenom'] . ' !'; ?></div>
+                      <script type="text/javascript">
+                      <!--
+                        var timeout = setTimeout(
+                            function() {
+                                document.getElementById('bienvenue').innerHTML = null;
+                                clearTimeout(timeout);
+                                }
+                            ,3000); // temps en millisecondes
+                      //-->
+                      </script>
+                    <?php } else { echo ' ';} ?>
                           <li class="nav-item active">
                               <a class="nav-link" href="page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
                           </li>
