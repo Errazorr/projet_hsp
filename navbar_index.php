@@ -48,6 +48,19 @@ session_start();
                     <div class="collapse navbar-collapse main-menu-item justify-content-center"
                         id="navbarSupportedContent">
                         <ul class="navbar-nav align-items-center">
+                          <?php if(!empty($_SESSION)) { ?>
+                          <div id="bienvenue"><p style="color:green;"</p><?php echo 'Bonjour ' . $_SESSION['prenom'] . ' !'; ?></div>
+                      <script type="text/javascript">
+                      <!--
+                        var timeout = setTimeout(
+                            function() {
+                                document.getElementById('bienvenue').innerHTML = null;
+                                clearTimeout(timeout);
+                                }
+                            ,3000); // temps en millisecondes
+                      //-->
+                      </script>
+                    <?php } else { echo ' ';} ?>
                           <?php
 
                           //Si il y a une session ouverte
