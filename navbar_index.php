@@ -121,7 +121,7 @@ session_start();
                                <a class="nav-link" href="views/voir_rdv.php" style="font-family: Arial, sans-serif">Voir les rendez-vous</a>
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="views/minichat.php" style="font-family: Arial, sans-serif">Minichat</a>
+                               <a class="nav-link" href="views/minichat_medecin.php" style="font-family: Arial, sans-serif">Minichat</a>
                            </li>
                        </ul>
                    </div>

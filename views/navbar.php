@@ -93,7 +93,7 @@ session_start();
                                <a class="nav-link" href="voir_rdv.php">Voir les rendez-vous</a>
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="minichat.php">Minichat</a>
+                               <a class="nav-link"  href="minichat_medecin.php">Minichat</a>
                            </li>
                        </ul>
                    </div>
