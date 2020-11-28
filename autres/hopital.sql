@@ -1,14 +1,13 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 5.0.2
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le :  lun. 23 nov. 2020 à 15:44
--- Version du serveur :  5.7.26
--- Version de PHP :  7.2.18
+-- Généré le : ven. 27 nov. 2020 à 15:04
+-- Version du serveur :  5.7.31
+-- Version de PHP : 7.3.21
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET AUTOCOMMIT = 0;
 START TRANSACTION;
 SET time_zone = "+00:00";
 
@@ -19,7 +18,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Base de données :  `hopital`
+-- Base de données : `hopital`
 --
 CREATE DATABASE IF NOT EXISTS `hopital` DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci;
 USE `hopital`;
@@ -36,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `admin` (
   `nom` varchar(30) NOT NULL,
   `prenom` varchar(30) NOT NULL,
   `mail` varchar(50) NOT NULL,
-  `mdp` varchar(150) NOT NULL,
+  `mdp` varchar(50) NOT NULL,
   `role` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
@@ -46,8 +45,9 @@ CREATE TABLE IF NOT EXISTS `admin` (
 --
 
 INSERT INTO `admin` (`id`, `nom`, `prenom`, `mail`, `mdp`, `role`) VALUES
-(1, 'Fontaine', 'Ryan', 'admin@admin.fr', '098f6bcd4621d373cade4e832627b4f6', 'admin'),
-(2, 'test', 'test', 'test@admin.fr', '098f6bcd4621d373cade4e832627b4f6', 'admin');
+(1, 'FONTAINE', 'Ryan', 'admin@admin.fr', '098f6bcd4621d373cade4e832627b4f6', 'admin'),
+(2, 'test', 'test', 'test@test.fr', '098f6bcd4621d373cade4e832627b4f6', 'admin'),
+(3, 'a', 'a', 'aa@aa.fr', '4124bc0a9335c27f086f24ba207a4912', 'admin');
 
 -- --------------------------------------------------------
 
@@ -61,22 +61,28 @@ CREATE TABLE IF NOT EXISTS `medecin` (
   `nom` varchar(50) NOT NULL,
   `lieu` varchar(50) NOT NULL,
   `specialite` varchar(50) NOT NULL,
-  `mail` varchar(50) NOT NULL,
-  `mdp` varchar(150) NOT NULL,
+  `identifiant` varchar(50) NOT NULL,
+  `mdp` varchar(50) NOT NULL,
   `approuve` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `fk_medecin` (`nom`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `medecin`
 --
 
-INSERT INTO `medecin` (`id`, `nom`, `lieu`, `specialite`, `mail`, `mdp`, `approuve`) VALUES
-(1, 'Aggoun', 'Aubervilliers', 'Neurologie', 'lucario@gmail.com', 'c1078f95440f31e9c88138226b1af484', 1),
-(2, 'Guo', 'Bourget', 'Tabacologie', 'az@gmail.com', 'a9d3b34800d4283ed34b2bbbeb443a77', 1),
-(3, 'Tang', 'Aulnay-sous-bois', 'Gynécologie', 'tang@gmail.fr', '87db92494758df7d0f0a4f39162a48f4', 1),
-(4, 'Birba', 'Dugny', 'Cardiologie', 'Enzo@gmail.fr', '098f6bcd4621d373cade4e832627b4f6', 0);
+INSERT INTO `medecin` (`id`, `nom`, `lieu`, `specialite`, `identifiant`, `mdp`, `approuve`) VALUES
+(1, 'Aggoun', 'Aubervilliers', 'Neurologie', 'Lucario', 'c1078f95440f31e9c88138226b1af484', 1),
+(2, 'Guo', 'Bourget', 'Tabacologie', 'az', 'a9d3b34800d4283ed34b2bbbeb443a77', 1),
+(3, 'Tang', 'Aulnay-sous-bois', 'Gynécologie', 'tang', '87db92494758df7d0f0a4f39162a48f4', 1),
+(4, 'Birba', 'Dugny', 'Cardiologie', 'Dr.CapriSun', 'be6e0613371881bfe15b363bf5d00c20', 1),
+(6, 'test', 'test', 'test', 'test', '098f6bcd4621d373cade4e832627b4f6', 0),
+(7, 'az', 'az', 'az', 'az', 'cc8c0a97c2dfcd73caff160b65aa39e2', 0),
+(8, 'chacal', 'chacal', 'chacal', 'chacal', '39cfe80e92fee0e3618e56df21e69dbb', 1),
+(9, 'enfin', 'enfin', 'enfin', 'enfin', 'ded2a04774ebf30df7b601b08b09c999', 1),
+(10, 'eza', 'd', 'ezd', 'd', '8277e0910d750195b448797616e091ad', 1),
+(12, 'Ah', 'B', 'C', 'D', 'e1671797c52e15f763380b45e841ec32', 1);
 
 -- --------------------------------------------------------
 
@@ -124,7 +130,7 @@ CREATE TABLE IF NOT EXISTS `p3x_chat_message` (
   PRIMARY KEY (`id_message`),
   KEY `id_utilisateur` (`id_utilisateur`),
   KEY `id_utilisateur_prive` (`id_utilisateur_prive`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4;
+) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
 
 --
 -- Déchargement des données de la table `p3x_chat_message`
@@ -135,14 +141,7 @@ INSERT INTO `p3x_chat_message` (`id_message`, `id_utilisateur`, `id_utilisateur_
 (2, 2, 0, 'ezazea', '2020-11-02 14:10:56'),
 (3, 1, 0, 'bonjour', '2020-11-02 14:57:35'),
 (4, 1, 0, 'test', '2020-11-02 14:57:53'),
-(5, 2, 0, 'test 2', '2020-11-02 14:58:24'),
-(6, 2, 0, 'mdmmdmmdmdmdsmsdms', '2020-11-02 15:32:41'),
-(7, 1, 0, 'pioute', '2020-11-02 16:07:54'),
-(8, 2, 1, 'tg', '2020-11-02 16:08:10'),
-(9, 2, 0, 'zacveds', '2020-11-02 16:08:14'),
-(10, 1, 0, 'bonjour je suis enzo', '2020-11-02 16:19:19'),
-(11, 2, 1, 'salut bg', '2020-11-02 16:19:32'),
-(12, 1, 0, 'Bonjour', '2020-11-09 15:06:00');
+(5, 2, 0, 'test 2', '2020-11-02 14:58:24');
 
 -- --------------------------------------------------------
 
@@ -164,8 +163,8 @@ CREATE TABLE IF NOT EXISTS `p3x_chat_session` (
 --
 
 INSERT INTO `p3x_chat_session` (`id_session`, `id_utilisateur`, `date`) VALUES
-(1, 1, '2020-11-09 16:05:59'),
-(2, 2, '2020-11-09 16:11:19');
+(1, 1, '2020-11-02 15:58:16'),
+(2, 2, '2020-11-02 16:31:11');
 
 -- --------------------------------------------------------
 
@@ -196,6 +195,28 @@ INSERT INTO `p3x_chat_utilisateur` (`id_utilisateur`, `login`, `pass`, `avatar`,
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `passwords`
+--
+
+DROP TABLE IF EXISTS `passwords`;
+CREATE TABLE IF NOT EXISTS `passwords` (
+  `user_id` int(11) NOT NULL AUTO_INCREMENT,
+  `email` text NOT NULL,
+  `password` varchar(150) NOT NULL,
+  `token` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`user_id`)
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `passwords`
+--
+
+INSERT INTO `passwords` (`user_id`, `email`, `password`, `token`) VALUES
+(1, 'ryan-fontaine@hotmail.fr', '$2y$10$u.5Fhb2afJGynPj/o2WTx.tcv/4tzI0.Kx0TkEsoNrorJgIz9Judq', '5fb12603a5861');
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `patient`
 --
 
@@ -217,17 +238,21 @@ CREATE TABLE IF NOT EXISTS `patient` (
   `token` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `fk_patient` (`nom`)
-) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `patient`
 --
 
 INSERT INTO `patient` (`id`, `nom`, `prenom`, `date_naissance`, `mail`, `adresse`, `mutuelle`, `num_sec_soc`, `option_chambre`, `regime`, `mdp`, `role`, `confirme`, `token`) VALUES
-(1, 'Kebiche', 'Killian', '2000-06-27', 'k.kebiche@gmail.com', '3 rue des potiers 93300 Aubervilliers', 'test', '152485963258745', 'Wifi et TV', 'SECU ', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0, NULL),
-(2, 'yanish', 'bhujun', '2020-09-30', 'yanish.bhujun@gmail.com', '3 rue test', 'GRAS SAVOIE', '212222222222111', 'Wifi', 'e', '164b6da6ab4209c16ff3841306dbec83', 'patient', 0, NULL),
-(3, 'Fontaine', 'Ryan', '2000-10-12', 'ryan-fontaine@hotmail.fr', 'QQ', 'QQ', '232112321321312', 'QQ', 'QQ', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0, NULL),
-(4, 'Goncalves', 'Nathan', '2000-06-07', 'axel.lea.kingdomhearts@gmail.com', '3 rue des pottiers', 'Hunter', '123232312132323', 'TV', 'CMU', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0, NULL);
+(2, 'Kebiche', 'Killian', '', 'k.kebiche@gmail.com', '3 rue des potiers 93300 Aubervilliers', 'test', '152485963258745', 'Wifi et TV', 'SECU ', '098f6bcd4621d373cade4e832627b4f6', 'patient', 1, NULL),
+(7, 'zaaaz', 'zz', '2001-12-18', 'z@z.fr', 'z', 'z', '100432432432431', 'Wifi', 'z', 'fbade9e36a3f36d3d676c1b808451dd7', 'patient', 0, NULL),
+(15, 'bhujun', 'yanish', '2020-09-30', 'yanish.bhujun@gmail.com', '3 rue test', 'GRAS SAVOIE', '212222222222111', 'Wifi', 'e', '164b6da6ab4209c16ff3841306dbec83', 'patient', 0, NULL),
+(18, 'Fontaine', 'Ryan', '2000-10-12', 'ryan-fontaine@hotmail.fr', 'QQ', 'QQ', '232112321321312', 'QQ', 'QQ', '098f6bcd4621d373cade4e832627b4f6', 'patient', 1, NULL),
+(19, 'Goncalves', 'Nathan', '2000-06-07', 'axel.lea.kingdomhearts@gmail.com', '3 rue des pottiers', 'Hunter', '123232312132323', 'TV', 'CMU', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0, NULL),
+(21, 'Ghita', 'Ryan', '1999-11-18', 'ghitaxryanhihihihihihihi@gmail.com', 'testt', 'testtt', '784564565464564', 'Wifi', 'reer', '925cc8d2953eba624b2bfedf91a91613', 'patient', 1, NULL),
+(22, 'tentend', 'pas', '2000-12-12', 'ouquoi@gmail.com', 'chacal', 'ca dit', '789789789789444', 'wifi', 'tr', '098f6bcd4621d373cade4e832627b4f6', 'patient', 1, NULL),
+(23, 'Fadiiiiii', 'Brook', '2000-03-18', 'f.khiate@lprs.fr', 'Alabasta', 'wsh', '797897878989778', 'Wifi', 'tees', '098f6bcd4621d373cade4e832627b4f6', 'patient', 1, NULL);
 
 -- --------------------------------------------------------
 
@@ -275,10 +300,10 @@ INSERT INTO `rating_info` (`user_id`, `post_id`, `rating_action`) VALUES
 (2, 2, 'like'),
 (2, 3, 'like'),
 (2, 4, 'dislike'),
-(18, 1, 'dislike'),
-(18, 2, 'like'),
-(18, 3, 'like'),
-(18, 4, 'dislike');
+(3, 1, 'dislike'),
+(3, 2, 'like'),
+(3, 3, 'dislike'),
+(3, 4, 'like');
 
 -- --------------------------------------------------------
 

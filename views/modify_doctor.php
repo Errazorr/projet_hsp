@@ -19,7 +19,7 @@ if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
     $specialite_modifie = htmlspecialchars($_POST['specialite']);
     $identifiant_modifie = htmlspecialchars($_POST['identifiant']);
     $modify_info_of_member = $bdd->prepare('UPDATE medecin SET nom = ?, lieu = ?, specialite = ?,
-       identifiant = ?');
+       identifiant = ? WHERE id = ?');
     $modify_info_of_member->execute(array($nom_modifie, $lieu_modifie, $specialite_modifie,
     $identifiant_modifie, $getid));
     header('location:add_doctor.php');
