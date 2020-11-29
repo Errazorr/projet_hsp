@@ -83,6 +83,10 @@ if(isset($_SESSION['id'])) {
               	<button type="submit" name="envoyer">Envoyer
       </center>
        					</button>
+
+                <center><br><br><br>
+                        <a href="../page_index.php" >Retour<span
+                            ></span></a>
        				</form>
             <?php } ?>
  			</div>
