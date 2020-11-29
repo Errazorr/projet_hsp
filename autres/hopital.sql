@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : sam. 28 nov. 2020 à 16:21
+-- Généré le : Dim 29 nov. 2020 à 17:48
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -52,6 +52,22 @@ INSERT INTO `admin` (`id`, `nom`, `prenom`, `mail`, `mdp`, `role`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Structure de la table `contact`
+--
+
+DROP TABLE IF EXISTS `contact`;
+CREATE TABLE IF NOT EXISTS `contact` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `nom` varchar(50) NOT NULL,
+  `mail` varchar(150) NOT NULL,
+  `message` text NOT NULL,
+  `sujet` text NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
 -- Structure de la table `medecin`
 --
 
@@ -59,6 +75,7 @@ DROP TABLE IF EXISTS `medecin`;
 CREATE TABLE IF NOT EXISTS `medecin` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `nom` varchar(50) NOT NULL,
+  `mail` varchar(150) NOT NULL,
   `lieu` varchar(50) NOT NULL,
   `specialite` varchar(50) NOT NULL,
   `identifiant` varchar(50) NOT NULL,
@@ -72,17 +89,68 @@ CREATE TABLE IF NOT EXISTS `medecin` (
 -- Déchargement des données de la table `medecin`
 --
 
-INSERT INTO `medecin` (`id`, `nom`, `lieu`, `specialite`, `identifiant`, `mdp`, `approuve`) VALUES
-(1, 'Aggoun', 'Aubervilliers', 'Neurologie', 'Lucario', 'c1078f95440f31e9c88138226b1af484', 1),
-(2, 'Guo', 'Bourget', 'Tabacologie', 'az', 'a9d3b34800d4283ed34b2bbbeb443a77', 1),
-(3, 'Tang', 'Aulnay-sous-bois', 'Gynécologie', 'tang', '87db92494758df7d0f0a4f39162a48f4', 1),
-(4, 'Birba', 'Dugny', 'Cardiologie', 'Dr.CapriSun', 'be6e0613371881bfe15b363bf5d00c20', 1),
-(6, 'test', 'test', 'test', 'test', '098f6bcd4621d373cade4e832627b4f6', 0),
-(7, 'afd', 'azfd', 'az', 'az', 'cc8c0a97c2dfcd73caff160b65aa39e2', 0),
-(8, 'chacal', 'chacal', 'chacal', 'chacal', '39cfe80e92fee0e3618e56df21e69dbb', 1),
-(9, 'enfin', 'enfin', 'enfin', 'enfin', 'ded2a04774ebf30df7b601b08b09c999', 1),
-(10, 'eza', 'd', 'ezd', 'd', '8277e0910d750195b448797616e091ad', 1),
-(13, 'Hahaa', 'Hahaa', 'Haha', 'Haha', '4e4d6c332b6fe62a63afe56171fd3725', 1);
+INSERT INTO `medecin` (`id`, `nom`, `mail`, `lieu`, `specialite`, `identifiant`, `mdp`, `approuve`) VALUES
+(1, 'Aggoun', '', 'Aubervilliers', 'Neurologie', 'Lucario', 'c1078f95440f31e9c88138226b1af484', 1),
+(2, 'Guo', '', 'Bourget', 'Tabacologie', 'az', 'a9d3b34800d4283ed34b2bbbeb443a77', 1),
+(3, 'Tang', '', 'Aulnay-sous-bois', 'Gynécologie', 'tang', '87db92494758df7d0f0a4f39162a48f4', 1),
+(4, 'Birba', '', 'Dugny', 'Cardiologie', 'Dr.CapriSun', 'be6e0613371881bfe15b363bf5d00c20', 1),
+(6, 'test', '', 'test', 'test', 'test', '098f6bcd4621d373cade4e832627b4f6', 0),
+(7, 'afd', '', 'azfd', 'az', 'az', 'cc8c0a97c2dfcd73caff160b65aa39e2', 0),
+(8, 'chacale', '', 'chacal', 'chacal', 'chacal', '39cfe80e92fee0e3618e56df21e69dbb', 1),
+(9, 'enfin', '', 'enfin', 'enfin', 'enfin', 'ded2a04774ebf30df7b601b08b09c999', 1),
+(10, 'e', '', 'd', 'e', 'd', '8277e0910d750195b448797616e091ad', 1),
+(13, 'Hahaa', '', 'Hahaa', 'Haha', 'Haha', '4e4d6c332b6fe62a63afe56171fd3725', 1);
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `messages`
+--
+
+DROP TABLE IF EXISTS `messages`;
+CREATE TABLE IF NOT EXISTS `messages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `author` varchar(50) DEFAULT NULL,
+  `content` text,
+  `created_at` datetime DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM AUTO_INCREMENT=71 DEFAULT CHARSET=utf8 COMMENT='La table qui va contenir tous les messages voyons !';
+
+--
+-- Déchargement des données de la table `messages`
+--
+
+INSERT INTO `messages` (`id`, `author`, `content`, `created_at`) VALUES
+(14, 'Tiara Wiza', 'Est odio animi et voluptatem voluptas et et nobis beatae laborum tempora quia aliquid cum aut aperiam exercitationem.', '2017-07-24 16:03:27'),
+(15, 'Tiara Wiza', 'Praesentium molestiae ut repudiandae et nihil ut at consectetur aut itaque sit.', '2017-07-24 09:38:48'),
+(16, 'Wilford Quitzon', 'Culpa perferendis tenetur corporis deserunt fugit rem nihil aut sunt id fugit ut.', '2017-07-24 08:13:35'),
+(17, 'Wilford Quitzon', 'Aspernatur molestiae impedit consequatur aut quia debitis molestiae ratione veniam dolorem molestiae optio debitis neque aut maiores aut quasi atque.', '2017-07-24 10:05:02'),
+(18, 'Amelie Ullrich', 'Iusto dolor sunt vel excepturi molestiae et aut voluptatem sint eos quasi.', '2017-07-24 21:00:36'),
+(19, 'Amelie Ullrich', 'Provident eos iure accusamus aut deserunt molestiae officiis eligendi quo laboriosam odio non unde rerum neque et ipsum non.', '2017-07-24 06:29:11'),
+(20, 'Prof. Einar Beer', 'Rerum nihil expedita sed corrupti consequuntur soluta quisquam qui accusamus animi quasi natus error expedita ratione odit voluptatem iure consequuntur quia non.', '2017-07-24 19:11:28'),
+(68, 'c', 'c', '2020-11-29 01:00:12'),
+(69, 'eaz', 'eaz', '2020-11-29 01:01:41'),
+(70, 'test', 'test', '2020-11-29 01:08:09'),
+(65, 't', 't', '2020-11-29 00:58:13'),
+(66, 'aeaz', 'ezaze', '2020-11-29 00:58:34'),
+(67, 'oho', 'oho', '2020-11-29 00:59:08'),
+(47, 'Mr. Chandler Reinger', 'Officiis porro labore consectetur ratione et qui amet asperiores voluptatem dolorem.', '2017-07-24 12:48:06'),
+(50, 'Joseph', 'Bonjour à tous !', '2017-07-25 01:23:55'),
+(49, 'Lior', 'Mon message trop bien !', '2017-07-25 01:01:28'),
+(51, 'Jeanne', 'Salut les amis !', '2017-07-25 01:24:54'),
+(52, 'Lior', 'Est-ce que ça marche ?', '2017-07-25 01:41:13'),
+(53, 'Lior', 'nouveau test', '2017-07-25 01:42:04'),
+(54, 'Lior', 'Nouveau test encore', '2017-07-25 01:42:15'),
+(55, 'Lior', 'et encore', '2017-07-25 01:42:16'),
+(56, 'Lior', 'et encore !', '2017-07-25 01:42:18'),
+(57, 'Joseph', 'Bonjour à tous !', '2017-07-25 01:42:47'),
+(58, 'Jeanne', 'Bien salut mon Joseph !', '2017-07-25 01:44:00'),
+(59, 'Lior', 'Bonjour à tous !', '2017-07-25 01:44:13'),
+(60, 'Jeanne', 'Salut Lior, comment vas-tu ?', '2017-07-25 01:44:19'),
+(61, 'test', 'test', '2020-11-28 23:49:04'),
+(62, 'test', 'a', '2020-11-28 23:49:10'),
+(63, 'a', 'a', '2020-11-29 00:03:37'),
+(64, 'ae', 'ez', '2020-11-29 00:32:45');
 
 -- --------------------------------------------------------
 
@@ -97,7 +165,7 @@ CREATE TABLE IF NOT EXISTS `minichat` (
   `message` text NOT NULL,
   `date_message` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM AUTO_INCREMENT=10 DEFAULT CHARSET=utf8;
+) ENGINE=MyISAM AUTO_INCREMENT=78 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `minichat`
@@ -112,85 +180,42 @@ INSERT INTO `minichat` (`id`, `nom`, `message`, `date_message`) VALUES
 (6, 'ryanftne', 'abc', '2020-10-05 14:50:56'),
 (7, 'eez', 'A', '2020-10-27 16:41:46'),
 (8, 'MR Mattei', 'SORTEZ UNE FEUILLE !', '2020-10-27 16:43:36'),
-(9, 'Raoult', 'Mettez vos masques', '2020-10-27 17:19:34');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `p3x_chat_message`
---
-
-DROP TABLE IF EXISTS `p3x_chat_message`;
-CREATE TABLE IF NOT EXISTS `p3x_chat_message` (
-  `id_message` mediumint(7) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `id_utilisateur` mediumint(7) UNSIGNED NOT NULL,
-  `id_utilisateur_prive` mediumint(7) UNSIGNED NOT NULL,
-  `message` varchar(250) NOT NULL,
-  `date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_message`),
-  KEY `id_utilisateur` (`id_utilisateur`),
-  KEY `id_utilisateur_prive` (`id_utilisateur_prive`)
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `p3x_chat_message`
---
-
-INSERT INTO `p3x_chat_message` (`id_message`, `id_utilisateur`, `id_utilisateur_prive`, `message`, `date`) VALUES
-(1, 1, 0, 'dzjiodsiiddehizezfhi', '2020-11-02 14:06:09'),
-(2, 2, 0, 'ezazea', '2020-11-02 14:10:56'),
-(3, 1, 0, 'bonjour', '2020-11-02 14:57:35'),
-(4, 1, 0, 'test', '2020-11-02 14:57:53'),
-(5, 2, 0, 'test 2', '2020-11-02 14:58:24');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `p3x_chat_session`
---
-
-DROP TABLE IF EXISTS `p3x_chat_session`;
-CREATE TABLE IF NOT EXISTS `p3x_chat_session` (
-  `id_session` mediumint(7) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `id_utilisateur` mediumint(7) UNSIGNED NOT NULL,
-  `date` datetime NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  PRIMARY KEY (`id_session`),
-  KEY `id_utilisateur` (`id_utilisateur`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `p3x_chat_session`
---
-
-INSERT INTO `p3x_chat_session` (`id_session`, `id_utilisateur`, `date`) VALUES
-(1, 1, '2020-11-02 15:58:16'),
-(2, 2, '2020-11-02 16:31:11');
-
--- --------------------------------------------------------
-
---
--- Structure de la table `p3x_chat_utilisateur`
---
-
-DROP TABLE IF EXISTS `p3x_chat_utilisateur`;
-CREATE TABLE IF NOT EXISTS `p3x_chat_utilisateur` (
-  `id_utilisateur` mediumint(7) UNSIGNED NOT NULL AUTO_INCREMENT,
-  `login` varchar(100) NOT NULL,
-  `pass` varchar(50) NOT NULL,
-  `avatar` smallint(4) UNSIGNED NOT NULL,
-  `avatar_url` varchar(200) NOT NULL,
-  PRIMARY KEY (`id_utilisateur`)
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4;
-
---
--- Déchargement des données de la table `p3x_chat_utilisateur`
---
-
-INSERT INTO `p3x_chat_utilisateur` (`id_utilisateur`, `login`, `pass`, `avatar`, `avatar_url`) VALUES
-(1, 'jean', 'e368b9938746fa090d6afd3628355133', 1, ''),
-(2, 'sophie', '1066726e7160bd9c987c9968e0cc275a', 2, ''),
-(3, 'pierre', '297e430d45e7bf6f65f5dc929d6b072b', 3, ''),
-(4, 'marine', '7b1312a1b3e74bb174b3fbbf68ab5a92', 4, '');
+(9, 'Raoult', 'Mettez vos masques', '2020-10-27 17:19:34'),
+(10, 'tr', 'test', '2020-11-28 21:10:20'),
+(11, 'Fontaine', 'test', '2020-11-29 00:22:13'),
+(53, 'Fonta', 'az', '2020-11-29 00:54:39'),
+(52, 'Fonta', 'az', '2020-11-29 00:54:33'),
+(66, 'Kebiche', 'ah ouais ?', '2020-11-29 01:37:27'),
+(65, 'Kebiche', 'ah ouais ?', '2020-11-29 01:37:06'),
+(64, 'Kebiche', 'ah ouais ?', '2020-11-29 01:36:29'),
+(63, 'Kebiche', 'ah ouais ?', '2020-11-29 01:36:17'),
+(62, 'Kebiche', 'ah ouais ?', '2020-11-29 01:35:57'),
+(61, 'Kebiche', 'ah ouais ?', '2020-11-29 01:35:34'),
+(60, 'Kebiche', 'ah ouais ?', '2020-11-29 01:35:18'),
+(59, 'Kebiche', 'ah ouais ?', '2020-11-29 01:35:06'),
+(58, 'Kebiche', 'ah ouais ?', '2020-11-29 01:34:37'),
+(57, 'Kebiche', 'ah ouais ?', '2020-11-29 01:34:30'),
+(56, 'Kebiche', 'ah ouais ?', '2020-11-29 01:34:10'),
+(55, 'Fontaine', 'ah', '2020-11-29 00:57:46'),
+(54, 'Fontaine', 'ah', '2020-11-29 00:54:46'),
+(51, 'Fonta', 'az', '2020-11-29 00:53:42'),
+(50, 'Fonta', 'az', '2020-11-29 00:53:10'),
+(49, 'Fonta', 'az', '2020-11-29 00:52:44'),
+(48, 'Fonta', 'az', '2020-11-29 00:51:58'),
+(47, 'Fonta', 'az', '2020-11-29 00:51:34'),
+(46, 'Fonta', 'az', '2020-11-29 00:43:30'),
+(45, 'Fontaine', 'hihi', '2020-11-29 00:43:21'),
+(67, 'Kebiche', 'ah ouais ?', '2020-11-29 01:37:43'),
+(68, 'Kebiche', 'ah ouais ?', '2020-11-29 01:37:46'),
+(69, 'Kebiche', 'ah ouais ?', '2020-11-29 01:38:01'),
+(70, 'Kebiche', 'ah ouais ?', '2020-11-29 01:38:36'),
+(71, 'Kebiche', 'ah ouais ?', '2020-11-29 01:38:44'),
+(72, 'Kebiche', 'a', '2020-11-29 01:39:14'),
+(73, 'Kebiche', 'a', '2020-11-29 01:39:17'),
+(74, 'Kebiche', 'a', '2020-11-29 01:39:43'),
+(75, 'Goncalves', 'test', '2020-11-29 01:48:24'),
+(76, 'eaz', 'a', '2020-11-29 15:43:58'),
+(77, 'Goncalves', 't', '2020-11-29 15:52:46');
 
 -- --------------------------------------------------------
 
@@ -238,7 +263,7 @@ CREATE TABLE IF NOT EXISTS `patient` (
   `token` varchar(15) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `fk_patient` (`nom`)
-) ENGINE=InnoDB AUTO_INCREMENT=24 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8;
 
 --
 -- Déchargement des données de la table `patient`
@@ -248,11 +273,13 @@ INSERT INTO `patient` (`id`, `nom`, `prenom`, `date_naissance`, `mail`, `adresse
 (2, 'Kebiche', 'Killian', '', 'k.kebiche@gmail.com', '3 rue des potiers 93300 Aubervilliers', 'test', '152485963258745', 'Wifi et TV', 'SECU ', '098f6bcd4621d373cade4e832627b4f6', 'patient', 1, NULL),
 (7, 'zaaaz', 'zz', '2001-12-18', 'z@z.fr', 'z', 'z', '100432432432431', 'Wifi', 'z', 'fbade9e36a3f36d3d676c1b808451dd7', 'patient', 0, NULL),
 (15, 'bhujun', 'yanish', '2020-09-30', 'yanish.bhujun@gmail.com', '3 rue test', 'GRAS SAVOIE', '212222222222111', 'Wifi', 'e', '164b6da6ab4209c16ff3841306dbec83', 'patient', 0, NULL),
-(18, 'Fontaine', 'Ryan', '2000-10-12', 'ryan-fontaine@hotmail.fr', 'QQ', 'QQ', '232112321321312', 'QQ', 'QQ', '098f6bcd4621d373cade4e832627b4f6', 'patient', 1, NULL),
+(18, 'Fontaine', 'Ryan', '2000-10-12', 'ryan-fontaine@hotmail.fr', 'QQq', 'QQq', '232112321321312', 'QQq', 'QQq', '098f6bcd4621d373cade4e832627b4f6', 'patient', 1, NULL),
 (19, 'Goncalves', 'Nathan', '2000-06-07', 'axel.lea.kingdomhearts@gmail.com', '3 rue des pottiers', 'Hunter', '123232312132323', 'TV', 'CMU', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0, NULL),
 (21, 'Ghita', 'Ryan', '1999-11-18', 'ghitaxryanhihihihihihihi@gmail.com', 'testt', 'testtt', '784564565464564', 'Wifi', 'reer', '925cc8d2953eba624b2bfedf91a91613', 'patient', 1, NULL),
 (22, 'tentend', 'pas', '2000-12-12', 'ouquoi@gmail.com', 'chacal', 'ca dit', '789789789789444', 'wifi', 'tr', '098f6bcd4621d373cade4e832627b4f6', 'patient', 1, NULL),
-(23, 'Brook', 'Fadi', '2000-03-18', 'f.khiate@lprs.fr', 'Alabasta', 'wsh', '797897878989778', 'Wifi', 'tees', '098f6bcd4621d373cade4e832627b4f6', 'patient', 1, NULL);
+(23, 'Brook', 'Fadi', '2000-03-18', 'f.khiate@lprs.fr', 'Alabasta', 'wsh', '797897878989778', 'Wifi', 'tees', '098f6bcd4621d373cade4e832627b4f6', 'patient', 1, NULL),
+(24, 'huhu', 'huhu', '2000-12-12', 'huhu@huhu.huhu', 'huhu', 'huhu', '456456412320025', 'wifi', 'huhu', 'f3c2cefc1f3b082a56f52902484ca511', 'patient', 0, NULL),
+(29, 'q', 'q', '2000-12-12', 'r.fontaine@lprs.fr', 'q', 'q', '693633333333333', 'q', 'q', '098f6bcd4621d373cade4e832627b4f6', 'patient', 0, NULL);
 
 -- --------------------------------------------------------
 
