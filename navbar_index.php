@@ -92,6 +92,9 @@ session_start();
                             <li class="nav-item">
                                 <a class="nav-link" href="like_dislike/index.php" style="font-family: Arial, sans-serif">Avis</a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="views/minichat_id.php" style="font-family: Arial, sans-serif">Minichat</a>
+                            </li>
 
                         </ul>
                     </div>
@@ -120,9 +123,7 @@ session_start();
                            <li class="nav-item">
                                <a class="nav-link" href="views/voir_rdv.php" style="font-family: Arial, sans-serif">Voir les rendez-vous</a>
                            </li>
-                           <li class="nav-item">
-                               <a class="nav-link" href="views/minichat_medecin.php" style="font-family: Arial, sans-serif">Minichat</a>
-                           </li>
+
                        </ul>
                    </div>
                    <a class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
