@@ -8,10 +8,10 @@ catch (Exception $e){
 
 session_start();
 
-if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
+if (isset($_GET['nom']) AND !empty($_GET['nom']))  // recup url
 {
-  $getid = $_GET['id'];
-  $select_user_info = $bdd->prepare('SELECT * FROM patient WHERE id = ?');
+  $getid = $_GET['nom'];
+  $select_user_info = $bdd->prepare('SELECT * FROM patient WHERE nom = ?');
   $select_user_info->execute(array($getid));
   $whoiam = $select_user_info->fetch();
   if(isset($_POST['ok_modifier_compte'])) {
@@ -54,12 +54,12 @@ if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
           <a href="../page_index.php" style="color: #EB2900;" class="genric-btn danger-border circle arrow">Retour<span
               class="lnr lnr-arrow-right"></span></a><br><br>
  					<h3>Communiquez ici !</h3>
- 					<p>Monsieur <strong><?= $whoiam['nom']; ?></strong>, voici quelques règles à respecter : </p>
+ 					<p>Monsieur <strong><?= $_SESSION['nom']; ?></strong>, voici quelques règles à respecter : </p>
           <p> 🤬 Les insultes sont interdites. </p>
           <p> 🕵 Les messages sont visibles par les administrateurs. </p>
           <p> 👮 Tout manquement aux règles entrainera des sanctions. </p>
  					<label class="form-group">
- 						<input type="text" text-indent: -10000em; name="nom" class="form-control" value="<?= $whoiam['nom']; ?>" >
+ 						<input type="text" text-indent: -10000em; name="nom" class="form-control" value="<?= $_SESSION['nom']; ?>" >
  						<span>Nom</span>
  						<span class="border"></span>
 

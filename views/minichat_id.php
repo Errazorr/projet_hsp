@@ -15,6 +15,7 @@ if($select_all_members->rowCount() > 0)
   while($m = $select_all_members->fetch()){
   }}
 
+$token = uniqid();
 
  ?>
 
@@ -44,7 +45,7 @@ if($select_all_members->rowCount() > 0)
 
  				<center>
 
-        <a href="minichat.php?id=<?= $_SESSION['nom']; ?>" >	<button type="button" name="ok_modifier_compte">C'est parti
+        <a href="minichat.php?nom=<?= $_SESSION['nom']; ?>?token=<?php echo $token ?>" >	<button type="button" name="ok_modifier_compte">C'est parti
 </center>
  					</button>
  				</form>
