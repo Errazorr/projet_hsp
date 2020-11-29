@@ -13,14 +13,14 @@ catch (Exception $e){
 }
 
 //Sélection des id de la table compte en fonction du nom //
-$req = $bdd->prepare('SELECT id FROM compte WHERE mail=?');
+$req = $bdd->prepare('SELECT id FROM patient WHERE mail=?');
 
 $req->execute(array($_SESSION['mail']));
 $id= $req->fetch();
 $_SESSION['id'] = $id[0];
 
 //Sélection de l'ensemble des informations de la table compte en fonction de l'id //
-$rec = $bdd->prepare('SELECT * FROM compte WHERE id=?');
+$rec = $bdd->prepare('SELECT * FROM patient WHERE id=?');
 $rec->execute(array($id[0]));
 $donnees= $rec->fetch();
 ?>
@@ -100,7 +100,7 @@ $donnees= $rec->fetch();
 <br/>
 
 </br/>
-                                <a href="../landing.php" class="genric-btn danger-border circle arrow"> Modifier son mot de passe? <span
+                                <a href="../forget_password.php" class="genric-btn danger-border circle arrow"> Modifier son mot de passe? <span
                         						class="lnr lnr-arrow-right"></span></a></center>
                             </div>
 
