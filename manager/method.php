@@ -3,11 +3,12 @@
 session_start();
 
 use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 //Recuperation de données des page suivantes //
-require '../vendor/phpmailer/phpmailer/src/Exception.php';
-require '../vendor/phpmailer/phpmailer/src/PHPMailer.php';
-require '../vendor/phpmailer/phpmailer/src/SMTP.php';
+require '../vendor/PHPMailer/src/Exception.php';
+require '../vendor/PHPMailer/src/PHPMailer.php';
+require '../vendor/PHPMailer/src/SMTP.php';
 require '../vendor/autoload.php';
 class Method {
 
@@ -100,28 +101,39 @@ else {
   echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
 
 //ENVOI DE MAIL
-  $mail = new PHPMailer();
-  $mail->isSMTP();                                            // Send using SMTP
-  $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
-  $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-  $mail->Username   = 'ryannathanslam@gmail.com';                     // SMTP username
-  $mail->Password   = 'projethsp2020?';                               // SMTP password
-  $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-  $mail->Port       = 587;                                    // TCP port to connect to
+//Send mail
 
+      $mailto = $mail;
 
-  $mail->setFrom('ryannathanslam@gmail.com', 'Inscription');
-  $mail->addAddress($ins->getMail(), 'Inscription réussie');     // Add a recipient //Recipients
-   $mail->Body    =   'Bonjour et bienvenue sur le site de l\'hopital, merci de nous faire confiance';
-  if(!$mail->Send()) {
-    // Si l'envoie de mail ne s'excuté pas alors on affiche une erreur //
-    echo '<body onLoad="alert(\'Erreur, mail non envoyé\')">';
-  echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.php">';
-  } else {
-    // Si l'envoie de mail est excuté alors on redirige vers la page d'accueil //
-
-     header("location: ../views/connexion.php");
-  }
+      // Load Composer's autoloader
+      require '../vendor/autoload.php';
+      // Instantiation and passing `true` enables exceptions
+      $mail = new PHPMailer(true);
+try {
+          //Server settings
+          //$mail->SMTPDebug = SMTP::DEBUG_SERVER;                      // Enable verbose debug output
+          $mail->isSMTP();                                            // Send using SMTP
+          $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
+          $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
+          $mail->Username   = 'ryannathanslam@gmail.com';                     // SMTP username
+          $mail->Password   = 'projethsp2020?';                               // SMTP password
+          $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
+          $mail->Port       = 587;                                    // TCP port to connect to
+          //Recipients
+          $mail->setFrom('ryannathanslam@gmail.com', 'Ryan');
+          $mail->addAddress($mailto);     // Add a recipient
+          if(isset($mail)){
+              $mail->isHTML(true);                                  // Set email format to HTML
+              $mail->Subject = 'Inscription hopital';
+              $mail->Body    = "Bienvenue sur le site";
+              $mail->AltBody = 'This is the body in plain text for non-HTML mail client';
+              $mail->send();
+              header("Location:../page_index.php");
+          }
+      }
+catch (Exception $e) {
+          echo "Message could not be sent. Mailer Error: {$mail->ErrorInfo}";
+      }
 
 }
 
@@ -154,6 +166,7 @@ else {
 
         else{
           if ($medecin['mail'] == $connexion->getMail() AND $medecin['mdp'] == md5($connexion->getMdp())) {
+            $_SESSION['id'] = $medecin['id'];
             $_SESSION['nom_medecin'] = $medecin['nom'];
             $_SESSION['mail_medecin'] = $medecin['mail'];
             $_SESSION['role'] = "medecin";
@@ -448,6 +461,21 @@ public function AddDoctor($add_doctor){
         echo '<body onLoad="alert(\'Ajout réussi\')">';
         header('Location: ../views/add_patient.php');
       }
+   }
+
+   public function ContactUs($contact) {
+     //CONNEXION BDD
+     $bdd = $this->dbConnect();
+       //INSERTION DANS LA TABLE DU NOUVEL ADMIN
+         $result = $bdd->prepare('INSERT INTO contact (nom, mail, message, sujet) VALUES (?, ?, ?, ?)');
+         $insert = $result ->execute(array(
+           $contact->getNom(),
+           $contact->getMail(),
+           $contact->getMessage(),
+           $contact->getSujet()
+         ));
+         echo '<body onLoad="alert(\'Message envoyé\')">';
+         header('Location: ../page_index.php');
    }
 
 }
