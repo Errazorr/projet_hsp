@@ -40,11 +40,11 @@ if($select_all_members->rowCount() > 0)
  					<h3>Accéder au tchat</h3><br>
  					<p>Rebonjour <strong><?= $_SESSION['prenom']; ?></strong>, désirez-vous accéder au tchat ? </p>
           	<p>Vous y serez enregistré sous le nom : <strong><?= $_SESSION['nom']; ?></strong></p>
-      
+
 
  				<center>
 
-        <a href="minichat.php?id=<?= $_SESSION['id']; ?>" >	<button type="button" name="ok_modifier_compte">C'est parti
+        <a href="minichat.php?id=<?= $_SESSION['nom']; ?>" >	<button type="button" name="ok_modifier_compte">C'est parti
 </center>
  					</button>
  				</form>
