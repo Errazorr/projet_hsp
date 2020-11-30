@@ -8,7 +8,7 @@ include 'manager/db.php';
  <html>
  	<head>
  		<meta charset="utf-8">
- 		<title>Mot de passe oublié</title>
+ 		<title style="font-family: Arial, sans-serif">Mot de passe oublié</title>
  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
  		<!-- MATERIAL DESIGN ICONIC FONT -->
@@ -23,18 +23,18 @@ include 'manager/db.php';
  		<div class="wrapper">
  			<div class="inner">
  				<form method="post">
- 					<h3>Mot de passe oublié ? </h3>
- 					<p>Récupérez votre mot de passe via votre adresse mail.</p>
+ 					<h3 style="font-family: Arial, sans-serif">Mot de passe oublié ? </h3>
+ 					<p style="font-family: Arial, sans-serif">Récupérez votre mot de passe via votre adresse mail.</p>
 
  					<label class="form-group">
- 						<input type="mail" name="email" class="form-control" value="" required>
- 						<span for="">Adresse mail</span>
+ 						<input type="mail" name="email" class="form-control" value="" required style="font-family: Arial, sans-serif">
+ 						<span for="" style="font-family: Arial, sans-serif">Adresse mail</span>
  						<span class="border"></span>
  					</label>
 
  				<center>
 
-        	<button type="submit" name="ok_modifier_membre">Valider
+        	<button type="submit" name="ok_modifier_membre" style="font-family: Arial, sans-serif">Valider
 </center>
  					</button>
           <?php
