@@ -47,7 +47,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Connexion</h2>
+                            <h2 style="font-family: Arial, sans-serif">Connexion</h2>
 
                         </div>
                     </div>
@@ -67,16 +67,16 @@
                         <form method="post" action="../traitement/connexion.php">
                           <center>
 
-                           <h2>Vous avez déjà un compte ? Connectez-vous : </h2> </center>
+                           <h2 style="font-family: Arial, sans-serif">Vous avez déjà un compte ? Connectez-vous : </h2> </center>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
-                                    <input type="email" name="mail" class="form-control" required="required" placeholder="Votre adresse mail : ">
+                                    <input style="font-family: Arial, sans-serif" type="email" name="mail" class="form-control" required="required" placeholder="Votre adresse mail : ">
                                 </div>
                                 <div class="form-group col-md-6">
-                                    <input type="password" id="myyInput" name="mdp" class="form-control"required
+                                    <input style="font-family: Arial, sans-serif" type="password" id="myyInput" name="mdp" class="form-control"required
                                         placeholder="Mot de passe : ">
 <br>
-                                        <input type="checkbox" onclick="myFunction()">&ensp;Afficher le mot de passe
+                                        <input style="font-family: Arial, sans-serif" type="checkbox" onclick="myFunction()">&ensp;Afficher le mot de passe
                                                   <script>
                                                   function myFunction() {
                                                   var x = document.getElementById("myyInput");
@@ -99,12 +99,12 @@
                                 <br/>  </center>
 
                               </br/>		<center>
- <a href="../forget_password.php">Mot de passe oublié ? </a><br/>
+ <a href="../forget_password.php" style="font-family: Arial, sans-serif">Mot de passe oublié ? </a><br/>
 
 </br/>
-                                <a href="inscription.php" class="genric-btn danger-border circle arrow">Nouveau ici ? S'inscrire <span
+                                <a href="inscription.php" class="genric-btn danger-border circle arrow" style="font-family: Arial, sans-serif">Nouveau ici ? S'inscrire <span
                         						class="lnr lnr-arrow-right"></span></a>
-                                    <a href="../page_index.php" class="genric-btn danger-border circle arrow">Retour<span
+                                    <a href="../page_index.php" class="genric-btn danger-border circle arrow" style="font-family: Arial, sans-serif">Retour<span
                             						class="lnr lnr-arrow-right"></span></a></center>
                             </div>
 
