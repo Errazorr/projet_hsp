@@ -17,11 +17,11 @@ if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
     $nom_modifie = htmlspecialchars($_POST['nom']);
     $lieu_modifie = htmlspecialchars($_POST['lieu']);
     $specialite_modifie = htmlspecialchars($_POST['specialite']);
-    $identifiant_modifie = htmlspecialchars($_POST['identifiant']);
+    $mail_modifie = htmlspecialchars($_POST['mail']);
     $modify_info_of_member = $bdd->prepare('UPDATE medecin SET nom = ?, lieu = ?, specialite = ?,
-       identifiant = ? WHERE id = ?');
+       mail = ? WHERE id = ?');
     $modify_info_of_member->execute(array($nom_modifie, $lieu_modifie, $specialite_modifie,
-    $identifiant_modifie, $getid));
+    $mail_modifie, $getid));
     header('location:add_doctor.php');
   }
 } else
@@ -69,8 +69,8 @@ if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
  						<span class="border"></span>
  					</label>
  					<label class="form-group">
- 						<input type="text" name="identifiant" class="form-control" value="<?= $whoiam['identifiant']; ?>">
- 						<span for="">Identifiant</span>
+ 						<input type="text" name="mail" class="form-control" value="<?= $whoiam['mail']; ?>">
+ 						<span for="">Mail</span>
  						<span class="border"></span>
  					</label>
 
