@@ -440,8 +440,10 @@ public function AddDoctor($add_doctor){
            $contact->getMessage(),
            $contact->getSujet()
          ));
+         if($insert) {
          echo '<body onLoad="alert(\'Message envoyé\')">';
          header('Location: ../page_index.php');
+       }
    }
 
 }
