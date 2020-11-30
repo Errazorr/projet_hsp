@@ -17,7 +17,7 @@ function getMessages(){
     const html = resultat.reverse().map(function(message){
       return `
         <div class="message">
-          <span class="date">${message.created_at.substring(9, 16)}</span>
+          <span class="date">${message.created_at.substring(11, 16)}</span>
           <span class="author">${message.author}</span> :
           <span class="content">${message.content}</span>
         </div>
