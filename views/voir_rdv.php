@@ -28,7 +28,7 @@
         <div class="col-lg-12">
           <div class="breadcrumb_iner">
             <div class="breadcrumb_iner_item">
-              <h2>Voir les rendez-vous</h2>
+              <h2 style="font-family: Arial, sans-serif">Voir les rendez-vous</h2>
             </div>
           </div>
         </div>
@@ -46,11 +46,11 @@
 				<div class="progress-table-wrap">
 					<div class="progress-table">
 						<div class="table-head">
-							<div class="visit">Nom patient</div>
-							<div class="visit">Nom médecin</div>
-							<div class="visit">Date de consultation</div>
-							<div class="visit">Heure de consultation</div>
-              <div class="visit">Raison de la consultation</div>
+							<div class="visit" style="font-family: Arial, sans-serif">Nom patient</div>
+							<div class="visit" style="font-family: Arial, sans-serif">Nom médecin</div>
+							<div class="visit" style="font-family: Arial, sans-serif">Date de consultation</div>
+							<div class="visit" style="font-family: Arial, sans-serif">Heure de consultation</div>
+              <div class="visit" style="font-family: Arial, sans-serif">Raison de la consultation</div>
 						</div>
 
             <?php
@@ -75,11 +75,11 @@
               //POUR CHAQUE LIGNE DANS LA TABLE, ON AFFICHE
               foreach ($donnees as $value) {
                 echo '<div class="table-row">
-                  <div class="visit" style="color:#000000">'.$value["nom_patient"].'</div>
-                  <div class="visit" style="color:#000000">'.$value["nom_medecin"].'</div>
-                  <div class="visit" style="color:#000000">'.$value["date_consult"].'</div>
-                  <div class="visit" style="color:#000000">'.$value["time_consult"].'</div>
-                  <div class="visit" style="color:#000000">'.$value["rais_consult"].'</div>
+                  <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["nom_patient"].'</div>
+                  <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["nom_medecin"].'</div>
+                  <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["date_consult"].'</div>
+                  <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["time_consult"].'</div>
+                  <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["rais_consult"].'</div>
                 </div>';
               }
 
