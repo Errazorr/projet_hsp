@@ -250,17 +250,22 @@ catch (Exception $e) {
    }
 
    else{
-     $reserv_exists = $bdd->prepare('SELECT * FROM reservation WHERE nom_medecin = ? AND date_consult = ? AND time_consult = ?');
-     $reserv_exists->execute(array($rdv->getNomMedecin(),
-                                    $rdv->getDateConsult(),
-                                    $rdv->getTimeConsult()));
-    $reserv_exists->fetchall();
+     $check_reserv_exists = $bdd->prepare('SELECT * FROM reservation WHERE nom_medecin = ? AND date_consult = ? AND time_consult = ?');
+     $reserv_exists = $check_reserv_exists->execute(array($rdv->getNomMedecin(),
+                                                          $rdv->getDateConsult(),
+                                                          $rdv->getTimeConsult()));
+    $check_reserv_exists->fetchall();
 
-    if($reserv_exists){
+    var_dump($rdv->getNomMedecin());
+    var_dump($rdv->getDateConsult());
+    var_dump($rdv->getTimeConsult());
+
+    if($check_reserv_exists){
       //MESSAGE D'ERREUR
-      echo '<body onLoad="alert(\'Ce médecin a déjà un rendez-vous à cette heure-ci\')">';
 
-      echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
+      //echo '<body onLoad="alert(\'Ce médecin a déjà un rendez-vous à cette heure-ci\')">';
+
+      //echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
     }
     else{
      //SINON ON EXECUTE LA REQUETE D'INSERTION DANS LA TABLE
