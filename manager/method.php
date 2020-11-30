@@ -273,9 +273,9 @@ catch (Exception $e) {
     if($check_reserv_exists){
       //MESSAGE D'ERREUR
 
-      //echo '<body onLoad="alert(\'Ce médecin a déjà un rendez-vous à cette heure-ci\')">';
+      echo '<body onLoad="alert(\'Ce médecin a déjà un rendez-vous à cette heure-ci\')">';
 
-      //echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
+      echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
     }
     else{
      //SINON ON EXECUTE LA REQUETE D'INSERTION DANS LA TABLE
