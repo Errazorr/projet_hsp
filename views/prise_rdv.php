@@ -5,7 +5,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Prise de rendez-vous</title>
+    <title style="font-family: Arial, sans-serif">Prise de rendez-vous</title>
     <link rel="icon" href="../img/logo3icon.png">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
@@ -41,7 +41,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Prenez de rendez-vous</h2>
+                            <h2 style="font-family: Arial, sans-serif">Prenez de rendez-vous</h2>
                         </div>
                     </div>
                 </div>
@@ -56,8 +56,8 @@
             <div class="row justify-content-center">
                 <div class="col-xl-8">
                     <div class="section_tittle text-center">
-                        <h2> Prenez un rendez-vous avec un de nos docteurs</h2>
-                        <p>Nos docteurs ont chacun leurs spécialités dans différents domaines</p>
+                        <h2 style="font-family: Arial, sans-serif"> Prenez un rendez-vous avec un de nos docteurs</h2>
+                        <p style="font-family: Arial, sans-serif">Nos docteurs ont chacun leurs spécialités dans différents domaines</p>
                     </div>
                 </div>
             </div>
@@ -69,8 +69,8 @@
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
-                                <h3>DR Aggoun</h3>
-                                <p style="color: black;">Spécialiste en neurologie</p>
+                                <h3 style="font-family: Arial, sans-serif">DR Aggoun</h3>
+                                <p style="color: black;" style="font-family: Arial, sans-serif">Spécialiste en neurologie</p>
                             </div>
                         </div>
                     </div>
@@ -82,8 +82,8 @@
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
-                                <h3>DR Guo</h3>
-                                <p style="color: black;">Spécialiste en tabacologie</p>
+                                <h3 style="font-family: Arial, sans-serif">DR Guo</h3>
+                                <p style="color: black;" style="font-family: Arial, sans-serif">Spécialiste en tabacologie</p>
                             </div>
                         </div>
                     </div>
@@ -95,8 +95,8 @@
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
-                                <h3>DR Tang</h3>
-                                <p style="color: black;">Spécialiste en gynécologie</p>
+                                <h3 style="font-family: Arial, sans-serif">DR Tang</h3>
+                                <p style="color: black;" style="font-family: Arial, sans-serif">Spécialiste en gynécologie</p>
                             </div>
                         </div>
                     </div>
@@ -108,8 +108,8 @@
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
-                                <h3>DR Birba</h3>
-                                <p style="color: black;">Spécialiste en Cardiologie</p>
+                                <h3 style="font-family: Arial, sans-serif">DR Birba</h3>
+                                <p style="color: black;" style="font-family: Arial, sans-serif">Spécialiste en Cardiologie</p>
                             </div>
                         </div>
                     </div>
@@ -129,7 +129,7 @@
                         <form action="../traitement/reservation.php" method="post">
                           <center>
 
-                           <h2>Vous désirez prendre un rendez-vous ?</h2> </center>
+                           <h2 style="font-family: Arial, sans-serif">Vous désirez prendre un rendez-vous ?</h2> </center>
                             <div class="form-row">
 
                                 <div class="form-group col-md-6">
