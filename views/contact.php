@@ -18,19 +18,20 @@
 if(isset($_SESSION['id'])) {
 
 ?>
+
  		<div class="wrapper">
  			<div class="inner">
  				<form action="../traitement/contact.php" method="post">
  					<h3>Nous contacter</h3>
  					<p>Contactez-nous ! </p>
  					<label class="form-group">
- 						<input type="text" name="nom" class="form-control" value="<?php echo $_SESSION['nom']; ?>">
- 						<span>Nom</span>
+ 						<input type="text" name="nom" class="form-control" value="<?php echo $_SESSION['nom']; ?>" disabled="disabled">
+ 						<span></span>
  						<span class="border"></span>
  					</label>
           <label class="form-group">
- 						<input type="mail" name="mail" class="form-control" value="<?php echo $_SESSION['mail']; ?>">
- 						<span>Mail </span>
+ 						<input type="mail" name="mail" class="form-control" value="<?php echo $_SESSION['mail']; ?>" disabled="disabled">
+ 						<span></span>
  						<span class="border"></span>
  					</label>
           <label class="form-group">
@@ -50,7 +51,10 @@ if(isset($_SESSION['id'])) {
 </center>
  					</button>
  				</form>
-
+      <center>
+<br><br>
+        <a href="../page_index.php" >Retour<span
+            ></span> </center>
         <?php } else { ?>
           <div class="wrapper">
        			<div class="inner">
