@@ -40,9 +40,9 @@ $commentaires = $bdd->query('SELECT * FROM medecin ORDER BY id DESC');
 <html>
 <head>
  <meta charset="utf-8" />
- <title>Activation des comptes</title>
+ <title style="font-family: Arial, sans-serif">Activation des comptes</title>
  <link rel="icon" href="../img/logo3icon.png">
- <title>Administration</title>
+ <title style="font-family: Arial, sans-serif">Administration</title>
 </head>
 <body>
 
@@ -68,7 +68,7 @@ $commentaires = $bdd->query('SELECT * FROM medecin ORDER BY id DESC');
  		<div class="wrapper">
  			<div class="inner">
  				<form action="" method="post">
- 					<h3>Confirmation des comptes</h3>
+ 					<h3 style="font-family: Arial, sans-serif">Confirmation des comptes</h3>
           <br><br>
 
           <ul>
@@ -91,7 +91,7 @@ $commentaires = $bdd->query('SELECT * FROM medecin ORDER BY id DESC');
           </ul>
           <br><br>
           <center>
-                  <a href="../page_index.php" >Retour<span
+                  <a href="../page_index.php"  style="font-family: Arial, sans-serif">Retour<span
                       ></span></a>
  				</form>
 
