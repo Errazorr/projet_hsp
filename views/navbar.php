@@ -60,40 +60,40 @@ session_start();
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
                                     Rendez-vous
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="prise_rdv.php">Prendre un rendez-vous</a>
-                                    <a class="dropdown-item" href="voir_rdv.php">Voir mes rendez-vous</a>
+                                    <a class="dropdown-item" href="prise_rdv.php" style="font-family: Arial, sans-serif">Prendre un rendez-vous</a>
+                                    <a class="dropdown-item" href="voir_rdv.php" style="font-family: Arial, sans-serif">Voir mes rendez-vous</a>
                                 </div>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="contact.php">Contact</a>
+                                <a class="nav-link" href="contact.php" style="font-family: Arial, sans-serif">Contact</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="modification.php">Modifier mon compte</a>
+                                <a class="nav-link" href="modification.php" style="font-family: Arial, sans-serif">Modifier mon compte</a>
                             </li>
 
                             <li class="nav-item">
-                                <a class="nav-link" href="../like_dislike/index.php">Avis</a>
+                                <a class="nav-link" href="../like_dislike/index.php" style="font-family: Arial, sans-serif">Avis</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link"  href="minichat_id.php">Minichat</a>
+                                <a class="nav-link"  href="minichat_id.php" style="font-family: Arial, sans-serif">Minichat</a>
                             </li>
                         </ul>
                     </div>
-                    <a class="btn_2 d-none d-lg-block" href="../traitement/session_destroy.php">Déconnexion</a>
+                    <a class="btn_2 d-none d-lg-block" href="../traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
 
 
                   <?php  }
                           //Sinon si c'est un médecin
                          elseif ($_SESSION['role'] == "medecin"){ ?>
                            <li class="nav-item active">
-                               <a class="nav-link" href="../page_index.php">Accueil</a>
+                               <a class="nav-link" href="../page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="voir_rdv.php">Voir les rendez-vous</a>
+                               <a class="nav-link" href="voir_rdv.php" style="font-family: Arial, sans-serif">Voir les rendez-vous</a>
                            </li>
                            <li class="nav-item">
                                <a class="nav-link" href="../tchat/index.php" style="font-family: Arial, sans-serif">Tchat</a>
@@ -101,28 +101,28 @@ session_start();
 
                        </ul>
                    </div>
-                   <a class="btn_2 d-none d-lg-block" href="../traitement/session_destroy.php">Déconnexion</a>
+                   <a class="btn_2 d-none d-lg-block" href="../traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
 
 
                  <?php  }
                          //Sinon c'est donc un admin
                         else{ ?>
                           <li class="nav-item active">
-                              <a class="nav-link" href="../page_index.php">Accueil</a>
+                              <a class="nav-link" href="../page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
                           </li>
                           <li class="nav-item">
-                              <a class="nav-link" href="voir_rdv.php">Voir tous les rendez-vous</a>
+                              <a class="nav-link" href="voir_rdv.php" style="font-family: Arial, sans-serif">Voir tous les rendez-vous</a>
                           </li>
                           <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
                                   Comptes
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="add_doctor.php">Médecin</a>
-                                  <a class="dropdown-item" href="add_admin.php">Admin</a>
-                                  <a class="dropdown-item" href="add_patient.php">Patient</a>
-                                  <a class="dropdown-item" href="activate.php">Confirmer/Approuver</a>
+                                  <a class="dropdown-item" href="add_doctor.php" style="font-family: Arial, sans-serif">Médecin</a>
+                                  <a class="dropdown-item" href="add_admin.php" style="font-family: Arial, sans-serif">Admin</a>
+                                  <a class="dropdown-item" href="add_patient.php" style="font-family: Arial, sans-serif">Patient</a>
+                                  <a class="dropdown-item" href="activate.php" style="font-family: Arial, sans-serif">Confirmer/Approuver</a>
                               </div>
                           </li>
                           <li class="nav-item dropdown">
@@ -131,13 +131,13 @@ session_start();
                                   Export
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="../traitement/csv.php">Exporter les rendez-vous</a>
-                                  <a class="dropdown-item" target="_blank" href="../traitement/csv2.php">Exporter un dossier d'admission</a>
+                                  <a class="dropdown-item" href="../traitement/csv.php" style="font-family: Arial, sans-serif">Exporter les rendez-vous</a>
+                                  <a class="dropdown-item" target="_blank" href="../traitement/csv2.php" style="font-family: Arial, sans-serif">Exporter un dossier d'admission</a>
                               </div>
                           </li>
                       </ul>
                   </div>
-                  <a class="btn_2 d-none d-lg-block" href="../traitement/session_destroy.php">Déconnexion</a>
+                  <a class="btn_2 d-none d-lg-block" href="../traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
 
 
                 <?php }
@@ -145,17 +145,17 @@ session_start();
                     //Sinon il n'y a pas de sessions ouverte
                     else{ ?>
                       <li class="nav-item active">
-                          <a class="nav-link" href="../page_index.php">Accueil</a>
+                          <a class="nav-link" href="../page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="doctor.php">Médecins</a>
+                          <a class="nav-link" href="doctor.php" style="font-family: Arial, sans-serif">Médecins</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="contact.php">Contact</a>
+                          <a class="nav-link" href="contact.php" style="font-family: Arial, sans-serif">Contact</a>
                       </li>
                   </ul>
               </div>
-              <a class="btn_2 d-none d-lg-block" href="connexion.php">Connexion</a>
+              <a class="btn_2 d-none d-lg-block" href="connexion.php" style="font-family: Arial, sans-serif">Connexion</a>
               <?php	}  ?>
                 </nav>
             </div>
