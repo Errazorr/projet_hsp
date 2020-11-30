@@ -42,7 +42,7 @@ if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
  <html>
  	<head>
  		<meta charset="utf-8">
- 		<title>Modifier compte admin</title>
+ 		<title style="font-family: Arial, sans-serif">Modifier compte admin</title>
  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
  		<!-- MATERIAL DESIGN ICONIC FONT -->
@@ -57,27 +57,27 @@ if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
  		<div class="wrapper">
  			<div class="inner">
  				<form action="" method="post">
- 					<h3>Modifier le compte</h3>
- 					<p>Modifier votre compte admin : <strong><?= $whoiam['id']; ?></strong> - <strong><?= $whoiam['nom']; ?></strong> - <strong><?= $whoiam['prenom']; ?></strong></p>
+ 					<h3 style="font-family: Arial, sans-serif">Modifier le compte</h3>
+ 					<p style="font-family: Arial, sans-serif">Modifier votre compte admin : <strong><?= $whoiam['id']; ?></strong> - <strong><?= $whoiam['nom']; ?></strong> - <strong><?= $whoiam['prenom']; ?></strong></p>
  					<label class="form-group">
  						<input type="text" name="nom" class="form-control" value="<?= $whoiam['nom']; ?>" >
- 						<span>Nom</span>
+ 						<span style="font-family: Arial, sans-serif">Nom</span>
  						<span class="border"></span>
  					</label>
           <label class="form-group">
  						<input type="text" name="prenom" class="form-control" value="<?= $_SESSION['prenom']; ?>" >
- 						<span>Prénom</span>
+ 						<span style="font-family: Arial, sans-serif">Prénom</span>
  						<span class="border"></span>
  					</label>
           <label class="form-group">
  						<input type="mail" name="mail" class="form-control" value="<?= $_SESSION['mail']; ?>" >
- 						<span>Mail</span>
+ 						<span style="font-family: Arial, sans-serif">Mail</span>
  						<span class="border"></span>
  					</label>
 
  				<center>
 
-        	<button type="submit" name="ok_modifier_compte">Modifier
+        	<button type="submit" name="ok_modifier_compte" style="font-family: Arial, sans-serif">Modifier
 </center>
  					</button>
  				</form>
