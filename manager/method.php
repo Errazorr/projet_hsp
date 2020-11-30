@@ -375,17 +375,17 @@ public function AddDoctor($add_doctor){
   //SI IL NE TROUVE PAS
   else{
     //INSERTION DANS LA TABLE DU NOUVEAU MEDECIN
-      $result = $bdd->prepare('INSERT INTO medecin (nom, lieu, specialite, identifiant, mdp, approuve) VALUES (:nom, :lieu, :specialite, :identifiant, :mdp, :approuve)');
+      $result = $bdd->prepare('INSERT INTO medecin (nom, lieu, specialite, mail, mdp, approuve) VALUES (?, ?, ?, ?, ?, ?)');
       $insert = $result ->execute(array(
-        'nom' => $add_doctor->getNom(),
-        'lieu' => $add_doctor->getLieu(),
-        'specialite' => $add_doctor->getSpecialite(),
-        'identifiant' => $add_doctor->getIdentifiant(),
-        'mdp' => md5($add_doctor->getMdp()),
-        'approuve' => 1
+        $add_doctor->getNom(),
+        $add_doctor->getLieu(),
+        $add_doctor->getSpecialite(),
+        $add_doctor->getMail(),
+        md5($add_doctor->getMdp()),
+        1
       ));
       //MESSAGE DE SUCCES
-      echo '<body onLoad="alert(\'Réservation réussie\')">';
+      echo '<body onLoad="alert(\'Création de nouveau médecin réussie\')">';
       header('Location: ../views/add_doctor.php');
     }
  }

@@ -35,7 +35,7 @@ class Medecin{
     $this->_specialite = $specialite;
   }
 
-  public function setIdentifiant ($mail){
+  public function setMail ($mail){
     $this->_mail = $mail;
   }
 
