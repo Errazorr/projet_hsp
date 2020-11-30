@@ -16,6 +16,15 @@
  	<body>
 <?php session_start();
 if(isset($_SESSION['id'])) {
+  try{
+    $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+  }
+  catch (Exception $e){
+    die('Erreur:'.$e->getMessage());
+  }
+  $req = $bdd->prepare('SELECT nom, mail FROM patient WHERE id=?');
+  $req->execute(array($_SESSION['id']));
+  $donnees= $req->fetch();
 
 ?>
 
@@ -25,12 +34,12 @@ if(isset($_SESSION['id'])) {
  					<h3>Nous contacter</h3>
  					<p>Contactez-nous ! </p>
  					<label class="form-group">
- 						<input type="text" name="nom" class="form-control" value="<?php echo $_SESSION['nom']; ?>" disabled="disabled">
+ 						<input type="text" name="nom" class="form-control"  value="<?= $donnees[0]; ?>"readonly ="readonly" >
  						<span></span>
  						<span class="border"></span>
  					</label>
           <label class="form-group">
- 						<input type="mail" name="mail" class="form-control" value="<?php echo $_SESSION['mail']; ?>" disabled="disabled">
+ 						<input type="mail" name="mail" class="form-control"  value="<?= $donnees[1]; ?> "readonly = "readonly">
  						<span></span>
  						<span class="border"></span>
  					</label>
