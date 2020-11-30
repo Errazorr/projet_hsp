@@ -162,28 +162,6 @@
     </section>
 
     <br>
-
-    <div align="center">
-
-    <?php
-    $select_all_members = $bdd->query('SELECT * FROM patient');
-    if($select_all_members->rowCount() > 0)
-    {
-      while($m = $select_all_members->fetch()){
-        ?>
-        <b style="font-family: Arial, sans-serif"><?= $m['nom']; ?> <?= $m['prenom']; ?></b> <a href="modify.php?id=<?= $m['id']; ?>" style="text-decoration: none; color: orange;" style="font-family: Arial, sans-serif">Modifier</
-          a><hr/>  <!-- on passe en paramètre de l'url l'id pour pouvoir récup l'identifiant-->
-        <?php
-      }
-    } else {
-      echo 'Aucun membre';
-    }
-
-     ?>
-
-
-   </div>
-
     <?php
     require_once('footer.php');
      ?>
