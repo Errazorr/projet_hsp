@@ -18,7 +18,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>Médecins</h2>
+                            <h2 style="font-family: Arial, sans-serif">Médecins</h2>
                         </div>
                     </div>
                 </div>
@@ -33,8 +33,8 @@
             <div class="row justify-content-center">
                 <div class="col-xl-8">
                     <div class="section_tittle text-center">
-                        <h2> Des médecins expérimentés</h2>
-                        <p>Nos médecins ont fait de longues études et sont très compétents dans leurs domaines</p>
+                        <h2 style="font-family: Arial, sans-serif"> Des médecins expérimentés</h2>
+                        <p style="font-family: Arial, sans-serif">Nos médecins ont fait de longues études et sont très compétents dans leurs domaines</p>
                     </div>
                 </div>
             </div>
@@ -46,8 +46,8 @@
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
-                                <h3>DR Aggoun</h3>
-                                <p style="color:black;" >Spécialiste en neurologie</p>
+                                <h3 style="font-family: Arial, sans-serif">DR Aggoun</h3>
+                                <p style="color:black;"  style="font-family: Arial, sans-serif">Spécialiste en neurologie</p>
                             </div>
                         </div>
                     </div>
@@ -59,8 +59,8 @@
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
-                                <h3>DR Guo</h3>
-                                <p style="color:black;" >Spécialiste en tabacologie</p>
+                                <h3 style="font-family: Arial, sans-serif">DR Guo</h3>
+                                <p style="color:black;" style="font-family: Arial, sans-serif" >Spécialiste en tabacologie</p>
                             </div>
                         </div>
                     </div>
@@ -72,8 +72,8 @@
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
-                              <h3>DR Tang</h3>
-                              <p style="color:black;" >Spécialiste en gynécologie</p>
+                              <h3 style="font-family: Arial, sans-serif">DR Tang</h3>
+                              <p style="color:black;" style="font-family: Arial, sans-serif" >Spécialiste en gynécologie</p>
                             </div>
                         </div>
                     </div>
@@ -85,8 +85,8 @@
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
-                                <h3>DR Birba</h3>
-                                <p style="color:black;" >Spécialiste en cardiologie</p>
+                                <h3 style="font-family: Arial, sans-serif">DR Birba</h3>
+                                <p style="color:black;" style="font-family: Arial, sans-serif" >Spécialiste en cardiologie</p>
                             </div>
                         </div>
                     </div>
