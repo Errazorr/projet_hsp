@@ -40,31 +40,31 @@ if(isset($_POST['mail'])) {
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title>Modification du mot de passe</title>
+    <title style="font-family: Arial, sans-serif">Modification du mot de passe</title>
   </head>
   <body>
     <div align="center">
-      <h1> Récupérez votre mot de passe </h1>
+      <h1 style="font-family: Arial, sans-serif"> Récupérez votre mot de passe </h1>
       <form class="" action="" method="post">
       <table border="0" cellpadding="5" cellspacing="15">
         <tr>
-          <td> <label for="mail">Votre adresse mail :</label> </td>
-          <td> <input type="mail" name="mail" placeholder="exemple@exemple.fr" /> </td>
+          <td> <label for="mail" style="font-family: Arial, sans-serif">Votre adresse mail :</label> </td>
+          <td> <input type="mail" name="mail" placeholder="exemple@exemple.fr"  style="font-family: Arial, sans-serif"/> </td>
       </tr>
       <br><br>
       <tr>
-        <td> <label for="mdp">Nouveau mot de passe :</label> </td>
-        <td>   <input type="password" name="mdp" placeholder="motdepasse" /> </td>
+        <td> <label for="mdp" style="font-family: Arial, sans-serif">Nouveau mot de passe :</label> </td>
+        <td>   <input type="password" name="mdp" placeholder="motdepasse"  style="font-family: Arial, sans-serif"/> </td>
       </tr>
       <br><br>
       <tr>
-        <td> <label for="mdp2">Confirmation mot de passe :</label> </td>
-        <td>   <input type="password" name="mdp2" placeholder="confirmation" /> </td>
+        <td> <label for="mdp2" style="font-family: Arial, sans-serif">Confirmation mot de passe :</label> </td>
+        <td>   <input type="password" name="mdp2" placeholder="confirmation" style="font-family: Arial, sans-serif" /> </td>
       </tr>
       <br><br>
       <tr>
         <td align="center" colspan="2">
-          <input type="submit" name="valider_email" value="Valider">
+          <input type="submit" name="valider_email" value="Valider" style="font-family: Arial, sans-serif">
         </td>
     </form>
   </body>
