@@ -36,7 +36,7 @@ if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
  <html>
  	<head>
  		<meta charset="utf-8">
- 		<title>Modifier compte médecin</title>
+ 		<title style="font-family: Arial, sans-serif">Modifier compte médecin</title>
  		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
  		<!-- MATERIAL DESIGN ICONIC FONT -->
@@ -51,32 +51,32 @@ if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
  		<div class="wrapper">
  			<div class="inner">
  				<form action="" method="post">
- 					<h3>Modifier le compte</h3>
- 					<p>Modifier le compte suivant : <strong><?= $whoiam['id']; ?></strong> - <strong><?= $whoiam['nom']; ?></strong> - <strong><?= $whoiam['specialite']; ?></strong></p>
+ 					<h3 style="font-family: Arial, sans-serif">Modifier le compte</h3>
+ 					<p style="font-family: Arial, sans-serif">Modifier le compte suivant : <strong><?= $whoiam['id']; ?></strong> - <strong><?= $whoiam['nom']; ?></strong> - <strong><?= $whoiam['specialite']; ?></strong></p>
  					<label class="form-group">
  						<input type="text" name="nom" class="form-control" value="<?= $whoiam['nom']; ?>" >
- 						<span>Nom</span>
+ 						<span style="font-family: Arial, sans-serif">Nom</span>
  						<span class="border"></span>
  					</label>
           <label class="form-group">
  						<input type="text" name="lieu" class="form-control" value="<?= $whoiam['lieu']; ?>" >
- 						<span>Lieu</span>
+ 						<span style="font-family: Arial, sans-serif">Lieu</span>
  						<span class="border"></span>
  					</label>
           <label class="form-group">
  						<input type="text" name="specialite" class="form-control" value="<?= $whoiam['specialite']; ?>" >
- 						<span>Spécialité</span>
+ 						<span style="font-family: Arial, sans-serif">Spécialité</span>
  						<span class="border"></span>
  					</label>
  					<label class="form-group">
  						<input type="text" name="mail" class="form-control" value="<?= $whoiam['mail']; ?>">
- 						<span for="">Mail</span>
+ 						<span for="" style="font-family: Arial, sans-serif">Mail</span>
  						<span class="border"></span>
  					</label>
 
  				<center>
 
-        	<button type="submit" name="ok_modifier_medecin">Modifier
+        	<button type="submit" name="ok_modifier_medecin" style="font-family: Arial, sans-serif">Modifier
 </center>
  					</button>
  				</form>
