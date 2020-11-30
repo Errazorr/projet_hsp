@@ -4,7 +4,7 @@
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>En savoir plus</title>
+    <title style="font-family: Arial, sans-serif">En savoir plus</title>
     <link rel="icon" href="../img/logo3icon.png">
     <head>
         <!-- Required meta tags -->
@@ -37,7 +37,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2>L'hôpital</h2>
+                            <h2 style="font-family: Arial, sans-serif">L'hôpital</h2>
 
                         </div>
                     </div>
@@ -57,10 +57,10 @@
                         <form action="../traitement/inscription.php" method="post">
                           <center>
 
-                           <h2>Qui sommes-nous ? </h2> </center>
+                           <h2 style="font-family: Arial, sans-serif">Qui sommes-nous ? </h2> </center>
                             <div class="form-row">
                                 <div class="form-group col-md-12">
-                                    <p>Le Centre Hospitalier Zoldyck est un établissement public de santé de proximité assurant une action sanitaire de premier plan sur le Territoire dont il a la charge, grâce à l'implication quotidienne de plus de 60 médecins et de 400 agents soignants, médico-techniques, ouvriers et administratifs. <br><br>
+                                    <p style="font-family: Arial, sans-serif">Le Centre Hospitalier Zoldyck est un établissement public de santé de proximité assurant une action sanitaire de premier plan sur le Territoire dont il a la charge, grâce à l'implication quotidienne de plus de 60 médecins et de 400 agents soignants, médico-techniques, ouvriers et administratifs. <br><br>
 Son offre de soins couvre plusieurs spécialités médicales avec 119 lits d'hospitalisation MCO : <br><br>
 - Un service de Médecine Polyvalente (57 lits) à orientation pneumologique et cardiologie.<br><br>
 - Un service de Chirurgie (32 lits) qui accueillera avant la fin du premier semestre 2018 une unité de chirurgie ambulatoire. <br><br>
