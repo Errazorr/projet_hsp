@@ -5,7 +5,7 @@ class Medecin{
   private $nom;
   private $lieu;
   private $specialite;
-  private $identifiant;
+  private $mail;
   private $mdp;
   private $approuve;
 
@@ -35,8 +35,8 @@ class Medecin{
     $this->_specialite = $specialite;
   }
 
-  public function setIdentifiant ($identifiant){
-    $this->_identifiant = $identifiant;
+  public function setIdentifiant ($mail){
+    $this->_mail = $mail;
   }
 
   public function setMdp ($mdp){
@@ -51,7 +51,7 @@ class Medecin{
   public function getNom(){return $this->_nom;}
   public function getLieu(){return $this->_lieu;}
   public function getSpecialite(){return $this->_specialite;}
-  public function getIdentifiant(){return $this->_identifiant;}
+  public function getMail(){return $this->_mail;}
   public function getMdp(){return $this->_mdp;}
   public function getApprouve(){return $this->_approuve;}
 

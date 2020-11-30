@@ -51,7 +51,7 @@
                 <div class="visit" style="font-family: Arial, sans-serif">Nom médecin</div>
                 <div class="visit" style="font-family: Arial, sans-serif">Lieu d'exercice</div>
                 <div class="visit" style="font-family: Arial, sans-serif">Spécialité</div>
-                <div class="visit" style="font-family: Arial, sans-serif">Identifiant</div>
+                <div class="visit" style="font-family: Arial, sans-serif">Mail</div>
                 <div class="visit" style="font-family: Arial, sans-serif">Approuvé</div>
               </div>
 
@@ -75,7 +75,7 @@
                     <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["nom"].'</div>
                     <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["lieu"].'</div>
                     <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["specialite"].'</div>
-                    <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["identifiant"].'</div>
+                    <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["mail"].'</div>
                     <div class="visit" style="color:#000000" style="font-family: Arial, sans-serif">'.$value["approuve"].'</div>
                   </div>';
                 }
@@ -118,7 +118,7 @@
                                 </div>
 
                                 <div class="form-group col-md-6">
-                                    <input type="text" class="form-control" name="identifiant" placeholder="Pseudo/Identifiant : ">
+                                    <input type="text" class="form-control" name="mail" placeholder="Mail : ">
                                 </div>
                                 <br>
                                 </div>

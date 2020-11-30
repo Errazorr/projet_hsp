@@ -360,8 +360,8 @@ public function AddDoctor($add_doctor){
   //CONNEXION BDD
   $bdd = $this->dbConnect();
   //RECHERCHE DU MEDECIN DANS LA TABLE
-  $req = $bdd->prepare('SELECT * FROM medecin WHERE nom=? AND identifiant=?');
-  $req->execute(array($add_doctor->getNom(), $add_doctor->getIdentifiant()));
+  $req = $bdd->prepare('SELECT * FROM medecin WHERE nom=? AND mail=?');
+  $req->execute(array($add_doctor->getNom(), $add_doctor->getMail()));
   $donnees= $req->fetch();
 
   //SI IL TROUVE
