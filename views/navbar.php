@@ -96,7 +96,7 @@ session_start();
                                <a class="nav-link" href="voir_rdv.php">Voir les rendez-vous</a>
                            </li>
                            <li class="nav-item">
-                               <a class="nav-link" href="../tchat/index.html" style="font-family: Arial, sans-serif">Tchat</a>
+                               <a class="nav-link" href="../tchat/index.php" style="font-family: Arial, sans-serif">Tchat</a>
                            </li>
 
                        </ul>

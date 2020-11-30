@@ -84,7 +84,7 @@
 <br/>
 
 </br/>
-                                <a href="connexion.html" class="genric-btn danger-border circle arrow"> Déjà un compte ? Se connecter <span
+                                <a href="connexion.php" class="genric-btn danger-border circle arrow"> Déjà un compte ? Se connecter <span
                         						class="lnr lnr-arrow-right"></span></a></center>
                             </div>
 
