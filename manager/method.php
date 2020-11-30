@@ -35,6 +35,7 @@ class Method {
       if (!is_numeric($_POST['nom']) && strlen($_POST['nom']) <= 30) {
         //SI LE PRENOM EST UNE CHAINE DE MOINS DE 30 CARACTERES
         if (!is_numeric($_POST['prenom']) && strlen($_POST['prenom']) <= 30) {
+          if (is_numeric($_POST['num_sec_soc'])) {
 
           //ENREGISTREMENT DES DONNEES DANS DES VARIABLES
       $nom = htmlspecialchars($_POST['nom']);
@@ -57,7 +58,7 @@ class Method {
       //MESSAGE D'ERREUR
       echo '<body onLoad="alert(\'Ce compte existe déjà\')">';
 
-      echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">';
+      echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.php">';
     }
     //SI IOL NE TROUVE PAS
     else{
@@ -82,23 +83,32 @@ class Method {
       header('Location: ../views/connexion.php');
     }
   }
-  //SI LE PRENOM EST UNE CHAINE DE PLUS DE 30 CARACTERES OU N'EST PAS UNC HAINE DE CARACTERES
+
   else {
+    echo '<body onLoad="alert(\'Veuillez entrer seulement des numéros pour le numéro de sécurité sociale! \')">';
+
+    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.php">';
+  }
+
+}
+
+  //SI LE PRENOM EST UNE CHAINE DE PLUS DE 30 CARACTERES OU N'EST PAS UNC HAINE DE CARACTERES
+else {
     echo '<body onLoad="alert(\'Veuillez entrer un prenom valide ! \')">';
 
-    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
+    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.php">'; }
   }
 //SI LE NOM EST UNE CHAINE DE PLUS DE 30 CARACTERES OU N'EST PAS UNC HAINE DE CARACTERES
   else {
     echo '<body onLoad="alert(\'Veuillez entrer un nom valide ! \')">';
 
-    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
+    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.php">'; }
 }
 //SI UN DES CHAMPS EST VIDE
 else {
   echo '<body onLoad="alert(\'Veuillez remplir tous les champs !\')">';
 
-  echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.html">'; }
+  echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.php">'; }
 
 //ENVOI DE MAIL
 //Send mail
@@ -304,55 +314,6 @@ catch (Exception $e) {
 
    header('Location: ../page_index.php');
  }
-
- //METHODE POUR CHANGER SON MDP
- public function MotDePasse($mot_de_passe) {
-   //CONNEXION BDD
-   $bdd = $this->dbConnect();
-   //SI LE MAIL N'EST PAS VIDE
-   if (!empty($_POST['mail'])) {
-     $mail = htmlspecialchars($_POST['mail']);
-     //RECHERCHE DE L'ADRESSE MAIL DANS LA TABLE
-   $req = $bdd->prepare('SELECT * FROM patient WHERE mail=?');
-   $req->execute(getMail());
-   $donnees= $req->fetch();
-
-   //SI IL TROUVE
-   if ($donnees) {
-
-     //ENVOI DU MAIL
-       $mail = new PHPMailer();
-       $mail->isSMTP();                                            // Send using SMTP
-       $mail->Host       = 'smtp.gmail.com';                    // Set the SMTP server to send through
-       $mail->SMTPAuth   = true;                                   // Enable SMTP authentication
-       $mail->Username   = 'ryannathanslam@gmail.com';                     // SMTP username
-       $mail->Password   = 'projethsp2020?';                               // SMTP password
-       $mail->SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS;         // Enable TLS encryption; `PHPMailer::ENCRYPTION_SMTPS` also accepted
-       $mail->Port       = 587;                                    // TCP port to connect to
-
-       //Recipients
-       $mail->setFrom('ryannathanslam@gmail.com', 'Mot de passe');
-       $mail->addAddress($donnee->getmail(), 'Mot de passe');     // Add a recipient //Recipients
-        $mail->Body    = "<a href='http://localhost/projet_hsp/projet_hsp/views/recuperation_mdp.php'>Réinitialiser mot de passe</a>";
-     ;
-     // SI ENVOI DE MAIL ECHOUE
-       if(!$mail->Send()) {
-         //MESSAGE D'ERREUR
-         echo '<body onLoad="alert(\'Erreur\')">';
-       echo '<meta http-equiv="refresh" content="0;URL=../views/">';
-     } else { // Si l'envoie de mail ne s'effectue pas alors on redirige vers une autre page //
-        //  header("location: ../views/mdp_oublie.html"); //
-       }
- }
-}
-//SI LE MAIL N'EXISTE PAS
-else {
-  //MESSAGE D'ERREUR
-  echo '<body onLoad="alert(\'Cette adresse mail n\'existe pas\')">';
-
-  echo '<meta http-equiv="refresh" content="0;URL=../views/mdp_oublie.html">';
-}
-}
 
 
 //METHODE POUR AJOUTER UN DOCTEUR
