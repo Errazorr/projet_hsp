@@ -178,7 +178,7 @@ session_start();
                           </li>
                       </ul>
                   </div>
-                  <a class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php">Déconnexion</a>
+                  <a style="font-family: Arial, sans-serif" class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php">Déconnexion</a>
 
 
                 <?php }
@@ -186,17 +186,17 @@ session_start();
                     //Sinon il n'y a pas de sessions ouverte
                     else{ ?>
                       <li class="nav-item active">
-                          <a class="nav-link" href="page_index.php">Accueil</a>
+                          <a class="nav-link" href="page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="views/doctor.php">Médecins</a>
+                          <a class="nav-link" href="views/doctor.php" style="font-family: Arial, sans-serif">Médecins</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="views/contact.php">Contact</a>
+                          <a class="nav-link" href="views/contact.php" style="font-family: Arial, sans-serif">Contact</a>
                       </li>
                   </ul>
               </div>
-              <a class="btn_2 d-none d-lg-block" href="views/connexion.php">Connexion</a>
+              <a class="btn_2 d-none d-lg-block" href="views/connexion.php" style="font-family: Arial, sans-serif">Connexion</a>
               <?php	}  ?>
                 </nav>
             </div>
