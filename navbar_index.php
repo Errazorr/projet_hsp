@@ -56,25 +56,12 @@ session_start();
                             //Si la personne est un client
                             if ($_SESSION['role'] == "patient") {
                            ?>
-                           <?php if(!empty($_SESSION)) { ?>
-                           <div id="bienvenue"><p style="color:green;"</p><?php echo 'Bonjour ' . $_SESSION['prenom'] . ' !'; ?></div>
-                       <script type="text/javascript">
-                       <!--
-                         var timeout = setTimeout(
-                             function() {
-                                 document.getElementById('bienvenue').innerHTML = null;
-                                 clearTimeout(timeout);
-                                 }
-                             ,3000); // temps en millisecondes
-                       //-->
-                       </script>
-                     <?php } else { echo ' ';} ?>
                             <li class="nav-item active">
                                 <a class="nav-link" href="page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
                                     Rendez-vous
                                 </a>
                                 <div class="dropdown-menu" aria-labelledby="navbarDropdown">
@@ -85,9 +72,6 @@ session_start();
                             <li class="nav-item">
                                 <a class="nav-link" href="views/contact.php" style="font-family: Arial, sans-serif">Contact</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="views/modification.php" style="font-family: Arial, sans-serif">Modifier mon compte</a>
-                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="like_dislike/index.php" style="font-family: Arial, sans-serif">Avis</a>
@@ -96,27 +80,25 @@ session_start();
                                 <a class="nav-link" href="views/minichat_id.php" style="font-family: Arial, sans-serif">Minichat</a>
                             </li>
 
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
+                                    <?php echo 'Bonjour ' . $_SESSION['prenom']; ?>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="views/modification.php" style="font-family: Arial, sans-serif">Modifier mon compte</a>
+                                    <a class="dropdown-item" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
+                                </div>
+                            </li>
+
                         </ul>
                     </div>
-                    <a class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
-
+                    <!--<a class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif"><?php echo 'Bonjour ' . $_SESSION['prenom']; ?></a>
+                    -->
 
                   <?php  }
                           //Sinon si c'est un médecin
                          else if ($_SESSION['role'] == "medecin"){ ?>
-                           <?php if(!empty($_SESSION)) { ?>
-                           <div id="bienvenue"><p style="color:green;"</p><?php echo 'Bonjour M. ' . $_SESSION['nom_medecin'] . ' !'; ?></div>
-                       <script type="text/javascript">
-                       <!--
-                         var timeout = setTimeout(
-                             function() {
-                                 document.getElementById('bienvenue').innerHTML = null;
-                                 clearTimeout(timeout);
-                                 }
-                             ,3000); // temps en millisecondes
-                       //-->
-                       </script>
-                     <?php } else { echo ' ';} ?>
                            <li class="nav-item active">
                                <a class="nav-link" href="page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
                            </li>
@@ -126,28 +108,25 @@ session_start();
                            <li class="nav-item">
                                <a class="nav-link" href="tchat/index.php" style="font-family: Arial, sans-serif">Tchat</a>
                            </li>
+                           <li class="nav-item dropdown">
+                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
+                                   <?php echo 'Bonjour Dr.' . $_SESSION['nom_medecin']; ?>
+                               </a>
+                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" href="views/modification.php" style="font-family: Arial, sans-serif">Modifier mon compte</a>
+                                   <a class="dropdown-item" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
+                               </div>
+                           </li>
 
                        </ul>
                    </div>
-                   <a class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
-
+                   <!--<a class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
+                   -->
 
                  <?php  }
                          //Sinon c'est donc un admin
                         else{ ?>
-                          <?php if(!empty($_SESSION)) { ?>
-                          <div id="bienvenue"><p style="color:green;"</p><?php echo 'Bonjour ' . $_SESSION['prenom'] . ' !'; ?></div>
-                      <script type="text/javascript">
-                      <!--
-                        var timeout = setTimeout(
-                            function() {
-                                document.getElementById('bienvenue').innerHTML = null;
-                                clearTimeout(timeout);
-                                }
-                            ,3000); // temps en millisecondes
-                      //-->
-                      </script>
-                    <?php } else { echo ' ';} ?>
                           <li class="nav-item active">
                               <a class="nav-link" href="page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
                           </li>
@@ -176,10 +155,20 @@ session_start();
                                   <a class="dropdown-item" target="_blank" href="traitement/csv2.php" style="font-family: Arial, sans-serif">Exporter un dossier d'admission</a>
                               </div>
                           </li>
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
+                                  <?php echo 'Bonjour M.' . $_SESSION['prenom']; ?>
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="views/modification.php" style="font-family: Arial, sans-serif">Modifier mon compte</a>
+                                  <a class="dropdown-item" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
+                              </div>
+                          </li>
                       </ul>
                   </div>
-                  <a style="font-family: Arial, sans-serif" class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php">Déconnexion</a>
-
+                  <!--<a style="font-family: Arial, sans-serif" class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php">Déconnexion</a>
+                  -->
 
                 <?php }
                     }

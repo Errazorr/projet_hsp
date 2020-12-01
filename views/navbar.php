@@ -56,7 +56,7 @@ session_start();
                             if ($_SESSION['role'] == "patient") {
                            ?>
                             <li class="nav-item active">
-                                <a class="nav-link" href="../page_index.php">Accueil</a>
+                                <a class="nav-link" href="../page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -81,10 +81,21 @@ session_start();
                             <li class="nav-item">
                                 <a class="nav-link"  href="minichat_id.php" style="font-family: Arial, sans-serif">Minichat</a>
                             </li>
+                            <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                    role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
+                                    <?php echo 'Bonjour ' . $_SESSION['prenom']; ?>
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                    <a class="dropdown-item" href="modification.php" style="font-family: Arial, sans-serif">Modifier mon compte</a>
+                                    <a class="dropdown-item" href="../traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
+                                </div>
+                            </li>
+
                         </ul>
                     </div>
-                    <a class="btn_2 d-none d-lg-block" href="../traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
-
+                    <!--<a class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif"><?php echo 'Bonjour ' . $_SESSION['prenom']; ?></a>
+                    -->
 
                   <?php  }
                           //Sinon si c'est un médecin
@@ -98,11 +109,21 @@ session_start();
                            <li class="nav-item">
                                <a class="nav-link" href="../tchat/index.php" style="font-family: Arial, sans-serif">Tchat</a>
                            </li>
+                           <li class="nav-item dropdown">
+                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
+                                   <?php echo 'Bonjour Dr.' . $_SESSION['nom_medecin']; ?>
+                               </a>
+                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                   <a class="dropdown-item" href="modification.php" style="font-family: Arial, sans-serif">Modifier mon compte</a>
+                                   <a class="dropdown-item" href="../traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
+                               </div>
+                           </li>
 
-                       </ul>
-                   </div>
-                   <a class="btn_2 d-none d-lg-block" href="../traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
-
+                           </ul>
+                           </div>
+                           <!--<a class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
+                           -->
 
                  <?php  }
                          //Sinon c'est donc un admin
@@ -135,10 +156,20 @@ session_start();
                                   <a class="dropdown-item" target="_blank" href="../traitement/csv2.php" style="font-family: Arial, sans-serif">Exporter un dossier d'admission</a>
                               </div>
                           </li>
+                          <li class="nav-item dropdown">
+                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
+                                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
+                                  <?php echo 'Bonjour M.' . $_SESSION['prenom']; ?>
+                              </a>
+                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                  <a class="dropdown-item" href="modification.php" style="font-family: Arial, sans-serif">Modifier mon compte</a>
+                                  <a class="dropdown-item" href="../traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
+                              </div>
+                          </li>
                       </ul>
                   </div>
-                  <a class="btn_2 d-none d-lg-block" href="../traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
-
+                  <!--<a style="font-family: Arial, sans-serif" class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php">Déconnexion</a>
+                  -->
 
                 <?php }
                     }
