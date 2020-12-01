@@ -53,8 +53,16 @@
                             <div class="col-md-12">
                                 <p class="blue"><strong>* Ces informations sont requises.</strong></p>
                             </div>
+
+                            <div class="test">
+                              <div class="col-md-6">
+                                  <p style="color: lightgrey;" size class="blue"><strong>N'appuyez qu'une fois sur le bouton "envoyer".</strong></p>
+                              </div>
+
                             <div class="col-md-12">
                                 <input type="submit" class="button1" value="Envoyer">
+                              </div>
+                              </div>
                             </div>
                         </div>
                     </form>

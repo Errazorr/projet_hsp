@@ -11,10 +11,10 @@ body
     background: #ffa500;
     margin: 0 auto;
 }
-.heading 
+.heading
 {
     text-align: center;
-    margin-bottom: 60px;        
+    margin-bottom: 60px;
 }
 h2
 {
@@ -29,11 +29,26 @@ h2
     padding: 40px;
     border-radius: 10px;
 }
+
+#contact-form-2
+{
+    font-size: 10px;
+    background: #fff;
+    padding: 40px;
+    border-radius: 10px;
+}
+
 /*---  NEW  ------*/
 .blue
 {
     color: #0069d6;
 }
+
+.test{
+  color : #fff333;
+  font-size: 15px;
+}
+
 .form-control
 {
     height: 50px;
@@ -41,7 +56,7 @@ h2
 }
 #contact-form input[type=submit]
 {
-    margin: 40px auto 0px;
+    margin: 1px auto 0px;
     display: block;
 }
 .comments
@@ -63,7 +78,7 @@ h2
     border: 1px solid #ddd;
     background: #ffa500;
     color: #fff;
-    width: 100%;        
+    width: 100%;
     font-weight: bold;
     text-transform: uppercase;
     padding: 18px;
@@ -75,47 +90,3 @@ h2
     background: #333;
     border-color: #ffa500;
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
