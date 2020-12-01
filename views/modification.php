@@ -12,17 +12,25 @@ catch (Exception $e){
   die('Erreur:'.$e->getMessage());
 }
 
-//Sélection des id de la table compte en fonction du nom //
-$req = $bdd->prepare('SELECT id FROM patient WHERE mail=?');
-
-$req->execute(array($_SESSION['mail']));
-$id= $req->fetch();
-$_SESSION['id'] = $id[0];
-
 //Sélection de l'ensemble des informations de la table compte en fonction de l'id //
-$rec = $bdd->prepare('SELECT * FROM patient WHERE id=?');
-$rec->execute(array($id[0]));
-$donnees= $rec->fetch();
+switch ($_SESSION['role']){
+  case "patient":
+    $rec = $bdd->prepare('SELECT * FROM patient WHERE id=?');
+    $rec->execute(array($_SESSION['id']));
+    $donnees= $rec->fetch();
+    break;
+  case "medecin":
+    $rec = $bdd->prepare('SELECT * FROM medecin WHERE id=?');
+    $rec->execute(array($_SESSION['id']));
+    $donnees= $rec->fetch();
+    break;
+  case "admin":
+    $rec = $bdd->prepare('SELECT * FROM admin WHERE id=?');
+    $rec->execute(array($_SESSION['id']));
+    $donnees= $rec->fetch();
+    break;
+  }
+
 ?>
 
 <head>
@@ -59,6 +67,10 @@ $donnees= $rec->fetch();
 
                            <h2 style="font-family: Arial, sans-serif">Vous désirez changer vos données? </h2> </center>
                             <div class="form-row">
+                              <?php
+                                switch ($_SESSION['role']){
+                                  case "patient":
+                                ?>
                                 <div class="form-group col-md-6">
                                     <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="nom" placeholder="Votre nom : " <?php echo 'value='.'"'.$donnees["nom"].'"'.''?>>
                                 </div>
@@ -67,9 +79,6 @@ $donnees= $rec->fetch();
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input style="font-family: Arial, sans-serif" type="date" class="form-control" name="date_naissance" placeholder="Votre date de naissance : " <?php echo 'value='.'"'.$donnees["date_naissance"].'"'.''?>>
-                                </div>
-                                <div class="form-group col-md-6">
-                                    <input style="font-family: Arial, sans-serif" type="email" class="form-control" name="mail" placeholder="Votre mail : " <?php echo 'value='.'"'.$donnees["mail"].'"'.''?>>
                                 </div>
                                 <div class="form-group col-md-6">
                                     <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="adresse" placeholder="Votre adresse : " <?php echo 'value='.'"'.$donnees["adresse"].'"'.''?>>
@@ -86,6 +95,35 @@ $donnees= $rec->fetch();
                                 <div class="form-group col-md-6">
                                     <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="regime" placeholder="Votre régime : " <?php echo 'value='.'"'.$donnees["regime"].'"'.''?>>
                                 </div>
+                                <?php
+                                ;
+                                break;
+                                  case "medecin":
+                                  ?>
+                                  <div class="form-group col-md-6">
+                                      <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="nom" placeholder="Votre nom : " <?php echo 'value='.'"'.$donnees["nom"].'"'.''?>>
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                      <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="lieu" placeholder="Votre lieu de travail : " <?php echo 'value='.'"'.$donnees["lieu"].'"'.''?>>
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                      <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="specialite" placeholder="Votre spécialité : " <?php echo 'value='.'"'.$donnees["specialite"].'"'.''?>>
+                                  </div>
+                                  <?php
+                                    ;
+                                    break;
+                                    case "admin":
+                                  ?>
+                                  <div class="form-group col-md-6">
+                                      <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="nom" placeholder="Votre nom : " <?php echo 'value='.'"'.$donnees["nom"].'"'.''?>>
+                                  </div>
+                                  <div class="form-group col-md-6">
+                                      <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="prenom" placeholder="Votre prénom : " <?php echo 'value='.'"'.$donnees["prenom"].'"'.''?>>
+                                  </div>
+                                  <?php
+                                  ;
+                                break;}
+                                   ?>
 <br/>
   </br/>
 

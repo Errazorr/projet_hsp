@@ -71,9 +71,6 @@ session_start();
                             <li class="nav-item">
                                 <a class="nav-link" href="contact.php" style="font-family: Arial, sans-serif">Contact</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="modification.php" style="font-family: Arial, sans-serif">Modifier mon compte</a>
-                            </li>
 
                             <li class="nav-item">
                                 <a class="nav-link" href="../like_dislike/index.php" style="font-family: Arial, sans-serif">Avis</a>
@@ -148,7 +145,7 @@ session_start();
                           </li>
                           <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="font-family: Arial, sans-serif">
                                   Export
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
