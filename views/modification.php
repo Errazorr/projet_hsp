@@ -138,8 +138,9 @@ switch ($_SESSION['role']){
 <br/>
 
 </br/>
-                                <a href="../forget_password.php" class="genric-btn danger-border circle arrow" style="font-family: Arial, sans-serif"> Modifier son mot de passe? <span
-                        						class="lnr lnr-arrow-right"></span></a></center>
+<button type="button"  class="btn btn-warning btn-lg" data-toggle="modal" data-target="#change_password">
+   Changer mon mot de passe
+</button>
                             </div>
 
 

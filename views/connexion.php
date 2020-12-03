@@ -64,6 +64,47 @@
                 <div class="col-lg-12">
 
                    <div class="regervation_part_iner">
+                     <?php
+                        if(isset($_GET['login_errr']))
+                        {
+                          $err = htmlspecialchars($_GET['login_errr']);
+
+                          switch($err)
+                          {
+                            case 'compteinexistant':
+                            ?>
+                            <div class="alert alert-danger">
+                            <center><p style="color: red;"> Ce compte n'existe pas !</p>
+                            </div>
+                            <?php
+                            break;
+
+                            case 'medecinnon':
+                            ?>
+                            <div class="alert alert-danger">
+                            <center><p style="color: red;"> Erreur de connexion en tant que médecin !</p>
+                            </div>
+                            <?php
+                            break;
+
+                            case 'adminnon':
+                            ?>
+                            <div class="alert alert-danger">
+                            <center><p style="color: red;"> Mot de passe incorrect !</p>
+                            </div>
+                            <?php
+                            break;
+
+                            case 'patientnon':
+                            ?>
+                            <div class="alert alert-danger">
+                            <center><p style="color: red;"> Mot de passe incorrect !</p>
+                            </div>
+                            <?php
+                            break;
+                          }
+                        }
+                      ?>
                         <form method="post" action="../traitement/connexion.php">
                           <center>
 

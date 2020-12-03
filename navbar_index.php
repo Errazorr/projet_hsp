@@ -173,7 +173,7 @@ session_start();
                 <?php }
                     }
                     //Sinon il n'y a pas de sessions ouverte
-                    else{ ?>
+                    if(!isset($_SESSION['mail'])){ ?>
                       <li class="nav-item active">
                           <a class="nav-link" href="page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
                       </li>

@@ -14,11 +14,29 @@
 
     <!-- banner part start-->
     <section class="banner_part">
+
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-5 col-xl-5">
                     <div class="banner_text">
                         <div class="banner_text_iner">
+                          <?php
+                             if(isset($_GET['connexion']))
+                             {
+                               $err = htmlspecialchars($_GET['connexion']);
+
+                               switch($err)
+                               {
+                                 case 'patientvrai':
+                                 ?>
+                                 <div class="alert alert-success">
+                                 <center><strong><p><?php echo $_SESSION['prenom'] ?>, vous êtes connecté !</p></strong>
+                                 </div>
+                                 <?php
+                                 break;
+                               }
+                             }
+                    ?>
                             <h5 style="font-family: Arial, sans-serif">Votre santé, notre priorité</h5>
                             <h1 style="font-family: Arial, sans-serif">Soins &
                                 Médecins approuvés</h1>

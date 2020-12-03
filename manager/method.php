@@ -169,9 +169,8 @@ catch (Exception $e) {
 
         if ($medecin == null) {//SI NON TROUVE
           // On affiche une erreur et on redirige vers la page connexion//
-          echo '<body onLoad="alert(\'Compte inexistant\')">';
           session_destroy();
-          echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
+          header('location:../views/connexion.php?login_errr=compteinexistant');
         }
 
         else{
@@ -182,15 +181,14 @@ catch (Exception $e) {
             $_SESSION['role'] = "medecin";
 
             echo '<body onLoad="alert(\'Connexion réussie\')">';
-            header('Location: ../page_index.php');
+            header('Location: ../page_index.php?connexionmed=reussi');
 
           }
 
           else{
             // Si non on affiche une erreur et on redirige vers la page connexion//
-            echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
             session_destroy();
-            echo '<meta http-equiv="refresh" content="0;URL=../views/connexion_medecin.php">';
+            header('location:../views/connexion.php?login_errr=medecinnon');;
           }
         }
       }
@@ -203,15 +201,13 @@ catch (Exception $e) {
           $_SESSION['mail'] = $connexion->getMail();
           $_SESSION['role'] = $admin['role'];
 
-          echo '<body onLoad="alert(\'Connexion réussie\')">';
-          header('Location: ../page_index.php');
+          header('Location: ../page_index.php?connexionadmin=reussie');
         }
 
         else{
           // Si non on affiche une erreur et on redirige vers la page connexion//
-          echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
           session_destroy();
-          echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
+          header('location:../views/connexion.php?login_errr=adminnon');
         }
       }
     }
@@ -225,15 +221,13 @@ catch (Exception $e) {
       $_SESSION['mail'] = $connexion->getMail();
       $_SESSION['role'] = $patient['role'];
 
-      echo '<body onLoad="alert(\'Connexion réussie\')">';
-      header('Location: ../page_index.php');
+      header('Location: ../page_index.php?connexion=patientvrai');
     }
 
     else{
       // Si non on affiche une erreur et on redirige vers la page connexion//
-      echo '<body onLoad="alert(\'Mail ou Mot de passe incorrect\')">';
       session_destroy();
-      echo '<meta http-equiv="refresh" content="0;URL=../views/connexion.php">';
+        header('location:../views/connexion.php?login_errr=patientnon');
     }
   }
   }
