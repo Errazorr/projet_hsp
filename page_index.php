@@ -34,6 +34,22 @@
                                  </div>
                                  <?php
                                  break;
+
+                                 case 'adminvrai':
+                                 ?>
+                                 <div class="alert alert-success">
+                                 <center><strong><p><?php echo $_SESSION['prenom'] ?>, vous êtes connecté !</p></strong>
+                                 </div>
+                                 <?php
+                                 break;
+
+                                 case 'medecinvrai':
+                                 ?>
+                                 <div class="alert alert-success">
+                                 <center><strong><p><?php echo $_SESSION['prenom'] ?>, vous êtes connecté !</p></strong>
+                                 </div>
+                                 <?php
+                                 break;
                                }
                              }
                     ?>

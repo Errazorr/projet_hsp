@@ -102,6 +102,14 @@
                             </div>
                             <?php
                             break;
+
+                            case 'comptedesactive':
+                            ?>
+                            <div class="alert alert-danger">
+                            <center><p style="color: red;"> Le compte est banni, contactez l'administrateur. </p><a style="color: white;" href="contact_form.php">Cliquez ici !</a>
+                            </div>
+                            <?php
+                            break;
                           }
                         }
                       ?>

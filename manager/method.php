@@ -76,7 +76,7 @@ class Method {
         'regime' => $ins->getRegime(),
         'mdp' => md5($ins->getMdp()),
         'role' => 'patient',
-        'confirme' => 0
+        'confirme' => 'oui'
       ));
       //MESSAGE DE SUCCES
       echo '<body onLoad="alert(\'Compte créé avec succès\')">';
@@ -181,7 +181,7 @@ catch (Exception $e) {
             $_SESSION['role'] = "medecin";
 
             echo '<body onLoad="alert(\'Connexion réussie\')">';
-            header('Location: ../page_index.php?connexionmed=reussi');
+            header('Location: ../page_index.php?connexion=medvrai');
 
           }
 
@@ -201,7 +201,7 @@ catch (Exception $e) {
           $_SESSION['mail'] = $connexion->getMail();
           $_SESSION['role'] = $admin['role'];
 
-          header('Location: ../page_index.php?connexionadmin=reussie');
+          header('Location: ../page_index.php?connexion=adminvrai');
         }
 
         else{
@@ -213,8 +213,14 @@ catch (Exception $e) {
     }
 
   else{
+
+        if($patient['confirme'] == 'non')
+        {
+          session_destroy();
+          header('location:../views/connexion.php?login_errr=comptedesactive');
+        }
     //SI TROUVE DANS PATIENT
-    if ($patient['mail'] == $connexion->getMail() AND $patient['mdp'] == md5($connexion->getMdp())) {
+    elseif ($patient['mail'] == $connexion->getMail() AND $patient['mdp'] == md5($connexion->getMdp())) {
       $_SESSION['id'] = $patient['id'];
       $_SESSION['nom'] = $patient['nom'];
       $_SESSION['prenom'] = $patient['prenom'];
@@ -415,7 +421,7 @@ public function AddDoctor($add_doctor){
         'regime' => $add_patient->getRegime(),
         'mdp' => md5($add_patient->getMdp()),
         'role' => 'patient',
-        'confirme' => 1
+        'confirme' => 'oui'
       ));
         //MESSAGE DE SUCCES
         echo '<body onLoad="alert(\'Ajout réussi\')">';
