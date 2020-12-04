@@ -72,27 +72,35 @@ switch ($_SESSION['role']){
                                   case "patient":
                                 ?>
                                 <div class="form-group col-md-6">
+                                  <center><label style="color: blue;"for="nom">Nom :</label>
                                     <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="nom" placeholder="Votre nom : " <?php echo 'value='.'"'.$donnees["nom"].'"'.''?>>
                                 </div>
                                 <div class="form-group col-md-6">
+                                <center>  <label style="color: blue;"for="prenom">Prénom :</label>
                                     <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="prenom" placeholder="Votre prénom : " <?php echo 'value='.'"'.$donnees["prenom"].'"'.''?>>
                                 </div>
                                 <div class="form-group col-md-6">
+                                <center>  <label style="color: blue;"for="date_naissance">Date de naissance :</label>
                                     <input style="font-family: Arial, sans-serif" type="date" class="form-control" name="date_naissance" placeholder="Votre date de naissance : " <?php echo 'value='.'"'.$donnees["date_naissance"].'"'.''?>>
                                 </div>
                                 <div class="form-group col-md-6">
+                                <center>  <label style="color: blue;"for="adresse">Adresse :</label>
                                     <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="adresse" placeholder="Votre adresse : " <?php echo 'value='.'"'.$donnees["adresse"].'"'.''?>>
                                 </div>
                                 <div class="form-group col-md-6">
+                                <center>  <label style="color: blue;"for="mutuelle">Mutuelle :</label>
                                     <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="mutuelle" placeholder="Votre mutuelle : " <?php echo 'value='.'"'.$donnees["mutuelle"].'"'.''?>>
                                 </div>
                                 <div class="form-group col-md-6">
+                                <center>  <label style="color: blue;"for="num_sec_soc">Numéro de sécurité sociale :</label>
                                     <input style="font-family: Arial, sans-serif" type="tel" class="form-control" name="num_sec_soc"   maxlength="15" placeholder="Votre numéro de sécurité sociale : " <?php echo 'value='.'"'.$donnees["num_sec_soc"].'"'.''?>>
                                 </div>
                                 <div class="form-group col-md-6">
+                                <center>  <label style="color: blue;"for="option_chambre">Option :</label>
                                     <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="option_chambre" placeholder="Vos options de chambre (Wifi et/ou TV) : " maxlength="10" <?php echo 'value='.'"'.$donnees["option_chambre"].'"'.''?>>
                                 </div>
                                 <div class="form-group col-md-6">
+                                <center>  <label style="color: blue;"for="regime">Régime :</label>
                                     <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="regime" placeholder="Votre régime : " <?php echo 'value='.'"'.$donnees["regime"].'"'.''?>>
                                 </div>
                                 <?php

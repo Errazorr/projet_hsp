@@ -29,12 +29,12 @@ class Method {
     //CONNEXION BDD
     $bdd = $this->dbConnect();
     //SI LES CHAMPS NE SONT PAS VIDES
-    if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['date_naissance']) AND !empty($_POST['mail']) AND !empty($_POST['adresse']) AND !empty($_POST['mutuelle']) AND !empty($_POST['num_sec_soc'])
+    if (!empty($_POST['nom']) AND !empty($_POST['prenom']) AND !empty($_POST['date_naissance']) AND !empty($_POST['mail']) AND !empty($_POST['num_sec_soc'])
     AND !empty($_POST['mdp'])) {
       //SI LE NOM EST UNE CHAINE DE MOINS DE 30 CARACTERES
-      if (!is_numeric($_POST['nom']) && strlen($_POST['nom']) <= 30) {
+      if (!is_numeric($_POST['nom']) && strlen($_POST['nom']) <= 20) {
         //SI LE PRENOM EST UNE CHAINE DE MOINS DE 30 CARACTERES
-        if (!is_numeric($_POST['prenom']) && strlen($_POST['prenom']) <= 30) {
+        if (!is_numeric($_POST['prenom']) && strlen($_POST['prenom']) <= 20) {
           if (is_numeric($_POST['num_sec_soc'])) {
 
           //ENREGISTREMENT DES DONNEES DANS DES VARIABLES
@@ -56,9 +56,7 @@ class Method {
     //SI IL TROUVE QUELQUE CHOSE
     if ($donnees) {
       //MESSAGE D'ERREUR
-      echo '<body onLoad="alert(\'Ce compte existe déjà\')">';
-
-      echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.php">';
+      header('location:../views/inscription.php?ins_err=existe');
     }
     //SI IOL NE TROUVE PAS
     else{
@@ -85,18 +83,17 @@ class Method {
   }
 
   else {
-    echo '<body onLoad="alert(\'Veuillez entrer seulement des numéros pour le numéro de sécurité sociale! \')">';
-
-    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.php">';
+    session_destroy();
+    header('location:../views/inscription.php?ins_err=numsecsoc');
   }
 
 }
 
   //SI LE PRENOM EST UNE CHAINE DE PLUS DE 30 CARACTERES OU N'EST PAS UNC HAINE DE CARACTERES
 else {
-    echo '<body onLoad="alert(\'Veuillez entrer un prenom valide ! \')">';
-
-    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.php">'; }
+  session_destroy();
+  header('location:../views/inscription.php?ins_err=prenom');
+     }
   }
 //SI LE NOM EST UNE CHAINE DE PLUS DE 30 CARACTERES OU N'EST PAS UNC HAINE DE CARACTERES
   else {
@@ -106,9 +103,9 @@ else {
 }
 //SI UN DES CHAMPS EST VIDE
 else {
-  echo '<body onLoad="alert(\'Veuillez remplir tous les champs !\')">';
-
-  echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.php">'; }
+  session_destroy();
+  header('location:../views/inscription.php?ins_err=champs');
+}
 
 //ENVOI DE MAIL
 //Send mail
@@ -134,8 +131,8 @@ try {
           $mail->addAddress($mailto);     // Add a recipient
           if(isset($mail)){
               $mail->isHTML(true);                                  // Set email format to HTML
-              $mail->Subject = 'Inscription hopital';
-              $mail->Body    = "Bienvenue sur le site";
+              $mail->Subject = 'Inscription - Hopital';
+              $mail->Body    = "Bonjour et bienvenue sur le site officiel. Nous vous souhaitons un agréable moment. Pour toute information, contactez-nous via le formulaire de contact.";
               $mail->AltBody = 'This is the body in plain text for non-HTML mail client';
               $mail->send();
               header("Location:../page_index.php");
@@ -188,7 +185,7 @@ catch (Exception $e) {
           else{
             // Si non on affiche une erreur et on redirige vers la page connexion//
             session_destroy();
-            header('location:../views/connexion.php?login_errr=medecinnon');;
+            header('location:../views/connexion.php?login_errr=medecinnon');
           }
         }
       }
@@ -226,6 +223,7 @@ catch (Exception $e) {
       $_SESSION['prenom'] = $patient['prenom'];
       $_SESSION['mail'] = $connexion->getMail();
       $_SESSION['role'] = $patient['role'];
+
 
       header('Location: ../page_index.php?connexion=patientvrai');
     }
