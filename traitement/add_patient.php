@@ -5,7 +5,7 @@ require('../model/user_class.php');
 
 //CLASSE USER
 $add_patient = new User(array('nom'=>$_POST['nom'], 'prenom'=>$_POST['prenom'], 'dateNaissance'=>$_POST['date_naissance'], 'mail'=>$_POST['mail'], 'adresse'=>$_POST['adresse'], 'mutuelle'=>$_POST['mutuelle'], 'numSecSoc'=>$_POST['num_sec_soc'],
-'optionChambre'=>$_POST['option_chambre'], 'regime'=>$_POST['regime'], 'mdp'=>$_POST['mdp'], 'role'=>'patient'));
+'optionChambre'=>$_POST['option_chambre'], 'regime'=>$_POST['regime'], 'mdp'=>$_POST['mdp'], 'role'=>'patient', 'confirme'=>'oui', 'image'=>'test.jpg'));
 //APPEL DE LA METHODE INSCRIPTION
 $manager = new Method();
 $manager->AddPatient($add_patient);

@@ -14,6 +14,7 @@ private $option_chambre;
 private $regime;
 private $mdp;
 private $role;
+private $image;
 
   public function __construct(array $donnees){
     $this->hydrate($donnees);
@@ -73,6 +74,9 @@ private $role;
   public function setRole ($role){
     $this->_role = $role;
   }
+  public function setImage ($image){
+    $this->_image = $image;
+  }
 
   //Déclaration de l'ensemble des getters //
 
@@ -87,6 +91,7 @@ private $role;
   public function getRegime(){return $this->_regime;}
   public function getMdp(){return $this->_mdp;}
   public function getRole(){return $this->_role;}
+    public function getImage(){return $this->_image;}
 }
 
 ?>

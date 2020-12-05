@@ -133,6 +133,9 @@ session_start();
                           <li class="nav-item">
                               <a class="nav-link" href="views/voir_rdv.php" style="font-family: Arial, sans-serif">Voir tous les rendez-vous</a>
                           </li>
+                          <li class="nav-item">
+                              <a class="nav-link" href="admin/admin/index.php?id=<?php echo $_SESSION['id'] ?>" style="font-family: Arial, sans-serif">Comptes</a>
+                          </li>
                           <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">

@@ -412,7 +412,7 @@ public function AddDoctor($add_doctor){
  //SI IL NE TROUVE PAS
     else{
       //INSERTION DANS LA TABLE DU NOUVEL ADMIN
-      $r = $bdd->prepare('INSERT INTO patient (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, option_chambre, regime, mdp, role, confirme) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :option_chambre, :regime, :mdp, :role, :confirme)');
+      $r = $bdd->prepare('INSERT INTO patient (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, option_chambre, regime, mdp, role, confirme, image) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :option_chambre, :regime, :mdp, :role, :confirme, :image)');
       $r ->execute(array(
         'nom' => $add_patient->getNom(),
         'prenom' => $add_patient->getPrenom(),
@@ -425,11 +425,12 @@ public function AddDoctor($add_doctor){
         'regime' => $add_patient->getRegime(),
         'mdp' => md5($add_patient->getMdp()),
         'role' => 'patient',
-        'confirme' => 'oui'
+        'confirme' => 'oui',
+        'image' => $add_patient->getImage()
       ));
         //MESSAGE DE SUCCES
         echo '<body onLoad="alert(\'Ajout réussi\')">';
-        header('Location: ../views/add_patient.php');
+        header('Location: ../admin/admin/index.php');
       }
    }
 

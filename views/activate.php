@@ -3,7 +3,7 @@ $bdd = new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
 if(isset($_GET['type']) AND $_GET['type'] == 'membre') {
  if(isset($_GET['confirme']) AND !empty($_GET['confirme'])) {
     $confirme = (int) $_GET['confirme'];
-    $req = $bdd->prepare('UPDATE patient SET confirme = 1 WHERE id = ?');
+    $req = $bdd->prepare('UPDATE patient SET confirme = oui WHERE id = ?');
     $req->execute(array($confirme));
  }
  if(isset($_GET['supprime']) AND !empty($_GET['supprime'])) {
