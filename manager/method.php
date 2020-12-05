@@ -49,37 +49,43 @@ class Method {
       $regime = htmlspecialchars($_POST['regime']);
 
       //SELECT DANS LA BDD
-    $req = $bdd->prepare('SELECT * FROM patient WHERE nom=? AND prenom=? AND mail=?');
-    $req->execute(array($ins->getNom(), $ins->getPrenom(), $ins->getMail()));
-    $donnees= $req->fetch();
+    $req = $bdd->prepare('SELECT count(*) as numberEmail FROM patient WHERE mail=?');
+    $req->execute(array($ins->getMail()));
+    $email_verification = $req->fetch();
 
-    //SI IL TROUVE QUELQUE CHOSE
-    if ($donnees) {
-      //MESSAGE D'ERREUR
+    $reqq = $bdd->prepare('SELECT count(*) as numberNum FROM patient WHERE num_sec_soc=?');
+    $reqq->execute(array($ins->getNumSecSoc()));
+    $num_verification = $reqq->fetch();
+
+      if($email_verification['numberEmail'] != 1 AND $num_verification['numberNum'] != 1){
+
+          //ON ENREGISTRE DANS LA TABLE LES DONNEES
+          $r = $bdd->prepare('INSERT INTO patient (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, option_chambre, regime, mdp, role, confirme) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :option_chambre, :regime, :mdp, :role, :confirme)');
+          $r ->execute(array(
+            'nom' => $ins->getNom(),
+            'prenom' => $ins->getPrenom(),
+            'date_naissance' => $ins->getDateNaissance(),
+            'mail' => $ins->getMail(),
+            'adresse' => $ins->getAdresse(),
+            'mutuelle' => $ins->getMutuelle(),
+            'num_sec_soc' => $ins->getNumSecSoc(),
+            'option_chambre' => $ins->getOptionChambre(),
+            'regime' => $ins->getRegime(),
+            'mdp' => md5($ins->getMdp()),
+            'role' => 'patient',
+            'confirme' => 'oui'
+          ));
+          //MESSAGE DE SUCCES
+          echo '<body onLoad="alert(\'Compte créé avec succès\')">';
+          header('Location: ../views/connexion.php');
+
+			}
+      else {
+
       header('location:../views/inscription.php?ins_err=existe');
-    }
-    //SI IOL NE TROUVE PAS
-    else{
-      //ON ENREGISTRE DANS LA TABLE LES DONNEES
-      $r = $bdd->prepare('INSERT INTO patient (nom, prenom, date_naissance, mail, adresse, mutuelle, num_sec_soc, option_chambre, regime, mdp, role, confirme) VALUES (:nom, :prenom, :date_naissance, :mail, :adresse, :mutuelle, :num_sec_soc, :option_chambre, :regime, :mdp, :role, :confirme)');
-      $r ->execute(array(
-        'nom' => $ins->getNom(),
-        'prenom' => $ins->getPrenom(),
-        'date_naissance' => $ins->getDateNaissance(),
-        'mail' => $ins->getMail(),
-        'adresse' => $ins->getAdresse(),
-        'mutuelle' => $ins->getMutuelle(),
-        'num_sec_soc' => $ins->getNumSecSoc(),
-        'option_chambre' => $ins->getOptionChambre(),
-        'regime' => $ins->getRegime(),
-        'mdp' => md5($ins->getMdp()),
-        'role' => 'patient',
-        'confirme' => 'oui'
-      ));
-      //MESSAGE DE SUCCES
-      echo '<body onLoad="alert(\'Compte créé avec succès\')">';
-      header('Location: ../views/connexion.php');
-    }
+      exit();
+}
+
   }
 
   else {
