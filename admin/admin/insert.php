@@ -69,6 +69,21 @@
                         <input type="password" class="form-control" id="mdp" name="mdp" placeholder="ex: MotdePaSse19">
                         <span class="help-inline"><?php echo 'Ce champs ne peut pas être vide';?></span>
                     </div>
+                    <div class="form-group">
+                        <label for="image">Image:</label>
+                        <select class="form-control" id="image" name="image">
+                        <?php
+                        require 'database.php';
+                           $db = Database::connect();
+                           foreach ($db->query('SELECT * FROM patient') as $row)
+                           {
+                                echo '<option value="'. $row['image'] .'">'. $row['image'] . '</option>';;
+                           }
+                           Database::disconnect();
+                        ?>
+                        </select>
+
+                    </div>
                     <br>
                     <div class="form-actions">
                         <button type="submit" class="btn btn-success"><span class="glyphicon glyphicon-pencil"></span> Ajouter</button>
