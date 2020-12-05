@@ -22,8 +22,42 @@ include 'manager/db.php';
 
  		<div class="wrapper">
  			<div class="inner">
+        <?php
+           if(isset($_GET['password_err']))
+           {
+             $err = htmlspecialchars($_GET['password_err']);
+
+             switch($err)
+             {
+               case 'nonexiste':
+               ?>
+               <div class="alert alert-danger">
+             <center><p style="color: #DC143C;"> Votre compte n'existe pas. Veuillez en créer un !</p>
+   </div>
+               <?php
+               break;
+             }
+           }
+
+
+           if(isset($_GET['password_suc']))
+           {
+             $err = htmlspecialchars($_GET['password_suc']);
+
+             switch($err)
+             {
+                          case '1':
+                          ?>
+                          <div class="alert alert-danger">
+                        <center><p style="color: #green;"> Mail envoyé ! Pensez à consulter vos courriers indesirrables. </p>
+              </div>
+                          <?php
+                          break;
+}
+}
+         ?>
  				<form method="post">
- 					<h3 style="font-family: Arial, sans-serif">Mot de passe oublié ? </h3>
+ 					<h3 style="font-family: Arial, sans-serif">Mot de passe oublié </h3>
  					<p style="font-family: Arial, sans-serif">Récupérez votre mot de passe via votre adresse mail.</p>
 
  					<label class="form-group">
@@ -41,6 +75,13 @@ include 'manager/db.php';
 
           if(isset($_POST['email']))
           {
+
+          $req = $db->prepare('SELECT count(*) as numberEmail FROM patient WHERE mail=?');
+          $req->execute(array($_POST['email']));
+          $email_verification = $req->fetch();
+
+            if($email_verification['numberEmail'] == 1){
+
             $token = uniqid();
             $url = "http://localhost/projet_hsp/projet_hsp/token?token=$token";
 
@@ -52,15 +93,33 @@ include 'manager/db.php';
               $sql = "UPDATE patient SET token = ? WHERE mail = ?";
               $stmt = $db->prepare($sql);
               $stmt->execute([$token, $_POST['email']]);
-              echo 'Mail envoyé!';
+              header('location:forget_password.php?password_suc=1');
             }
             else {
               echo "Une erreur est survenue...";
             }
           }
+          else
+          {
+            header('location:forget_password.php?password_err=nonexiste');
+            exit();
+          }
+        }
 
           ?>
  				</form>
+        <?php
+           if(isset($_GET['password_err']))
+           {
+             $err = htmlspecialchars($_GET['password_err']);
+?> <center><br><br>
+<b><a style="color: green;"href="views/inscription.php"> > S'inscrire < </a> <?php } ?></b>
+<?php
+   if(isset($_GET['password_suc']))
+   {
+     $err = htmlspecialchars($_GET['password_suc']);
+?> <center><br><br>
+<b><a style="color: green;"href="page_index.php"> > Retourner à l'accueil < </a> <?php } ?></b>
  			</div>
  		</div>
 
