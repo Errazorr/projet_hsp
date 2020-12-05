@@ -146,9 +146,7 @@ switch ($_SESSION['role']){
 <br/>
 
 </br/>
-<button type="button"  class="btn btn-warning btn-lg" data-toggle="modal" data-target="#change_password">
-   Changer mon mot de passe
-</button>
+
                             </div>
 
 
@@ -158,10 +156,20 @@ switch ($_SESSION['role']){
                 </div>
 
             </div>
+<?php
+$id = $_SESSION['id'];
+$reqq = $bdd->prepare('SELECT count(*) as numberId FROM admin WHERE id=?');
+$reqq->execute(array($id));
+$num_verification = $reqq->fetch();
+
+if($num_verification['numberId'] == 1) {
+ ?>
+<center><a style="color: white;"href="reset_mdp.php?id=<?php echo $id ?>"> > Modifier mon mot de passe < </a>
         </div>
+
+      <?php } else { echo 'Erreur'; } ?>
     </section>
     <!--::regervation_part end::-->
-
     <?php
     require_once('footer.php');
      ?>

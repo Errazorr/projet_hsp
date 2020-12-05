@@ -52,6 +52,22 @@
                                  break;
                                }
                              }
+
+                             if(isset($_GET['stmt']))
+                             {
+                               $succ = htmlspecialchars($_GET['stmt']);
+
+                               switch($succ)
+                               {
+                                 case 'good':
+                                 ?>
+                                 <div class="alert alert-success">
+                                 <center><strong><p> Mot de passe modifié avec succès !</p></strong>
+                                 </div>
+                                 <?php
+                                 break;
+                               }
+                             }
                     ?>
                             <h5 style="font-family: Arial, sans-serif">Votre santé, notre priorité</h5>
                             <h1 style="font-family: Arial, sans-serif">Soins &
@@ -65,7 +81,7 @@
                 </div>
                 <div class="col-lg-7">
                     <div class="banner_img">
-                        <img src="img/do.png" alt="">
+                        <img src="img/banner_img.png" alt="">
                     </div>
                 </div>
             </div>
