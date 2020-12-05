@@ -71,6 +71,7 @@ switch ($_SESSION['role']){
                                 switch ($_SESSION['role']){
                                   case "patient":
                                 ?>
+
                                 <div class="form-group col-md-6">
                                   <center><label style="color: blue;"for="nom">Nom :</label>
                                     <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="nom" placeholder="Votre nom : " <?php echo 'value='.'"'.$donnees["nom"].'"'.''?>>
@@ -167,7 +168,31 @@ if($num_verification['numberId'] == 1) {
 <center><a style="color: white;"href="reset_mdp.php?id=<?php echo $id ?>"> > Modifier mon mot de passe < </a>
         </div>
 
-      <?php } else { echo 'Erreur'; } ?>
+      <?php } elseif($_SESSION['role'] == 'patient') {
+
+      $id = $_SESSION['id'];
+      $reqq = $bdd->prepare('SELECT count(*) as numberId FROM patient WHERE id=?');
+      $reqq->execute(array($id));
+      $num_verification = $reqq->fetch();
+
+      if($num_verification['numberId'] == 1) {
+       ?>
+      <center><a style="color: white;"href="reset_mdp.php?id=<?php echo $id ?>"> > Modifier mon mot de passe < </a>
+              </div>
+            <?php } else { echo 'Erreur'; }
+          }
+          if($_SESSION['role'] == 'medecin') {
+            $id = $_SESSION['id'];
+            $reqq = $bdd->prepare('SELECT count(*) as numberId FROM medecin WHERE id=?');
+            $reqq->execute(array($id));
+            $num_verification = $reqq->fetch();
+
+            if($num_verification['numberId'] == 1) {
+             ?>
+            <center><a style="color: white;"href="reset_mdp.php?id=<?php echo $id ?>"> > Modifier mon mot de passe < </a>
+                    </div>
+                  <?php }
+                } ?>
     </section>
     <!--::regervation_part end::-->
     <?php

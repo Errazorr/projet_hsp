@@ -139,18 +139,6 @@ session_start();
                           <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
-                                  Comptes
-                              </a>
-                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="views/add_doctor.php" style="font-family: Arial, sans-serif">Médecin</a>
-                                  <a class="dropdown-item" href="views/add_admin.php" style="font-family: Arial, sans-serif">Admin</a>
-                                  <a class="dropdown-item" href="views/add_patient.php" style="font-family: Arial, sans-serif">Patient</a>
-                                  <a class="dropdown-item" href="views/activate.php" style="font-family: Arial, sans-serif">Confirmer/Approuver</a>
-                              </div>
-                          </li>
-                          <li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
                                   Export
                               </a>
                               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
