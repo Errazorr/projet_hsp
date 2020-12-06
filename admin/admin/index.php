@@ -114,6 +114,47 @@ session_start();
                 </table>
             </div>
         </div><br><br>
+
+
+        <br>
+                <div class="container admin">
+                    <div class="row">
+                        <a class="btn btn-primary" href="../../page_index.php"><span class="glyphicon glyphicon-arrow-left"></span> Retour à l'accueil</a>
+                        <h1><strong>Liste des rendez-vous   </strong></h1>
+                        <table class="table table-striped table-bordered">
+                          <thead>
+                            <tr>
+                              <th>Id</th>
+                              <th>Patient</th>
+                              <th>Médecin</th>
+                              <th>Date</th>
+                              <th>Heure</th>
+                              <th>Raison</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <?php
+
+                                $db = Database::connect();
+                                $statement = $db->query('SELECT * FROM reservation  ORDER BY id DESC');
+                                while($item = $statement->fetch())
+                                {
+                                  echo '<tr>';
+                                  echo '<td>'. $item['id'] . '</td>';
+                                  echo '<td>'. $item['nom_patient'] . '</td>';
+                                  echo '<td>'. $item['nom_medecin'] . '</td>';
+                                  echo '<td>'. $item['date_consult'] . '</td>';
+                                  echo '<td>'. $item['time_consult'] . '</td>';
+                                  echo '<td>'. $item['rais_consult'] . '</td>';
+                                  echo '</td>';
+                                  echo '</tr>';
+                                }
+                                Database::disconnect();
+                              ?>
+                          </tbody>
+                        </table>
+                    </div>
+                </div><br><br>
     </body>
 
 </html>
