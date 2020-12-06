@@ -8,6 +8,7 @@ class Medecin{
   private $mail;
   private $mdp;
   private $approuve;
+  private $image;
 
   public function __construct(array $donnees){
     $this->hydrate($donnees);
@@ -47,6 +48,10 @@ class Medecin{
     $this->_approuve = $approuve;
   }
 
+  public function setImage ($image){
+    $this->_image = $image;
+  }
+
 //GETTER
   public function getNom(){return $this->_nom;}
   public function getLieu(){return $this->_lieu;}
@@ -54,6 +59,7 @@ class Medecin{
   public function getMail(){return $this->_mail;}
   public function getMdp(){return $this->_mdp;}
   public function getApprouve(){return $this->_approuve;}
+      public function getImage(){return $this->_image;}
 
 }
 

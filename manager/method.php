@@ -345,18 +345,19 @@ public function AddDoctor($add_doctor){
   //SI IL NE TROUVE PAS
   else{
     //INSERTION DANS LA TABLE DU NOUVEAU MEDECIN
-      $result = $bdd->prepare('INSERT INTO medecin (nom, lieu, specialite, mail, mdp, approuve) VALUES (?, ?, ?, ?, ?, ?)');
+      $result = $bdd->prepare('INSERT INTO medecin (nom, lieu, specialite, mail, mdp, approuve, image) VALUES (?, ?, ?, ?, ?, ?, ?)');
       $insert = $result ->execute(array(
         $add_doctor->getNom(),
         $add_doctor->getLieu(),
         $add_doctor->getSpecialite(),
         $add_doctor->getMail(),
         md5($add_doctor->getMdp()),
-        1
+        'oui',
+        $add_doctor->getImage()
       ));
       //MESSAGE DE SUCCES
       echo '<body onLoad="alert(\'Création de nouveau médecin réussie\')">';
-      header('Location: ../views/add_doctor.php');
+      header('Location: ../admin/admin/index.php');
     }
  }
 

@@ -10,7 +10,7 @@
     {
         $id = checkInput($_POST['id']);
         $db = Database::connect();
-        $statement = $db->prepare("DELETE FROM patient WHERE id = ?");
+        $statement = $db->prepare("DELETE FROM medecin WHERE id = ?");
         $statement->execute(array($id));
         Database::disconnect();
         header("Location: index.php");

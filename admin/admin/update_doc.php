@@ -8,13 +8,16 @@
 
     if(!empty($_POST))
     {
+
+        $err = htmlspecialchars($_GET['password_err']);
         $id = checkInput($_POST['id']);
         $db = Database::connect();
-        $statement = $db->prepare("DELETE FROM patient WHERE id = ?");
+        $statement = $db->prepare("UPDATE medecin SET approuve = 'oui' WHERE id = ?");
         $statement->execute(array($id));
         Database::disconnect();
         header("Location: index.php");
-    }
+
+  }
 
     function checkInput($data)
     {
@@ -38,15 +41,43 @@
         <link rel="stylesheet" href="../css/styles.css">
     </head>
 
+<?php
+  $db = Database::connect();
+$id = $_GET['id'];
+$req = $db->prepare('SELECT * FROM medecin WHERE id=? ');
+$req->execute(array($id));
+$email_verification = $req->fetch();
+
+  if($email_verification['approuve'] == 'oui'){
+ ?>
+ <body>
+     <h1 class="text-logo"><span class="glyphicon glyphicon-cutlery"></span> Burger Code <span class="glyphicon glyphicon-cutlery"></span></h1>
+      <div class="container admin">
+         <div class="row">
+             <h1><strong>Bannir le compte</strong></h1>
+             <br>
+             <form class="form" action="update2_doc.php" role="form" method="post">
+                 <input type="hidden" name="id" value="<?php echo $id;?>"/>
+                 <p class="alert alert-warning">Ce compte est déjà confirmé. Voulez-vous bannir ce compte ?</p>
+                 <div class="form-actions">
+                   <button type="submit" class="btn btn-warning">Oui</button>
+                   <a class="btn btn-default" href="index.php">Non</a>
+                 </div>
+             </form>
+         </div>
+     </div>
+ </body>
+<?php } elseif($email_verification['approuve'] != 'oui') { ?>
+
     <body>
         <h1 class="text-logo"><span class="glyphicon glyphicon-cutlery"></span> Burger Code <span class="glyphicon glyphicon-cutlery"></span></h1>
          <div class="container admin">
             <div class="row">
-                <h1><strong>Supprimer un item</strong></h1>
+                <h1><strong>Confirmer le compte</strong></h1>
                 <br>
-                <form class="form" action="delete.php" role="form" method="post">
+                <form class="form" action="update_doc.php" role="form" method="post">
                     <input type="hidden" name="id" value="<?php echo $id;?>"/>
-                    <p class="alert alert-warning">Etes vous sur de vouloir supprimer ?</p>
+                    <p class="alert alert-warning">Ce compte est banni. Désirez-vous le confirmer et le rendre à nouveau utilisable ?</p>
                     <div class="form-actions">
                       <button type="submit" class="btn btn-warning">Oui</button>
                       <a class="btn btn-default" href="index.php">Non</a>
@@ -55,4 +86,5 @@
             </div>
         </div>
     </body>
+  <?php } ?>
 </html>

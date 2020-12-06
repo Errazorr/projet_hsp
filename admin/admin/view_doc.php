@@ -7,13 +7,10 @@
     }
 
     $db = Database::connect();
-    $statement = $db->prepare("SELECT * FROM patient WHERE id = ?");
+    $statement = $db->prepare("SELECT * FROM medecin WHERE id = ?");
     $statement->execute(array($id));
     $item = $statement->fetch();
 
-    $statementt = $db->prepare("SELECT * FROM image WHERE id = ?");
-    $statementt->execute(array($id));
-    $itemm = $statement->fetch();
     Database::disconnect();
 
     function checkInput($data)
@@ -44,35 +41,26 @@
          <div class="container admin">
             <div class="row">
                <div class="col-sm-6">
-                    <h1><strong>Voir le patient</strong></h1>
+                    <h1><strong>Voir le médecin</strong></h1>
                     <br>
                     <form>
                       <div class="form-group">
                         <label>Identifiant :</label><?php echo '  '.$item['id'];?>
                       </div>
                       <div class="form-group">
-                        <label>Nom:</label><?php echo '  '.$item['nom'];?>
+                        <label>Nom :</label><?php echo '  '.$item['nom'];?>
                       </div>
                       <div class="form-group">
-                        <label>Prénom:</label><?php echo '  '.$item['prenom'];?>
+                        <label>Lieu:</label><?php echo '  '.$item['lieu'];?>
                       </div>
                       <div class="form-group">
-                        <label>Date de naissance:</label><?php echo '  '.$item['date_naissance'];?>
+                        <label>Spécialité:</label><?php echo '  '.$item['specialite'];?>
                       </div>
                       <div class="form-group">
                         <label>Mail:</label><?php echo '  '.$item['mail'];?>
                       </div>
                       <div class="form-group">
-                        <label>Adresse:</label><?php echo '  '.$item['adresse'];?>
-                      </div>
-                      <div class="form-group">
-                        <label>Mutuelle:</label><?php echo '  '.$item['mutuelle'];?>
-                      </div>
-                      <div class="form-group">
-                        <label>Numéro de sécurité sociale:</label><?php echo '  '.$item['num_sec_soc'];?>
-                      </div>
-                      <div class="form-group">
-                        <label>Régime:</label><?php echo '  '.$item['regime'];?>
+                        <label>Approuvé:</label><?php echo '  '.$item['approuve'];?>
                       </div>
                       <div class="form-group">
                         <label>Image:</label><?php echo '  '.$item['image'];?>
@@ -88,8 +76,8 @@
                         <img src="<?php echo '../images/'.$item['image'];?>" alt="...">
                         <div class="price"><?php echo 'Récapitulatif';?></div>
                           <div class="caption">
-                            <h4><?php echo $item['nom'];?> - <?php echo $item['prenom'];?> </h4>
-                            <p><?php echo $item['role'];?></p>
+                            <h4><?php echo $item['nom'];?> - <?php echo $item['specialite'];?> </h4>
+                            <p><?php echo $item['lieu'];?></p>
 
                           </div>
                     </div>
