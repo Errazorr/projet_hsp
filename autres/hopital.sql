@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Hôte : 127.0.0.1:3306
--- Généré le : Dim 06 déc. 2020 à 16:26
+-- Généré le : Dim 06 déc. 2020 à 16:41
 -- Version du serveur :  5.7.31
 -- Version de PHP : 7.3.21
 
@@ -118,6 +118,29 @@ CREATE TABLE IF NOT EXISTS `messages` (
 INSERT INTO `messages` (`id`, `author`, `content`, `created_at`) VALUES
 (71, 'Enzo', 'hello', '2020-11-30 13:47:39'),
 (72, 'Enzo', 'test', '2020-11-30 13:49:09');
+
+-- --------------------------------------------------------
+
+--
+-- Structure de la table `messages_patient`
+--
+
+DROP TABLE IF EXISTS `messages_patient`;
+CREATE TABLE IF NOT EXISTS `messages_patient` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `author` varchar(50) DEFAULT NULL,
+  `content` text,
+  `created_at` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
+
+--
+-- Déchargement des données de la table `messages_patient`
+--
+
+INSERT INTO `messages_patient` (`id`, `author`, `content`, `created_at`) VALUES
+(1, 'Fontaine', 'Hello !', '2020-12-06 17:40:03'),
+(2, 'Fontaine', 'Super ça marche :)', '2020-12-06 17:40:08');
 
 -- --------------------------------------------------------
 
