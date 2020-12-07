@@ -258,9 +258,7 @@ catch (Exception $e) {
    //SI LA DATE DE RESERVATION EST DANS LE FUTUR OU DANS MOINS DE 3 JOURS
    if ($date_consult < $date_min) {
      //MESSAGE D'ERREUR
-     echo '<body onLoad="alert(\'Date invalide\')">';
-
-     echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
+  header('location:../views/prise_rdv.php?rdv_err=date');
    }
 
    else{
@@ -275,10 +273,7 @@ catch (Exception $e) {
 
     if(empty($check_reserv_exists)){
       //MESSAGE D'ERREUR
-
-      echo '<body onLoad="alert(\'Ce médecin a déjà un rendez-vous à cette heure-ci\')">';
-
-      echo '<meta http-equiv="refresh" content="0;URL=../views/prise_rdv.php">';
+      header('location:../views/prise_rdv.php?rdv_err=exist');
     }
     else{
      //SINON ON EXECUTE LA REQUETE D'INSERTION DANS LA TABLE
