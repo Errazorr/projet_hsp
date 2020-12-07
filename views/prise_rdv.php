@@ -41,7 +41,7 @@
                 <div class="col-lg-12">
                     <div class="breadcrumb_iner">
                         <div class="breadcrumb_iner_item">
-                            <h2 style="font-family: Arial, sans-serif">Prenez de rendez-vous</h2>
+                            <h2 style="font-family: Arial, sans-serif">rendez-vous</h2>
                         </div>
                     </div>
                 </div>
@@ -49,12 +49,37 @@
         </div>
     </section>
     <!-- breadcrumb start-->
-
     <!--::doctor_part start::-->
     <section class="doctor_part section_padding">
+
         <div class="container">
             <div class="row justify-content-center">
                 <div class="col-xl-8">
+                  <?php
+                     if(isset($_GET['rdv_err']))
+                     {
+                       $err = htmlspecialchars($_GET['rdv_err']);
+
+                       switch($err)
+                       {
+                         case 'heure':
+                         ?>
+                         <div class="alert alert-danger">
+                         <center><p style="color: red;"> Il y a un déjà un rendez-vous à cette heure là !</p>
+                         </div>
+                         <?php
+                         break;
+
+                         case 'date':
+                         ?>
+                         <div class="alert alert-danger">
+                         <center><p style="color: red;"> La date est invalide ! </p>
+                         </div>
+                         <?php
+                         break;
+                       }
+                     }
+                         ?>
                     <div class="section_tittle text-center">
                         <h2 style="font-family: Arial, sans-serif"> Prenez un rendez-vous avec un de nos docteurs</h2>
                         <p style="font-family: Arial, sans-serif">Nos docteurs ont chacun leurs spécialités dans différents domaines</p>
