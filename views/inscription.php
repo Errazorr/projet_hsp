@@ -89,7 +89,7 @@
                            <h2 style="font-family: Arial, sans-serif">Vous désirez prendre un rendez-vous ? Inscrivez-vous : </h2> </center>
                            <center>
 
-                          <b>  <p style="color: #B22222; font-family: Arial, sans-serif" >Champs obligatoires </p> </center>
+                          <b>  <h3 style="color: #B22222; font-family: Arial, sans-serif" >Champs obligatoires </h3> </center>
                             <div class="form-row">
                                 <div class="form-group col-md-6">
                                     <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="nom" placeholder="Nom *">
@@ -116,7 +116,7 @@
                                 </div>
 
                             </div><br><br>
-                            <center>  <p style="color: green; font-family: Arial, sans-serif" >(non obligatoire) </p> </center>
+                            <center>  <h3 style="color: #39ff22; font-family: Arial, sans-serif" >Facultatif </h3> </center>
                             <div class="form-row">
                             <div class="form-group col-md-6">
                                 <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="adresse" placeholder="Adresse">
