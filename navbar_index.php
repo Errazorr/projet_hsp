@@ -133,7 +133,7 @@ session_start();
                           <li class="nav-item">
                               <a class="nav-link" href="admin/admin/index.php?id=<?php echo $_SESSION['id'] ?>" style="font-family: Arial, sans-serif">Comptes</a>
                           </li>
-                          <li class="nav-item dropdown">
+                          <!--<li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
                                   Export
@@ -142,7 +142,7 @@ session_start();
                                   <a class="dropdown-item" href="traitement/csv.php" style="font-family: Arial, sans-serif">Exporter les rendez-vous</a>
                                   <a class="dropdown-item" target="_blank" href="traitement/csv2.php" style="font-family: Arial, sans-serif">Exporter un dossier d'admission</a>
                               </div>
-                          </li>
+                          </li>-->
                           <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
