@@ -40,6 +40,7 @@
             </div>
             <div class="row">
               <?php
+              //CONNEXION BDD
               try{
                     $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
 
