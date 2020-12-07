@@ -65,6 +65,7 @@
 
                    <div class="regervation_part_iner">
                      <?php
+                     //MESSAGES D'ERREUR LORS DE LA CONNEXION
                         if(isset($_GET['login_errr']))
                         {
                           $err = htmlspecialchars($_GET['login_errr']);
