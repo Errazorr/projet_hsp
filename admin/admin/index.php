@@ -25,7 +25,7 @@ session_start();
         <h1 class="text-logo"><span class="glyphicon glyphicon-folder-open"></span> Espace Admin <span class="glyphicon glyphicon-folder-open"></span></h1>
         <div class="container admin">
             <div class="row">
-                <a class="btn btn-primary" href="../../page_index.php"><span class="glyphicon glyphicon-arrow-left"></span> Retour à l'accueil</a>
+                <a class="btn btn-primary" href="../../index.php"><span class="glyphicon glyphicon-arrow-left"></span> Retour à l'accueil</a>
                 <h1><strong>Liste des patients   </strong><a href="insert.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Ajouter</a> <?php echo ' '; ?> <a href="../../traitement/csv2.php" target="_blank" style="background-color: #858383; border-color: #FFF;"class="btn btn-success btn-lg"><span class="glyphicon glyphicon-download-alt"></span> Exporter</a></h1>
                 <table class="table table-striped table-bordered">
                   <thead>
@@ -71,7 +71,7 @@ session_start();
 <br><br><br>
         <div class="container admin">
             <div class="row">
-                <a class="btn btn-primary" href="../../page_index.php"><span class="glyphicon glyphicon-arrow-left"></span> Retour à l'accueil</a>
+                <a class="btn btn-primary" href="../../index.php"><span class="glyphicon glyphicon-arrow-left"></span> Retour à l'accueil</a>
                 <h1><strong>Liste des médecins   </strong><a href="insert_doc.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Ajouter</a></h1>
                 <table class="table table-striped table-bordered"><br>
                   <thead>
@@ -119,7 +119,7 @@ session_start();
         <br>
                 <div class="container admin">
                     <div class="row">
-                        <a class="btn btn-primary" href="../../page_index.php"><span class="glyphicon glyphicon-arrow-left"></span> Retour à l'accueil</a>
+                        <a class="btn btn-primary" href="../../index.php"><span class="glyphicon glyphicon-arrow-left"></span> Retour à l'accueil</a>
                         <h1><strong>Liste des rendez-vous   </strong><a href="../../traitement/csv.php" style="background-color: #858383; border-color: #FFF;"class="btn btn-success btn-lg"><span class="glyphicon glyphicon-download-alt"></span> Exporter</a></h1>
                         <table class="table table-striped table-bordered">
                           <thead>
