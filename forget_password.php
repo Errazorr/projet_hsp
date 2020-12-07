@@ -23,6 +23,7 @@ include 'manager/db.php';
  		<div class="wrapper">
  			<div class="inner">
         <?php
+        //MESSAGE D'ERREUR SI LE COMPTE N'EXISTE PAS
            if(isset($_GET['password_err']))
            {
              $err = htmlspecialchars($_GET['password_err']);
@@ -39,7 +40,7 @@ include 'manager/db.php';
              }
            }
 
-
+           //MESSAGE SI LE MDP A ETE MODIFIE
            if(isset($_GET['password_suc']))
            {
              $err = htmlspecialchars($_GET['password_suc']);
@@ -72,7 +73,7 @@ include 'manager/db.php';
 </center>
  					</button>
           <?php
-
+          //SI EMAIL N'EST PAS VIDE
           if(isset($_POST['email']))
           {
 
@@ -80,6 +81,7 @@ include 'manager/db.php';
           $req->execute(array($_POST['email']));
           $email_verification = $req->fetch();
 
+            //SI LE MAIL EXISTE
             if($email_verification['numberEmail'] == 1){
 
             $token = uniqid();
@@ -88,6 +90,7 @@ include 'manager/db.php';
             $message = "Bonjour, voici votre lien pour la réinitialisation : $url";
             $headers = 'Content-Type: text/plain; charset="utf-8"'." ";
 
+            //ENVOI DE MAIL
             if(mail($_POST['email'], 'Mot de passe oublié', $message, $headers))
             {
               $sql = "UPDATE patient SET token = ? WHERE mail = ?";
@@ -95,6 +98,7 @@ include 'manager/db.php';
               $stmt->execute([$token, $_POST['email']]);
               header('location:forget_password.php?password_suc=1');
             }
+            //MESSAGE D'ERREUR
             else {
               echo "Une erreur est survenue...";
             }
