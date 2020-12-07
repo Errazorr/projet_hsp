@@ -35,6 +35,7 @@
 
                    <div class="regervation_part_iner">
                      <?php
+                     //MESSAGES D'ERREUR LORS DE L'INSCRIPTION
                         if(isset($_GET['ins_err']))
                         {
                           $err = htmlspecialchars($_GET['ins_err']);
