@@ -13,6 +13,7 @@
         $array["isSuccess"] = true;
         $emailText = "";
 
+        //MESSAGES D'ERREUR SI LES CHAMPS SONT VIDES
         if (empty($array["firstname"]))
         {
             $array["firstnameError"] = "Entrez votre prénom";
