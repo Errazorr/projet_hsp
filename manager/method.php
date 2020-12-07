@@ -141,7 +141,7 @@ try {
               $mail->Body    = "Bonjour et bienvenue sur le site officiel. Nous vous souhaitons un agréable moment. Pour toute information, contactez-nous via le formulaire de contact.";
               $mail->AltBody = 'This is the body in plain text for non-HTML mail client';
               $mail->send();
-              header("Location:../page_index.php");
+              header("Location:../index.php");
           }
       }
 catch (Exception $e) {
@@ -184,7 +184,7 @@ catch (Exception $e) {
             $_SESSION['role'] = "medecin";
 
             echo '<body onLoad="alert(\'Connexion réussie\')">';
-            header('Location: ../page_index.php?connexion=medvrai');
+            header('Location: ../index.php?connexion=medvrai');
 
           }
 
@@ -204,7 +204,7 @@ catch (Exception $e) {
           $_SESSION['mail'] = $connexion->getMail();
           $_SESSION['role'] = $admin['role'];
 
-          header('Location: ../page_index.php?connexion=adminvrai');
+          header('Location: ../index.php?connexion=adminvrai');
         }
 
         else{
@@ -231,7 +231,7 @@ catch (Exception $e) {
       $_SESSION['role'] = $patient['role'];
 
 
-      header('Location: ../page_index.php?connexion=patientvrai');
+      header('Location: ../index.php?connexion=patientvrai');
     }
 
     else{
@@ -287,7 +287,7 @@ catch (Exception $e) {
        ));
        //MESSAGE DE SUCCES
        echo '<body onLoad="alert(\'Réservation réussie\')">';
-       header('Location: ../page_index.php');
+       header('Location: ../index.php');
      }
    }
   }
@@ -315,7 +315,7 @@ catch (Exception $e) {
    //MESSAGE DE SUCCES
    echo '<body onLoad="alert(\'Compte modifié avec succès\')">';
 
-   header('Location: ../page_index.php');
+   header('Location: ../index.php');
  }
 
 
@@ -442,7 +442,7 @@ public function AddDoctor($add_doctor){
          ));
          if($insert) {
          echo '<body onLoad="alert(\'Message envoyé\')">';
-         header('Location: ../page_index.php');
+         header('Location: ../index.php');
        }
    }
 

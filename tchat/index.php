@@ -37,7 +37,7 @@ $donnees= $req->fetch();
         <button type="submit" style="font-family: Arial, sans-serif">🔥 Envoyer !</button>
       </form>
 <br><br>
-<a href="../page_index.php" style="text-align: right; " style="font-family: Arial, sans-serif">Retour</a>
+<a href="../index.php" style="text-align: right; " style="font-family: Arial, sans-serif">Retour</a>
     </div>
   </section>
   <script src="js/app.js"></script>
