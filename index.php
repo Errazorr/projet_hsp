@@ -21,6 +21,7 @@
                     <div class="banner_text">
                         <div class="banner_text_iner">
                           <?php
+                            //MESSAGE DE BIENVENUE
                              if(isset($_GET['connexion']))
                              {
                                $err = htmlspecialchars($_GET['connexion']);
@@ -53,6 +54,7 @@
                                }
                              }
 
+                             //MESSAGE DE SUCCES SI LE MDP EST MODIFIE
                              if(isset($_GET['stmt']))
                              {
                                $succ = htmlspecialchars($_GET['stmt']);
