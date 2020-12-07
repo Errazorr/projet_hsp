@@ -42,7 +42,7 @@
         <h1 class="text-logo"><span class="glyphicon glyphicon-thumbs-down"></span> Supprimer un patient <span class="glyphicon glyphicon-thumbs-down"></span></h1>
          <div class="container admin">
             <div class="row">
-                <h1><strong>Supprimer un item</strong></h1>
+                <h1><strong>Supprimer un patient</strong></h1>
                 <br>
                 <form class="form" action="delete.php" role="form" method="post">
                     <input type="hidden" name="id" value="<?php echo $id;?>"/>

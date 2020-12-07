@@ -177,7 +177,12 @@ catch (Exception $e) {
         }
 
         else{
-          if ($medecin['mail'] == $connexion->getMail() AND $medecin['mdp'] == md5($connexion->getMdp())) {
+          if($medecin['approuve'] == 'non')
+          {
+            session_destroy();
+            header('location:../views/connexion.php?login_errr=comptedesactive');
+          }
+          elseif ($medecin['mail'] == $connexion->getMail() AND $medecin['mdp'] == md5($connexion->getMdp())) {
             $_SESSION['id'] = $medecin['id'];
             $_SESSION['nom_medecin'] = $medecin['nom'];
             $_SESSION['mail_medecin'] = $medecin['mail'];

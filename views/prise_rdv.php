@@ -111,7 +111,9 @@
                         <div class="single_text">
                             <div class="single_blog_text">
                                 <h3 style="font-family: Arial, sans-serif">DR '.$value['nom'].'</h3>
-                                <p style="color:black;"  style="font-family: Arial, sans-serif">Spécialiste en '.$value['specialite'].'</p>
+                                <p style="color:black;"  style="font-family: Arial, sans-serif">Spécialiste en '.$value['specialite'].'</p> <br/>
+                                
+                                </br/>
                             </div>
                         </div>
                     </div>
