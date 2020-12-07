@@ -115,6 +115,44 @@ session_start();
             </div>
         </div><br><br>
 
+        <br><br>
+
+                <div class="container admin">
+                    <div class="row">
+                        <a class="btn btn-primary" href="../../index.php"><span class="glyphicon glyphicon-arrow-left"></span> Retour à l'accueil</a>
+                        <h1><strong>Liste des administrateurs   </strong><a href="insert_admin.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Ajouter</a></h1> <br>
+                        <table class="table table-striped table-bordered">
+                          <thead>
+                            <tr>
+                              <th style="text-align: center;">Id</th>
+                              <th style="text-align: center;">Nom</th>
+                              <th style="text-align: center;">Prénom</th>
+                              <th style="text-align: center;">Mail</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                              <?php
+
+                                $db = Database::connect();
+                                $statement = $db->query('SELECT * FROM admin  ORDER BY id DESC');
+                                while($item = $statement->fetch())
+                                {
+                                  echo '<tr align="center">';
+                                  echo '<td>'. $item['id'] . '</td>';
+                                  echo '<td>'. $item['nom'] . '</td>';
+                                  echo '<td>'. $item['prenom'] . '</td>';
+                                  echo '<td>'. $item['mail'] . '</td>';
+
+                                  echo '</td>';
+                                  echo '</tr>';
+                                }
+                                Database::disconnect();
+                              ?>
+                          </tbody>
+                        </table>
+                    </div>
+                </div><br><br>
+<br>
 
         <br>
                 <div class="container admin">
