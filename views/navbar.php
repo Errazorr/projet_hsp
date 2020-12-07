@@ -91,8 +91,6 @@ session_start();
 
                         </ul>
                     </div>
-                    <!--<a class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif"><?php echo 'Bonjour ' . $_SESSION['prenom']; ?></a>
-                    -->
 
                   <?php  }
                           //Sinon si c'est un médecin
@@ -119,8 +117,6 @@ session_start();
 
                            </ul>
                            </div>
-                           <!--<a class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
-                           -->
 
                  <?php  }
                          //Sinon c'est donc un admin
@@ -131,16 +127,6 @@ session_start();
                           <li class="nav-item">
                               <a class="nav-link" href="../admin/admin/index.php?id=<?php echo $_SESSION['id'] ?>" style="font-family: Arial, sans-serif">Comptes</a>
                           </li>
-                          <!--<li class="nav-item dropdown">
-                              <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
-                                  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"style="font-family: Arial, sans-serif">
-                                  Export
-                              </a>
-                              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                  <a class="dropdown-item" href="../traitement/csv.php" style="font-family: Arial, sans-serif">Exporter les rendez-vous</a>
-                                  <a class="dropdown-item" target="_blank" href="../traitement/csv2.php" style="font-family: Arial, sans-serif">Exporter un dossier d'admission</a>
-                              </div>
-                          </li>-->
                           <li class="nav-item dropdown">
                               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
                                   role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="font-family: Arial, sans-serif">
@@ -153,8 +139,6 @@ session_start();
                           </li>
                       </ul>
                   </div>
-                  <!--<a style="font-family: Arial, sans-serif" class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php">Déconnexion</a>
-                  -->
 
                 <?php }
                     }
