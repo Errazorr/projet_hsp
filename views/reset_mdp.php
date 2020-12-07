@@ -100,7 +100,7 @@ if($_SESSION['id'] == $_GET['id'])
             $sql = "UPDATE admin SET mdp = ? WHERE id = ?";
             $stmt = $db->prepare($sql);
             $stmt->execute([$hashedPassword, $email]);
-            header ('location:../page_index.php?stmt=good');
+            header ('location:../index.php?stmt=good');
           }
           else
           {
@@ -224,7 +224,7 @@ if($_SESSION['id'] == $_GET['id'])
             $sql = "UPDATE patient SET mdp = ? WHERE id = ?";
             $stmt = $db->prepare($sql);
             $stmt->execute([$hashedPassword, $email]);
-            header ('location:../page_index.php?stmt=good');
+            header ('location:../index.php?stmt=good');
           }
           else
           {
@@ -348,7 +348,7 @@ if($_SESSION['id'] == $_GET['id'])
             $sql = "UPDATE medecin SET mdp = ? WHERE id = ?";
             $stmt = $db->prepare($sql);
             $stmt->execute([$hashedPassword, $email]);
-            header ('location:../page_index.php?stmt=good');
+            header ('location:../index.php?stmt=good');
           }
           else
           {
