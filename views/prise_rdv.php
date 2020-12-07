@@ -56,6 +56,7 @@
             <div class="row justify-content-center">
                 <div class="col-xl-8">
                   <?php
+                    //MESSAGE D'ERREUR POUR UN RDV
                      if(isset($_GET['rdv_err']))
                      {
                        $err = htmlspecialchars($_GET['rdv_err']);
@@ -88,6 +89,7 @@
             </div>
             <div class="row">
               <?php
+              //CONNEXION A LA BDD
               try{
                     $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
 
@@ -158,6 +160,7 @@
                                   <select class="form-control" id ="time_consult" name="time_consult" placeholder="Choisissez une heure">
 
                                     <?php
+                                    //LISTE DEROULANTE POUR LES HEURES
                                       for ($i=8; $i < 22 ; $i++) {
                                         echo '<option>'.$i.':00'.'</option>';
                                         echo '<option>'.$i.':30'.'</option>';
