@@ -32,7 +32,7 @@ include 'manager/db.php';
                case 'nonexiste':
                ?>
                <div class="alert alert-danger">
-             <center><p style="color: #DC143C;"> Votre compte n'existe pas. Veuillez en créer un !</p>
+             <center><h1 style="color: #DC143C;"> Votre compte n'existe pas. Veuillez en créer un !</h1><br>
    </div>
                <?php
                break;
@@ -113,13 +113,13 @@ include 'manager/db.php';
            {
              $err = htmlspecialchars($_GET['password_err']);
 ?> <center><br><br>
-<b><a style="color: green;"href="views/inscription.php"> > S'inscrire < </a> <?php } ?></b>
-<?php
-   if(isset($_GET['password_suc']))
-   {
-     $err = htmlspecialchars($_GET['password_suc']);
-?> <center><br><br>
-<b><a style="color: green;"href="page_index.php"> > Retourner à l'accueil < </a> <?php } ?></b>
+<b><h1><a style="color: #39ff22;"href="views/inscription.php"> > S'inscrire < </a></h1> <?php } ?></b>
+<!--<?php
+   //if(isset($_GET['password_suc']))
+   //{
+     //$err = htmlspecialchars($_GET['password_suc']);
+?>--> <center><br><br>
+<b><a style="color: #00ade6;"href="page_index.php"> > Retourner à l'accueil < </a> </b>
  			</div>
  		</div>
 
