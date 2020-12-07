@@ -1,12 +1,12 @@
 <?php
 
-
+session_start();
 
 // connect to database
 $conn = mysqli_connect('localhost', 'root', '', 'hopital');
 
 // lets assume a user is logged in with id $user_id
-$user_id = 3;
+$user_id = $_SESSION['id'];
 
 if (!$conn) {
   die("Error connecting to database: " . mysqli_connect_error($conn));

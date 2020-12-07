@@ -23,6 +23,8 @@
       	  data-id="<?php echo $post['id'] ?>"></i>
       	<span class="likes"><?php echo getLikes($post['id']); ?></span>
 
+
+
       	&nbsp;&nbsp;&nbsp;&nbsp;
 
 	    <!-- if user dislikes post, style button differently -->
@@ -38,6 +40,9 @@
    	</div>
    <?php endforeach ?>
   </div>
+    <center>
+
+    <a style="color: red;"href="../index.php">Retour</a>
   <script src="scripts.js"></script>
 </body>
 </html>
