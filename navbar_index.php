@@ -77,7 +77,7 @@ session_start();
                                 <a class="nav-link" href="like_dislike/index.php" style="font-family: Arial, sans-serif">Avis</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="views/minichat_id.php" style="font-family: Arial, sans-serif">Minichat</a>
+                                <a class="nav-link" href="tchat_patient/index.php" style="font-family: Arial, sans-serif">Minichat</a>
                             </li>
 
                             <li class="nav-item dropdown">
