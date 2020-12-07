@@ -74,6 +74,14 @@
                             <?php
                             break;
 
+                            case 'nom':
+                            ?>
+                            <div class="alert alert-danger">
+                            <center><p style="color: red;"> Veuillez entrer un nom valide !</p>
+                            </div>
+                            <?php
+                            break;
+
                             case 'comptedesactive':
                             ?>
                             <div class="alert alert-danger">

@@ -103,9 +103,9 @@ else {
   }
 //SI LE NOM EST UNE CHAINE DE PLUS DE 30 CARACTERES OU N'EST PAS UNC HAINE DE CARACTERES
   else {
-    echo '<body onLoad="alert(\'Veuillez entrer un nom valide ! \')">';
-
-    echo '<meta http-equiv="refresh" content="0;URL=../views/inscription.php">'; }
+    session_destroy();
+    header('location:../views/inscription.php?ins_err=nom');
+  }
 }
 //SI UN DES CHAMPS EST VIDE
 else {
@@ -336,9 +336,7 @@ public function AddDoctor($add_doctor){
   //SI IL TROUVE
   if ($donnees) {
     //MESSAGE D'ERREUR
-    echo '<body onLoad="alert(\'Ce compte existe déjà\')">';
-
-    echo '<meta http-equiv="refresh" content="0;URL=../views/add_doctor.php">';
+    header('location:../admin/admin/index.php?add_err=medecin');
   }
 
   //SI IL NE TROUVE PAS
