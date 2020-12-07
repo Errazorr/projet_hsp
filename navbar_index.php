@@ -93,8 +93,6 @@ session_start();
 
                         </ul>
                     </div>
-                    <!--<a class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif"><?php echo 'Bonjour ' . $_SESSION['prenom']; ?></a>
-                    -->
 
                   <?php  }
                           //Sinon si c'est un médecin
@@ -121,8 +119,6 @@ session_start();
 
                        </ul>
                    </div>
-                   <!--<a class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php" style="font-family: Arial, sans-serif">Déconnexion</a>
-                   -->
 
                  <?php  }
                          //Sinon c'est donc un admin
@@ -145,8 +141,6 @@ session_start();
                           </li>
                       </ul>
                   </div>
-                  <!--<a style="font-family: Arial, sans-serif" class="btn_2 d-none d-lg-block" href="traitement/session_destroy.php">Déconnexion</a>
-                  -->
 
                 <?php }
                     }
