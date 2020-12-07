@@ -2,14 +2,14 @@
 
 <?php
 session_start();
-
+//CONNEXION BDD
 try{
   $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
 }
 catch (Exception $e){
   die('Erreur:'.$e->getMessage());
 }
-
+//RECUPERATION DES NOMS DES MEDECINS
 $req = $bdd->prepare('SELECT nom FROM medecin WHERE id=?');
 $req->execute(array($_SESSION['id']));
 $donnees= $req->fetch();
