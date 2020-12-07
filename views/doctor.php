@@ -39,58 +39,35 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-sm-6 col-lg-3">
+              <?php
+              try{
+                    $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+
+                  }
+              catch (Exception $e){
+                    die('Erreur:'.$e->getMessage());
+              }
+
+              $req = $bdd->query('SELECT * FROM medecin');
+              $donnees= $req->fetchall();
+
+
+              foreach ($donnees as $value) {
+                echo '<div class="col-sm-6 col-lg-3">
                     <div class="single_blog_item">
                         <div class="single_blog_img">
-                            <img src="../img/doctor/doctor_1.png" alt="doctor">
+                            <img src="../admin/images/'.$value['image'].'" alt="doctor">
                         </div>
                         <div class="single_text">
                             <div class="single_blog_text">
-                                <h3 style="font-family: Arial, sans-serif">DR Aggoun</h3>
-                                <p style="color:black;"  style="font-family: Arial, sans-serif">Spécialiste en neurologie</p>
+                                <h3 style="font-family: Arial, sans-serif">DR '.$value['nom'].'</h3>
+                                <p style="color:black;"  style="font-family: Arial, sans-serif">Spécialiste en '.$value['specialite'].'</p>
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="../img/doctor/doctor_4.png" alt="doctor">
-                        </div>
-                        <div class="single_text">
-                            <div class="single_blog_text">
-                                <h3 style="font-family: Arial, sans-serif">DR Guo</h3>
-                                <p style="color:black;" style="font-family: Arial, sans-serif" >Spécialiste en tabacologie</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="../img/doctor/doctor_2.png" alt="doctor">
-                        </div>
-                        <div class="single_text">
-                            <div class="single_blog_text">
-                              <h3 style="font-family: Arial, sans-serif">DR Tang</h3>
-                              <p style="color:black;" style="font-family: Arial, sans-serif" >Spécialiste en gynécologie</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-sm-6 col-lg-3">
-                    <div class="single_blog_item">
-                        <div class="single_blog_img">
-                            <img src="../img/doctor/doctor_3.png" alt="doctor">
-                        </div>
-                        <div class="single_text">
-                            <div class="single_blog_text">
-                                <h3 style="font-family: Arial, sans-serif">DR Birba</h3>
-                                <p style="color:black;" style="font-family: Arial, sans-serif" >Spécialiste en cardiologie</p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                </div>';
+              }
+               ?>
             </div>
         </div>
     </section>
