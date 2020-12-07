@@ -26,7 +26,7 @@ session_start();
         <div class="container admin">
             <div class="row">
                 <a class="btn btn-primary" href="../../page_index.php"><span class="glyphicon glyphicon-arrow-left"></span> Retour à l'accueil</a>
-                <h1><strong>Liste des patients   </strong><a href="insert.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Ajouter</a></h1>
+                <h1><strong>Liste des patients   </strong><a href="insert.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Ajouter</a> <?php echo ' '; ?> <a href="../../traitement/csv2.php" target="_blank" style="background-color: #858383; border-color: #FFF;"class="btn btn-success btn-lg"><span class="glyphicon glyphicon-download-alt"></span> Exporter</a></h1>
                 <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
@@ -120,7 +120,7 @@ session_start();
                 <div class="container admin">
                     <div class="row">
                         <a class="btn btn-primary" href="../../page_index.php"><span class="glyphicon glyphicon-arrow-left"></span> Retour à l'accueil</a>
-                        <h1><strong>Liste des rendez-vous   </strong></h1>
+                        <h1><strong>Liste des rendez-vous   </strong><a href="../../traitement/csv.php" style="background-color: #858383; border-color: #FFF;"class="btn btn-success btn-lg"><span class="glyphicon glyphicon-download-alt"></span> Exporter</a></h1>
                         <table class="table table-striped table-bordered">
                           <thead>
                             <tr>
