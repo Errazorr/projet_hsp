@@ -272,9 +272,8 @@ catch (Exception $e) {
 
     var_dump($rdv->getNomMedecin());
     var_dump($rdv->getDateConsult());
-    var_dump($rdv->getTimeConsult());
 
-    if($check_reserv_exists){
+    if(empty($check_reserv_exists)){
       //MESSAGE D'ERREUR
 
       echo '<body onLoad="alert(\'Ce médecin a déjà un rendez-vous à cette heure-ci\')">';
