@@ -64,6 +64,7 @@ if($_SESSION['id'] == $_GET['id'])
             </label>
 
             <input type="checkbox" onclick="myFunction()">Afficher le mot de passe
+                      <!--SCRIPT POUR AFFICHER LE MDP-->
                       <script>
                       function myFunction() {
                       var x = document.getElementById("myInput");
@@ -91,7 +92,7 @@ if($_SESSION['id'] == $_GET['id'])
             <?php
 
 
-
+          //MODIFICATION DU MDP
           if(isset($_POST['newPassword']) AND isset($_POST['newPassword_confirme']))
           {
             if($_POST['newPassword'] == $_POST['newPassword_confirme'])
