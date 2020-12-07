@@ -1,8 +1,10 @@
 <?php
+//EXPORTATION DES DOSSIERS PATIENTS SOUS FORMAT PDF
 require('../vendor2/autoload.php');
 $con=mysqli_connect('localhost','root','','hopital');
 $res=mysqli_query($con,"select * from patient");
 if(mysqli_num_rows($res)>0){
+	//En tete du PDF
 	$html='<style></style><table class="table">';
 		$html.='<tr>
       <td>ID</td>
@@ -16,9 +18,10 @@ if(mysqli_num_rows($res)>0){
       <td>Option chambre</td>
       <td>Régime</td>
           </tr>';
+		//Données du PDF
 		while($row=mysqli_fetch_assoc($res)){
 			$html.='<tr>
-      <td>'.$row['id'].'</td> 
+      <td>'.$row['id'].'</td>
       <td>'.$row['nom'].'</td>
       <td>'.$row['prenom'].'</td>
       <td>'.$row['date_naissance'].'</td>
