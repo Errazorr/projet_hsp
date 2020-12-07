@@ -91,7 +91,7 @@ $commentaires = $bdd->query('SELECT * FROM medecin ORDER BY id DESC');
           </ul>
           <br><br>
           <center>
-                  <a href="../page_index.php"  style="font-family: Arial, sans-serif">Retour<span
+                  <a href="../index.php"  style="font-family: Arial, sans-serif">Retour<span
                       ></span></a>
  				</form>
 

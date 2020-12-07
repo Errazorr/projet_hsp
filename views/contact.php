@@ -62,7 +62,7 @@ if(isset($_SESSION['id'])) {
  				</form>
       <center>
 <br><br>
-        <a href="../page_index.php" >Retour<span
+        <a href="../index.php" >Retour<span
             ></span> </center>
         <?php } else { ?>
           <div class="wrapper">
@@ -98,7 +98,7 @@ if(isset($_SESSION['id'])) {
        					</button>
 
                 <center><br><br><br>
-                        <a href="../page_index.php" >Retour<span
+                        <a href="../index.php" >Retour<span
                             ></span></a>
        				</form>
             <?php } ?>

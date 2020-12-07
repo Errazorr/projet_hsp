@@ -51,7 +51,7 @@ if (isset($_GET['nom']) AND !empty($_GET['nom']))  // recup url
  		<div class="wrapper">
  			<div class="inner">
  				<form action="" method="post">
-          <a href="../page_index.php" style="color: #EB2900;" class="genric-btn danger-border circle arrow">Retour<span
+          <a href="../index.php" style="color: #EB2900;" class="genric-btn danger-border circle arrow">Retour<span
               class="lnr lnr-arrow-right"></span></a><br><br>
  					<h3>Communiquez ici !</h3>
  					<p>Monsieur <strong><?= $_SESSION['nom']; ?></strong>, voici quelques règles à respecter : </p>

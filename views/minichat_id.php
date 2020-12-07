@@ -51,7 +51,7 @@ $token = uniqid();
  				</form>
         <br><br>
             <center>
-            <a href="../page_index.php" >Retour<span
+            <a href="../index.php" >Retour<span
                     ></span> </center>
  			</div>
  		</div>

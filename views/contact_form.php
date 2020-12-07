@@ -63,7 +63,7 @@
                                 <input type="submit" class="button1" value="Envoyer">
                               </div>
                               </div>
-                            </div><br><center><a href="../page_index.php" style="color: red;" class="genric-btn danger-border circle arrow" style="font-family: Arial, sans-serif">Retour<span
+                            </div><br><center><a href="../index.php" style="color: red;" class="genric-btn danger-border circle arrow" style="font-family: Arial, sans-serif">Retour<span
                                 class="lnr lnr-arrow-right"></span></a></center>
                         </div>
                     </form>

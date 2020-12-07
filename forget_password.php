@@ -119,7 +119,7 @@ include 'manager/db.php';
    //{
      //$err = htmlspecialchars($_GET['password_suc']);
 ?>--> <center><br><br>
-<b><a style="color: #00ade6;"href="page_index.php"> > Retourner à l'accueil < </a> </b>
+<b><a style="color: #00ade6;"href="index.php"> > Retourner à l'accueil < </a> </b>
  			</div>
  		</div>
 

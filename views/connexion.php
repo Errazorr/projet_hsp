@@ -153,7 +153,7 @@
 </br/>
                                 <a href="inscription.php" class="genric-btn danger-border circle arrow" style="font-family: Arial, sans-serif">Nouveau ici ? S'inscrire <span
                         						class="lnr lnr-arrow-right"></span></a>
-                                    <a href="../page_index.php" class="genric-btn danger-border circle arrow" style="font-family: Arial, sans-serif">Retour<span
+                                    <a href="../index.php" class="genric-btn danger-border circle arrow" style="font-family: Arial, sans-serif">Retour<span
                             						class="lnr lnr-arrow-right"></span></a></center>
                             </div>
 

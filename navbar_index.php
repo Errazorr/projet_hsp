@@ -35,7 +35,7 @@ session_start();
         <div class="row align-items-center">
             <div class="col-lg-12">
                 <nav class="navbar navbar-expand-lg navbar-light">
-                    <a class="navbar-brand" href="page_index.php"> <img src="img/logo8.png" alt="logo"> </a>
+                    <a class="navbar-brand" href="index.php"> <img src="img/logo8.png" alt="logo"> </a>
                     <button class="navbar-toggler" type="button" data-toggle="collapse"
                         data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
@@ -57,7 +57,7 @@ session_start();
                             if ($_SESSION['role'] == "patient") {
                            ?>
                             <li class="nav-item active">
-                                <a class="nav-link" href="page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
+                                <a class="nav-link" href="index.php" style="font-family: Arial, sans-serif">Accueil</a>
                             </li>
                             <li class="nav-item dropdown">
                                 <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown"
@@ -100,7 +100,7 @@ session_start();
                           //Sinon si c'est un médecin
                          else if ($_SESSION['role'] == "medecin"){ ?>
                            <li class="nav-item active">
-                               <a class="nav-link" href="page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
+                               <a class="nav-link" href="index.php" style="font-family: Arial, sans-serif">Accueil</a>
                            </li>
                            <li class="nav-item">
                                <a class="nav-link" href="views/voir_rdv.php" style="font-family: Arial, sans-serif">Voir les rendez-vous</a>
@@ -128,7 +128,7 @@ session_start();
                          //Sinon c'est donc un admin
                         else{ ?>
                           <li class="nav-item active">
-                              <a class="nav-link" href="page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
+                              <a class="nav-link" href="index.php" style="font-family: Arial, sans-serif">Accueil</a>
                           </li>
                           <li class="nav-item">
                               <a class="nav-link" href="admin/admin/index.php?id=<?php echo $_SESSION['id'] ?>" style="font-family: Arial, sans-serif">Comptes</a>
@@ -163,7 +163,7 @@ session_start();
                     //Sinon il n'y a pas de sessions ouverte
                     if(!isset($_SESSION['mail'])){ ?>
                       <li class="nav-item active">
-                          <a class="nav-link" href="page_index.php" style="font-family: Arial, sans-serif">Accueil</a>
+                          <a class="nav-link" href="index.php" style="font-family: Arial, sans-serif">Accueil</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="views/doctor.php" style="font-family: Arial, sans-serif">Médecins</a>

@@ -14,7 +14,7 @@
                 <div class="col-xl-2 col-sm-6 col-md-4 single-footer-widget">
                     <h4 style="font-family: Arial, sans-serif">Liens rapides</h4>
                     <ul>
-                        <li><a href="../page_index.php" style="font-family: Arial, sans-serif">Revenir à l'accueil</a></li>
+                        <li><a href="../index.php" style="font-family: Arial, sans-serif">Revenir à l'accueil</a></li>
                         <li><a href="doctor.php" style="font-family: Arial, sans-serif">Les médecins</a></li>
 
                     </ul>
