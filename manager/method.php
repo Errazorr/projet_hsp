@@ -390,7 +390,7 @@ public function AddDoctor($add_doctor){
        ));
        //MESSAGE DE SUCCES
        echo '<body onLoad="alert(\'Ajout réussi\')">';
-       header('Location: ../views/add_admin.php');
+       header('Location: ../admin/admin/index.php');
      }
   }
 
