@@ -51,7 +51,7 @@ $email_verification = $req->fetch();
   if($email_verification['approuve'] == 'oui'){
  ?>
  <body>
-     <h1 class="text-logo"><span class="glyphicon glyphicon-cutlery"></span> Burger Code <span class="glyphicon glyphicon-cutlery"></span></h1>
+     <h1 class="text-logo"><span class="glyphicon glyphicon-ok-sign"></span> Confirmer / Bannir <span class="glyphicon glyphicon-remove-sign"></span></h1>
       <div class="container admin">
          <div class="row">
              <h1><strong>Bannir le compte</strong></h1>
@@ -70,7 +70,7 @@ $email_verification = $req->fetch();
 <?php } elseif($email_verification['approuve'] != 'oui') { ?>
 
     <body>
-        <h1 class="text-logo"><span class="glyphicon glyphicon-cutlery"></span> Burger Code <span class="glyphicon glyphicon-cutlery"></span></h1>
+        <h1 class="text-logo"><span class="glyphicon glyphicon-ok-sign"></span> Confirmer / Bannir <span class="glyphicon glyphicon-remove-sign"></span></h1>
          <div class="container admin">
             <div class="row">
                 <h1><strong>Confirmer le compte</strong></h1>

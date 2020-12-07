@@ -39,7 +39,7 @@
     </head>
 
     <body>
-        <h1 class="text-logo"><span class="glyphicon glyphicon-cutlery"></span> Burger Code <span class="glyphicon glyphicon-cutlery"></span></h1>
+        <h1 class="text-logo"><span class="glyphicon glyphicon-thumbs-down"></span> Supprimer un médecin <span class="glyphicon glyphicon-thumbs-down"></span></h1>
          <div class="container admin">
             <div class="row">
                 <h1><strong>Supprimer un item</strong></h1>
