@@ -86,7 +86,7 @@ if($_SESSION['id'] == $_GET['id'])
 
          	<button type="submit" name="Confirmer">Valider
  </center>
-  					</button>
+  					</button><br><br>
 
             <?php
 
@@ -210,7 +210,7 @@ if($_SESSION['id'] == $_GET['id'])
 
          	<button type="submit" name="Confirmer">Valider
  </center>
-  					</button>
+  					</button><br><br>
 
             <?php
 
@@ -334,7 +334,7 @@ if($_SESSION['id'] == $_GET['id'])
 
          	<button type="submit" name="Confirmer">Valider
  </center>
-  					</button>
+</button> <br><br>
 
             <?php
 
