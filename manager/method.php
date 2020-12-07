@@ -372,9 +372,7 @@ public function AddDoctor($add_doctor){
 //SI IL TROUVE
    if ($donnees) {
      //MESSAGE D'ERREUR
-     echo '<body onLoad="alert(\'Ce compte existe déjà\')">';
-
-     echo '<meta http-equiv="refresh" content="0;URL=../views/add_admin.php">';
+    header('location:../admin/admin/index.php?add_err=admin');
    }
 //SI IL NE TROUVE PAS
    else{
@@ -405,9 +403,7 @@ public function AddDoctor($add_doctor){
  //SI IL TROUVE
     if ($donnees) {
       //MESSAGE D'ERREUR
-      echo '<body onLoad="alert(\'Ce compte existe déjà\')">';
-
-      echo '<meta http-equiv="refresh" content="0;URL=../views/add_patient.php">';
+    header('location:../admin/admin/index.php?add_err=patient');
     }
  //SI IL NE TROUVE PAS
     else{

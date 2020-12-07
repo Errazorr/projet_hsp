@@ -24,7 +24,42 @@ session_start();
     <body>
         <h1 class="text-logo"><span class="glyphicon glyphicon-folder-open"></span> Espace Admin <span class="glyphicon glyphicon-folder-open"></span></h1>
         <div class="container admin">
+
             <div class="row">
+              <?php
+              //MESSAGES D'ERREUR LORS DE LA CONNEXION
+                 if(isset($_GET['add_err']))
+                 {
+                   $err = htmlspecialchars($_GET['add_err']);
+
+                   switch($err)
+                   {
+                     case 'patient':
+                     ?>
+                     <div class="alert alert-danger">
+                     <center><p style="color: red;"> Ce compte patient existe déjà !</p>
+                     </div>
+                     <?php
+                     break;
+
+                     case 'admin':
+                     ?>
+                     <div class="alert alert-danger">
+                     <center><p style="color: red;"> Ce compte admin existe déjà !</p>
+                     </div>
+                     <?php
+                     break;
+
+                     case 'medecin':
+                     ?>
+                     <div class="alert alert-danger">
+                     <center><p style="color: red;"> Ce compte médecin existe déjà !</p>
+                     </div>
+                     <?php
+                     break;
+    }
+    }
+                     ?>
                 <a class="btn btn-primary" href="../../index.php"><span class="glyphicon glyphicon-arrow-left"></span> Retour à l'accueil</a>
                 <h1><strong>Liste des patients   </strong><a href="insert.php" class="btn btn-success btn-lg"><span class="glyphicon glyphicon-plus"></span> Ajouter</a> <?php echo ' '; ?> <a href="../../traitement/csv2.php" target="_blank" style="background-color: #858383; border-color: #FFF;"class="btn btn-success btn-lg"><span class="glyphicon glyphicon-download-alt"></span> Exporter</a></h1>
                 <table class="table table-striped table-bordered">
