@@ -30,12 +30,12 @@ session_start();
                 <table class="table table-striped table-bordered">
                   <thead>
                     <tr>
-                      <th>Id</th>
-                      <th>Nom</th>
-                      <th>Prénom</th>
-                      <th>Numéro de sécurité sociale</th>
-                      <th>Confirmé</th>
-                      <th>Actions</th>
+                      <th style="text-align: center;">Id</th>
+                      <th style="text-align: center;">Nom</th>
+                      <th style="text-align: center;">Prénom</th>
+                      <th style="text-align: center;">Numéro de sécurité sociale</th>
+                      <th style="text-align: center;">Confirmé</th>
+                      <th style="text-align: center;">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -45,7 +45,7 @@ session_start();
                         $statement = $db->query('SELECT * FROM patient  ORDER BY id DESC');
                         while($item = $statement->fetch())
                         {
-                            echo '<tr>';
+                            echo '<tr align="center">';
                             echo '<td>'. $item['id'] . '</td>';
                             echo '<td>'. $item['nom'] . '</td>';
                             echo '<td>'. $item['prenom'] . '</td>';
@@ -76,12 +76,12 @@ session_start();
                 <table class="table table-striped table-bordered"><br>
                   <thead>
                     <tr>
-                      <th>Id</th>
-                      <th>Nom</th>
-                      <th>Lieu</th>
-                      <th>Spécialité</th>
-                      <th>Confirmé</th>
-                      <th>Actions</th>
+                      <th style="text-align: center;">Id</th>
+                      <th style="text-align: center;">Nom</th>
+                      <th style="text-align: center;">Lieu</th>
+                      <th style="text-align: center;">Spécialité</th>
+                      <th style="text-align: center;">Confirmé</th>
+                      <th style="text-align: center;">Actions</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -91,7 +91,7 @@ session_start();
                         $statement = $db->query('SELECT * FROM medecin  ORDER BY id DESC');
                         while($item = $statement->fetch())
                         {
-                          echo '<tr>';
+                          echo '<tr align="center">';
                           echo '<td>'. $item['id'] . '</td>';
                           echo '<td>'. $item['nom'] . '</td>';
                           echo '<td>'. $item['lieu'] . '</td>';
@@ -124,12 +124,12 @@ session_start();
                         <table class="table table-striped table-bordered">
                           <thead>
                             <tr>
-                              <th>Id</th>
-                              <th>Patient</th>
-                              <th>Médecin</th>
-                              <th>Date</th>
-                              <th>Heure</th>
-                              <th>Raison</th>
+                              <th style="text-align: center;">Id</th>
+                              <th style="text-align: center;">Patient</th>
+                              <th style="text-align: center;">Médecin</th>
+                              <th style="text-align: center;">Date</th>
+                              <th style="text-align: center;">Heure</th>
+                              <th style="text-align: center;">Raison</th>
                             </tr>
                           </thead>
                           <tbody>
@@ -139,7 +139,7 @@ session_start();
                                 $statement = $db->query('SELECT * FROM reservation  ORDER BY id DESC');
                                 while($item = $statement->fetch())
                                 {
-                                  echo '<tr>';
+                                  echo '<tr align="center">';
                                   echo '<td>'. $item['id'] . '</td>';
                                   echo '<td>'. $item['nom_patient'] . '</td>';
                                   echo '<td>'. $item['nom_medecin'] . '</td>';
