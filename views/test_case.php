@@ -1,5 +1,6 @@
 <?php
 session_start();
+//CONNEXION A LA BDD
 try{
   $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
 }
@@ -22,11 +23,4 @@ switch ($_SESSION['role']){
     $rec->execute(array($_SESSION['id']));
     $donnees= $rec->fetch();
   }
-
-var_dump($donnees);
-var_dump($_SESSION['id']);
-var_dump($_SESSION['nom']);
-var_dump($_SESSION['prenom']);
-var_dump($_SESSION['mail']);
-var_dump($_SESSION['role']);
 ?>
