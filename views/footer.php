@@ -20,15 +20,6 @@
                     </ul>
                 </div>
 
-                <div class="col-xl-2 col-sm-6 col-md-6 single-footer-widget">
-                    <h4 style="font-family: Arial, sans-serif">Contact</h4>
-                    <ul>
-                        <li><a href="contact.php" style="font-family: Arial, sans-serif">Des questions ?</a></li>
-                        <li><a href="contact.php" style="font-family: Arial, sans-serif">Plan</a></li>
-
-                    </ul>
-                </div>
-
                 <div class="col-xl-3 col-sm-6 col-md-6 single-footer-widget">
                     <h4 style="font-family: Arial, sans-serif">Informations</h4>
                     <p style="font-family: Arial, sans-serif">30, Avenue Montaigne, <br>

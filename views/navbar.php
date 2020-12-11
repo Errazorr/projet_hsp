@@ -151,7 +151,7 @@ session_start();
                           <a class="nav-link" href="doctor.php" style="font-family: Arial, sans-serif">Médecins</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="contact.php" style="font-family: Arial, sans-serif">Contact</a>
+                          <a class="nav-link" href="contact_form.php" style="font-family: Arial, sans-serif">Contact</a>
                       </li>
                   </ul>
               </div>
