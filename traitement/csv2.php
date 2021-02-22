@@ -1,28 +1,49 @@
 <?php
-//CONNEXION A LA BDD
-  $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+//EXPORTATION DES DOSSIERS PATIENTS SOUS FORMAT PDF
+require('../vendor2/autoload.php');
+$con=mysqli_connect('localhost','nathan','oskour','hopital');
+$res=mysqli_query($con,"select * from patient");
+if(mysqli_num_rows($res)>0){
+	//En tete du PDF
+	$html='<style></style><table class="table">';
+		$html.='<tr>
+      <td>ID</td>
+      <td>Nom</td>
+      <td>Prénom</td>
+      <td>Date de naissance</td>
+      <td>Mail</td>
+      <td>Adresse</td>
+      <td>Mutuelle</td>
+      <td>Sécurité Sociale</td>
+      <td>Option chambre</td>
+      <td>Régime</td>
+          </tr>';
+		//Données du PDF
+		while($row=mysqli_fetch_assoc($res)){
+			$html.='<tr>
+      <td>'.$row['id'].'</td>
+      <td>'.$row['nom'].'</td>
+      <td>'.$row['prenom'].'</td>
+      <td>'.$row['date_naissance'].'</td>
+      <td>'.$row['mail'].'</td>
+      <td>'.$row['adresse'].'</td>
+      <td>'.$row['mutuelle'].'</td>
+      <td>'.$row['num_sec_soc'].'</td>
+      <td>'.$row['option_chambre'].'</td>
+      <td>'.$row['regime'].'</td>
 
-//SELECTION DES RESERVATIONS DANS LA BDD
-$select = $bdd->prepare('SELECT * FROM patient');
-
-$select->setFetchMode(PDO::FETCH_ASSOC);
-$select->execute();
-
-$newReservations = $select->fetchAll();
-
-//CREATION DE L'EXCEL
-$excel = "";
-$excel .=  "id\tnom\tprenom\tdatenaissance\tmail\tadresse\tmutuelle\tnumsecsoc\toption\tregime\t\n";
-
-//ALIMENTATION DE L'EXCEL AVEC LES DONNEES DE LA TABLE
-foreach($newReservations as $row) {
-    $excel .= "$row[id]\t$row[nom]\t$row[prenom]\t$row[date_naissance]\t$row[mail]\t$row[adresse]\t$row[mutuelle]\t$row[num_sec_soc]\t$row[option_chambre]\t$row[regime]\n";
+      </tr>';
+		}
+	$html.='</table>';
+}else{
+	$html="Data not found";
 }
-
-header("Content-type: application/vnd.ms-excel");
-header("Content-disposition: attachment; filename=liste_des_patients.xls");
-
-print $excel;
-exit;
-
+$mpdf=new \Mpdf\Mpdf();
+$mpdf->WriteHTML($html);
+$file='media/'.date().'.pdf';
+$mpdf->output($file,'I');
+//D
+//I
+//F
+//S
 ?>
