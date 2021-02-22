@@ -40,7 +40,7 @@ if(mysqli_num_rows($res)>0){
 }
 $mpdf=new \Mpdf\Mpdf();
 $mpdf->WriteHTML($html);
-$mpdf->output($file,'I');
+$mpdf->output('demo.pdf','I');
 //D
 //I
 //F
