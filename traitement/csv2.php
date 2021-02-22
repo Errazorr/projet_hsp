@@ -18,7 +18,6 @@ $excel .=  "id\tnom\tprenom\tdatenaissance\tmail\tadresse\tmutuelle\tnumsecsoc\t
 foreach($newReservations as $row) {
     $excel .= "$row[id]\t$row[nom]\t$row[prenom]\t$row[date_naissance]\t$row[mail]\t$row[adresse]\t$row[mutuelle]\t$row[num_sec_soc]\t$row[option_chambre]\t$row[regime]\n";
 }
-
 header("Content-type: application/vnd.ms-excel");
 header("Content-disposition: attachment; filename=liste_des_patients.xlsx");
 
