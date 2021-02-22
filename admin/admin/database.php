@@ -4,8 +4,8 @@ class Database
 {
     private static $dbHost = "localhost";
     private static $dbName = "hopital";
-    private static $dbUsername = "root";
-    private static $dbUserpassword = "";
+    private static $dbUsername = "nathan";
+    private static $dbUserpassword = "oskour";
 
     private static $connection = null;
 
