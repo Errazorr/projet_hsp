@@ -26,7 +26,7 @@
 	<?php
 	//Connexion à la bdd
 	try{
-		$bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+		$bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','nathan','oskour');
 	}
 	catch (Exception $e){
 		die('Erreur:'.$e->getMessage());
@@ -91,7 +91,7 @@
               <?php
               //CONNEXION A LA BDD
               try{
-                    $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+                    $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','nathan','oskour');
 
                   }
               catch (Exception $e){
@@ -112,7 +112,7 @@
                             <div class="single_blog_text">
                                 <h3 style="font-family: Arial, sans-serif">DR '.$value['nom'].'</h3>
                                 <p style="color:black;"  style="font-family: Arial, sans-serif">Spécialiste en '.$value['specialite'].'</p> <br/>
-                                
+
                                 </br/>
                             </div>
                         </div>

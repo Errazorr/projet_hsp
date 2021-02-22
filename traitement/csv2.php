@@ -1,7 +1,7 @@
 <?php
 //EXPORTATION DES DOSSIERS PATIENTS SOUS FORMAT PDF
 require('../vendor2/autoload.php');
-$con=mysqli_connect('localhost','root','','hopital');
+$con=mysqli_connect('localhost','nathan','oskour','hopital');
 $res=mysqli_query($con,"select * from patient");
 if(mysqli_num_rows($res)>0){
 	//En tete du PDF

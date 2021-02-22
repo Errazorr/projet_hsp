@@ -6,7 +6,7 @@
 require_once('navbar.php');
 
 try{
-  $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+  $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','nathan','oskour');
 }
 catch (Exception $e){
   die('Erreur:'.$e->getMessage());
