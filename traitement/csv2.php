@@ -40,7 +40,6 @@ if(mysqli_num_rows($res)>0){
 }
 $mpdf=new \Mpdf\Mpdf();
 $mpdf->WriteHTML($html);
-$file='media/'.date().'.pdf';
 $mpdf->output($file,'I');
 //D
 //I
