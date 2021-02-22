@@ -18,7 +18,6 @@ $excel .=  "id\tnom\tprenom\tdatenaissance\tmail\tadresse\tmutuelle\tnumsecsoc\t
 foreach($newReservations as $row) {
     $excel .= "$row[id]\t$row[nom]\t$row[prenom]\t$row[date_naissance]\t$row[mail]\t$row[adresse]\t$row[mutuelle]\t$row[num_sec_soc]\t$row[option_chambre]\t$row[regime]\n";
 }
-<<<<<<< HEAD
 
 header("Content-type: application/vnd.ms-excel");
 header("Content-disposition: attachment; filename=liste_des_patients.xls");
@@ -26,14 +25,4 @@ header("Content-disposition: attachment; filename=liste_des_patients.xls");
 print $excel;
 exit;
 
-
-=======
-$mpdf=new \Mpdf\Mpdf();
-$mpdf->WriteHTML($html);
-$mpdf->output('demo.pdf','I');
-//D
-//I
-//F
-//S
->>>>>>> d046ab665fb1b3f9c8dcefee03f487a942480f89
 ?>
