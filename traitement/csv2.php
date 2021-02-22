@@ -1,6 +1,6 @@
 <?php
 //CONNEXION A LA BDD
-  $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','root','');
+  $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','nathan','oskour');
 
 //SELECTION DES RESERVATIONS DANS LA BDD
 $select = $bdd->prepare('SELECT * FROM patient');
@@ -20,7 +20,7 @@ foreach($newReservations as $row) {
 }
 
 header("Content-type: application/vnd.ms-excel");
-header("Content-disposition: attachment; filename=liste_des_patients.xls");
+header("Content-disposition: attachment; filename=liste_des_patients.xlsx");
 
 print $excel;
 exit;
