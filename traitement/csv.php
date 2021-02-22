@@ -20,7 +20,7 @@ foreach($newReservations as $row) {
 }
 
 header("Content-type: application/vnd.ms-excel");
-header("Content-disposition: attachment; filename=liste_des_rdv.xls");
+header("Content-disposition: attachment; filename=liste_des_rdv.xlsx");
 
 print $excel;
 exit;
