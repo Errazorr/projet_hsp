@@ -62,7 +62,7 @@
                        $err = htmlspecialchars($_GET['rdv_err']);
 
                        switch($err)
-                       {
+                       { // SI ERREUR CORRESPOND A L'HEURE
                          case 'heure':
                          ?>
                          <div class="alert alert-danger">

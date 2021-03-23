@@ -1,4 +1,5 @@
 <?php
+// VOIR LES PATIENTS
     require 'database.php';
 
     if(!empty($_GET['id']))

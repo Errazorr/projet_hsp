@@ -8,7 +8,7 @@
     <title>Nos médecins</title>
     <link rel="icon" href="../img/logo3icon.png">
     <?php
-      require_once('navbar.php');
+      require_once('navbar.php'); //ON APPELLE LA NAVBAR
     ?>
 
     <!-- breadcrumb start-->
@@ -49,11 +49,12 @@
                     die('Erreur:'.$e->getMessage());
               }
 
-              $req = $bdd->query('SELECT * FROM medecin');
-              $donnees= $req->fetchall();
+              $req = $bdd->query('SELECT * FROM medecin'); //ON STOCK DANS LA VARIABLE req LA REQUETE
+              $donnees= $req->fetchall();//ON STOCK LE RESULTAT DANS donnees
+              //fetchall retourne un tableau contenant toutes les lignes
 
-
-              foreach ($donnees as $value) {
+              foreach ($donnees as $value) { //POUR CHAQUE RESULTAT TROUVE, ON PARCOUR LE TABLEAU
+                //A CHAQUE ITERATION, LA VALEUR EST ASSIGNEE A value
                 echo '<div class="col-sm-6 col-lg-3">
                     <div class="single_blog_item">
                         <div class="single_blog_img">
@@ -67,7 +68,7 @@
                         </div>
                     </div>
                 </div>';
-              }
+              }//ON A RECUPERER LA VALEUR image DE LA BDD DANS VARIABLE value
                ?>
             </div>
         </div>
@@ -75,6 +76,6 @@
     <!--::doctor_part end::-->
 
     <?php
-    require_once('footer.php');
+    require_once('footer.php');// ON APPELLE LE FOOTER
      ?>
 </html>

@@ -1,5 +1,5 @@
 <?php
-
+// INDEX DE LA PAGE ADMIN
 session_start();
 
 //SI ADMIN

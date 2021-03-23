@@ -1,4 +1,5 @@
 <?php
+// CONFIRMATION
     require 'database.php';
 
     if(!empty($_GET['id']))

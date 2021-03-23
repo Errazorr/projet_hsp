@@ -1,4 +1,5 @@
 <?php
+// SUPPRESSION DE MEDECIN
     require 'database.php';
 
     if(!empty($_GET['id']))

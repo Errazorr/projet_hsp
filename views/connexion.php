@@ -66,21 +66,21 @@
                    <div class="regervation_part_iner">
                      <?php
                      //MESSAGES D'ERREUR LORS DE LA CONNEXION
-                        if(isset($_GET['login_errr']))
+                        if(isset($_GET['login_errr'])) //S'IL EXISTE login_errr DANS L'URL VU QU'IL Y A GET
                         {
-                          $err = htmlspecialchars($_GET['login_errr']);
+                          $err = htmlspecialchars($_GET['login_errr']); //ON STOCK DANS LA VARIABLE err CE QU'ON A RECUP AVEC htmlspecialchars
 
                           switch($err)
-                          {
-                            case 'compteinexistant':
+                          { //CHOIX MULTIPLE
+                            case 'compteinexistant'://DANS LE CAS OU LA VARIABLE err DANS L'URL CORRESPOND A compteinexistant
                             ?>
                             <div class="alert alert-danger">
                             <center><p style="color: red;"> Ce compte n'existe pas !</p>
                             </div>
                             <?php
-                            break;
+                            break; //ON STOP
 
-                            case 'medecinnon':
+                            case 'medecinnon': // CAS MEDECIN
                             ?>
                             <div class="alert alert-danger">
                             <center><p style="color: red;"> Erreur de connexion en tant que médecin !</p>

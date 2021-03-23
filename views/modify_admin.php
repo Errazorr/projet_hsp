@@ -5,9 +5,10 @@ try{
 catch (Exception $e){
   die('Erreur:'.$e->getMessage());
 }
-
+// ON DEMARRE UNE SESSION
 session_start();
 
+// MODIFICATION TABLE ADMIN EN FONCTION DE L'ID EN COURS
 if (isset($_GET['id']) AND !empty($_GET['id']))  // recup url
 {
   $getid = $_GET['id'];

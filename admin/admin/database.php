@@ -1,5 +1,5 @@
 <?php
-
+// CONNEXION A LA BASE DE DONNEES 
 class Database
 {
     private static $dbHost = "localhost";

@@ -36,21 +36,21 @@
                    <div class="regervation_part_iner">
                      <?php
                      //MESSAGES D'ERREUR LORS DE L'INSCRIPTION
-                        if(isset($_GET['ins_err']))
+                          if(isset($_GET['ins_err'])) //S'IL EXISTE ins_err DANS L'URL VU QU'IL Y A GET
                         {
-                          $err = htmlspecialchars($_GET['ins_err']);
+                          $err = htmlspecialchars($_GET['ins_err']); //ON STOCK DANS LA VARIABLE err CE QU'ON A RECUP AVEC htmlspecialchars
 
                           switch($err)
-                          {
-                            case 'existe':
+                          { //CHOIX MULTIPLE
+                            case 'existe': //DANS LE CAS OU LA VARIABLE err dans l'URL CORRESPOND A existe
                             ?>
                             <div class="alert alert-danger">
                             <center><p style="color: red;"> Ce compte existe déjà !</p>
                             </div>
                             <?php
-                            break;
+                            break; // ON STOP
 
-                            case 'champs':
+                            case 'champs': // AUTRE CAS
                             ?>
                             <div class="alert alert-danger">
                             <center><p style="color: red;"> Veuillez remplir les champs obligatoires !</p>
@@ -168,7 +168,7 @@
     <!--::regervation_part end::-->
 
     <?php
-    require_once('footer.php');
+    require_once('footer.php'); // ON APPELLE LE FOOTER
      ?>
 
 </html>

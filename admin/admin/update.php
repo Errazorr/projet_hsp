@@ -1,4 +1,5 @@
 <?php
+// MODIFICATION DE PATIENT
     require 'database.php';
 
     if(!empty($_GET['id']))

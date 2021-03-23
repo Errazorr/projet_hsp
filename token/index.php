@@ -1,5 +1,5 @@
 <?php
-
+// RECUPERATION DU MOT DE PASSE EN FONCTION DE MAIL
 include '../manager/db.php';
 
 if(isset($_GET['token']) && $_GET['token'] != '')

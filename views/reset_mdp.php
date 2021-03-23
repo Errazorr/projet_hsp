@@ -2,11 +2,11 @@
 
 session_start();
 
-if($_SESSION['role'] == 'admin')
+if($_SESSION['role'] == 'admin') //ON VERIFIE SI LA SESSION ACTUELLE EST BIEN CELLE DE L'ADMIN
 {
 
 include '../manager/db.php';
-
+// ENVOIE DE MAIL
 if($_SESSION['id'] == $_GET['id'])
 {
   $stmt = $db->prepare('SELECT id FROM admin WHERE id = ?');

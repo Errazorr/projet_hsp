@@ -3,10 +3,10 @@
 
 <!-- Test de connexion a la bdd -->
 <?php
-require_once('navbar.php');
+require_once('navbar.php');// ON APPELLE NAVBAR
 
 try{
-  $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','nathan','oskour');
+  $bdd= new PDO('mysql:host=localhost;dbname=hopital; charset=utf8','nathan','oskour');//Connexion BDD
 }
 catch (Exception $e){
   die('Erreur:'.$e->getMessage());
@@ -15,20 +15,20 @@ catch (Exception $e){
 //Sélection de l'ensemble des informations de la table compte en fonction de l'id //
 switch ($_SESSION['role']){
   case "patient":
-    $rec = $bdd->prepare('SELECT * FROM patient WHERE id=?');
-    $rec->execute(array($_SESSION['id']));
-    $donnees= $rec->fetch();
-    break;
+    $rec = $bdd->prepare('SELECT * FROM patient WHERE id=?'); //REQUETE AFFICHAGE
+    $rec->execute(array($_SESSION['id'])); //EXECUTION SOUS FORME DE TABLEAU LA REQUETE EN FONCTION LA SESSION EN COURS AVEC ID
+    $donnees= $rec->fetch(); //ON RETOURNE LE RESULTAT DANS donnees
+    break; // ON STOP
   case "medecin":
-    $rec = $bdd->prepare('SELECT * FROM medecin WHERE id=?');
-    $rec->execute(array($_SESSION['id']));
-    $donnees= $rec->fetch();
-    break;
+    $rec = $bdd->prepare('SELECT * FROM medecin WHERE id=?'); //REQUETE AFFICHAGE
+    $rec->execute(array($_SESSION['id'])); //EXECUTION SOUS FORME DE TABLEAU LA REQUETE EN FONCTION LA SESSION EN COURS AVEC ID
+    $donnees= $rec->fetch(); //ON RETOURNE LE RESULTAT DANS donnees
+    break; // ON STOP
   case "admin":
-    $rec = $bdd->prepare('SELECT * FROM admin WHERE id=?');
-    $rec->execute(array($_SESSION['id']));
-    $donnees= $rec->fetch();
-    break;
+    $rec = $bdd->prepare('SELECT * FROM admin WHERE id=?'); //REQUETE AFFICHAGE
+    $rec->execute(array($_SESSION['id'])); //EXECUTION SOUS FORME DE TABLEAU LA REQUETE EN FONCTION LA SESSION EN COURS AVEC ID
+    $donnees= $rec->fetch(); //ON RETOURNE LE RESULTAT DANS donnees
+    break; // ON STOP
   }
 
 ?>
@@ -68,8 +68,8 @@ switch ($_SESSION['role']){
                            <h2 style="font-family: Arial, sans-serif">Vous désirez changer vos données? </h2> </center>
                             <div class="form-row">
                               <?php
-                                switch ($_SESSION['role']){
-                                  case "patient":
+                                switch ($_SESSION['role']){ //CHOIX MULTIPLE EN FONCTION DE LA SESSION QUI CORRESPOND A ROLE DANS LA BDD
+                                  case "patient": // DANS LE CAS DU ROLE PATIENT
                                 ?>
 
                                 <div class="form-group col-md-6">
@@ -106,8 +106,8 @@ switch ($_SESSION['role']){
                                 </div>
                                 <?php
                                 ;
-                                break;
-                                  case "medecin":
+                                break; // ON STOP
+                                  case "medecin": // DANS LE CAS DU ROLE PATIENT
                                   ?>
                                   <div class="form-group col-md-6">
                                       <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="nom" placeholder="Votre nom : " <?php echo 'value='.'"'.$donnees["nom"].'"'.''?>>
@@ -120,8 +120,8 @@ switch ($_SESSION['role']){
                                   </div>
                                   <?php
                                     ;
-                                    break;
-                                    case "admin":
+                                    break; // ON STOP
+                                    case "admin": // DANS LE CAS DU ROLE ADMIN
                                   ?>
                                   <div class="form-group col-md-6">
                                       <input style="font-family: Arial, sans-serif" type="name" class="form-control" name="nom" placeholder="Votre nom : " <?php echo 'value='.'"'.$donnees["nom"].'"'.''?>>
@@ -131,7 +131,7 @@ switch ($_SESSION['role']){
                                   </div>
                                   <?php
                                   ;
-                                break;}
+                                break;} //ON STOP
                                    ?>
 <br/>
   </br/>
@@ -158,17 +158,17 @@ switch ($_SESSION['role']){
 
             </div>
 <?php
-$id = $_SESSION['id'];
-$reqq = $bdd->prepare('SELECT count(*) as numberId FROM admin WHERE id=?');
-$reqq->execute(array($id));
-$num_verification = $reqq->fetch();
+$id = $_SESSION['id']; //ON STOCK LA SESSION ACTUELLE DANS LA VARIABLE id
+$reqq = $bdd->prepare('SELECT count(*) as numberId FROM admin WHERE id=?'); //ON STOCK LA REQUETE DANS LA VARIABLE reqq
+$reqq->execute(array($id)); //ON EXECUTE LA REQUETE
+$num_verification = $reqq->fetch();//ON STOCK LE RETOUR DU RESULTAT DANS $num_verification
 
-if($num_verification['numberId'] == 1) {
+if($num_verification['numberId'] == 1) { //SI LE RESULTAT VAUT 1
  ?>
 <center><a style="color: white;"href="reset_mdp.php?id=<?php echo $id ?>"> > Modifier mon mot de passe < </a>
         </div>
 
-      <?php } elseif($_SESSION['role'] == 'patient') {
+      <?php } elseif($_SESSION['role'] == 'patient') { //SINON SI LE ROLE DE LA SESSION CORRESPOND A PATIENT
 
       $id = $_SESSION['id'];
       $reqq = $bdd->prepare('SELECT count(*) as numberId FROM patient WHERE id=?');

@@ -83,14 +83,14 @@ include 'manager/db.php';
 
             //SI LE MAIL EXISTE
             if($email_verification['numberEmail'] == 1){
-
+              //CREATION DE TOKEN UNIQUE
             $token = uniqid();
             $url = "http://localhost/projet_hsp/projet_hsp/token?token=$token";
 
             $message = "Bonjour, voici votre lien pour la réinitialisation : $url";
             $headers = 'Content-Type: text/plain; charset="utf-8"'." ";
 
-            //ENVOI DE MAIL
+            //ENVOI DE MAIL ET MODIFICATION DE PATIENT POUR TOKEN
             if(mail($_POST['email'], 'Mot de passe oublié', $message, $headers))
             {
               $sql = "UPDATE patient SET token = ? WHERE mail = ?";

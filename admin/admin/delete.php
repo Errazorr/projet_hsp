@@ -1,4 +1,5 @@
 <?php
+// SUPPRESSION DE PATIENT
     require 'database.php';
 
     if(!empty($_GET['id']))

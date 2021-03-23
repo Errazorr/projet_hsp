@@ -2,6 +2,7 @@
 <html lang="en">
 
 <?php
+// DEMARRE UNE SESSION
 session_start();
  ?>
 

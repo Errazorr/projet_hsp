@@ -2,6 +2,7 @@
 //DEBUT DE SESSION
 session_start();
 
+// PHP MAILER POUR ENVOI DE MAIL
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
